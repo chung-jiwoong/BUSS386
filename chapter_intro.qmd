@@ -9,6 +9,7 @@ format:
     transition: fade
     transition-speed: fast
     scrollable: true
+    slide-number: true
     #toc: true
     chalkboard: TRUE
 revealjs-plugins:

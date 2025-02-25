@@ -8,7 +8,8 @@ format:
     transition: fade
     transition-speed: fast
     scrollable: true
-    toc: true
+    slide-number: true
+    #toc: true
     chalkboard: true
 revealjs-plugins:
     - revealjs-text-resizer
@@ -27,9 +28,9 @@ execute:
   - Duration and convexity
 - Reading: § Ch. 4
 
----
 
-## Interest Rates: Types and Measurement
+
+# Interest Rates: Types and Measurement
 
 ---
 
@@ -45,52 +46,49 @@ execute:
 ## Types of Interest Rates
 
 - Treasury Rates
-  - The rate investors earn when they invest in government (treasury) bonds.
-  - Government can always pay back the principal and interest (really?), so investing in the government bonds is risk-free (⇒ risk-free rate).
+  - The rate earned by investors when they invest in government (treasury) bonds.
+  - Governments are generally able to repay the principal and interest, making these bonds nearly risk-free (hence, they are often considered risk-free rates).^[Read: [Default Trap](https://en.wikipedia.org/wiki/Default_trap?utm_source=chatgpt.com)]
 - Overnight Rates
-  - Banks are required to maintain a certain amount of cash, known as a reserve, with the central bank.
-  - Borrowing and lending overnight between surplus and deficit banks.
-  - Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), TONAR (Japan)
+  - Banks must maintain a certain amount of cash, known as a reserve, with the central bank.
+  - They borrow and lend overnight to manage these reserves.
+  - Examples include the Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), and TONAR (Japan).
 - Repo Rates
-  - Unlike the overnight rate, repo rates are secured borrowing rates
-  - SOFR (U.S.), KOFR (Korea)
+  - Unlike overnight rates, repo rates are for secured borrowing.
+  - Examples include SOFR (U.S.) and KOFR (Korea).
 
 ---
 
 ## Reference Rates
 
-- Reference interest rates are important in financial markets.
-- LIBOR (London Interbank Offered Rate)
-  - The rate at which banks "could" obtain loan from other banks
-  - A bank should be creditworthy (e.g. with the credit rating of AA or higher) to be able to borrow at LIBOR.
-  - This is an unsecured loan, so the borrowing bank may default, in theory.
-  - However, the chance of default is very small, because banks participating in the LIBOR market have high credit ratings ⇒ (almost) risk-free rate
+- Reference interest rates play a crucial role in financial markets.
+- LIBOR (London Interbank Offered Rate):
+  - Represents the rate at which banks can borrow from other banks.
+  - Only banks with high creditworthiness (e.g., a credit rating of AA or higher) can borrow at LIBOR.
+  - This rate is for unsecured loans, meaning there is a theoretical risk of default by the borrowing bank.
+  - However, the risk of default is minimal because banks in the LIBOR market have high credit ratings, making it an almost risk-free rate.
 
 ---
 
 ## LIBOR Phase-out
 
-- The LIBOR Scandal in 2012
-- Regulators plan to phase out LIBOR by the end of 2021 and replace it with rates based on **transactions** observed in the overnight market.
-- New reference rates (* based on repo rate):
-  - US dollar: SOFR (secured overnight funding rate)*
-  - Korea: KOFR (Korea overnight financing repo rate)*
-  - GBP: SONIA (sterling overnight index average)
-  - EU: ESTER (euro short-term rate)
-  - Switzerland: SARON (Swiss average overnight rate)
-  - Japan: TONAR (Tokyo average overnight rate)
+- The LIBOR Scandal in 2012^[Read: [Libor scandal](https://en.wikipedia.org/wiki/Libor_scandal)]
+- Regulators phased out LIBOR by the end of 2021, replacing it with new reference rates based on actual overnight market transactions.
+- New reference rates (based on repo rates where indicated):
+  - US dollar: SOFR (Secured Overnight Financing Rate)*
+  - Korea: KOFR (Korea Overnight Financing Repo Rate)*
+  - GBP: SONIA (Sterling Overnight Index Average)
+  - EU: ESTER (Euro Short-Term Rate)
+  - Switzerland: SARON (Swiss Average Overnight Rate)
+  - Japan: TONAR (Tokyo Overnight Average Rate)
 
 ---
 
-## TED Spread
+## 
 
-Treasury Rates vs. LIBOR
+![](../img/interest_libor){fig-align="center"}
 
-![](Fig01)
+Source: [https://www.bis.org/publ/qtrpdf/r_qt2212e.htm](https://www.bis.org/publ/qtrpdf/r_qt2212e.htm)
 
-*The TED spread=3-month LIBOR $-$ 3-month T-bill rate in USD is always positive. Now discontinued.*
-
-New reference rates are risk-free, so do not create volatile spreads.
 
 ---
 
@@ -131,7 +129,7 @@ New reference rates are risk-free, so do not create volatile spreads.
   e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
   $$
 - **Example:** An interest rate is quoted as 10% per annum with semiannual compounding. What is the equivalent rate with continuous compounding? Higher or lower?
-- **Note:** Given $P_{t+1}$ and $P_t$,  $r_c =\ln\frac{P_{t+1}}{P_t} $. That is, $P_{t+1}=e^{r_C}P_t$.
+- **Note:** Given $P_{t+1}$ and $P_t$,  $r_c =\ln\frac{P_{t+1}}{P_t}$. That is, $P_{t+1}=e^{r_C}P_t$.
 
 ---
 
@@ -146,27 +144,138 @@ New reference rates are risk-free, so do not create volatile spreads.
 
 ## Zero Rates - Facts I
 
-- In the market, the zero rates are different depending on investment horizon (maturity).
+- Zero rates vary by maturity, forming the **term structure** of interest rates.
 
-![](Fig02)
 
-*US-treasury yield on 25 November 2016*
+```{r, echo=F}
+# Load necessary libraries
+library(quantmod)
+library(ggplot2)
+library(scales)
+library(readxl)
+library(dplyr)  # For data manipulation
 
-*source: https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/default.aspx*
+# ---- Fetch U.S. Treasury Yields from FRED ----
+us_symbols <- c("DGS1MO", "DGS3MO", "DGS6MO", "DGS1", "DGS2", "DGS3", "DGS5", "DGS7", "DGS10", "DGS20", "DGS30")
+getSymbols(us_symbols, src = "FRED")
 
-- The relation between the interest rates and maturities is called **term structure** of interest rates.
+# Extract the most recent yields
+us_yields <- sapply(us_symbols, function(sym) last(get(sym)))
+us_maturities <- c(1/12, 3/12, 6/12, 1, 2, 3, 5, 7, 10, 20, 30)  # Convert months to years
+
+# Create U.S. yield curve data frame
+us_curve <- data.frame(
+  Maturity = us_maturities,
+  Yield = as.numeric(us_yields),
+  Country = "U.S. Treasury"
+)
+
+# ---- Load & Extract Korean Treasury Yields ----
+korea_path <- "data/interest_korean_treasuries.xls" # From https://www.kofiabond.or.kr/
+
+# Read the entire Excel sheet
+korea_data <- read_excel(korea_path, sheet = 1, col_names = TRUE)
+
+# Select only the required maturities and yield values from Column D
+selected_rows <- c("국고채권(1년)", "국고채권(2년)", "국고채권(3년)", "국고채권(5년)", "국고채권(10년)", "국고채권(30년)")
+
+# Filter the data
+korea_filtered <- korea_data %>%
+  filter(종류명 %in% selected_rows) %>%  # Assuming row names are in the first column
+  select(Yield = 최종호가수익률...4)  # Extract yield data from Column D
+
+# Define corresponding maturities in years
+korea_maturities <- c(1, 2, 3, 5, 10, 30)
+
+# Create Korean yield curve data frame
+korea_curve <- data.frame(
+  Maturity = korea_maturities,
+  Yield = as.numeric(korea_filtered$Yield),
+  Country = "Korean Treasury"
+)
+
+# ---- Merge U.S. & Korean Yield Curves ----
+yield_curve <- rbind(us_curve, korea_curve)
+
+# ---- Plot the Yield Curves ----
+ggplot(yield_curve, aes(x = Maturity, y = Yield, color = Country)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = unique(yield_curve$Maturity), labels = number_format(accuracy = 0.01), guide = guide_axis(angle = 45)) +  # Two decimal points
+  labs(title = "U.S. vs. Korean Treasury Yield Curve",
+       x = "Maturity (Years)",
+       y = "Yield (%)",
+       color = "Country") +
+  theme_minimal()
+```
+
 
 ---
 
 ## Zero Rates - Facts II
 
-- The interest rate for a certain maturity is time-varying.
+- The interest rate for a certain maturity can change over time.
 
-![](Fig03)
+```{r, echo=F}
+# Load necessary libraries
+library(quantmod)
+library(readxl)
+library(ggplot2)
+library(dplyr)
+library(lubridate)
 
-*US-treasury yield for 2-year maturity from 1976 to 2020*
+# ---- Fetch 10-Year U.S. Treasury Yield from FRED ----
+getSymbols("DGS10", src = "FRED")
 
-*source: https://fred.stlouisfed.org*
+# Convert to data frame
+us_yield <- data.frame(
+  Date = index(DGS10),
+  Yield_US = coredata(DGS10)
+)
+
+# Filter for 2024 only
+us_yield <- us_yield %>%
+  filter(year(Date) == 2024)
+
+# ---- Load 10-Year Korean Treasury Yield from Excel ----
+korea_path <- "data/interest_korean_treasuries_series.xls"
+
+# Read the Excel file
+korea_yield <- read_excel(korea_path, col_names = TRUE)
+
+# Drop the first two rows, reset index
+korea_yield <- korea_yield[-c(1,2), ]
+
+# Rename the first column to "Date" and second to "Yield_Korea"
+colnames(korea_yield)[1:2] <- c("Date", "Yield_Korea")
+
+# Ensure Date is character before conversion
+korea_yield <- korea_yield %>%
+  mutate(
+    Date = as.Date(as.character(Date), format = "%Y-%m-%d"),  # Ensure it's character first
+    Yield_Korea = as.numeric(Yield_Korea)  # Convert yield to numeric
+  )
+
+# Filter for 2024 only
+korea_yield <- korea_yield %>%
+  filter(year(Date) == 2024)
+
+# ---- Merge U.S. and Korean Yields by Date ----
+yield_data <- full_join(us_yield, korea_yield, by = "Date")
+
+yield_data <- na.omit(yield_data)  # Drop rows with missing values
+
+# ---- Plot Time Series of 10-Year U.S. and Korean Treasury Yields ----
+ggplot(yield_data, aes(x = Date)) +
+  geom_line(aes(y = DGS10, color = "U.S. 10Y Treasury"), size = 1) +
+  geom_line(aes(y = Yield_Korea, color = "Korean 10Y Treasury"), size = 1) +
+  labs(title = "10-Year U.S. vs. Korean Treasury Yields (2024)",
+       x = "Date",
+       y = "Yield (%)",
+       color = "Country") +
+  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month", guide = guide_axis(angle = 45)) +  # Monthly ticks
+  theme_minimal()
+```
 
 ---
 
@@ -187,7 +296,16 @@ New reference rates are risk-free, so do not create volatile spreads.
   3e^{-0.05(0.5)} + 3e^{-0.058(1.0)} + 3e^{-0.064(1.5)} + 103e^{-0.068(2.0)} = 98.39
   $$
 
-![](Tab4.2)
+
+**Table 4.2 Zero Rates**
+
+| Maturity (years) | Zero rate (% continuously compounded) |
+|----------------------|-----------------------------------------|
+| 0.5                | 5.0                                     |
+| 1.0                | 5.8                                     |
+| 1.5                | 6.4                                     |
+| 2.0                | 6.8                                     |
+
 
 - A **yield-to-maturity** is the single discount rate that gives a bond price equal to its market price ($y=6.76\%$)
   $$
@@ -204,7 +322,7 @@ New reference rates are risk-free, so do not create volatile spreads.
   \frac{c}{2}e^{-0.05(0.5)} + \frac{c}{2}e^{-0.058(1.0)} + \frac{c}{2}e^{-0.064(1.5)} + \left(100+\frac{c}{2}\right)e^{-0.068(2.0)} = 100
   $$
 
-- Useful for benchmarking and pricing.
+- Useful for benchmarking and pricing: Can compare bonds with different coupon rates.
 
 ---
 
@@ -307,9 +425,14 @@ New reference rates are risk-free, so do not create volatile spreads.
     \$100,000,000 \times \frac{(0.058 - 0.050)}{2} \times e^{-0.04(2)} = \$369,200
     $$
 
----
 
-## Interest Rate Risk: Measurement and Management
+
+<!-- LIBOR phase out and FRA @ https://www.bis.org/publ/qtrpdf/r_qt2212e.htm -->
+
+
+
+
+# Interest Rate Risk: Measurement and Management
 
 ---
 
@@ -327,9 +450,9 @@ New reference rates are risk-free, so do not create volatile spreads.
   - Other factors include maturity, coupon, embedded options, default risk, market conditions, etc.
 - Consider a bond with cash flows $K_{i}$ (coupon + par value) at time $t_i \in \{t_1, t_2, ..., t_N \}$.
   - $P_0 = \sum_{i=1}^{N} K_i e^{-y_c t_i}$, when $y_c$ is quoted as continuously compounded.
-  - $P_0= \sum_{i=1}^{N} K_i (1+y_m/m)^{-mt_i} $ when $y_m$ is quoted as compounded $m$ times per year.
-- Duration measures are related to the first partial derivative: $\partial P / \partial y $
-- Convexity measures are related to the second derivative: $ \partial^2 P / \partial y^2 $
+  - $P_0= \sum_{i=1}^{N} K_i (1+y_m/m)^{-mt_i}$ when $y_m$ is quoted as compounded $m$ times per year.
+- Duration measures are related to the first partial derivative: $\partial P / \partial y$
+- Convexity measures are related to the second derivative: $ \partial^2 P / \partial y^2$
 
 ---
 
@@ -368,7 +491,7 @@ New reference rates are risk-free, so do not create volatile spreads.
 
 - Modified duration: $D = D_{Mod} = D_{Mac}/(1+y/m)$
   - $D_{Mod} =\sum_{i=1}^{N} t_i \left( \frac{ K_i e^{-y_c t_i}}{P}  \right)$ with $y_c$.
-  - $D_{Mod}= \sum_{i=1}^{N} t_i \left( \frac{ K_i \left( 1+y_m/m \right)^{-mt_i}  }{P} \right) \left( 1+ y_m/m \right)^{-1} $ with $y_m$.
+  - $D_{Mod}= \sum_{i=1}^{N} t_i \left( \frac{ K_i \left( 1+y_m/m \right)^{-mt_i}  }{P} \right) \left( 1+ y_m/m \right)^{-1}$ with $y_m$.
 - Therefore, $D_{Mod} = - \frac{dP/P}{dy}$
 - Rearranging it:  $\frac{dP}{P}  = -D_{Mod}dy$
   - The percentage price change is approximated by: (modified duration) times (the change in the yield).
@@ -376,8 +499,143 @@ New reference rates are risk-free, so do not create volatile spreads.
   - Due to the convexity of the price function.
 
 ---
-
 ## Dollar Duration
 
 - Dollar duration, $D_d = D_{Mod} \times P = -\frac{dP/P}{dy} \times P = -\frac{dP}{dy}$
 - Therefore, $dP = -D_d dy = -D_{Mod} P dy$
+  - The dollar price change w.r.t. the change in yield.
+  - Dollar duration is useful in hedging strategies and for understanding risk of zero NPV portfolios (e.g. interest rate swap)
+
+---
+
+
+## Portfolio Duration
+
+1. The modified duration of a bond portfolio is the value weighted average modified duration of bonds in the portfolio.
+2. The dollar duration of a portfolio is the sum of the dollar durations of the bonds in the portfolio.
+  - For a zero-value portfolio, only dollar duration is defined.
+
+
+---
+
+## Effective Duration
+
+- Effective duration
+- An *empirical* change in bond price w.r.t change in yield.
+- For securities with uncertain cash flows due to optionality (like callable bonds, MBS with prepayment options, or securities with credit risk), effective duration can be significantly different from modified (or Macaulay) duration.
+- The standard duration formulas are inaccurate when cash flows are highly uncertain. In such cases effective duration is the better measure.
+$$
+D_{eff} = -\frac{1}{P}\frac{dP}{dy} =-\frac{1}{P}\frac{P(+x \; bps) - P(-x \; bps)}{2x}
+$$
+
+---
+
+## Convexity
+
+- Convexity is a measure of the curvature of the price-rate curve.
+- It is used to improve upon duration-based approximations and hedging strategies.
+- A long position in non-callable bonds always has positive convexity.
+- All else being equal, positive convexity is a desirable property for a long position; negative convexity is a bad thing.
+  - Positive convexity means that duration underestimates the price increase resulting from a drop in yields, and overestimates the price decrease from an increase in yields.
+
+---
+
+## Convexity
+
+- Convexity is found by taking the second derivative of the bond price function and then dividing by the price $= \frac{1}{P} \frac{d^2 P}{d y^2}$ for an option-free bond:
+  - $C_{Mod} =\sum_{i=1}^{N} t_i^2  \frac{ K_i  e^{-y_c t_i}}{P}$
+  - $C_{Mod} = \sum_{i=1}^{N} t_i \left( t_i + \frac{1}{m} \right)\frac{K_i \left( 1+ y_m/m \right)^{-(mt_i+2)}}{P}$
+  - $C_{Mac} = C_{Mod} \times (1+y/m)^2$
+  - Note that convexity is measured in terms of "years squared." The units have no intuitive interpretation.
+  - Dollar convexity: $C \times P$
+
+---
+
+
+## Using Convexity to Improve Price Sensitivity Estimates
+
+::: {.callout}
+**Taylor series**
+$$
+f(x)-f(x_0) \approx f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
+$$
+$$
+\Rightarrow P(y)-P(y_0) \approx P'(y_0)(y-y_0) + \frac{1}{2}P''(y_0)(y-y_0)^2
+$$
+:::
+
+- $P'(y_0)$: $-$Dollar duration, $P''(y_0)$: Dollar convexity
+$$
+\Rightarrow \frac{P(y)-P(y_0)}{P(y)}  \approx \frac{P'(y_0)}{P(y)}(y-y_0) + \frac{1}{2}\frac{P''(y_0)}{P(y)}(y-y_0)^2
+$$
+- Percent change in price:
+$$
+\frac{\Delta P}{P} \approx -D \Delta y + \frac{1}{2} C \Delta y^2 
+$$
+
+---
+
+## Hedging with Duration and Convexity
+
+- Change in bond price with a change in interest rates:
+  $$
+  \Delta P \approx -D P \Delta y + \frac{1}{2} C P \Delta y^2 
+  $$
+
+- A delta neutral portfolio equates the hedge ratio (duration) of assets and liabilities.
+
+- A gamma neutral portfolio is delta neutral, and also equates the gammas (convexity) of assets and liabilities.
+
+
+---
+
+## Example
+
+- A dealer in corporate bonds finds herself with an inventory of \$1mm in a 5 year 6.9% bonds (semiannual payments) at the end of the trading day, priced at par.
+- The bonds are illiquid, so selling them would entail a loss. Holding them overnight is risky, since their price might fall if rates rise.
+- An alternative to selling the corporate bonds is to short more liquid Treasury bonds. The following bonds are available:
+
+  - 10 yr, 8% Treasury, $p = \$1,109.0$ per \$1,000 face
+  - 3 yr, 6.3% Treasury, $p = \$1,008.1$ per \$1,000 face
+
+- How much of the 10 year bond would she need to short to hedge? How much of the 3 year bond?
+- If yields rise by 1% overnight on all the bonds, show the result of the transactions the next day when the short position is closed out.
+
+---
+
+## Example (cont'd)
+
+1. Find modified duration of the bond to be hedged
+    - For 5 year 6.9% bond: $y = 6.9\%, D=4.1685$
+
+2. Find modified duration of the bonds to be shorted (find yields first)
+    - For 10 year 8% bond: $y=6.5\%, D=7.004$
+    - For 3 year 6.3% bond: $y = 6.00\%, D = 2.6999$
+
+3. Find $x$ and $y$ in:
+    - $\$1m(4.1688)+x(7.005)=0  \Rightarrow x =\$595,167 $
+    - $\$1m(4.1688)+y(2.7)=0 \Rightarrow y = \$1,543,947 $
+
+4. If yields rise by 1% overnight on all the bonds:
+    - For 5 yr, yield to 7.9\%,: $P=\$959.423/1,000=0.959423$, Loss: $(\$1,000,000)(1-0.959423) = \$40,577 $
+    - For 10 year yield to 7.5\% $P=\$1034.81/1109=0.93311$, Loss: $(\$595,167)(1-0.93311) = \$39,810$
+    - For 3 year yield to 7\%: $P=\$981.42/\$1,008.1=0.97353$, Loss: $(\$1,543,947)(1-.97353) = \$40,861 $
+
+---
+
+## Example (cont'd)
+
+- What if the dealer wants the added protection of doing a gamma neutral hedge?
+
+- Investment must be both delta neutral and gamma neutral. This requires matching deltas and gammas, and requires investments in both bonds.
+  - $P1 = \$1 m, D1 = 4.1685, C1 = 21.036$
+  - $P2 = ?, D2 = 7.004, C2 = 62.98$
+  - $P3 = ?, D3 = 2.699, C3 = 8.939$
+
+- Match hedge ratios:
+  - $ \$1m(4.1685) = P2(7.004) + P3(2.699)$
+
+- Match gamma:
+  - $ \$1m(21.038) = P2(62.98) + P3(8.939) $
+
+- 2 linear equations in two unknowns. Solve for P2 and P3.
