@@ -156,6 +156,7 @@ cat("1-Year Forward Price: $", round(forward_price,2), "\n")
 ## Minimum Variance Hedge Ratio (Using Real Futures Data)
 
 Solution (R Code):
+
 ```r
 library(quantmod)
 library(lubridate)
@@ -179,3 +180,4 @@ cat("Correlation:", round(correlation,4), "\n")
 cat("Standard deviation of dS:", round(sd_dS,4), "\n")
 cat("Standard deviation of dF:", round(sd_dF,4), "\n")
 cat("Minimum Variance Hedge Ratio:", round(hedge_ratio,4), "\n")
+```
