@@ -12,10 +12,10 @@ Lecture2: Interest Rates: [Lecture Note](https://raw.githack.com/chung-jiwoong/B
 [Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/solution_interest.html)
 
 
-Lecture3: Introduction and Overview: [Lecture Note](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_forwards.html) 
+Lecture3: Forwards and Futures: [Lecture Note](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_forwards.html) 
 
 
-Lecture4: Interest Rates: [Lecture Note](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_pricing_forwards.html) / 
+Lecture4: Pricing Forwards: [Lecture Note](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_pricing_forwards.html) / 
 [Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/problem_pricing_forwards.html) / 
 [Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/solution_pricing_forwards.html)
 
