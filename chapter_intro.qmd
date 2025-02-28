@@ -70,6 +70,18 @@ execute:
 
 ## History of derivatives
 
+![](img\intro_dojima.jpg){fig.align="center"}
+
+:::{.small}
+Source: https://professornerdster.com/tag/forward-contracts/
+:::
+
+- Established in the 1690s. Initially, rice exchange
+- Futures trading began in 1730 for hedging.
+
+## History of derivatives
+
+
 - Derivatives have been used by farmers and merchants for thousands of years:
     - Around 2000 B.C., derivatives were used in trade between India and the Arab Gulf.
     - In 300 B.C., olive growers in ancient Greece utilized derivatives.

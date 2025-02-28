@@ -149,11 +149,11 @@ Prof.&nbsp;Ji-Woong Chung
 <ul>
 <li>Types</li>
 <li>Measurement</li>
-<li>Zero/Spot/Forward rates</li>
+<li>Zero/Par/Forward rates</li>
 <li>Forward Rate Agreements</li>
-<li>Duration and convexity</li>
+<li>Risk Management: Duration and convexity</li>
 </ul></li>
-<li>Reading: § Ch. 4</li>
+<li>Reading: Ch. 4</li>
 </ul>
 </section>
 <section>
@@ -164,40 +164,24 @@ Prof.&nbsp;Ji-Woong Chung
 <section id="interest-rates" class="slide level2">
 <h2>Interest Rates</h2>
 <ul>
-<li>For valuation of derivatives (and any financial asset), we need interest rates.</li>
-<li>There are different types and measurements of the interest rates.</li>
-<li>In general, interest rates are higher for riskier investments.
+<li>Interest rates are crucial for valuing derivatives and financial assets.</li>
+<li>There are various types of interest rates and methods to measure them.</li>
+<li>Generally, interest rates are higher for riskier investments.
 <ul>
-<li><strong>Risk-free interest rate</strong> is the rate for investment having zero risk.</li>
+<li>The <strong>risk-free interest rates</strong> are the rates for an investment with zero risk.</li>
+<li>They serve as a reference rate for pricing other assets.</li>
 </ul></li>
 </ul>
 </section>
-<section id="types-of-interest-rates" class="slide level2 scrollable">
-<h2>Types of Interest Rates</h2>
+<section id="reference-rates" class="slide level2 scrollable">
+<h2>Reference Rates</h2>
 <ul>
-<li>Treasury Rates
+<li><strong>Treasury Rates</strong>
 <ul>
 <li>The rate earned by investors when they invest in government (treasury) bonds.</li>
 <li>Governments are generally able to repay the principal and interest, making these bonds nearly risk-free (hence, they are often considered risk-free rates).<sup>1</sup></li>
 </ul></li>
-<li>Overnight Rates
-<ul>
-<li>Banks must maintain a certain amount of cash, known as a reserve, with the central bank.</li>
-<li>They borrow and lend overnight to manage these reserves.</li>
-<li>Examples include the Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), and TONAR (Japan).</li>
-</ul></li>
-<li>Repo Rates
-<ul>
-<li>Unlike overnight rates, repo rates are for secured borrowing.</li>
-<li>Examples include SOFR (U.S.) and KOFR (Korea).</li>
-</ul></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Read: <a href="https://en.wikipedia.org/wiki/Default_trap?utm_source=chatgpt.com">Default Trap</a></p></li></ol></aside></section>
-<section id="reference-rates" class="slide level2">
-<h2>Reference Rates</h2>
-<ul>
-<li>Reference interest rates play a crucial role in financial markets.</li>
-<li>LIBOR (London Interbank Offered Rate):
+<li><strong>LIBOR (London Interbank Offered Rate)</strong>
 <ul>
 <li>Represents the rate at which banks can borrow from other banks.</li>
 <li>Only banks with high creditworthiness (e.g., a credit rating of AA or higher) can borrow at LIBOR.</li>
@@ -205,7 +189,7 @@ Prof.&nbsp;Ji-Woong Chung
 <li>However, the risk of default is minimal because banks in the LIBOR market have high credit ratings, making it an almost risk-free rate.</li>
 </ul></li>
 </ul>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Not always. Read: <a href="https://en.wikipedia.org/wiki/Default_trap?utm_source=chatgpt.com">Default Trap</a></p></li></ol></aside></section>
 <section id="libor-phase-out" class="slide level2 scrollable">
 <h2>LIBOR Phase-out</h2>
 <ul>
@@ -222,10 +206,30 @@ Prof.&nbsp;Ji-Woong Chung
 </ul></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>Read: <a href="https://en.wikipedia.org/wiki/Libor_scandal">Libor scandal</a></p></li></ol></aside></section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="libor-phase-out-1" class="slide level2">
+<h2>LIBOR Phase-out</h2>
+<ul>
+<li>While LIBOR has been largely phased out, it still exists in some legacy contracts.</li>
+</ul>
 
-<img data-src="../img/interest_libor.png" class="quarto-figure quarto-figure-center r-stretch"><p>Source: <a href="https://www.bis.org/publ/qtrpdf/r_qt2212e.htm">https://www.bis.org/publ/qtrpdf/r_qt2212e.htm</a></p>
+<img data-src="img/interest_libor.png" class="quarto-figure quarto-figure-center r-stretch"><p>Source: <a href="https://www.bis.org/publ/qtrpdf/r_qt2212e.htm">https://www.bis.org/publ/qtrpdf/r_qt2212e.htm</a></p>
+</section>
+<section id="reference-rates-1" class="slide level2">
+<h2>Reference Rates</h2>
+<ul>
+<li><p>New financial instruments now use alternative reference rates such as SOFR, SONIA, and others.</p></li>
+<li><p><strong>Overnight Rates</strong></p>
+<ul>
+<li>Banks must maintain a certain amount of cash, known as a reserve, with the central bank.</li>
+<li>They borrow and lend overnight to manage these reserves.</li>
+<li>Examples include the Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), and TONAR (Japan).</li>
+</ul></li>
+<li><p><strong>Repo Rates</strong></p>
+<ul>
+<li>Unlike overnight rates, repo rates are for secured borrowing.</li>
+<li>Examples include SOFR (U.S.) and KOFR (Korea).</li>
+</ul></li>
+</ul>
 </section>
 <section id="measuring-interest-rates" class="slide level2">
 <h2>Measuring Interest Rates</h2>
@@ -235,8 +239,7 @@ Prof.&nbsp;Ji-Woong Chung
 <ul>
 <li>semiannual compounding: interests are earned in every six months.</li>
 <li>quarterly compounding: interests are earned in every quarter.</li>
-<li>monthly compounding: interests are earned in every month.</li>
-<li>⋮</li>
+<li>monthly compounding: interests are earned in every month, etc.</li>
 </ul></li>
 <li>Let <span class="math inline">\(r\)</span> denote the annual rate and <span class="math inline">\(m\)</span> denote the number of compounding periods in a year. If you invest $1 for one year, then future value is <span class="math display">\[
 \$1\times\left( 1 + \frac{r}{m} \right)^m
@@ -246,13 +249,13 @@ Prof.&nbsp;Ji-Woong Chung
 <section id="measuring-interest-rates-1" class="slide level2">
 <h2>Measuring Interest Rates</h2>
 <ul>
-<li><strong>Continuous compounding</strong> is an extreme case where interests are earned at every instant.</li>
-<li>With the annual rate <span class="math inline">\(r\)</span>, the future value of $1 after one year with continuous compounding is <span class="math display">\[
+<li><p><strong>Continuous compounding</strong> is an extreme case where interests are earned at every instant.</p></li>
+<li><p>With the annual rate <span class="math inline">\(r\)</span>, the future value of $1 after one year with continuous compounding is <span class="math display">\[
 \$1\times e^{r}
-\]</span></li>
-<li>The future value after <span class="math inline">\(T\)</span> years is <span class="math display">\[
+\]</span></p></li>
+<li><p>The future value after <span class="math inline">\(T\)</span> years is <span class="math display">\[
 \$1\times e^{rT}
-\]</span></li>
+\]</span></p></li>
 </ul>
 </section>
 <section id="conversion-of-interest-rates" class="slide level2">
@@ -275,40 +278,50 @@ e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
 <ul>
 <li>Solving for <span class="math inline">\(r\)</span> such that <span class="math inline">\(890\times e^{r5}=1000\)</span>, <span class="math inline">\(r\)</span>=2.33%.</li>
 </ul></li>
+<li>However, in practice, most bonds are coupon bonds.</li>
 </ul>
-</section>
-<section id="zero-rates---facts-i" class="slide level2">
-<h2>Zero Rates - Facts I</h2>
-<ul>
-<li>Zero rates vary by maturity, forming the <strong>term structure</strong> of interest rates.</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "DGS1MO" "DGS3MO" "DGS6MO" "DGS1"   "DGS2"   "DGS3"   "DGS5"   "DGS7"  
- [9] "DGS10"  "DGS20"  "DGS30" </code></pre>
-</div>
+<!-- 
+## Zero Rates - Facts I
 
-</div>
-<img data-src="chapter_interest_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="zero-rates---facts-ii" class="slide level2">
-<h2>Zero Rates - Facts II</h2>
-<ul>
-<li>The interest rate for a certain maturity can change over time.</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "DGS10"</code></pre>
-</div>
+- Zero rates vary by maturity, forming the **term structure** of interest rates.
 
-</div>
-<img data-src="chapter_interest_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="interest-rates---notation" class="slide level2">
-<h2>Interest Rates - Notation</h2>
-<ul>
-<li>Given the fact that interest rates differ depending on the maturity, we use the following notation: <span class="math display">\[
-r_0(t_1,t_2)
-\]</span> is the interest rate from <span class="math inline">\(t_1\)</span> to <span class="math inline">\(t_2\)</span> (with continuous compounding).</li>
-</ul>
+
+
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](chapter_interest_files/figure-revealjs/unnamed-chunk-1-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+
+
+---
+
+## Zero Rates - Facts II
+
+- The interest rate for a certain maturity can change over time.
+
+
+
+::: {.cell layout-align="center"}
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "DGS10"
+```
+
+
+:::
+
+::: {.cell-output-display}
+![](chapter_interest_files/figure-revealjs/unnamed-chunk-2-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+ -->
 </section>
 <section id="bond-pricing" class="slide level2">
 <h2>Bond Pricing</h2>
@@ -322,7 +335,7 @@ r_0(t_1,t_2)
 <thead>
 <tr class="header">
 <th>Maturity (years)</th>
-<th>Zero rate (% continuously compounded)</th>
+<th>Zero rate (% c.c.)</th>
 </tr>
 </thead>
 <tbody>
@@ -345,19 +358,68 @@ r_0(t_1,t_2)
 </tbody>
 </table>
 <ul>
-<li>A <strong>yield-to-maturity</strong> is the single discount rate that gives a bond price equal to its market price (<span class="math inline">\(y=6.76\%\)</span>) <span class="math display">\[
+<li><p>A <strong>yield-to-maturity</strong> is the single discount rate that gives a bond price equal to its market price (<span class="math inline">\(y=6.76\%\)</span>). It is a convenient way to express price in terms of a single rate of interest.</p>
+<p><span class="math display">\[
 3e^{-y(0.5)} + 3e^{-y(1.0)} + 3e^{-y(1.5)} + 103e^{-y(2.0)} = 98.39
+\]</span></p></li>
+</ul>
+</section>
+<section id="bond-pricing-1" class="slide level2" data-background-color="#ffebf0">
+<h2>Bond Pricing</h2>
+<ul>
+<li>We can also use semi-annually compounded zero rates to price the bond: <span class="math display">\[
+\frac{3}{(1 + 0.0506)} + \frac{3}{(1 + 0.0588)^{2}} + \frac{3}{(1 + 0.0651)^{3}} + \frac{103}{(1 + 0.0692)^{4}} = 98.39
+\]</span></li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Maturity (years)</th>
+<th>Zero rate (% c.c.)</th>
+<th>Zero rate (% s.a.)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.5</td>
+<td>5.0</td>
+<td>5.06</td>
+</tr>
+<tr class="even">
+<td>1.0</td>
+<td>5.8</td>
+<td>5.88</td>
+</tr>
+<tr class="odd">
+<td>1.5</td>
+<td>6.4</td>
+<td>6.51</td>
+</tr>
+<tr class="even">
+<td>2.0</td>
+<td>6.8</td>
+<td>6.92</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The yield-to-maturity is <span class="math inline">\(y=6.90\%\)</span>, s.a. compounded! <span class="math display">\[
+\frac{3}{(1 + y)} + \frac{3}{(1 + y)^{2}} + \frac{3}{(1 + y)^{3}} + \frac{103}{(1 + y)^{4}} = 98.39
 \]</span></li>
 </ul>
 </section>
-<section id="bond-pricing-1" class="slide level2">
-<h2>Bond Pricing</h2>
+<section id="par-rates" class="slide level2">
+<h2>Par Rates</h2>
 <ul>
-<li><p>The par yield for a certain bond maturity is the coupon rate that makes the bond price equal its par value.</p></li>
+<li><p>The par rate for a certain bond maturity is the coupon rate that makes the bond price equal its par value.</p></li>
 <li><p>Suppose that the coupon on a 2-year bond is <span class="math inline">\(c\)</span> per annum. Using the zero rates in Table 4.2, the value of the bond is equal to its par value of 100 when <span class="math inline">\(c=6.87\%\)</span>. <span class="math display">\[
 \frac{c}{2}e^{-0.05(0.5)} + \frac{c}{2}e^{-0.058(1.0)} + \frac{c}{2}e^{-0.064(1.5)} + \left(100+\frac{c}{2}\right)e^{-0.068(2.0)} = 100
 \]</span></p></li>
-<li><p>Useful for benchmarking and pricing: Can compare bonds with different coupon rates.</p></li>
+<li><p>Useful for benchmarking and pricing:</p>
+<ul>
+<li>Can use to set the coupon rate of new bonds. (In fact, most bonds are par/coupon bonds)/</li>
+<li>Can compare bonds with different coupon rates.</li>
+</ul></li>
 </ul>
 </section>
 <section id="forward-rates" class="slide level2">
@@ -391,16 +453,11 @@ e^{0.04\times 2} = e^{0.03}e^r
 <section id="forward-rates---borrowinglending" class="slide level2">
 <h2>Forward Rates - Borrowing/Lending</h2>
 <ul>
-<li><p>We can lock in interests for future borrowing/lending at this forward rate.</p></li>
-<li><p>Suppose that we want to borrow $1 one year from now and repay in year 2. Also, we want to fix now the interest rate for this borrowing.</p></li>
-<li><p>If we fix at the forward rate, this borrowing will have cash flows as follows:</p>
+<li>We can lock in interests for future borrowing/lending at this forward rate.</li>
+<li>Suppose that we want to borrow $1 one year from now and repay in year 2. Also, we want to fix now the interest rate for this borrowing.</li>
+<li>If we fix at the forward rate, this borrowing will have cash flows as follows:</li>
+</ul>
 <table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 22%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Action</th>
@@ -414,24 +471,18 @@ e^{0.04\times 2} = e^{0.03}e^r
 <td>borrowing at forward rate</td>
 <td>0</td>
 <td>1</td>
-<td><span class="math inline">\(-e^{0.05\times 1}\)</span></td>
+<td><span class="math inline">\(-e^{0.05}\)</span></td>
 </tr>
 </tbody>
-</table></li>
-</ul>
+</table>
 </section>
 <section id="forward-rates---borrowinglending-1" class="slide level2">
 <h2>Forward Rates - Borrowing/Lending</h2>
 <ul>
-<li><p>We may not have a financial instrument where we can borrow or lend at the forward rate in the markets.</p></li>
-<li><p>Then, we can construct this by combining two zero coupon bonds. In this construction, we can choose the face-value of zero coupon bonds as we like.</p>
+<li>We may not have a financial instrument where we can borrow or lend at the forward rate in the markets.</li>
+<li>Then, we can construct this by combining two zero coupon bonds. In this construction, we can choose the face-value of zero coupon bonds as we like.</li>
+</ul>
 <table class="caption-top">
-<colgroup>
-<col style="width: 34%">
-<col style="width: 20%">
-<col style="width: 8%">
-<col style="width: 36%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Action</th>
@@ -443,34 +494,24 @@ e^{0.04\times 2} = e^{0.03}e^r
 <tbody>
 <tr class="odd">
 <td>buy 1-yr bond (lend)</td>
-<td><span class="math inline">\(-e^{-0.03\times 1}\)</span></td>
+<td><span class="math inline">\(-e^{-0.03}\)</span></td>
 <td>1</td>
 <td>0</td>
 </tr>
 <tr class="even">
-<td>sell 2-yr bond (borrow)</td>
-<td><span class="math inline">\(e^{-0.03\times 1}\)</span></td>
+<td>sell 2-yr bond</td>
+<td><span class="math inline">\(e^{-0.03}\)</span></td>
 <td>0</td>
-<td><span class="math inline">\(-e^{-0.03\times 1}e^{0.04\times 2}\)</span></td>
+<td><span class="math inline">\(-e^{0.05}\)</span></td>
 </tr>
 <tr class="odd">
 <td>net</td>
 <td>0</td>
 <td>1</td>
-<td><span class="math inline">\(-e^{0.05\times 1}\)</span></td>
+<td><span class="math inline">\(-e^{0.05}\)</span></td>
 </tr>
 </tbody>
-</table></li>
-</ul>
-</section>
-<section id="forward-rates---notation" class="slide level2">
-<h2>Forward Rates - Notation</h2>
-<ul>
-<li>In the forward rate, the time of measuring interest rate is different from the starting time of investment.</li>
-<li>Thus, we generalize the notation for interest rate: <span class="math display">\[
-r_t(t_1,t_2)
-\]</span> is the interest rate from time <span class="math inline">\(t_1\)</span> to <span class="math inline">\(t_2\)</span>, measured on date <span class="math inline">\(t\)</span>.</li>
-</ul>
+</table>
 </section>
 <section id="forward-rates---example" class="slide level2">
 <h2>Forward Rates - Example</h2>
@@ -507,16 +548,16 @@ r_t(t_1,t_2)
 <li><strong>Q2:</strong> An investor wants to lend $100 in year 2 and receive in year 3. The investor wants to lock in the interest rate at <span class="math inline">\(r_0(2,3)\)</span>. Construct this instrument using two zero bonds.</li>
 </ul>
 </section>
-<section id="forward-rate-agreements" class="slide level2">
+<section id="forward-rate-agreements" class="slide level2 scrollable">
 <h2>Forward Rate Agreements</h2>
 <ul>
-<li><p>A forward rate agreement (FRA) is an agreement to exchange a predetermined fixed rate for a reference rate that will be observed in the market at a future time (the principal itself is not exchanged).</p></li>
+<li><p>A <strong>forward rate agreement (FRA)</strong> is an agreement to exchange a predetermined fixed rate for a reference rate that will be observed in the market at a future time (the principal itself is not exchanged).</p></li>
 <li><p>Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of $100 million. Party A (B) would agree to pay (receive) LIBOR and receive (pay) the fixed rate of 3%. Assume all rates are compounded quarterly. If three-month LIBOR proved to be 3.5% in two years, Party B would receive <span class="math display">\[
 \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000
 \]</span></p></li>
-<li><p>As LIBOR is phased out, we can expect to see more FRAs based on floating rates such as three-month SOFR and three-month SONIA.</p></li>
+<li><p>As LIBOR is phased out, we see a deline of FRAs based on LIBOR and an increases in similar derivatives based on RFR such as SOFR.<sup>1</sup></p></li>
 </ul>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Read: [The Post-LIBOR World]{https://www.bis.org/publ/qtrpdf/r_qt2212e.htm}</p></li></ol></aside></section>
 <section id="forward-rate-agreements-1" class="slide level2">
 <h2>Forward Rate Agreements</h2>
 <ul>
@@ -531,7 +572,6 @@ r_t(t_1,t_2)
 \]</span></li>
 </ul></li>
 </ul>
-<!-- LIBOR phase out and FRA @ https://www.bis.org/publ/qtrpdf/r_qt2212e.htm -->
 </section></section>
 <section>
 <section id="interest-rate-risk-measurement-and-management" class="title-slide slide level1 center">
@@ -568,7 +608,6 @@ r_t(t_1,t_2)
 <li>Duration measures the first order bond price sensitivity to interest rate changes.
 <ul>
 <li>Higher duration means higher price sensitivity to interest rate changes (more price volatility).</li>
-<li>More precisely, it is the elasticity of a bond price with respect to its yield</li>
 </ul></li>
 <li>Macaulay duration: % change in <span class="math inline">\(P\)</span> w.r.t % change in <span class="math inline">\(y\)</span>. <span class="math display">\[
 D_{Mac} = -\frac{dP/P}{dy/(1+y/m)} = -\frac{dP/P}{dy} (1+y/m)
@@ -610,19 +649,17 @@ D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{K_i \left( 1+ y_m/m \right)^{-mt_i}}{P
 <li>Due to the convexity of the price function.</li>
 </ul></li>
 </ul>
-<table class="caption-top" style="width:6%;">
-<colgroup>
-<col style="width: 5%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>## Dollar Duration</td>
-</tr>
-<tr class="even">
-<td>- Dollar duration, <span class="math inline">\(D_d = D_{Mod} \times P = -\frac{dP/P}{dy} \times P = -\frac{dP}{dy}\)</span> - Therefore, <span class="math inline">\(dP = -D_d dy = -D_{Mod} P dy\)</span> - The dollar price change w.r.t. the change in yield. - Dollar duration is useful in hedging strategies and for understanding risk of zero NPV portfolios (e.g.&nbsp;interest rate swap)</td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="dollar-duration" class="slide level2">
+<h2>Dollar Duration</h2>
+<ul>
+<li>Dollar duration, <span class="math inline">\(D_d = D_{Mod} \times P = -\frac{dP/P}{dy} \times P = -\frac{dP}{dy}\)</span></li>
+<li>Therefore, <span class="math inline">\(dP = -D_d dy = -D_{Mod} P dy\)</span>
+<ul>
+<li>The dollar price change w.r.t. the change in yield.</li>
+<li>Dollar duration is useful in hedging strategies and for understanding risk of zero NPV portfolios (e.g.&nbsp;interest rate swap)</li>
+</ul></li>
+</ul>
 </section>
 <section id="portfolio-duration" class="slide level2 scrollable">
 <h2>Portfolio Duration</h2>
@@ -637,7 +674,6 @@ D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{K_i \left( 1+ y_m/m \right)^{-mt_i}}{P
 <section id="effective-duration" class="slide level2">
 <h2>Effective Duration</h2>
 <ul>
-<li>Effective duration</li>
 <li>An <em>empirical</em> change in bond price w.r.t change in yield.</li>
 <li>For securities with uncertain cash flows due to optionality (like callable bonds, MBS with prepayment options, or securities with credit risk), effective duration can be significantly different from modified (or Macaulay) duration.</li>
 <li>The standard duration formulas are inaccurate when cash flows are highly uncertain. In such cases effective duration is the better measure. <span class="math display">\[
@@ -660,7 +696,7 @@ D_{eff} = -\frac{1}{P}\frac{dP}{dy} =-\frac{1}{P}\frac{P(+x \; bps) - P(-x \; bp
 <section id="convexity-1" class="slide level2">
 <h2>Convexity</h2>
 <ul>
-<li>Convexity is found by taking the second derivative of the bond price function and then dividing by the price <span class="math inline">\(= \frac{1}{P} \frac{d^2 P}{d y^2}\)</span> for an option-free bond:
+<li>Convexity is found by taking the second derivative of the bond price function and then dividing by the price (<span class="math inline">\(\frac{1}{P} \frac{d^2 P}{d y^2}\)</span>) for an option-free bond:
 <ul>
 <li><span class="math inline">\(C_{Mod} =\sum_{i=1}^{N} t_i^2  \frac{ K_i  e^{-y_c t_i}}{P}\)</span></li>
 <li><span class="math inline">\(C_{Mod} = \sum_{i=1}^{N} t_i \left( t_i + \frac{1}{m} \right)\frac{K_i \left( 1+ y_m/m \right)^{-(mt_i+2)}}{P}\)</span></li>
@@ -730,14 +766,14 @@ f(x)-f(x_0) \approx f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
 </ul></li>
 <li>Find <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in:
 <ul>
-<li>$$1m(4.1688)+x(7.005)=0 x =$595,167 $</li>
-<li>$$1m(4.1688)+y(2.7)=0 y = $1,543,947 $</li>
+<li><span class="math inline">\(\$1m(4.1688)+x(7.005)=0  \Rightarrow x =\$595,167\)</span></li>
+<li><span class="math inline">\(\$1m(4.1688)+y(2.7)=0 \Rightarrow y = \$1,543,947\)</span></li>
 </ul></li>
 <li>If yields rise by 1% overnight on all the bonds:
 <ul>
-<li>For 5 yr, yield to 7.9%,: <span class="math inline">\(P=\$959.423/1,000=0.959423\)</span>, Loss: $($1,000,000)(1-0.959423) = $40,577 $</li>
+<li>For 5 yr, yield to 7.9%,: <span class="math inline">\(P=\$959.423/1,000=0.959423\)</span>, Loss: <span class="math inline">\((\$1,000,000)(1-0.959423) = \$40,577\)</span></li>
 <li>For 10 year yield to 7.5% <span class="math inline">\(P=\$1034.81/1109=0.93311\)</span>, Loss: <span class="math inline">\((\$595,167)(1-0.93311) = \$39,810\)</span></li>
-<li>For 3 year yield to 7%: <span class="math inline">\(P=\$981.42/\$1,008.1=0.97353\)</span>, Loss: $($1,543,947)(1-.97353) = $40,861 $</li>
+<li>For 3 year yield to 7%: <span class="math inline">\(P=\$981.42/\$1,008.1=0.97353\)</span>, Loss: <span class="math inline">\((\$1,543,947)(1-.97353) = \$40,861\)</span></li>
 </ul></li>
 </ol>
 </section>
@@ -757,7 +793,7 @@ f(x)-f(x_0) \approx f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
 </ul></li>
 <li><p>Match gamma:</p>
 <ul>
-<li>$ $1m(21.038) = P2(62.98) + P3(8.939) $</li>
+<li>$ $1m(21.038) = P2(62.98) + P3(8.939)$</li>
 </ul></li>
 <li><p>2 linear equations in two unknowns. Solve for P2 and P3.</p></li>
 </ul>

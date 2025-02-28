@@ -1,0 +1,576 @@
+---
+title: "Forwards and Futures"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: 
+  revealjs:
+    theme: simple
+    transition: fade
+    transition-speed: fast
+    scrollable: true
+    slide-number: true
+    #toc: true
+    chalkboard: true
+revealjs-plugins:
+    - revealjs-text-resizer
+execute:
+    echo: true
+    eval: true
+---
+
+
+## Lecture Outline
+
+-   Definitions of Forwards and Futures
+-   Payoff of Forward vs Futures
+    -   Daily Settlements & Margin Accounts
+-   Hedging Using Futures
+    -   Perfect Hedge
+    -   Imperfect Hedge
+-   Reading: Ch. 1.3--1.4, Ch. 2 and 3
+
+---
+
+## Futures - Contract Specifications
+
+-   **Def.** Futures contract is an **agreement** to buy or sell an asset at a certain time in the future for a certain price.
+-   Underlying asset: the asset on which futures contract is based
+-   Futures price: the promised price to trade
+-   Expiration (or delivery) date: the promised date to trade
+-   Contract size: amount of asset that will be delivered under one contract (e.g. One futures contract on corn is to buy/sell 5,000 bushels).
+
+---
+
+## Futures - Contract Specifications
+
+|Specification      |Details                                                  |
+|:------------------|:--------------------------------------------------------|
+|Contract Name      |E-mini S&P 500 Futures                                   |
+|Exchange           |CME Group                                                |
+|Ticker Symbol      |ES                                                       |
+|Contract Size      |50 times the S&P 500 Index                               |
+|Tick Size          |0.25 index points                                        |
+|Tick Value         |$12.50 per tick                                          |
+|Settlement Method  |Cash settlement                                          |
+|Expiration Months  |March, June, September, December                         |
+|Trading Hours      |Sunday-Friday 5:00 PM - 4:00 PM (CT) with a 1-hour break |
+|Initial Margin     |$12,000 (varies by broker)                               |
+|Maintenance Margin |$10,800 (varies by broker)                               |
+
+:::{.small}
+Source: CME Group
+:::
+
+---
+
+## Futures - Terminology
+
+-   Long vs. short position
+
+    1.  Long position: a trader who agrees to **buy** the underlying asset on futures
+    2.  Short position: a trader who agrees to **sell** the underlying asset on futures
+-   *e.g.* Long position of Futures on 100,000 bushels of corn for December delivery
+
+---
+
+
+## Futures - Terminology
+
+-   Entering long/short position of futures contract **costs nothing** (cf. buying stock or bond).
+
+    -   Except some collateral to be put up.
+    -   This is contrasted with buying/selling in option contracts.
+-   Futures price changes as a result of supply and demand.
+
+    -   *e.g.* If there are more investors who want to buy corn for December delivery, then the futures price increases.
+-   Futures vs. Spot price
+
+    -   Futures price is for **future** delivery.
+    -   Spot price is for **immediate** delivery.
+
+---
+
+
+## Forward
+
+-   **Def.** Forward contract is an **agreement** to buy or sell an asset at a certain time in the future for a certain price.
+-   Forward price: the promised price to trade
+-   How is forward different from futures?
+
+    1.  Forward is traded in the OTC market, while futures is traded in the exchange.
+    2.  Forward is settled once on the delivery date, while futures is settled every day.
+    3.  Futures have greater liquidity but less flexibility than forwards
+    4.  In futures, counterparty credit risk is eliminated
+
+        -   Clearing House becomes the counterparty to every contract ("novation")
+        -   To enter futures, collateral (margin) must be posted.
+
+
+## Hedging Using Forward
+
+-   Suppose that a food company takes a long position of forward contract on corns for delivery in three months. The forward price is \$3.70 per bushel.
+-   Three month later, the spot price turns out to be ...
+
+    1.  \$3.75 per bushel:
+
+        Payoff on the forward is \$(3.75 - 3.70) = 0.05
+    2.  \$3.67 per bushel:
+
+        Payoff on the forward is \$(3.67 - 3.70) = -0.03
+-   Forward/Futures enables an investor to lock in the price for future transaction, thus reducing uncertainty or risk.
+
+---
+
+## Hedging Using Forward
+
+-   **Ex.** Consider a farmer who expects to sell 1,000 bushels of corn in three months. The forward price of corn for delivery in three month \$3.70 per bushel.
+-   **Q1.** To lock in the profit, which position should the farmer take?
+-   **Q2.** Three month later, the spot corn price becomes \$3.62 per bushel. What is the payoff on the forward to the farmer?
+
+---
+
+## Payoff of Forward
+
+-   Forward and futures are very similar to each other, but a **forward** contract is simpler to analyze.
+-   Let $F$ denote the forward price (the promised price to buy/sell at the contract expiration date $T$).
+-   Payoff of forward contract:
+
+$$
+\left\{ {\begin{array}{lc}
+\text{long position: } ~ & S_T - F \\
+\text{short position: } ~ & F - S_T
+\end{array}
+}
+\right.
+$$
+
+where $S_T$ is the spot price of the underlying asset at the expiration.
+
+-   A forward contract is settled only once on the expiration date, so cash flow occurs only at the expiration.
+
+## Payoff of Forward: Example
+
+-   An agricultural supplier is looking to sell 1,000 barrels of white sugar in six months' time that are valued at a total price of £10,000.
+-   The supplier is concerned for declining weather conditions in the country of produce that may have an effect on supply and demand, and therefore the price of the sugar.
+-   It agrees to a cash settled forward contract to sell the 1,000 barrels to an international buyer for the spot market price of £10,000.
+
+## Payoff of Futures
+
+-   Suppose we enter a **futures** contract that will expire on date $T$.
+-   Unlike forward, the futures will be settled every day.
+-   *e.g.* Suppose we long futures on gold on day 0 when the futures price is \$1,250 per ounce.
+
+    -   If later futures prices are as follows, what will be cash flows each day?
+
+| Day    | Futures price | Daily gain |
+| ------ | ------------- | ---------- |
+| 0      | 1,250         |            |
+| 1      | 1,255         | ?          |
+| 2      | 1,248         | ?          |
+| 3      | 1,242         | ?          |
+| $\vdots$ | $\vdots$      | $\vdots$   |
+| T      | $F_T$         | ?          |
+
+## Payoff of Futures - Closer Look at Day 1
+
+::: columns
+::: {.column width="50"}
+![](img/forwards_futures.png)
+:::
+
+::: {.column width="50%"}
+-   On day 1, new futures price turns out to be \$1,255.
+-   The exchange requires the investors from day 0 to abandon the old contract and move to the new one.
+-   In this settlement, the exchange pays or receives cash to compensate for the price difference.
+
+    -   When moving from the old $(F\_0=1250)$ to the new $(F\_1=1255)$, the long-position investor receives \$5.
+:::
+:::
+
+## Payoff of Futures
+
+-   On day $t$, the daily settlement for the long position is as follows.
+
+$$
+\left\{ {\begin{array}{ll}
+\text{If } F_t \geq F_{t-1}, ~ & \text{the investor receives }(F_t-F_{t-1}). \\
+\text{If } F_t < F_{t-1}, ~ & \text{the investor pays }(F_{t-1}-F_{t}).
+\end{array}
+}
+\right.
+$$
+
+    In sum, the daily gain for long position is $F_t - F_{t-1}$.
+
+-   The investor starts long position in a new contract with $F_t$.
+
+-   *e.g.* Go back to the previous example. Daily gain/loss from the settlement is as follows.
+
+| Day    | Futures price | Daily gain             |
+| ------ | ------------- | ---------------------- |
+| 0      | 1,250         |                        |
+| 1      | 1,255         | (1,255-1,250) = 5      |
+| 2      | 1,248         | (1,248-1,255) = -7     |
+| 3      | 1,242         | (1,242-1,248) = -6     |
+| $\vdots$ | $\vdots$      | $\vdots$               |
+| T      | $F_T$         | \$(F\_{T} - F\_{T-1})\$ |
+
+---
+
+
+## Payoff of Futures - Cumulative Gain
+
+-   Suppose we long futures with futures price $F_0$.
+-   The futures price on following days turns out to be $F_1$, $F_2$, $F_3$, $\ldots$, $F_T$.
+-   Assume that the risk-free rate is 0. Then, the cumulative gain from day 1 to day $T$ is
+
+$$
+\begin{aligned}
+& (F_1 - F_0) + (F_2 - F_1) +(F_3 - F_2) + \ldots + (F_T - F_{T-1}) \\
+= &  F_T - F_0\\
+= & S_T - F_0
+\end{aligned}
+$$
+
+-   This is the same as payoff for long position in forward contract.
+
+---
+
+
+## Operation of Margin Accounts
+
+-   Recall that futures contracts are traded on the exchange.
+-   To prevent investors from defaulting on the contracts, the exchange requires investors to set up a margin account.
+-   When investors enter a position in futures, they are required to deposit **initial margin** (e.g. \$3,000 per contract).
+-   Once the margin account is set up, the gain/loss from daily settlement of futures will be added to/subtracted from the account balance.
+
+---
+
+## Operation of Margin Accounts
+
+-   As a result of daily settlements, the balance in the margin account changes time to time.
+-   During the contract period, investors are also required to maintain the balance at a certain level.
+
+    -   **Maintenance margin**: the **minimum** amount that must be maintained during the contract.
+    -   If the balance in the account falls below the maintenance margin, investors receive a **margin call** from exchange. Then, they need to top up the margin account up to the initial margin.
+
+
+## Operation of Margin Accounts - Example
+
+-   On day 0, we long a futures contract on gold at the futures price of \$1,250 per ounce. The contract size is 100 ounce per contract.
+-   Initial margin is \$3,000 and maintenance margin is \$2,000 per contract.
+  
+
+| Day    | Futures price | Daily gain | Balance | Margin calls |
+| ------ | ------------- | ---------- | ------- | ------------ |
+| 0      | 1,250         |            | 3,000   |              |
+| 1      | 1,241         | -900       | 2,100   |              |
+| 2      | 1,238         | -300       | 1,800   | 1,200        |
+| 3      | 1,244         | 600        | 3,600   |              |
+| 4      | 1,242         | -200       | 3,400   |              |
+| $\vdots$ | $\vdots$      | $\vdots$   | $\vdots$ | $\vdots$     |
+
+
+## Clearing House
+
+-   A clearing house keeps track of all the transactions that take place during a day and ``clear'' the transaction and calculates the net position of each of its members.
+
+    -   The clearing house has a number of members. Brokers who are not members themselves must channel their business through a member and post margin with the member.
+-   The clearing house member is required to provide to the clearing house initial margin (clearing margin) reflecting the total number of contracts that are being cleared.
+
+    -   Also, the members are required to contribute to a guaranty fund. This may be used by the clearing house in the event that a member defaults and the member's margin proves insufficient to cover losses.
+-   The whole purpose of the margining system is to ensure that funds are available to pay traders when they make a profit.
+
+
+## Delivery of Futures
+
+-   There are two types of delivery of futures:
+
+    1.  Physical delivery: underlying assets are delivered physically (e.g. commodity)
+    2.  Cash settlements: final daily gain in futures is paid in cash (e.g. stock index)
+-   Physical delivery may incur additional costs.
+
+    -   storage costs
+    -   transportation costs
+    -   to feed and look after livestock
+
+
+## Delivery of Futures
+
+-   It is possible that the physical delivery costs even outweigh the value of underlying assets.
+-   *e.g.* On 20 April 2020, the futures price of WTI crude oil becomes **negative**.
+
+```{r, echo=F, fig.width=20, fig.height=10, fig.align="center"}
+# install.packages("quantmod")
+# install.packages("ggplot2")
+library(quantmod)
+library(ggplot2)
+
+# Define WTI Crude Oil Futures symbol on Yahoo Finance
+symbol <- "CL=F"
+
+# Define date range around April 20, 2020
+start_date <- "2020-04-01"
+end_date <- "2020-04-30"
+
+# Fetch futures price data from Yahoo Finance
+getSymbols(symbol, src = "yahoo", from = start_date, to = end_date, auto.assign = TRUE)
+
+# Extract adjusted closing prices
+oil_data <- data.frame(
+  Date = index(get(symbol)),
+  Price = as.numeric(Cl(get(symbol)))  # Closing price
+)
+
+# Plot futures price trend
+ggplot(oil_data, aes(x = Date, y = Price)) +
+  geom_line(color = "red", linewidth = 1.2) +
+  geom_point(data = oil_data[oil_data$Price < 0, ], aes(x = Date, y = Price), color = "blue", size = 3) +
+  labs(title = "WTI Crude Oil Futures Price (April 2020)",
+       subtitle = "Price turned negative on April 20, 2020",
+       x = "Date",
+       y = "Price (USD per Barrel)") +
+  theme_minimal()
+```
+
+<!--       - Global oil demand collapsed due to COVID-19 lockdowns.
+      - Oil production remained high as producers couldn't shut down immediately.
+      - WTI crude oil futures require physical delivery at Cushing, Oklahoma.
+      - By April 2020, Cushing's storage was nearly full.
+      - Traders had to sell at any price to avoid taking delivery. -->
+
+
+## Market Quotes
+
+![](img/forwards_gold.png){fig-align="center"}
+
+    -   Open: the price at which contracts were trading at the beginning of the trading day
+    -   High: the highest price during the day
+    -   Low: the lowest price during the day
+    -   Settlement: the price used for calculating daily gain/loss (usually closing price of the day)
+    -   (Trading) Volume: the number of contracts traded in a day
+    -   Open interest: the number of contracts outstanding
+        -   We count the total number of (net) long positions or (net) short positions for a certain contract.
+
+
+## Hedging Using Futures
+
+-   Hedgers participate in futures market to reduce a particular risk facing them (e.g, fluctuations in oil price, foreign exchange rate).
+-   To hedge a risk, hedgers take a futures position that neutralizes the risk as much as possible.
+
+    1.  Short hedge: a hedge that involves a short position in futures
+
+        -   when a hedger expects to **sell** an asset in the future
+    2.  Long hedge: a hedge that involves a long position in futures
+
+        -   when a hedger expects to **buy** an asset in the future
+
+## Short Hedge - Example
+
+-   In May, an oil producer enters a sales contract to sell 1 million barrels of crude oil. The price in the sales contract is the spot price on 15 August.
+-   Oil futures price for August delivery is \$79 per barrel, and each contract is for delivery of 1,000 barrels.
+-   Q. To hedge the risk, what position on futures should the producer take?
+
+    $\Rightarrow$ short 1,000 futures contract.
+
+## Short Hedge - Example
+
+What if the spot price of oil on 15 August turns out to be ...
+
+1.  \$75 per barrel
+
+$$
+\text{Total revenue} = \underbrace{75\times 1M}_{\text{sales contract}} + \underbrace{(79-75)\times 1M}_{\text{futures contract}} = 79M
+$$
+
+2.  \$85 per barrel
+
+$$
+\text{Total revenue} = \underbrace{85\times 1M}_{\text{sales contract}} + \underbrace{(79-85)\times 1M}_{\text{futures contract}} = 79M
+$$
+
+## Short Hedge - Example
+
+What if the spot price of oil on 15 August turns out to be ...
+
+1.  \$75 per barrel
+
+$$
+\text{Total revenue} = \underbrace{75\times 1M}_{\text{sales contract}} + \underbrace{(79-75)\times 1M}_{\text{futures contract}} = 79M
+$$
+
+2.  \$85 per barrel
+
+$$
+\text{Total revenue} = \underbrace{85\times 1M}_{\text{sales contract}} + \underbrace{(79-85)\times 1M}_{\text{futures contract}} = 79M
+$$
+
+## Long Hedge - Example
+
+-   In January, an airline expects to buy 100,000 barrels of jet fuels on 15 May for operation.
+-   Jet fuel futures price for May delivery is \$38.9 per barrel, and each contract is for delivery of 25,000 barrels.
+-   Q. To hedge the risk, what position on futures should the airline take?
+
+    $\Rightarrow$ long 4 futures contract.
+
+## Long Hedge - Example
+
+What if the spot price of jet fuel on 15 May turns out to be ...
+
+1.  \$40.0 per barrel
+
+$$
+\text{Total payment} = \underbrace{40.0\times 100,000}_{\text{sales contract}} - \underbrace{(40.0-38.9)\times 100,000}_{\text{futures contract}} = 3,890,000
+$$
+
+2.  \$37.0 per pound
+
+$$
+\text{Total payment} = \underbrace{37.0\times 100,000}_{\text{sales contract}} - \underbrace{(37.0-38.9)\times 100,000}_{\text{futures contract}} = 3,890,000
+$$
+
+## Hedge - General Case
+
+-   Suppose that on date 0, we expect to sell asset $A$ on date $T$.
+-   To hedge the risk, we short a certain futures contract.
+-   Total revenue on date $T$ is
+
+$$
+S_T + (F_0 - F_T)
+$$
+
+-   Depending on how well the futures contract fits the sales plan, the hedge becomes **perfect** or **imperfect**.
+
+## Perfect Hedge
+
+-   Perfect hedge means eliminating the risk **completely**, thus leaving no risk.
+-   The hedge using futures becomes perfect when all of the following conditions are satisfied.
+
+    1.  The asset whose price is to be hedged is the same as the asset underlying futures contract.
+    2.  The delivery date of futures contract is the same as the date to buy/sell the underlying asset.
+-   In this case, the total revenue is
+
+$$
+S_T + (F_0 - F_T) = \underbrace{(S_T - F_T)}_{=0} + F_0
+$$
+
+## Imperfect Hedge
+
+-   Sometimes, we **cannot** find a futures with the perfect match.
+-   As a second-best way, we try using an alternative contract with the closest delivery month and on the most similar underlying asset.
+-   The total revenue is
+
+$$
+S_T + (F_0 - F_T) = \underbrace{(S_T - F_T)}_{\neq 0} + F_0
+$$
+
+-   This does not eliminate the risk completely.
+
+## Basis Risk and Hedging
+
+-   The basis is the difference between the spot price and the futures price, i.e., $S_t - F_t$.
+
+    -   The futures price and spot price may not move in perfect lockstep. The lack of exact match leads to hedging inaccuracy, known as "basis risk."
+-   Example
+
+    -   On March 1, a U.S. company expects to receive 50 million yen at the end of July.
+    -   Yen futures contracts are available for March, June, September, and December, with each contract covering 12.5 million yen.
+    -   The company shorts four September yen futures contracts on March 1.
+    -   When the yen are received in July, the company closes its position.
+    -   The futures price on March 1 is $1.0800$ cents per yen, and the spot and futures prices at the end of July are $1.0200$ and $1.0250$ cents per yen, respectively.
+    -   The gain on the futures contract is $0.0550$ cents per yen, and the basis is $1.02000-1.02500=-0.0050$ cents per yen.
+    -   The effective price obtained is $1.0200+0.05500=1.0750$ cents per yen.
+
+## Perfect Hedge and Risk Measures
+
+-   Suppose that on date 0, an oil company expects to sell gasoline on date $T$. The gasoline price is normally distributed with the mean of \$50 per barrel and the standard deviation of \$3 per barrel.
+-   Q. Without hedging, what is the bad outcome of the revenue (per barrel) that will happen 5% probability?
+
+## Perfect Hedge and Risk Measures
+
+-   Go back to the previous question. This time, the company tries to hedge by shorting a gasoline futures with delivery on $T$. The futures price is \$48 per barrel.
+-   Q1. With the hedging, what is the standard deviation of the revenue?
+-   Q2. With the hedging, what is the bad outcome of the revenue that will happen 5% probability?
+
+## Cross Hedge
+
+-   **Cross hedge** is a case of imperfect hedge where we hedge the price risk of an asset using futures on a different underlying asset.
+-   *e.g.* An airline that is concerned about the future price of jet fuel uses futures contract on heating oil.
+-   Hedge ratio = size of underlying assets in futures contract/size of exposure
+
+    1.  In perfect hedge, hedge ratio = 1
+    2.  In cross hedge, hedge ratio is usually not equal to one. Instead, we choose a particular ratio that will result in the best hedge.
+
+## Cross Hedge - Minimum Variance Hedge Ratio
+
+-   In cross hedge, the hedge ratio is chosen to **minimize the variance** of the value of the hedged position.
+-   Assume that we have one unit of asset $A$ and shorts futures on $h$ units of underlying asset $B$.
+-   The value of the hedging portfolio is ..
+
+    -   $S_0$ at time 0
+    -   $S_T + h(F_0-F_T)$ at time $T$
+-   The change in the portfolio value is
+
+$$
+\underbrace{S_T -S_0}_{\Delta S} - h\underbrace{(F_T - F_0)}_{\Delta F}
+$$
+
+## Cross Hedge - Minimum Variance Hedge Ratio
+
+-   The variance of the value change is
+
+$$
+Var(\Delta S) - 2h\times Cov(\Delta S,\Delta F) + h^2 \times Var(\Delta F)
+$$
+
+-   We want to find $h$ such that minimizes the variance.
+-   To do so, we calculate the derivative of the variance with respect to $h$ and set it equal to 0:
+
+$$
+h^* = \frac{Cov(\Delta S, \Delta F)}{Var(\Delta F)}
+$$
+
+-   $h^*$ is the minimum variance hedge ratio.
+
+## Cross Hedge - Minimum Variance Hedge Ratio
+
+-   The hedge ratio can be rewritten as
+
+$$
+h^* = \rho\frac{\sigma_S}{\sigma_F}
+$$
+
+where
+
+-   $\rho$: the correlation coefficient between $\Delta S$ and $\Delta F$
+-   $\sigma_F$: the standard deviation of $\Delta F$
+-   $\sigma_S$: the standard deviation of $\Delta S$
+
+-   Alternative interpretation: $h^*$ is the best estimate representing the linear relationship between $\Delta S$ and $\Delta F$.
+
+## Cross Hedge - Example
+
+-   An airline expects to purchase two million gallons of jet fuel in one month and decides to use heating oil futures for hedging. The standard deviation of futures price is \$\sigma\_F=0.0313\$, the standard deviation of jut fuel price is \$\sigma\_S=0.0263\$, and the correlation coefficient is \$\rho=0.928\$.
+-   Q1. What is the minimum variance hedge ratio?
+-   Q2. Each of the futures contract is for 42,000 gallons of heating oil. How many contracts does the airline need?
+
+## Cross Hedge and Risk Measures
+
+-   On date 0, an oil company expects to sell gasoline on date T. The gasoline price is normally distributed with the mean of \$50 and the standard deviation of \$3 per barrel. To hedge the risk, the company wants to use futures. However, the futures on gasoline is not available, so the company instead shorts futures on heating oil with the delivery on date T.
+
+    -   The futures price of heating oil is \$75.
+    -   The minimum variance hedge ratio is found to be 0.24.
+    -   The heating oil price is normally distributed with the mean of \$80 and the standard deviation of \$10 per barrel.
+    -   The correlation coefficient between the gasoline and heating oil prices is 0.8.
+-   Q1. What is the distribution of the total revenue (per barrel)?
+-   Q2. With the hedgeing, what is the 5% bad outcome of the total revenue?
+
+## Speculation Using Future
+
+-   Suppose you believe that crude oil prices are going to increase and therefore decide to purchase crude oil futures. Each contract calls for delivery of 1,000 barrels of oil, so for every \$1 increase in the futures price of crude, the long position gains \$1,000 and the short position loses that amount.
+
+    -   If the futures price for delivery in February is \$52 and crude oil is selling for \$53, the long side will profit by \$1,000 per contract purchased.
+-   Why does a speculator buy a futures contract? Why not buy the underlying asset directly?
+
+    -   Lower transaction costs
+    -   Higher leverage (margin \< asset value)

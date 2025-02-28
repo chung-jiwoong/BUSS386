@@ -23,10 +23,10 @@ execute:
 - Interest Rates
   - Types
   - Measurement
-  - Zero/Spot/Forward rates
+  - Zero/Par/Forward rates
   - Forward Rate Agreements
-  - Duration and convexity
-- Reading: § Ch. 4
+  - Risk Management: Duration and convexity
+- Reading: Ch. 4
 
 
 
@@ -36,32 +36,21 @@ execute:
 
 ## Interest Rates
 
-- For valuation of derivatives (and any financial asset), we need interest rates.
-- There are different types and measurements of the interest rates.
-- In general, interest rates are higher for riskier investments.
-  - **Risk-free interest rate** is the rate for investment having zero risk.
-
----
-
-## Types of Interest Rates
-
-- Treasury Rates
-  - The rate earned by investors when they invest in government (treasury) bonds.
-  - Governments are generally able to repay the principal and interest, making these bonds nearly risk-free (hence, they are often considered risk-free rates).^[Read: [Default Trap](https://en.wikipedia.org/wiki/Default_trap?utm_source=chatgpt.com)]
-- Overnight Rates
-  - Banks must maintain a certain amount of cash, known as a reserve, with the central bank.
-  - They borrow and lend overnight to manage these reserves.
-  - Examples include the Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), and TONAR (Japan).
-- Repo Rates
-  - Unlike overnight rates, repo rates are for secured borrowing.
-  - Examples include SOFR (U.S.) and KOFR (Korea).
+- Interest rates are crucial for valuing derivatives and financial assets.
+- There are various types of interest rates and methods to measure them.
+- Generally, interest rates are higher for riskier investments.
+  - The **risk-free interest rates** are the rates for an investment with zero risk.
+  - They serve as a reference rate for pricing other assets.
 
 ---
 
 ## Reference Rates
 
-- Reference interest rates play a crucial role in financial markets.
-- LIBOR (London Interbank Offered Rate):
+- **Treasury Rates**
+  - The rate earned by investors when they invest in government (treasury) bonds.
+  - Governments are generally able to repay the principal and interest, making these bonds nearly risk-free (hence, they are often considered risk-free rates).^[Not always. Read: [Default Trap](https://en.wikipedia.org/wiki/Default_trap?utm_source=chatgpt.com)]
+
+- **LIBOR (London Interbank Offered Rate)**
   - Represents the rate at which banks can borrow from other banks.
   - Only banks with high creditworthiness (e.g., a credit rating of AA or higher) can borrow at LIBOR.
   - This rate is for unsecured loans, meaning there is a theoretical risk of default by the borrowing bank.
@@ -83,11 +72,28 @@ execute:
 
 ---
 
-## 
+## LIBOR Phase-out
 
-![](../img/interest_libor){fig-align="center"}
+- While LIBOR has been largely phased out, it still exists in some legacy contracts.
+
+![](img/interest_libor.png){fig-align="center"}
 
 Source: [https://www.bis.org/publ/qtrpdf/r_qt2212e.htm](https://www.bis.org/publ/qtrpdf/r_qt2212e.htm)
+
+
+---
+
+## Reference Rates
+
+- New financial instruments now use alternative reference rates such as SOFR, SONIA, and others.
+  
+- **Overnight Rates**
+  - Banks must maintain a certain amount of cash, known as a reserve, with the central bank.
+  - They borrow and lend overnight to manage these reserves.
+  - Examples include the Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), and TONAR (Japan).
+- **Repo Rates**
+  - Unlike overnight rates, repo rates are for secured borrowing.
+  - Examples include SOFR (U.S.) and KOFR (Korea).
 
 
 ---
@@ -98,8 +104,8 @@ Source: [https://www.bis.org/publ/qtrpdf/r_qt2212e.htm](https://www.bis.org/publ
 - However, the actual frequency at which interests are earned (or compounded) does not have to be annual
   - semiannual compounding: interests are earned in every six months.
   - quarterly compounding: interests are earned in every quarter.
-  - monthly compounding: interests are earned in every month.
-  - ⋮
+  - monthly compounding: interests are earned in every month, etc.
+  
 - Let $r$ denote the annual rate and $m$ denote the number of compounding periods in a year. If you invest \$1 for one year, then future value is
   $$
   \$1\times\left( 1 + \frac{r}{m} \right)^m
@@ -114,6 +120,7 @@ Source: [https://www.bis.org/publ/qtrpdf/r_qt2212e.htm](https://www.bis.org/publ
   $$
   \$1\times e^{r}
   $$
+  
 - The future value after $T$ years is
   $$
   \$1\times e^{rT}
@@ -139,49 +146,58 @@ Source: [https://www.bis.org/publ/qtrpdf/r_qt2212e.htm](https://www.bis.org/publ
 - The interest rate on such investment is called $n$-year zero-coupon interest rate (in short, we also call  $n$-year zero rate or $n$-year spot rate).
 - **Example:** 5-year zero-coupon bond with the principal of \$1,000 is priced at \$890. What is the 5-year zero rate with continuous compounding?
   - Solving for $r$ such that $890\times e^{r5}=1000$, $r$=2.33%.
+- However, in practice, most bonds are coupon bonds.
 
----
-
+<!-- 
 ## Zero Rates - Facts I
 
 - Zero rates vary by maturity, forming the **term structure** of interest rates.
 
 
-```{r, echo=F}
-# Load necessary libraries
-library(quantmod)
+```{r, echo=F, fig.align="center"}
+library(readr)
+library(dplyr)
 library(ggplot2)
 library(scales)
 library(readxl)
-library(dplyr)  # For data manipulation
 
-# ---- Fetch U.S. Treasury Yields from FRED ----
-us_symbols <- c("DGS1MO", "DGS3MO", "DGS6MO", "DGS1", "DGS2", "DGS3", "DGS5", "DGS7", "DGS10", "DGS20", "DGS30")
-getSymbols(us_symbols, src = "FRED")
+# ---- Load U.S. Treasury Yields from CSV (Long Format) ----
+us_path <- "data/interest_us_treasuries.csv"
+us_data <- read_csv(us_path)
 
-# Extract the most recent yields
-us_yields <- sapply(us_symbols, function(sym) last(get(sym)))
-us_maturities <- c(1/12, 3/12, 6/12, 1, 2, 3, 5, 7, 10, 20, 30)  # Convert months to years
+# Remove unwanted first column if it exists
+if ("...1" %in% colnames(us_data)) {
+  us_data <- us_data %>% select(-`...1`)
+}
 
-# Create U.S. yield curve data frame
-us_curve <- data.frame(
-  Maturity = us_maturities,
-  Yield = as.numeric(us_yields),
-  Country = "U.S. Treasury"
+# Ensure Date column is in proper format and filter for the latest date
+us_data <- us_data %>%
+  mutate(Date = as.Date(Date)) %>%
+  filter(Date == max(Date))  # Select the most recent yields
+
+# Define maturity mapping
+maturity_map <- c(
+  "DGS1MO" = 1/12, "DGS3MO" = 3/12, "DGS6MO" = 6/12,
+  "DGS1" = 1, "DGS2" = 2, "DGS3" = 3, "DGS5" = 5,
+  "DGS7" = 7, "DGS10" = 10, "DGS20" = 20, "DGS30" = 30
 )
 
-# ---- Load & Extract Korean Treasury Yields ----
-korea_path <- "data/interest_korean_treasuries.xls" # From https://www.kofiabond.or.kr/
+# Add Maturity column based on Symbol mapping
+us_curve <- us_data %>%
+  mutate(Maturity = maturity_map[Symbol], Country = "U.S. Treasury") %>%
+  select(Maturity, Yield, Country)
 
-# Read the entire Excel sheet
+# ---- Load & Extract Korean Treasury Yields ----
+korea_path <- "data/interest_korean_treasuries.xls"  # From https://www.kofiabond.or.kr/
+
+# Read the Excel file
 korea_data <- read_excel(korea_path, sheet = 1, col_names = TRUE)
 
-# Select only the required maturities and yield values from Column D
+# Select only the required maturities and yield values
 selected_rows <- c("국고채권(1년)", "국고채권(2년)", "국고채권(3년)", "국고채권(5년)", "국고채권(10년)", "국고채권(30년)")
 
-# Filter the data
 korea_filtered <- korea_data %>%
-  filter(종류명 %in% selected_rows) %>%  # Assuming row names are in the first column
+  filter(종류명 %in% selected_rows) %>%
   select(Yield = 최종호가수익률...4)  # Extract yield data from Column D
 
 # Define corresponding maturities in years
@@ -195,13 +211,13 @@ korea_curve <- data.frame(
 )
 
 # ---- Merge U.S. & Korean Yield Curves ----
-yield_curve <- rbind(us_curve, korea_curve)
+yield_curve <- bind_rows(us_curve, korea_curve)
 
 # ---- Plot the Yield Curves ----
 ggplot(yield_curve, aes(x = Maturity, y = Yield, color = Country)) +
-  geom_line(size = 1.2) +
+  geom_line(linewidth = 1.2) +
   geom_point(size = 2) +
-  scale_x_continuous(breaks = unique(yield_curve$Maturity), labels = number_format(accuracy = 0.01), guide = guide_axis(angle = 45)) +  # Two decimal points
+  scale_x_continuous(breaks = unique(yield_curve$Maturity), labels = number_format(accuracy = 0.01), guide = guide_axis(angle = 45)) +  
   labs(title = "U.S. vs. Korean Treasury Yield Curve",
        x = "Maturity (Years)",
        y = "Yield (%)",
@@ -216,7 +232,7 @@ ggplot(yield_curve, aes(x = Maturity, y = Yield, color = Country)) +
 
 - The interest rate for a certain maturity can change over time.
 
-```{r, echo=F}
+```{r, echo=F, fig.align="center"}
 # Load necessary libraries
 library(quantmod)
 library(readxl)
@@ -276,16 +292,8 @@ ggplot(yield_data, aes(x = Date)) +
   scale_x_date(date_labels = "%b %Y", date_breaks = "1 month", guide = guide_axis(angle = 45)) +  # Monthly ticks
   theme_minimal()
 ```
+ -->
 
----
-
-## Interest Rates - Notation
-
-- Given the fact that interest rates differ depending on the maturity, we use the following notation:
-  $$
-  r_0(t_1,t_2)
-  $$
-  is the interest rate from $t_1$ to $t_2$ (with continuous compounding).
 
 ---
 
@@ -299,30 +307,58 @@ ggplot(yield_data, aes(x = Date)) +
 
 **Table 4.2 Zero Rates**
 
-| Maturity (years) | Zero rate (% continuously compounded) |
-|----------------------|-----------------------------------------|
-| 0.5                | 5.0                                     |
-| 1.0                | 5.8                                     |
-| 1.5                | 6.4                                     |
-| 2.0                | 6.8                                     |
+| Maturity (years) | Zero rate (% c.c.) |
+|------------------|--------------------|
+| 0.5              | 5.0                |
+| 1.0              | 5.8                |
+| 1.5              | 6.4                |
+| 2.0              | 6.8                |
 
 
-- A **yield-to-maturity** is the single discount rate that gives a bond price equal to its market price ($y=6.76\%$)
+- A **yield-to-maturity** is the single discount rate that gives a bond price equal to its market price ($y=6.76\%$). It is a convenient way to express price in terms of a single rate of interest.
+  
   $$
   3e^{-y(0.5)} + 3e^{-y(1.0)} + 3e^{-y(1.5)} + 103e^{-y(2.0)} = 98.39
   $$
 
 ---
 
-## Bond Pricing
 
-- The par yield for a certain bond maturity is the coupon rate that makes the bond price equal its par value.
+
+## Bond Pricing {background-color="#ffebf0"}
+
+- We can also use semi-annually compounded zero rates to price the bond:
+  $$
+  \frac{3}{(1 + 0.0506)} + \frac{3}{(1 + 0.0588)^{2}} + \frac{3}{(1 + 0.0651)^{3}} + \frac{103}{(1 + 0.0692)^{4}} = 98.39
+  $$
+
+
+| Maturity (years) | Zero rate (% c.c.) | Zero rate (% s.a.) |
+|------------------|--------------------|--------------------|
+| 0.5              | 5.0                | 5.06               |
+| 1.0              | 5.8                | 5.88               |
+| 1.5              | 6.4                | 6.51               |
+| 2.0              | 6.8                | 6.92               |
+
+- The yield-to-maturity is $y=6.90\%$, s.a. compounded!
+  $$
+  \frac{3}{(1 + y)} + \frac{3}{(1 + y)^{2}} + \frac{3}{(1 + y)^{3}} + \frac{103}{(1 + y)^{4}} = 98.39
+  $$
+
+---
+
+
+## Par Rates
+
+- The par rate for a certain bond maturity is the coupon rate that makes the bond price equal its par value.
 - Suppose that the coupon on a 2-year bond is $c$ per annum. Using the zero rates in Table 4.2, the value of the bond is equal to its par value of 100 when $c=6.87\%$.
   $$
   \frac{c}{2}e^{-0.05(0.5)} + \frac{c}{2}e^{-0.058(1.0)} + \frac{c}{2}e^{-0.064(1.5)} + \left(100+\frac{c}{2}\right)e^{-0.068(2.0)} = 100
   $$
 
-- Useful for benchmarking and pricing: Can compare bonds with different coupon rates.
+- Useful for benchmarking and pricing:
+  - Can use to set the coupon rate of new bonds. (In fact, most bonds are par/coupon bonds)/
+  - Can compare bonds with different coupon rates.
 
 ---
 
@@ -350,9 +386,9 @@ ggplot(yield_data, aes(x = Date)) +
 - Suppose that we want to borrow \$1 one year from now and repay in year 2. Also, we want to fix now the interest rate for this borrowing.
 - If we fix at the forward rate, this borrowing will have cash flows as follows:
 
-  | Action                        | year 0 | year 1 | year 2       |
-  |-------------------------------|--------|--------|--------------|
-  | borrowing at forward rate     | 0      | 1      | $-e^{0.05\times 1}$ |
+| Action                    | year 0 | year 1 | year 2       |
+|---------------------------|--------|--------|--------------|
+| borrowing at forward rate | 0      | 1      | $-e^{0.05}$  |
 
 ---
 
@@ -361,22 +397,12 @@ ggplot(yield_data, aes(x = Date)) +
 - We may not have a financial instrument where we can borrow or lend at the forward rate in the markets.
 - Then, we can construct this by combining two zero coupon bonds. In this construction, we can choose the face-value of zero coupon bonds as we like.
 
-  | Action                        | year 0            | year 1 | year 2                          |
-  |-------------------------------|-------------------|--------|---------------------------------|
-  | buy 1-yr bond (lend)          | $-e^{-0.03\times 1}$ | 1      | 0                               |
-  | sell 2-yr bond (borrow)       | $e^{-0.03\times 1}$  | 0      | $-e^{-0.03\times 1}e^{0.04\times 2}$ |
-  | net                           | 0                 | 1      | $-e^{0.05\times 1}$              |
+| Action               | year 0            | year 1 | year 2       |
+|----------------------|-------------------|--------|--------------|
+| buy 1-yr bond (lend) | $-e^{-0.03}$      | 1      | 0            |
+| sell 2-yr bond       | $e^{-0.03}$       | 0      | $-e^{0.05}$  |
+| net                  | 0                 | 1      | $-e^{0.05}$  |
 
----
-
-## Forward Rates - Notation
-
-- In the forward rate, the time of measuring interest rate is different from the starting time of investment.
-- Thus, we generalize the notation for interest rate:
-  $$
-  r_t(t_1,t_2)
-  $$
-  is the interest rate from time $t_1$ to $t_2$, measured on date $t$.
 
 ---
 
@@ -402,13 +428,13 @@ ggplot(yield_data, aes(x = Date)) +
 
 ## Forward Rate Agreements
 
-- A forward rate agreement (FRA) is an agreement to exchange a predetermined fixed rate for a reference rate that will be observed in the market at a future time (the principal itself is not exchanged).
+- A **forward rate agreement (FRA)** is an agreement to exchange a predetermined fixed rate for a reference rate that will be observed in the market at a future time (the principal itself is not exchanged).
 - Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of \$100 million. Party A (B) would agree to pay (receive) LIBOR and receive (pay) the fixed rate of 3%. Assume all rates are compounded quarterly. If three-month LIBOR proved to be 3.5% in two years, Party B would receive
   $$
   \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000
   $$
 
-- As LIBOR is phased out, we can expect to see more FRAs based on floating rates such as three-month SOFR and three-month SONIA.
+- As LIBOR is phased out, we see a deline of FRAs based on LIBOR and an increases in similar derivatives based on RFR such as SOFR.^[Read: [The Post-LIBOR World]{https://www.bis.org/publ/qtrpdf/r_qt2212e.htm}]
 
 ---
 
@@ -424,10 +450,6 @@ ggplot(yield_data, aes(x = Date)) +
     $$
     \$100,000,000 \times \frac{(0.058 - 0.050)}{2} \times e^{-0.04(2)} = \$369,200
     $$
-
-
-
-<!-- LIBOR phase out and FRA @ https://www.bis.org/publ/qtrpdf/r_qt2212e.htm -->
 
 
 
@@ -460,7 +482,7 @@ ggplot(yield_data, aes(x = Date)) +
 
 - Duration measures the first order bond price sensitivity to interest rate changes.
   - Higher duration means higher price sensitivity to interest rate changes (more price volatility).
-  - More precisely, it is the elasticity of a bond price with respect to its yield
+  
 - Macaulay duration: % change in $P$ w.r.t % change in $y$.
   $$
   D_{Mac} = -\frac{dP/P}{dy/(1+y/m)} = -\frac{dP/P}{dy} (1+y/m)
@@ -499,6 +521,7 @@ ggplot(yield_data, aes(x = Date)) +
   - Due to the convexity of the price function.
 
 ---
+
 ## Dollar Duration
 
 - Dollar duration, $D_d = D_{Mod} \times P = -\frac{dP/P}{dy} \times P = -\frac{dP}{dy}$
@@ -520,7 +543,6 @@ ggplot(yield_data, aes(x = Date)) +
 
 ## Effective Duration
 
-- Effective duration
 - An *empirical* change in bond price w.r.t change in yield.
 - For securities with uncertain cash flows due to optionality (like callable bonds, MBS with prepayment options, or securities with credit risk), effective duration can be significantly different from modified (or Macaulay) duration.
 - The standard duration formulas are inaccurate when cash flows are highly uncertain. In such cases effective duration is the better measure.
@@ -542,7 +564,7 @@ $$
 
 ## Convexity
 
-- Convexity is found by taking the second derivative of the bond price function and then dividing by the price $= \frac{1}{P} \frac{d^2 P}{d y^2}$ for an option-free bond:
+- Convexity is found by taking the second derivative of the bond price function and then dividing by the price ($\frac{1}{P} \frac{d^2 P}{d y^2}$) for an option-free bond:
   - $C_{Mod} =\sum_{i=1}^{N} t_i^2  \frac{ K_i  e^{-y_c t_i}}{P}$
   - $C_{Mod} = \sum_{i=1}^{N} t_i \left( t_i + \frac{1}{m} \right)\frac{K_i \left( 1+ y_m/m \right)^{-(mt_i+2)}}{P}$
   - $C_{Mac} = C_{Mod} \times (1+y/m)^2$
@@ -613,13 +635,13 @@ $$
     - For 3 year 6.3% bond: $y = 6.00\%, D = 2.6999$
 
 3. Find $x$ and $y$ in:
-    - $\$1m(4.1688)+x(7.005)=0  \Rightarrow x =\$595,167 $
-    - $\$1m(4.1688)+y(2.7)=0 \Rightarrow y = \$1,543,947 $
+    - $\$1m(4.1688)+x(7.005)=0  \Rightarrow x =\$595,167$
+    - $\$1m(4.1688)+y(2.7)=0 \Rightarrow y = \$1,543,947$
 
 4. If yields rise by 1% overnight on all the bonds:
-    - For 5 yr, yield to 7.9\%,: $P=\$959.423/1,000=0.959423$, Loss: $(\$1,000,000)(1-0.959423) = \$40,577 $
+    - For 5 yr, yield to 7.9\%,: $P=\$959.423/1,000=0.959423$, Loss: $(\$1,000,000)(1-0.959423) = \$40,577$
     - For 10 year yield to 7.5\% $P=\$1034.81/1109=0.93311$, Loss: $(\$595,167)(1-0.93311) = \$39,810$
-    - For 3 year yield to 7\%: $P=\$981.42/\$1,008.1=0.97353$, Loss: $(\$1,543,947)(1-.97353) = \$40,861 $
+    - For 3 year yield to 7\%: $P=\$981.42/\$1,008.1=0.97353$, Loss: $(\$1,543,947)(1-.97353) = \$40,861$
 
 ---
 
@@ -636,6 +658,6 @@ $$
   - $ \$1m(4.1685) = P2(7.004) + P3(2.699)$
 
 - Match gamma:
-  - $ \$1m(21.038) = P2(62.98) + P3(8.939) $
+  - $ \$1m(21.038) = P2(62.98) + P3(8.939)$
 
 - 2 linear equations in two unknowns. Solve for P2 and P3.

@@ -1,0 +1,575 @@
+---
+title: "Pricing Forwards"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: 
+  revealjs:
+    theme: simple
+    transition: fade
+    transition-speed: fast
+    scrollable: true
+    slide-number: true
+    #toc: true
+    chalkboard: true
+revealjs-plugins:
+    - revealjs-text-resizer
+execute:
+    echo: true
+    eval: true
+---
+
+
+## Lecture Outline
+
+-   No Arbitrage Argument
+    -   What is arbitrage?
+    -   Short-selling
+-   Determination of Forward Prices
+-   Valuing Forward Contracts
+-   Comparison Between Forward and Futures Prices
+-   Reading: Ch. 5
+
+
+
+
+## Arbitrage
+
+-   **Arbitrage** is a trade where investors can make ``free lunch'' profits.
+-   For instance, if we see a price difference for the same assets, we can make an arbitrage profit (buy low and sell high).
+-   *e.g.* Suppose that a stock is traded in both New York Stock Exchange and London Stock Exchange. Its price in New York is \$140, while it is \pounds 100 in London. The exchange rate is \$1.43 per pound.
+    -   Buy a share in New York and sell it in London.
+    -   Profit = 100×1.43 - 140 = \$3. This profit is risk-free.
+
+## Arbitrage - Definition
+
+-   Formally, we claim that a trading strategy is an arbitrage if it satisfies the following conditions.
+
+    1.  It always generates **non-negative** cash flows, and
+    2.  It sometimes generates **positive** cash flows.
+   
+-   Is each of the following strategies an arbitrage?
+|           | Cash flows $T=0$ | $T=1$ | $T=2$ |
+| :-------- | :--------------- | :---- | :---- |
+| Strategy 1 | -2               | 1     | 3     |
+| Strategy 2 | 0                | 0     | 0.5   |
+
+|           | Cash flows $T=0$ | $T=1$ (case 1) | $T=1$ (case 2) |
+| :-------- | :--------------- | :------------- | :------------- |
+| Strategy 3 | 0                | 0.2            | 0.2            |
+| Strategy 4 | 0                | 0              | 0.3            |
+
+## No Arbitrage Argument
+
+-   In the markets, there are numerous investors looking for any arbitrage opportunity.
+-   Suppose that an arbitrage exists for a certain asset.
+-   Due to forces of supply and demand, the prices will eventually change. In equilibrium, the prices of one asset will be the same across different markets.
+-   Generally, arbitrage opportunities quickly disappear.
+
+## No Arbitrage Argument
+
+-   Also, we can apply the no arbitrage argument to two assets (portfolios) $A$ and $B$ that will generate the same cash flows in the future in every condition.
+-   The current prices of assets $A$ and $B$ should be the same. Otherwise, an arbitrage exists.
+-   If current prices are different, we can make an arbitrage through ``**buy low and sell high**''.
+
+    $\Rightarrow$ However, an arbitrage should NOT exist in a purely competitive financial market.
+
+## Arbitrage - Assumptions
+
+In making an arbitrage strategy, we assume the followings.
+
+-   We consider an investor who has nothing in hand at the beginning of the strategy and liquidates all assets at the end.
+-   We measure profit/loss in terms of **cash flows**.
+-   The investor can borrow money (sell a bond) or lend money (buy a bond) at the risk-free rate.
+
+    -   We can choose any bond amount (face value) as we like.
+-   *e.g.* If we buy a bond at the rate $r$,
+| Action      | time 0 | time $T$    |
+| :---------- | :----- | :---------- |
+| buy a bond  | -1     | $e^{rT}$    |
+
+## Short Selling
+
+-   In constructing an arbitrage, we assume that the market allows short selling.
+-   **Def.** Short selling is selling an asset that we do not own.
+-   *e.g.* Suppose that an investor wants to short a stock at time $0$ at the current price of \$120.
+
+    -   At time $0$, the investor borrows the stock, sells immediately, and receives the proceeds of \$120.
+    -   One year later, stock price falls to \$100. To close the position, the investor buys the stock and return it back to the original owner.
+
+| Action           | Year 0 | Year 1 |
+| :--------------- | :----- | :----- |
+| (Short) Sell a stock | 120    | -100  |
+
+## Short Selling
+
+-   What if the share pays dividend?
+-   Then, the shorting investor needs to pay the dividend to the original owner.
+-   *e.g.* An investor shorts a stock at time 0 whose current price is \$120. The stock pays \$5 dividend in six month.
+
+    -   Again, by borrowing and selling immediately, the investor receives \$120.
+    -   In six month, the investor provides the original owner with the \$5 dividend.
+    -   One year later, stock price falls to \$90. To close the position, the investor buys the stock and return it back to the original owner.
+
+| Action           | Year 0 | Year 0.5 | Year 1 |
+| :--------------- | :----- | :------- | :----- |
+| (Short) Sell a share | 120    | -5      | -90    |
+
+
+
+## Determination of Forward Prices - Basic Idea
+
+-   Investors enter a long or short position in forward contract **at zero cost**.
+-   In other words, the value of forward contract should be **zero** at the time of initiating the contract.
+-   Conversely, we can determine the forward price, so that the current value of forward contract becomes zero.
+
+## Determination of Forward Prices - Setting
+
+-   Assumptions
+
+    -   No transaction costs.
+    -   The market participants have the same tax rate on all net trading profits.
+    -   The market participants can borrow or lend money at the risk-free interest rate.
+    -   The market participants take advantage of arbitrage opportunities.
+-   Notation
+
+    -   $T$: delivery date of contract
+    -   $S_0$: spot price of the underlying asset today
+    -   $S_T$: spot price of the underlying asset at time $T$
+    -   $F_0$: forward price today
+    -   $r$: risk-free rate per annum (with continuous compounding)
+
+## Determination of Forward Prices
+
+-   Consider an underlying asset that pays no dividends. Its current price is $S_0$.
+-   What should be the forward price?
+
+## Determination of Forward Prices - Derivation 1
+
+-   Your goal is to own a stock at $T$.
+
+    1.  long forward with $F_0$.
+    2.  borrow $S_0$, buy a stock, and wait til $T$.
+-   At the contract maturity $T$, the two strategies should have to same cash flow.
+
+    1.  $S_T - F_0$
+    2.  $S_T - S_0e^{rT}$
+-   No net cash flow today. Therefore:
+
+$$
+F_0 = S_0e^{rT}
+$$
+
+## Determination of Forward Prices - Derivation 2
+
+-   Let's consider the following two portfolios:
+
+    1.  long forward with $F_0$ + buy a bond that will pay $F_0$ at $T$
+    2.  buy a stock
+-   At the contract maturity $T$, the two portfolios have the same cash flows:
+
+    1.  $(S_T - F_0) + F_0$
+    2.  $S_T$
+-   Thus, their current value should be the same:
+
+$$
+0 + F_0e^{-rT} = S_0
+$$
+
+## Determination of Forward Prices - Derivation 3
+
+-   The payoff from a forward contract at $T$ is $S_T - F_0$
+-   The present value of the payoff at time 0 is $S_0 - F_0e^{-rT}$
+    -   $S_0 = \text{PV of } S_T = e^{\alpha T}S_T$, where $\alpha$ is the discount rate accounting for the risk of the stock.
+-   The value of the forward is zero at 0. Therefore, $0 = S_0 - F_0e^{-rT}$
+-   Solving for $F_0 = S_0 e^{rT}$
+
+## Determination of Forward Prices - Arbitrage
+
+-   What if
+
+$$
+F_0 \neq S_0 e^{rT} ?
+$$
+
+$\Rightarrow$ An arbitrage exists.
+
+-   *e.g.* Consider a 3-month forward contract on a stock whose current price is \$40. The 3-month risk-free interest rate is 5% per annum.
+
+    1.  What if the forward price is $43 ~( > 40e^{0.05\times 3/12})$?
+
+        $\Rightarrow$ There is an arbitrage:
+
+| Action        | Cash flow in 0 | Cash flow in 3 months |
+| :------------ | :------------- | :-------------------- |
+| buy stock     | -40            | $S_T$                 |
+| short forward | 0              | $43 - S_T$            |
+| sell bond     | 40             | -42.497               |
+| net           | 0              | 0.503                 |
+
+## Determination of Forward Prices - Arbitrage
+
+1.  What if the forward price is $39 ~( < 40e^{0.05\times 3/12})$?
+
+    $\Rightarrow$ There is another arbitrage strategy:
+
+| Action        | Cash flow in 0 | Cash flow in 3 months |
+| :------------ | :------------- | :-------------------- |
+| sell stock    | 40             | -$S_T$               |
+| buy forward   | 0              | $S_T - 39$           |
+| buy bond      | -40            | 41.503               |
+| net           | 0              | 1.503                |
+
+## Determination of Forward Prices - Example
+
+-   Q. Consider a 1-year forward contract on a stock whose current price is \$50. The forward price is \$51, and the risk-free interest rate is 7% per annum. Is there an arbitrage? If so, show the arbitrage strategy.
+
+
+
+## Determination of Forward Prices - Example
+
+-   Q. Consider a 1-year forward contract on a stock whose current price is \$50. The forward price is \$51, and the risk-free interest rate is 7% per annum. Is there an arbitrage? If so, show the arbitrage strategy.
+
+| Action        | Cash flow in 0 | Cash flow in 1 year |
+| :------------ | :------------- | :------------------ |
+| buy stock     | -50            | $S_T$               |
+| short forward | 0              | $51 - S_T$          |
+| sell bond     | 50             | -53.5               |
+| net           | 0              | -2.5                |
+
+
+## Forward and Spot Prices
+
+-   Consider a forward contract initiating at time $t$. Given the maturity date $T$, the forward price is
+
+$$
+F_t = S_te^{r(T-t)}
+$$
+
+-   Thus, the forward and spot prices are usually different. Only at the expiration, they become the same.
+-   Also, the forward price changes through time.
+
+
+# Determination of Forward Prices for Underlying Assets Paying Dividends
+
+## Dividend Payment and Forward Prices
+
+-   Until now, we have assumed that the underlying assets in forward do not pay any dividends.
+-   What if the underlying asset will pay dividends in the future? Are there changes in forward prices?
+-   $\Rightarrow$ Yes, because...
+
+    -   The current price $S_0$ of the underlying asset includes the future dividends.
+    -   However, a long/short position in forward will not receive the dividends. Also, the forward payoff is determined by the ex-dividend price.
+
+## Determination of Forward Prices - Discrete Dividends
+
+-   We consider two different forms of dividend payments.
+
+    1.  Discrete dividends: dividends will be paid at certain points in time.
+    2.  Continuous dividends: dividends will be paid at every instant continuously.
+-   We first consider the case of discrete dividends.
+-   Suppose that stock pays dividends until the maturity $T$. The present value of all future dividends is $I$.
+-   The forward price is
+
+$$
+F_0 =(S_0 - I)e^{rT}
+$$
+
+## Determination of Forward Prices - Discrete Dividends
+
+-   Why? Consider the following two portfolios:
+
+    1.  long forward with $F_0$ + buy a bond that will pay $F_0 + Ie^{rT}$ at $T$
+    2.  buy a stock
+-   At the contract maturity $T$, the two portfolios have the same cash flows:
+
+    1.  $(S_T - F_0) + F_0 + Ie^{rT}$
+    2.  $(S_T + Ie^{rT})$
+-   The portfolio values are the same at $T$. Thus, their current values are the same:
+
+$$
+0 + F_0e^{-rT} + I = S_0
+$$
+
+## Determination of Forward Prices - Discrete Dividends
+
+-   Q1. Consider a 9-month forward contract on a corporate bond. The current price of the corporate bond is \$900, and it will pay \$40 coupon in 4 months. The 4-month and 9-month risk-free rates are 3% and 4%, respectively. If there is no arbitrage, what is the forward price?
+
+    **Answer:** The forward price is
+
+$$
+(900 - 40e^{-0.03\times4/12})e^{0.04\times 9/12} = 886.60
+$$
+
+## Determination of Forward Prices - Discrete Dividends
+
+-   Q2. Consider the 9-month forward contract on the corporate bond in Q1. Suppose that the forward price is \$910. Is there an arbitrage? If so, show the arbitrage strategy.
+
+## Determination of Forward Prices - Discrete Dividends
+
+-   Q2. Consider the 9-month forward contract on the corporate bond in Q1. Suppose that the forward price is \$910. Is there an arbitrage? If so, show the arbitrage strategy.
+
+    **Answer**: 886.60 $<$ 910. Thus, we can think of the following arbitrage strategy:
+
+| Action             | Cash flow in 0 | Cash flow in 4 months | Cash flow in 9 months |
+| :----------------- | :------------- | :-------------------- | :-------------------- |
+| buy corporate bond | -900           | 40                    | $S_T$                 |
+| short forward      | 0              | 0                     | $910 - S_T$           |
+| sell 4-month bond  | 39.70          | -40                   | 0                     |
+| sell 9-month bond  | 872.90         | 0                     | -910                  |
+| net                | 12.60          | 0                     | 0                     |
+
+## Determination of Forward Price - Continuous Dividends
+
+-   Some securities pay continuous dividends (e.g, stock index, foreign currency).
+
+    -   Once we invest in a stock index, dividends from each individual stock will be paid at different points of time.
+    -   Having a lot of stocks in the index, we can approximate the index as paying dividends continuously.
+-   To simplify the argument, we assume that the dividends will be reinvested immediately to buy more shares.
+
+## Determination of Forward Price - Continuous Dividends
+
+-   Let $q$ denote the dividend yield per annum. Stock price at time $0$ is $S_0$.
+
+    -   Let $N$ denote the number of dividend payments in a year.
+    -   In one period, investor receives dividend $\frac{q}{N}S_t$.
+    -   Reinvesting the dividend, the investor owns $\frac{q}{N}$ additional shares. Thus, the number of shares increases by factor of $\left(1+\frac{q}{N} \right)$ in one period.
+    -   When investing for one year, the number of shares increases by factor of $\left(1+\frac{q}{N} \right)^{N}$. If $N$ becomes infinitely large, the factor becomes $e^q$.
+-   If we invest for $T$ years, the number of shares increases by $e^{q T}$.
+
+## Determination of Forward Price - Continuous Dividends
+
+-   What if the underlying asset pays continuous dividends with dividend yield $q$ per annum?
+-   Forward price is
+
+$$
+F_0 = S_0e^{(r-q)T}
+$$
+
+-   Why? Consider the two portfolios:
+
+    1.  long forward with $F_0$ + buy a bond that will pay $F_0$ at $T$
+    2.  buy $e^{-qT}$ share of stock
+-   The two portfolios will have the same cash flows at $T$:
+
+    1.  $(S_T-F_0) + F_0$
+    2.  $S_Te^{-qT}e^{qT}$
+-   Therefore, the two portfolios should have the same present values:
+
+$$
+0 + F_0e^{-rT} = S_0e^{-qT}
+$$
+
+## Determination of Forward Price - Continuous Dividends - Foreign Currency
+
+-   If we hold a foreign currency, we receive interests that are paid continuously at the risk-free rate prevailing in the foreign country.
+-   Thus, foreign currency can be regarded as an asset with continuous dividends.
+-   Forward price is then
+
+$$
+F_0 = S_0 e^{(r-r_f)T}
+$$
+
+where $r_f$ is the foreign risk-free rate.
+
+## Determination of Forward Price - Continuous Dividends - Foreign Currency
+
+-   Q1. Suppose that the 2-year interest rates in Hong Kong and the United Kingdom are 3% and 1%, respectively, and the spot exchange rate between the British Pound (GBP) and the Hong Kong Dollar (HKD) is 9.65 HKD per GBP. A 2-year forward exchange rate is 11.00. Is there an arbitrage for Hong Kong investors?
+
+## Determination of Forward Price - Continuous Dividends - Foreign Currency
+
+-   Q1. Suppose that the 2-year interest rates in Hong Kong and the United Kingdom are 3% and 1%, respectively, and the spot exchange rate between the British Pound (GBP) and the Hong Kong Dollar (HKD) is 9.65 HKD per GBP. A 2-year forward exchange rate is 11.00. Is there an arbitrage for Hong Kong investors?
+
+    **Answer:** $11.00 > 9.65e^{(0.03-0.01)\times2}$. Thus, there is an arbitrage. We can consider the following strategy:
+
+| Action      | Cash flow now | Cash flow in 2 years |
+| :---------- | :------------ | :------------------- |
+| buy GBP     | -9.47         | $S_T$                |
+| short forward | 0           | 11.00 - $S_T$        |
+| sell HK bond | 10.40        | -11.00               |
+| net         | 0.93          | 0                    |
+
+## Determination of Forward Price - Continuous Dividends - Foreign Currency
+
+-   Q2. Suppose that the 2-year interest rates in Hong Kong and the United Kingdom are 3% and 1%, respectively, and the spot exchange rate between the British Pound (GBP) and the Hong Kong Dollar (HKD) is 9.65 HKD per GBP. A 2-year forward exchange rate is 9.70. Is there an arbitrage for Hong Kong investors?
+
+## Determination of Forward Price - Commodities
+
+-   Storing commodities has costs and benefits
+
+-   Forward price with proportional storage cost $u$
+
+$$
+F_0 = S_0 e^{(r+u)T}
+$$
+
+-   Forward price with convenience yield $y$
+
+$$
+F_0 = S_0 e^{(r-y)T}
+$$
+
+-   Together
+
+$$
+F_0 = S_0 e^{(r-y+u)T}
+$$
+
+## The shape of the forward curve
+
+-   Contango is a pattern of forward prices that increases with contract maturity
+-   Backwardation is a pattern of forward prices over time that decreases with contract maturity
+
+
+![](img/pricing_forwards_futurescurve.png){fig-align="center"}
+   
+
+
+
+## Commodities that cannot be stored
+
+-   May be no storage or very limited storage life: electricity, lettuce, strawberries, temperature, rainfall, ...
+-   For non-storable commodities, forward prices can have information about future spot prices because no-arbitrage conditions don't hold (i.e. not tied to current price)
+
+    -   Approach to pricing is to model stochastic future spot prices
+    -   Also must infer discount rates
+
+## Summary
+
+-   For stocks, bonds, currencies, metals, stored agricultural commodities, etc., there is no new information in forward prices over what can be learned from spot prices!
+-   The forward price is tied down by no-arbitrage conditions that depend only on the underlying spot price, interest rates, and associated cash flows between 0 and $T$ (dividends, coupons, storage costs, convenience yield)
+-   Can we use forward prices to predict future spot price?
+-   Is the expected future price of a non-dividend paying stock higher or lower than its forward price?
+
+
+
+# Valuing Forward Contracts
+
+## Valuing Forward Contracts
+
+-   The value of forward is **zero** **at the moment we initiate** the contract.
+-   However, as time passes, its later value can be either negative or positive.
+-   Suppose that we have a **long position** in a forward with price $F_0$ that was entered at time 0.
+-   What is the value $f$ of the forward at time $t$?
+
+|             | Value at $0$ | Value at $t$ |
+| :---------- | :----------- | :----------- |
+| Forward with $F_0$ | 0           | $f$           |
+
+## Valuing Forward Contracts
+
+-   To find the time-$t$ value of the forward with $F_0$, we consider another forward that we just start at $t$.
+-   Consider the following two portfolios at $t$:
+
+    1.  long forward with $F_0$ + buy a bond that will pay $F_0-F_t$ at $T$
+    2.  long forward with $F_t$
+-   The two portfolios will generate the same cash flows at $T$:
+
+    1.  $(S_T-F_0) + (F_0-F_t)$
+    2.  $S_T-F_t$
+-   Then, the time-$t$ values of the two portfolios should be the same. As a result, the time-$t$ value of the **long position** in forward with $F_0$ is
+
+$$
+f + (F_0-F_t)e^{-r(T-t)} =0
+$$
+
+## Valuing Forward Contracts
+
+-   In a similar way, we can find time-$t$ value of **short position** in forward with $F_0$ that we started at time 0.
+-   Consider the two portfolios at $t$:
+
+    1.  short forward with $F_0$ + buy a bond that will pay $F_t-F_0$ at $T$
+    2.  short forward with $F_t$
+-   The two portfolios will generate the same cash flows at $T$:
+
+    1.  $(F_0-S_T) + (F_t-F_0)$
+    2.  $F_t-S_T$
+-   Then, the time-$t$ values of the two portfolios should be the same. As a result, the time-$t$ value of the **short position** in forward with $F_0$ is
+
+$$
+f = (F_0 - F_t)e^{-r(T-t)}.
+$$
+
+## Valuing Forward Contracts
+
+-   We can express the value of forward in a different way by using the forward price $F_t$
+
+$$
+F_t =
+\begin{cases}
+S_t e^{r(T-t)} & ~~~ \text{no dividned} \\
+(S_t - I) e^{r(T-t)} & ~~~ \text{discrete divideds}\\
+S_t e^{(r-q)(T-t)} & ~~~ \text{continuous dividends}
+\end{cases}
+$$
+
+-   As an example, if the underlying asset pays no dividend, the time-$t$ value of the forward is
+
+$$
+f = S_t - F_0e^{-r(T-t)}
+$$
+
+for a long position.
+
+## Valuing Forward Contracts
+
+-   Q. In August 2020, an investor entered a long position in forward on a stock for delivery in August 2021. At that time, stock price was \$40. Two months later, in October 2020, the stock price becomes \$45. What is the value of the forward? Assume that the risk-free rate of interest is 5%.
+
+
+
+## Forward vs. Futures Prices
+
+-   For the same underlying asset and expiration, the futures and forward prices are very close to each other, but a bit different (due to daily settlement of futures).
+-   Compare cash flows between forward and futures for a long position:
+
+| Day | Forward | Futures |
+| :-: | :-: | :-: |
+| 0 |  |  |
+| 1 | 0 | $F_1 - F_0$ |
+| 2 | 0 | $F_2 - F_1$ |
+| $\vdots$ | $\vdots$ | $\vdots$ |
+| T | $S_T-F_0$ | $S_T - F_{T-1}$ |
+
+-   When the risk-free rate is zero, the cumulative gain in futures is the same as the forward payoff. Thus, the forward and futures are the same in cash flows.
+
+    $\Rightarrow$ Futures price = Forward price
+
+## Forward vs. Futures Prices
+
+-   When the risk-free rate is not zero, the cumulative gain in futures is different from the forward payoff.
+
+| Day | Forward | Futures | Interest Factor |
+| :-: | :-: | :-: | :-: |
+| 0 |  |  |  |
+| 1 | 0 | $F_1 - F_0$ | $e^{r_1 \cdot (T-1)/365}$ |
+| 2 | 0 | $F_2 - F_1$ | $e^{r_2 \cdot (T-2)/365}$ |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+| t | 0 | $F_t - F_{t-1}$ | $e^{r_t \cdot (T-t)/365}$ |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+| T | $S_T-F_0$ | $S_T - F_{T-1}$ | $e^{r_T \cdot 0/365}$ |
+
+-   Whether the cumulative gain in futures is larger/smaller than the forward payoff depends on the **correlation** between risk-free rate and spot price of underlying asset.
+
+## Forward vs. Futures Prices
+
+1.  What if the price of the underlying asset is **positively** correlated with the interest rate?
+
+    -   For a long position, the gain on futures tend to be **larger** than the forward payoff. Why?
+
+        -   Suppose that $S_t > S_{t-1}$. Long position is likely to see daily gain ($F_t-F_{t-1}>0$). This coincides with a larger interest factor due to a higher interest rate.
+        -   Suppose that $S_t < S_{t-1}$. Long position is likely to see daily loss ($F_t-F_{t-1}<0$). This coincides with a smaller interest factor due to a lower interest rate.
+    -   Thus, Futures price $>$ Forward price
+
+## Forward vs. Futures Prices
+
+1.  What if the price of the underlying asset is **negatively** correlated with the interest rate?
+
+    -   For a long position, the gain on futures tend to be **smaller** than the forward payoff. Why?
+
+        -   Suppose that $S_t > S_{t-1}$. Long position is likely to see daily gain ($F_t-F_{t-1}>0$). This coincides with a smaller interest factor due to a lower interest rate.
+        -   Suppose that $S_t < S_{t-1}$. Long position is likely to see daily loss ($F_t-F_{t-1}<0$). This coincides with a larger interest factor due to a higher interest rate.
+    -   Thus, Futures price $<$ Forward price
+
+## Forward vs. Futures Prices
+
+-   For most contracts, the covariance between futures prices and interest rates is so low that the difference between futures and forward prices will be negligible.
+-   However, in contracts on long-term fixed-income securities, prices have a high correlation with interest rates, the covariance can be large enough to generate a meaningful spread between forward and futures prices
