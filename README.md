@@ -11,7 +11,7 @@ Lecture1: Introduction and Overview
 Lecture2: Interest Rates
 [Lecture Note](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_interest/chapter_interest.html) / 
 [Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/problem_interest/problem_interest.html) / 
-[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/solution_interest/solution_interest.html)
+[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/solution_interest/solution_interest.html) / 
 [Duration and Convexity](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/data/Duration_Convexity2.xlsx)
 
 
