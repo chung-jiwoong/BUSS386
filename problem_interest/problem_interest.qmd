@@ -9,7 +9,7 @@ execute:
     eval: true
 ---
 
-- If you notice any typos or errors, please feel free to [email me](chung_jiwoong@gmail.com). 
+- If you notice any typos or errors, please feel free to [email me](chung_jiwoong@korea.ac.kr).
 - Many of the problems are sourced from Hull (2022).
 
 ---
