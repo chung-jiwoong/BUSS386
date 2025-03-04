@@ -76,9 +76,13 @@ execute:
 
 - While LIBOR has been largely phased out, it still exists in some legacy contracts.
 
-![](img/interest_libor.png){fig-align="center"}
+::: {style="text-align: center;"}
+![](img/interest_libor.png){width=120%}
+:::
 
-Source: [https://www.bis.org/publ/qtrpdf/r_qt2212e.htm](https://www.bis.org/publ/qtrpdf/r_qt2212e.htm)
+<center>
+<small>Source: https://www.bis.org/publ/qtrpdf/r_qt2212e.htm</small>
+</center>
 
 
 ---
@@ -325,7 +329,7 @@ ggplot(yield_data, aes(x = Date)) +
 
 
 
-## Bond Pricing {background-color="#ffebf0"}
+## Bond Pricing (Compounded semi-annually) {background-color="#ffebf0"}
 
 - We can also use semi-annually compounded zero rates to price the bond:
   $$
@@ -434,7 +438,7 @@ ggplot(yield_data, aes(x = Date)) +
   \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000
   $$
 
-- As LIBOR is phased out, we see a deline of FRAs based on LIBOR and an increases in similar derivatives based on RFR such as SOFR.^[Read: [The Post-LIBOR World]{https://www.bis.org/publ/qtrpdf/r_qt2212e.htm}]
+- As LIBOR is phased out, we see a deline of FRAs based on LIBOR and an increases in similar derivatives based on RFR such as SOFR.^[Read: [The Post-LIBOR World](https://www.bis.org/publ/qtrpdf/r_qt2212e.htm)]
 
 ---
 
@@ -474,7 +478,7 @@ ggplot(yield_data, aes(x = Date)) +
   - $P_0 = \sum_{i=1}^{N} K_i e^{-y_c t_i}$, when $y_c$ is quoted as continuously compounded.
   - $P_0= \sum_{i=1}^{N} K_i (1+y_m/m)^{-mt_i}$ when $y_m$ is quoted as compounded $m$ times per year.
 - Duration measures are related to the first partial derivative: $\partial P / \partial y$
-- Convexity measures are related to the second derivative: $ \partial^2 P / \partial y^2$
+- Convexity measures are related to the second derivative: $\partial^2 P / \partial y^2$
 
 ---
 
@@ -655,9 +659,9 @@ $$
   - $P3 = ?, D3 = 2.699, C3 = 8.939$
 
 - Match hedge ratios:
-  - $ \$1m(4.1685) = P2(7.004) + P3(2.699)$
+  - $\$1m(4.1685) = P2(7.004) + P3(2.699)$
 
 - Match gamma:
-  - $ \$1m(21.038) = P2(62.98) + P3(8.939)$
+  - $\$1m(21.038) = P2(62.98) + P3(8.939)$
 
 - 2 linear equations in two unknowns. Solve for P2 and P3.

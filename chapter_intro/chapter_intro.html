@@ -212,7 +212,7 @@ Prof.&nbsp;Ji-Woong Chung
 <ul>
 <li>Overview of derivatives/markets</li>
 <li>Review: measures of return and risk</li>
-<li>Reading: §1.1–1.10 and 22.1–22.3</li>
+<li>Reading: Hull, Ch. 1.1–1.10 and 22.1–22.3</li>
 </ul>
 </section>
 <section>
@@ -224,8 +224,8 @@ Prof.&nbsp;Ji-Woong Chung
 <h2>What are derivatives?</h2>
 <ul>
 <li>A derivative is a financial security (i.e., instrument, contract, asset) whose value depends on other underlying <strong>variables</strong>.</li>
-<li>Example 1: A contract to buy 50,000 barrels of crude oil on September 16, 2017, for $50 per barrel.</li>
-<li>Example 2: An option contract that gives the holder the right, but not the obligation, to buy 100 shares of a company’s stock at $100 per share within the next three months.</li>
+<li>Example: A contract to buy 50,000 barrels of crude oil on September 16, 2017, for $50 per barrel.</li>
+<li>Example: An option contract that gives the holder the right, but not the obligation, to buy 100 shares of a company’s stock at $100 per share within the next three months.</li>
 </ul>
 </section>
 <section id="what-are-the-underlying-variables" class="slide level2">
@@ -261,10 +261,12 @@ Prof.&nbsp;Ji-Woong Chung
 </section>
 <section id="history-of-derivatives" class="slide level2">
 <h2>History of derivatives</h2>
-
-<img data-src="img\intro_dojima.jpg" data-fig.align="center" class="r-stretch"><div class="small">
-<p>Source: https://professornerdster.com/tag/forward-contracts/</p>
+<div style="text-align: center;">
+<p><img data-src="img/intro_dojima.jpg"></p>
 </div>
+<center>
+<small>Source: https://professornerdster.com/tag/forward-contracts/</small>
+</center>
 <ul>
 <li>Established in the 1690s. Initially, rice exchange</li>
 <li>Futures trading began in 1730 for hedging.</li>
@@ -293,7 +295,7 @@ Prof.&nbsp;Ji-Woong Chung
 <section id="where-to-trade-derivatives" class="slide level2">
 <h2>Where to trade derivatives</h2>
 <p>Derivatives can be traded in two main types of markets:</p>
-<p><strong><em>Exchange-Traded Market</em></strong></p>
+<h3 id="exchange-traded-market">Exchange-Traded Market</h3>
 <ul>
 <li><strong>Centralized Trading</strong>: All buy and sell orders are centralized in one place, either physically or electronically.</li>
 <li><strong>Standardized Contracts</strong>: Contracts are standardized, ensuring uniformity and reducing the risk of counterparty default.</li>
@@ -302,9 +304,9 @@ Prof.&nbsp;Ji-Woong Chung
 <li><strong>Liquidity</strong>: High concentration of trades creates liquidity, which in turn attracts more liquidity.</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<p><strong><em>Over-the-Counter (OTC) Market</em></strong></p>
+<section id="where-to-trade-derivatives-1" class="slide level2">
+<h2>Where to trade derivatives</h2>
+<h3 id="over-the-counter-otc-market">Over-the-Counter (OTC) Market</h3>
 <ul>
 <li><strong>Decentralized Trading</strong>: There is no central place for collecting orders. Participants trade directly with each other or through a network of dealers.</li>
 <li><strong>Customizable Contracts</strong>: Contracts are not standardized and can be tailored to meet the specific needs of the participants.</li>
@@ -314,10 +316,12 @@ Prof.&nbsp;Ji-Woong Chung
 </section>
 <section id="market-types-and-trading-volume" class="slide level2">
 <h2>Market Types and Trading Volume</h2>
-
-<img data-src="../img/intro_derivative_market_size.png" class="quarto-figure quarto-figure-center r-stretch"><div style="text-align: center; font-size: small;">
-<p>Source: Bank for International Settlement</p>
+<div style="text-align: center;">
+<p><img data-src="img/intro_derivative_market_size.png"></p>
 </div>
+<center>
+<small>Source: Bank for International Settlement</small>
+</center>
 </section>
 <section id="what-contributed-to-rapid-growth" class="slide level2">
 <h2>What contributed to rapid growth?</h2>
@@ -397,12 +401,14 @@ Prof.&nbsp;Ji-Woong Chung
 <li>The process of unwinding these transactions has been challenging for both Lehman’s liquidators and their counterparties.</li>
 </ul>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-
-<img data-src="../img/intro_centralclearing.png" class="quarto-figure quarto-figure-center r-stretch"><div style="text-align: center;">
-<p><a href="https://www.bis.org/publ/otc_hy2311.htm">https://www.bis.org/publ/otc_hy2311.htm</a></p>
+<section id="central-clearing" class="slide level2">
+<h2>Central Clearing</h2>
+<div style="text-align: center;">
+<p><img data-src="img/intro_centralclearing.png"></p>
 </div>
+<center>
+<small>Source: <a href="https://www.bis.org/publ/otc_hy2311.htm">Bank for International Settlement</a></small>
+</center>
 </section>
 <section id="who-trades-derivatives" class="slide level2">
 <h2>Who trades derivatives?</h2>
@@ -632,7 +638,7 @@ $GeometricMean
 <span id="cb11-5"><a href=""></a>sharpe_ratio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  daily.returns
-Annualized Return     0.5369727</code></pre>
+Annualized Return     0.5213603</code></pre>
 </div>
 </div>
 <ul>
@@ -672,7 +678,7 @@ f(x) = \frac{1}{\sqrt{2\pi} }e^{-\frac{r^2}{2}}
 <li>Suppose that we want to find the probability that <span class="math inline">\(R\)</span> is lower than <span class="math inline">\(x\)</span>. Graphically, this probability is the shadowed area in the figure below:</li>
 </ul>
 
-<img data-src="chapter_intro_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="chapter_intro_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1920"></section>
 <section id="standard-normal-random-variables-1" class="slide level2">
 <h2>Standard Normal Random Variables</h2>
 <ul>
@@ -727,13 +733,17 @@ f(x) = \frac{1}{\sqrt{2\pi} }e^{-\frac{r^2}{2}}
 <ul>
 <li><span class="math inline">\(\text{log-return}= \ln R_t = \ln \frac{P_t}{P_{t-1}} = \ln P_t - \ln P_{t-1} \sim N(\cdot)\)</span></li>
 </ul></li>
-<li><p>By the way,</p>
+</ul>
+
+<aside><div>
+<ul>
+<li>By the way,
 <ul>
 <li><span class="math inline">\(E(X) = e^{\mu + \sigma^2/2}\)</span>. In fact <span class="math inline">\(E(X^n) = e^{n\mu + n^2\sigma^2/2}\)</span></li>
 <li><span class="math inline">\(Var(X) = E(X^2)- E(X)^2 = e^{2\mu + 2\sigma^2} - e^{2\mu + \sigma^2} = e^{2\mu + \sigma^2}(e^{\sigma^2}-1)\)</span></li>
 </ul></li>
 </ul>
-</section>
+</div></aside></section>
 <section id="risk-measures" class="slide level2">
 <h2>Risk Measures</h2>
 <ul>
@@ -764,19 +774,25 @@ f(x) = \frac{1}{\sqrt{2\pi} }e^{-\frac{r^2}{2}}
 <li>VaR is the estimate of the losses that occur with a given probability.
 <ul>
 <li><strong><em>e.g.</em></strong> How much loss we might have on our portfolio such that there is only a 5% chance that we will do worse?</li>
+</ul></li>
 </ul>
-<img data-src="../img/intro_var1.png" class="quarto-figure quarto-figure-center" style="width:40.0%"> That is, we want to find <span class="math inline">\(X\)</span> such that <span class="math display">\[
-  \text{Prob}\left( R \leq X \right) = 0.05
-  \]</span></li>
+<div style="text-align: center;">
+<p><img data-src="img/intro_var1.png" style="width:50.0%"></p>
+</div>
+<ul>
+<li>That is, we want to find <span class="math inline">\(X\)</span> such that</li>
 </ul>
+<p><span class="math display">\[
+\text{Prob}\left( R \leq X \right) = 0.05
+\]</span></p>
 </section>
 <section id="value-at-risk-1" class="slide level2">
 <h2>Value at Risk</h2>
 <ul>
 <li>How can we find <span class="math inline">\(X\)</span> satisfying <span class="math inline">\(\Pr\left(R \leq X \right) = 0.05\)</span>, i.e., 95% VaR?</li>
-<li>In a special case when <span class="math inline">\(R \sim \phi(\mu,\sigma)\)</span>, we can find <span class="math inline">\(X\)</span> using the Excel function <code>norm.inv()</code>.
+<li>In a special case when <span class="math inline">\(R \sim \phi( \mu,\sigma )\)</span>, we can find <span class="math inline">\(X\)</span> using the Excel function <code>norm.inv()</code>.
 <ul>
-<li><p>For given <span class="math inline">\(1-p\)</span>, <code>norm.inv(1-p,$\mu, \sigma$)</code> is <span class="math inline">\(X\)</span> that satisfies <span class="math inline">\(\text{Prob}\left(R \leq X \right) = 1-p\)</span>.</p>
+<li><p>For given <span class="math inline">\(1-p\)</span>, <code>norm.inv(1-p, mean, sigma)</code> is <span class="math inline">\(X\)</span> that satisfies <span class="math inline">\(\text{Prob}\left(R \leq X \right) = 1-p\)</span>.</p>
 <ul>
 <li>VaR at 5% = <code>norm.inv(0.05,0,1) = -1.645</code></li>
 </ul>
@@ -815,7 +831,7 @@ f(x) = \frac{1}{\sqrt{2\pi} }e^{-\frac{r^2}{2}}
 <li>Consider a portfolio consisting of <strong><em>n</em></strong> different stocks.</li>
 <li>The return on the portfolio is <span class="math display">\[
   R_p = \sum_{i=1}^n w_i R_i
-  \]</span> where <strong><em>w_i</em></strong> is the fraction of wealth invested in stock <strong><em>i</em></strong>.</li>
+  \]</span> where <span class="math inline">\(w_i\)</span> is the fraction of wealth invested in stock <span class="math inline">\(i\)</span>.</li>
 <li>If each stock return is normally distributed, then the portfolio return is also normally distributed.</li>
 </ul>
 </section>
@@ -875,9 +891,13 @@ f(x) = \frac{1}{\sqrt{2\pi} }e^{-\frac{r^2}{2}}
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="../img/intro_var1.png"></p>
+<div style="text-align: center;">
+<p><img data-src="img/intro_var1.png"></p>
+</div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="../img/intro_var2.png"></p>
+<div style="text-align: center;">
+<p><img data-src="img/intro_var2.png"></p>
+</div>
 </div></div>
 </section>
 <section id="expected-shortfall" class="slide level2">
@@ -919,10 +939,10 @@ f(x) = \frac{1}{\sqrt{2\pi} }e^{-\frac{r^2}{2}}
 <pre><code>[1] "PLTR"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>90% Historical VaR: -0.044732 </code></pre>
+<pre><code>90% Historical VaR: -0.044906 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>90% Expected Shortfall: -0.069368 </code></pre>
+<pre><code>90% Expected Shortfall: -0.069422 </code></pre>
 </div>
 
 </div>

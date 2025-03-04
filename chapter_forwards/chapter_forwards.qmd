@@ -148,11 +148,15 @@ where $S_T$ is the spot price of the underlying asset at the expiration.
 
 -   A forward contract is settled only once on the expiration date, so cash flow occurs only at the expiration.
 
+---
+
 ## Payoff of Forward: Example
 
 -   An agricultural supplier is looking to sell 1,000 barrels of white sugar in six months' time that are valued at a total price of £10,000.
 -   The supplier is concerned for declining weather conditions in the country of produce that may have an effect on supply and demand, and therefore the price of the sugar.
 -   It agrees to a cash settled forward contract to sell the 1,000 barrels to an international buyer for the spot market price of £10,000.
+
+---
 
 ## Payoff of Futures
 
@@ -171,11 +175,15 @@ where $S_T$ is the spot price of the underlying asset at the expiration.
 | $\vdots$ | $\vdots$      | $\vdots$   |
 | T      | $F_T$         | ?          |
 
+---
+
 ## Payoff of Futures - Closer Look at Day 1
 
 ::: columns
 ::: {.column width="50"}
+::: {style="text-align: center;"}
 ![](img/forwards_futures.png)
+:::
 :::
 
 ::: {.column width="50%"}
@@ -186,6 +194,8 @@ where $S_T$ is the spot price of the underlying asset at the expiration.
     -   When moving from the old $(F\_0=1250)$ to the new $(F\_1=1255)$, the long-position investor receives \$5.
 :::
 :::
+
+---
 
 ## Payoff of Futures
 
@@ -200,7 +210,7 @@ $$
 \right.
 $$
 
-    In sum, the daily gain for long position is $F_t - F_{t-1}$.
+  - In sum, the daily gain for long position is $F_t - F_{t-1}$.
 
 -   The investor starts long position in a new contract with $F_t$.
 
@@ -270,6 +280,7 @@ $$
 | 4      | 1,242         | -200       | 3,400   |              |
 | $\vdots$ | $\vdots$      | $\vdots$   | $\vdots$ | $\vdots$     |
 
+---
 
 ## Clearing House
 
@@ -339,19 +350,23 @@ ggplot(oil_data, aes(x = Date, y = Price)) +
       - By April 2020, Cushing's storage was nearly full.
       - Traders had to sell at any price to avoid taking delivery. -->
 
+---
 
 ## Market Quotes
 
-![](img/forwards_gold.png){fig-align="center"}
+::: {style="text-align: center;"}
+![](img/forwards_gold.png){width=110%}
+:::
 
-    -   Open: the price at which contracts were trading at the beginning of the trading day
-    -   High: the highest price during the day
-    -   Low: the lowest price during the day
-    -   Settlement: the price used for calculating daily gain/loss (usually closing price of the day)
-    -   (Trading) Volume: the number of contracts traded in a day
-    -   Open interest: the number of contracts outstanding
-        -   We count the total number of (net) long positions or (net) short positions for a certain contract.
+-   Open: the price at which contracts were trading at the beginning of the trading day
+-   High: the highest price during the day
+-   Low: the lowest price during the day
+-   Settlement: the price used for calculating daily gain/loss (usually closing price of the day)
+-   (Trading) Volume: the number of contracts traded in a day
+-   Open interest: the number of contracts outstanding
+    -   We count the total number of (net) long positions or (net) short positions for a certain contract.
 
+---
 
 ## Hedging Using Futures
 
@@ -365,6 +380,8 @@ ggplot(oil_data, aes(x = Date, y = Price)) +
 
         -   when a hedger expects to **buy** an asset in the future
 
+---
+
 ## Short Hedge - Example
 
 -   In May, an oil producer enters a sales contract to sell 1 million barrels of crude oil. The price in the sales contract is the spot price on 15 August.
@@ -373,21 +390,7 @@ ggplot(oil_data, aes(x = Date, y = Price)) +
 
     $\Rightarrow$ short 1,000 futures contract.
 
-## Short Hedge - Example
-
-What if the spot price of oil on 15 August turns out to be ...
-
-1.  \$75 per barrel
-
-$$
-\text{Total revenue} = \underbrace{75\times 1M}_{\text{sales contract}} + \underbrace{(79-75)\times 1M}_{\text{futures contract}} = 79M
-$$
-
-2.  \$85 per barrel
-
-$$
-\text{Total revenue} = \underbrace{85\times 1M}_{\text{sales contract}} + \underbrace{(79-85)\times 1M}_{\text{futures contract}} = 79M
-$$
+---
 
 ## Short Hedge - Example
 
@@ -404,6 +407,27 @@ $$
 $$
 \text{Total revenue} = \underbrace{85\times 1M}_{\text{sales contract}} + \underbrace{(79-85)\times 1M}_{\text{futures contract}} = 79M
 $$
+
+---
+
+
+## Short Hedge - Example
+
+What if the spot price of oil on 15 August turns out to be ...
+
+1.  \$75 per barrel
+
+$$
+\text{Total revenue} = \underbrace{75\times 1M}_{\text{sales contract}} + \underbrace{(79-75)\times 1M}_{\text{futures contract}} = 79M
+$$
+
+2.  \$85 per barrel
+
+$$
+\text{Total revenue} = \underbrace{85\times 1M}_{\text{sales contract}} + \underbrace{(79-85)\times 1M}_{\text{futures contract}} = 79M
+$$
+
+---
 
 ## Long Hedge - Example
 
@@ -412,6 +436,8 @@ $$
 -   Q. To hedge the risk, what position on futures should the airline take?
 
     $\Rightarrow$ long 4 futures contract.
+
+---
 
 ## Long Hedge - Example
 
@@ -429,6 +455,8 @@ $$
 \text{Total payment} = \underbrace{37.0\times 100,000}_{\text{sales contract}} - \underbrace{(37.0-38.9)\times 100,000}_{\text{futures contract}} = 3,890,000
 $$
 
+---
+
 ## Hedge - General Case
 
 -   Suppose that on date 0, we expect to sell asset $A$ on date $T$.
@@ -440,6 +468,8 @@ S_T + (F_0 - F_T)
 $$
 
 -   Depending on how well the futures contract fits the sales plan, the hedge becomes **perfect** or **imperfect**.
+
+---
 
 ## Perfect Hedge
 
@@ -454,6 +484,8 @@ $$
 S_T + (F_0 - F_T) = \underbrace{(S_T - F_T)}_{=0} + F_0
 $$
 
+---
+
 ## Imperfect Hedge
 
 -   Sometimes, we **cannot** find a futures with the perfect match.
@@ -465,6 +497,8 @@ S_T + (F_0 - F_T) = \underbrace{(S_T - F_T)}_{\neq 0} + F_0
 $$
 
 -   This does not eliminate the risk completely.
+
+---
 
 ## Basis Risk and Hedging
 
@@ -481,16 +515,22 @@ $$
     -   The gain on the futures contract is $0.0550$ cents per yen, and the basis is $1.02000-1.02500=-0.0050$ cents per yen.
     -   The effective price obtained is $1.0200+0.05500=1.0750$ cents per yen.
 
+---
+
 ## Perfect Hedge and Risk Measures
 
 -   Suppose that on date 0, an oil company expects to sell gasoline on date $T$. The gasoline price is normally distributed with the mean of \$50 per barrel and the standard deviation of \$3 per barrel.
 -   Q. Without hedging, what is the bad outcome of the revenue (per barrel) that will happen 5% probability?
+
+---
 
 ## Perfect Hedge and Risk Measures
 
 -   Go back to the previous question. This time, the company tries to hedge by shorting a gasoline futures with delivery on $T$. The futures price is \$48 per barrel.
 -   Q1. With the hedging, what is the standard deviation of the revenue?
 -   Q2. With the hedging, what is the bad outcome of the revenue that will happen 5% probability?
+
+---
 
 ## Cross Hedge
 
@@ -500,6 +540,8 @@ $$
 
     1.  In perfect hedge, hedge ratio = 1
     2.  In cross hedge, hedge ratio is usually not equal to one. Instead, we choose a particular ratio that will result in the best hedge.
+
+---
 
 ## Cross Hedge - Minimum Variance Hedge Ratio
 
@@ -514,6 +556,8 @@ $$
 $$
 \underbrace{S_T -S_0}_{\Delta S} - h\underbrace{(F_T - F_0)}_{\Delta F}
 $$
+
+---
 
 ## Cross Hedge - Minimum Variance Hedge Ratio
 
@@ -532,6 +576,8 @@ $$
 
 -   $h^*$ is the minimum variance hedge ratio.
 
+---
+
 ## Cross Hedge - Minimum Variance Hedge Ratio
 
 -   The hedge ratio can be rewritten as
@@ -548,11 +594,15 @@ where
 
 -   Alternative interpretation: $h^*$ is the best estimate representing the linear relationship between $\Delta S$ and $\Delta F$.
 
+---
+
 ## Cross Hedge - Example
 
 -   An airline expects to purchase two million gallons of jet fuel in one month and decides to use heating oil futures for hedging. The standard deviation of futures price is \$\sigma\_F=0.0313\$, the standard deviation of jut fuel price is \$\sigma\_S=0.0263\$, and the correlation coefficient is \$\rho=0.928\$.
 -   Q1. What is the minimum variance hedge ratio?
 -   Q2. Each of the futures contract is for 42,000 gallons of heating oil. How many contracts does the airline need?
+
+---
 
 ## Cross Hedge and Risk Measures
 
@@ -564,6 +614,8 @@ where
     -   The correlation coefficient between the gasoline and heating oil prices is 0.8.
 -   Q1. What is the distribution of the total revenue (per barrel)?
 -   Q2. With the hedgeing, what is the 5% bad outcome of the total revenue?
+
+---
 
 ## Speculation Using Future
 

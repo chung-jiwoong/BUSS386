@@ -159,7 +159,7 @@ Prof.&nbsp;Ji-Woong Chung
 <section id="arbitrage" class="slide level2">
 <h2>Arbitrage</h2>
 <ul>
-<li><strong>Arbitrage</strong> is a trade where investors can make ``free lunch’’ profits.</li>
+<li><strong>Arbitrage</strong> is a trade where investors can make “free lunch” profits.</li>
 <li>For instance, if we see a price difference for the same assets, we can make an arbitrage profit (buy low and sell high).</li>
 <li><em>e.g.</em> Suppose that a stock is traded in both New York Stock Exchange and London Stock Exchange. Its price in New York is $140, while it is 100 in London. The exchange rate is $1.43 per pound.
 <ul>
@@ -176,32 +176,7 @@ Prof.&nbsp;Ji-Woong Chung
 <li>It always generates <strong>non-negative</strong> cash flows, and</li>
 <li>It sometimes generates <strong>positive</strong> cash flows.</li>
 </ol></li>
-<li><p>Is each of the following strategies an arbitrage? | | Cash flows <span class="math inline">\(T=0\)</span> | <span class="math inline">\(T=1\)</span> | <span class="math inline">\(T=2\)</span> | | :——– | :————— | :—- | :—- | | Strategy 1 | -2 | 1 | 3 | | Strategy 2 | 0 | 0 | 0.5 |</p></li>
 </ul>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Cash flows <span class="math inline">\(T=0\)</span></th>
-<th style="text-align: left;"><span class="math inline">\(T=1\)</span> (case 1)</th>
-<th style="text-align: left;"><span class="math inline">\(T=1\)</span> (case 2)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Strategy 3</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.2</td>
-<td style="text-align: left;">0.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Strategy 4</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.3</td>
-</tr>
-</tbody>
-</table>
 </section>
 <section id="no-arbitrage-argument" class="slide level2">
 <h2>No Arbitrage Argument</h2>
@@ -231,8 +206,24 @@ Prof.&nbsp;Ji-Woong Chung
 <ul>
 <li>We can choose any bond amount (face value) as we like.</li>
 </ul></li>
-<li><p><em>e.g.</em> If we buy a bond at the rate <span class="math inline">\(r\)</span>, | Action | time 0 | time <span class="math inline">\(T\)</span> | | :———- | :—– | :———- | | buy a bond | -1 | <span class="math inline">\(e^{rT}\)</span> |</p></li>
+<li><p><em>e.g.</em> If we buy a bond at the rate <span class="math inline">\(r\)</span>,</p></li>
 </ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Action</th>
+<th style="text-align: left;">time 0</th>
+<th style="text-align: left;">time <span class="math inline">\(T\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">buy a bond</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;"><span class="math inline">\(e^{rT}\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="short-selling" class="slide level2">
 <h2>Short Selling</h2>
@@ -521,8 +512,8 @@ F_t = S_te^{r(T-t)}
 </ul>
 </section>
 <section>
-<section id="determination-of-forward-prices-for-underlying-assets-paying-dividends" class="title-slide slide level1 center">
-<h1>Determination of Forward Prices for Underlying Assets Paying Dividends</h1>
+<section id="forward-prices-for-underlying-assets-paying-dividends" class="title-slide slide level1 center">
+<h1>Forward Prices for Underlying Assets Paying Dividends</h1>
 
 </section>
 <section id="dividend-payment-and-forward-prices" class="slide level2">
@@ -783,8 +774,10 @@ F_0 = S_0 e^{(r-y+u)T}
 <li>Contango is a pattern of forward prices that increases with contract maturity</li>
 <li>Backwardation is a pattern of forward prices over time that decreases with contract maturity</li>
 </ul>
-
-<img data-src="img/pricing_forwards_futurescurve.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<div style="text-align: center;">
+<p><img data-src="img/pricing_forwards_futurescurve.png"></p>
+</div>
+</section>
 <section id="commodities-that-cannot-be-stored" class="slide level2">
 <h2>Commodities that cannot be stored</h2>
 <ul>

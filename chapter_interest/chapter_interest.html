@@ -211,8 +211,12 @@ Prof.&nbsp;Ji-Woong Chung
 <ul>
 <li>While LIBOR has been largely phased out, it still exists in some legacy contracts.</li>
 </ul>
-
-<img data-src="img/interest_libor.png" class="quarto-figure quarto-figure-center r-stretch"><p>Source: <a href="https://www.bis.org/publ/qtrpdf/r_qt2212e.htm">https://www.bis.org/publ/qtrpdf/r_qt2212e.htm</a></p>
+<div style="text-align: center;">
+<p><img data-src="img/interest_libor.png" style="width:120.0%"></p>
+</div>
+<center>
+<small>Source: https://www.bis.org/publ/qtrpdf/r_qt2212e.htm</small>
+</center>
 </section>
 <section id="reference-rates-1" class="slide level2">
 <h2>Reference Rates</h2>
@@ -364,8 +368,8 @@ e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
 \]</span></p></li>
 </ul>
 </section>
-<section id="bond-pricing-1" class="slide level2" data-background-color="#ffebf0">
-<h2>Bond Pricing</h2>
+<section id="bond-pricing-compounded-semi-annually" class="slide level2" data-background-color="#ffebf0">
+<h2>Bond Pricing (Compounded semi-annually)</h2>
 <ul>
 <li>We can also use semi-annually compounded zero rates to price the bond: <span class="math display">\[
 \frac{3}{(1 + 0.0506)} + \frac{3}{(1 + 0.0588)^{2}} + \frac{3}{(1 + 0.0651)^{3}} + \frac{103}{(1 + 0.0692)^{4}} = 98.39
@@ -557,7 +561,7 @@ e^{0.04\times 2} = e^{0.03}e^r
 \]</span></p></li>
 <li><p>As LIBOR is phased out, we see a deline of FRAs based on LIBOR and an increases in similar derivatives based on RFR such as SOFR.<sup>1</sup></p></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Read: [The Post-LIBOR World]{https://www.bis.org/publ/qtrpdf/r_qt2212e.htm}</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Read: <a href="https://www.bis.org/publ/qtrpdf/r_qt2212e.htm">The Post-LIBOR World</a></p></li></ol></aside></section>
 <section id="forward-rate-agreements-1" class="slide level2">
 <h2>Forward Rate Agreements</h2>
 <ul>
@@ -599,7 +603,7 @@ e^{0.04\times 2} = e^{0.03}e^r
 <li><span class="math inline">\(P_0= \sum_{i=1}^{N} K_i (1+y_m/m)^{-mt_i}\)</span> when <span class="math inline">\(y_m\)</span> is quoted as compounded <span class="math inline">\(m\)</span> times per year.</li>
 </ul></li>
 <li>Duration measures are related to the first partial derivative: <span class="math inline">\(\partial P / \partial y\)</span></li>
-<li>Convexity measures are related to the second derivative: $ ^2 P / y^2$</li>
+<li>Convexity measures are related to the second derivative: <span class="math inline">\(\partial^2 P / \partial y^2\)</span></li>
 </ul>
 </section>
 <section id="duration-basics" class="slide level2">
@@ -789,11 +793,11 @@ f(x)-f(x_0) \approx f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
 </ul></li>
 <li><p>Match hedge ratios:</p>
 <ul>
-<li>$ $1m(4.1685) = P2(7.004) + P3(2.699)$</li>
+<li><span class="math inline">\(\$1m(4.1685) = P2(7.004) + P3(2.699)\)</span></li>
 </ul></li>
 <li><p>Match gamma:</p>
 <ul>
-<li>$ $1m(21.038) = P2(62.98) + P3(8.939)$</li>
+<li><span class="math inline">\(\$1m(21.038) = P2(62.98) + P3(8.939)\)</span></li>
 </ul></li>
 <li><p>2 linear equations in two unknowns. Solve for P2 and P3.</p></li>
 </ul>

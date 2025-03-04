@@ -24,7 +24,7 @@ execute:
 
 - Overview of derivatives/markets
 - Review: measures of return and risk
-- Reading: §1.1--1.10 and 22.1--22.3
+- Reading: Hull, Ch. 1.1--1.10 and 22.1--22.3
 
 
 # Overview
@@ -35,8 +35,8 @@ execute:
 ## What are derivatives?
 
 - A derivative is a financial security (i.e., instrument, contract, asset) whose value depends on other underlying **variables**.
-- Example 1: A contract to buy 50,000 barrels of crude oil on September 16, 2017, for \$50 per barrel.
-- Example 2: An option contract that gives the holder the right, but not the obligation, to buy 100 shares of a company's stock at \$100 per share within the next three months.
+- Example: A contract to buy 50,000 barrels of crude oil on September 16, 2017, for \$50 per barrel.
+- Example: An option contract that gives the holder the right, but not the obligation, to buy 100 shares of a company's stock at \$100 per share within the next three months.
 
 
 ---
@@ -70,14 +70,18 @@ execute:
 
 ## History of derivatives
 
-![](img\intro_dojima.jpg){fig.align="center"}
-
-:::{.small}
-Source: https://professornerdster.com/tag/forward-contracts/
+::: {style="text-align: center;"}
+![](img/intro_dojima.jpg)
 :::
+
+<center>
+<small>Source: https://professornerdster.com/tag/forward-contracts/</small>
+</center>
 
 - Established in the 1690s. Initially, rice exchange
 - Futures trading began in 1730 for hedging.
+
+---
 
 ## History of derivatives
 
@@ -103,7 +107,7 @@ Source: https://professornerdster.com/tag/forward-contracts/
 ## Where to trade derivatives
 Derivatives can be traded in two main types of markets:
 
-***Exchange-Traded Market***
+### Exchange-Traded Market
 
 - **Centralized Trading**: All buy and sell orders are centralized in one place, either physically or electronically.
 - **Standardized Contracts**: Contracts are standardized, ensuring uniformity and reducing the risk of counterparty default.
@@ -113,7 +117,9 @@ Derivatives can be traded in two main types of markets:
 
 ---
 
-***Over-the-Counter (OTC) Market***
+## Where to trade derivatives
+
+### Over-the-Counter (OTC) Market
 
 - **Decentralized Trading**: There is no central place for collecting orders. Participants trade directly with each other or through a network of dealers.
 - **Customizable Contracts**: Contracts are not standardized and can be tailored to meet the specific needs of the participants.
@@ -124,12 +130,13 @@ Derivatives can be traded in two main types of markets:
 
 ## Market Types and Trading Volume
 
-
-![](../img/intro_derivative_market_size.png){fig-align="center"}
-
-::: {style="text-align: center; font-size: small;"}
-Source: Bank for International Settlement
+::: {style="text-align: center;"}
+![](img/intro_derivative_market_size.png)
 :::
+
+<center>
+<small>Source: Bank for International Settlement</small>
+</center>
 
 
 
@@ -151,6 +158,7 @@ Source: Bank for International Settlement
 ---
 
 ## Why are derivatives useful?
+
 - Derivatives enable the transfer of risk from those who are exposed to it to those who are more willing to bear it, making them an excellent tool for risk management.
 - While risk management often focuses on reducing risk, it can also involve taking on attractive risks.
 - By transferring risk through derivatives, productive activities that might otherwise be too risky can be undertaken.
@@ -208,13 +216,16 @@ Source: Bank for International Settlement
 
 ---
 
-##
-
-![](../img/intro_centralclearing.png){fig-align="center"}
+## Central Clearing
 
 ::: {style="text-align: center;"}
-[https://www.bis.org/publ/otc_hy2311.htm](https://www.bis.org/publ/otc_hy2311.htm)
+![](img/intro_centralclearing.png)
 :::
+
+<center>
+<small>Source: [Bank for International Settlement](https://www.bis.org/publ/otc_hy2311.htm)</small>
+</center>
+
 
 ---
 
@@ -542,8 +553,7 @@ $$
 - Consider a normal random variable $R$ with  $\mu=0$ and $\sigma=1$. In other words, $R \sim N(0,1)$. We call it a standard normal random variable.
 - Suppose that we want to find the probability that $R$ is lower than $x$. Graphically, this probability is the shadowed area in the figure below:
 
-```{r, echo=FALSE, fig.align="center"}
-
+```{r, echo=FALSE, fig.align="center", fig.width=20, fig.height=10}
 library(ggplot2)
 
 # Define the standard normal distribution
@@ -649,6 +659,7 @@ ggplot(data, aes(x = Returns, fill = Type)) +
   theme(legend.position = "top", plot.title = element_text(face = "bold", size = 20))
 ```
 
+---
 
 ## Log-Normal Distribution
 
@@ -657,11 +668,12 @@ ggplot(data, aes(x = Returns, fill = Type)) +
 - If a rate of return is normally distributed, security prices follow lognormal distribution.
   - $\text{log-return}= \ln R_t = \ln \frac{P_t}{P_{t-1}} = \ln P_t - \ln P_{t-1} \sim N(\cdot)$
 
+
+::: {.aside}
 - By the way,
   - $E(X) = e^{\mu + \sigma^2/2}$. In fact $E(X^n) = e^{n\mu + n^2\sigma^2/2}$
   - $Var(X) = E(X^2)- E(X)^2 = e^{2\mu + 2\sigma^2} - e^{2\mu + \sigma^2} = e^{2\mu + \sigma^2}(e^{\sigma^2}-1)$
-
-
+:::
 
 ---
 
@@ -694,20 +706,25 @@ ggplot(data, aes(x = Returns, fill = Type)) +
 - Value at Risk (VaR) is intended to focus on downside risk of the distribution.
 - VaR is the estimate of the losses that occur with a given probability.
     - ***e.g.*** How much loss we might have on our portfolio such that there is only a 5\% chance that we will do worse?
-    
-    ![](../img/intro_var1.png){fig-align="center" width=40%}
-    That is, we want to find $X$ such that
-    $$
-    \text{Prob}\left( R \leq X \right) = 0.05
-    $$
+
+
+::: {style="text-align: center;"}
+![](img/intro_var1.png){width=50%}
+:::
+
+- That is, we want to find $X$ such that
+  
+$$
+\text{Prob}\left( R \leq X \right) = 0.05
+$$
 
 ---
 
 ## Value at Risk
 
 - How can we find $X$ satisfying $\Pr\left(R \leq X \right) = 0.05$, i.e., 95\% VaR? 
-- In a special case when $R \sim \phi(\mu,\sigma)$, we can find $X$ using the Excel function  `norm.inv()`.
-    - For given $1-p$, `norm.inv(1-p,$\mu, \sigma$)` is $X$ that satisfies $\text{Prob}\left(R \leq X \right) = 1-p$.
+- In a special case when $R \sim \phi( \mu,\sigma )$, we can find $X$ using the Excel function  `norm.inv()`.
+    - For given $1-p$, `norm.inv(1-p, mean, sigma)` is $X$ that satisfies $\text{Prob}\left(R \leq X \right) = 1-p$.
         - VaR at 5\% =  `norm.inv(0.05,0,1) = -1.645` 
 
         (R: `qnorm(0.05, mean = 0, sd = 1)`)
@@ -760,7 +777,7 @@ ggplot(data, aes(x = Returns, fill = Type)) +
     $$
     R_p = \sum_{i=1}^n w_i R_i
     $$
-    where ***w_i*** is the fraction of wealth invested in stock ***i***.
+    where $w_i$ is the fraction of wealth invested in stock $i$.
 - If each stock return is normally distributed, then the portfolio return is also normally distributed.
 
 ---
@@ -864,10 +881,14 @@ ggplot(var_per_year, aes(x = Year, y = VaR_5)) +
 
 :::: {.columns}
 ::: {.column width="50%"}
-![](../img/intro_var1.png)
+::: {style="text-align: center;"}
+![](img/intro_var1.png)
+:::
 :::
 ::: {.column width="50%"}
-![](../img/intro_var2.png)
+::: {style="text-align: center;"}
+![](img/intro_var2.png)
+:::
 :::
 ::::
 
