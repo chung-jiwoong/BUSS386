@@ -3,6 +3,7 @@ title: "Interest Rates"
 subtitle: "BUSS386 Futures and Options"
 author: "Prof. Ji-Woong Chung"
 format: 
+  pdf: default
   revealjs:
     theme: simple
     transition: fade

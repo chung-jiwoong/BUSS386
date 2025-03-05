@@ -23,7 +23,7 @@
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_interest/chapter_interest.pdf) / 
 [Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/problem_interest/problem_interest.html) / 
 [Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/solution_interest/solution_interest.html) / 
-[Duration and Convexity using Excel](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/data/Duration_Convexity2.xlsx)
+[Duration and Convexity (Excel)](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/data/Duration_Convexity2.xlsx)
 
 
 **Lecture3: Forwards and Futures**

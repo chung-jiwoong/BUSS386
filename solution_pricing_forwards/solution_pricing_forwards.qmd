@@ -2,8 +2,18 @@
 title: "Practice Problem Set: Solutions"
 subtitle: "BUSS386 Futures and Options"
 author: "Prof. Ji-Woong Chung"
-format: html
-number-sections: true
+format: 
+  pdf: default
+  revealjs:
+    theme: simple
+    transition: fade
+    transition-speed: fast
+    scrollable: true
+    slide-number: true
+    #toc: true
+    chalkboard: true
+revealjs-plugins:
+    - revealjs-text-resizer
 execute:
     echo: true
     eval: true
