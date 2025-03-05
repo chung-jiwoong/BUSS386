@@ -47,7 +47,8 @@ execute:
 - Some properties of asset prices (e.g., volatility)
 - Certain events (e.g., default)
 - Other factors like weather (e.g., temperature, rainfall), inflation, etc.
-- $\Rightarrow$ All variables should be measurable and observable.
+  
+$\Rightarrow$ All variables should be measurable and observable.
 	
 ---
 
@@ -159,10 +160,10 @@ Derivatives can be traded in two main types of markets:
 
 ## Why are derivatives useful?
 
-- Derivatives enable the transfer of risk from those who are exposed to it to those who are more willing to bear it, making them an excellent tool for risk management.
-- While risk management often focuses on reducing risk, it can also involve taking on attractive risks.
-- By transferring risk through derivatives, productive activities that might otherwise be too risky can be undertaken.
-- However, derivatives also have the potential for misuse, which is why regulations are in place to prevent abuses.
+- **Derivatives facilitate the transfer of risk** from those who are exposed to it to those more willing to bear it, making them a powerful tool for risk management.  
+- While risk management often aims to reduce risk, it can also involve **strategically assuming risks** that offer potential benefits.  
+- By effectively redistributing risk, derivatives **enable productive activities** that might otherwise be deemed too risky to pursue.  
+- However, derivatives **can be misused**, which is why regulations exist to mitigate potential abuses and ensure market stability.
 	
 	
 <!-- Lucas lecture "0 06 What are derivatives useful" provide some examples. -->
