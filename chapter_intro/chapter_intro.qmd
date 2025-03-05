@@ -3,17 +3,21 @@ title: "Introduction and Overview"
 subtitle: "BUSS386 Futures and Options"
 author: "Prof. Ji-Woong Chung"
 #date: ""
+toc: true
 format: 
-  revealjs:
-    theme: simple
-    transition: fade
-    transition-speed: fast
-    scrollable: true
-    slide-number: true
-    #toc: true
-    chalkboard: TRUE
-revealjs-plugins:
-    - revealjs-text-resizer
+    html: default
+    pdf: default      
+# format: 
+#   revealjs:
+#     theme: simple
+#     transition: fade
+#     transition-speed: fast
+#     scrollable: true
+#     slide-number: true
+#     #toc: true
+#     chalkboard: TRUE
+# revealjs-plugins:
+#     - revealjs-text-resizer
 # Thanks to https://github.com/gadenbuie/revealjs-text-resizer#readme
 execute:
     echo: true

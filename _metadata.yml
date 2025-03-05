@@ -1,0 +1,10 @@
+format: 
+  html:
+    include-in-header: 
+      - "styles/draw.css"
+    include-after-body: 
+      - "scripts/draw.js"
+  pdf: default
+
+toc: true
+number-sections: true

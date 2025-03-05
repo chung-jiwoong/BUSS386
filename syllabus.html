@@ -34,14 +34,124 @@ ul.task-list li input[type="checkbox"] {
 <script src="syllabus_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="syllabus_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="syllabus_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+</head><body>/* Styling for the floating toolbar */
+
+#toolbar {
+
+    position: fixed;
+
+    top: 10px;
+
+    right: 50%;
+
+    transform: translateX(50%);
+
+    background: white;
+
+    padding: 8px 15px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    z-index: 1100; /* Ensures the toolbar is always on top */
+
+}
 
 
-</head>
 
-<body class="fullcontent">
+/* General button styling */
+
+button {
+
+    padding: 5px 10px;
+
+    border: none;
+
+    background-color: var(--button-background-color, #f0f0f0);
+
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+}
+
+
+
+/* Button hover effect */
+
+button:hover {
+
+    background-color: var(--button-hover-bg-color, #ddd);
+
+}
+
+
+
+/* Full-screen canvas for drawing */
+
+#annotationCanvas {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 1000; /* Ensures the canvas is behind the toolbar but above everything else */
+
+    pointer-events: auto; /* Allows interaction with the canvas */
+
+    background: transparent;
+
+}
+
+
+
+
+
+
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#course-information" id="toc-course-information" class="nav-link active" data-scroll-target="#course-information"><span class="header-section-number">1</span> Course Information</a></li>
+  <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook"><span class="header-section-number">2</span> Textbook</a></li>
+  <li><a href="#prerequisite" id="toc-prerequisite" class="nav-link" data-scroll-target="#prerequisite"><span class="header-section-number">3</span> Prerequisite</a></li>
+  <li><a href="#course-objectives" id="toc-course-objectives" class="nav-link" data-scroll-target="#course-objectives"><span class="header-section-number">4</span> Course Objectives</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading"><span class="header-section-number">5</span> Grading</a>
+  <ul class="collapse">
+  <li><a href="#exams-40-50" id="toc-exams-40-50" class="nav-link" data-scroll-target="#exams-40-50"><span class="header-section-number">5.1</span> Exams (40% + 50%)</a></li>
+  <li><a href="#class-discussion-and-participation-10" id="toc-class-discussion-and-participation-10" class="nav-link" data-scroll-target="#class-discussion-and-participation-10"><span class="header-section-number">5.2</span> Class Discussion and Participation (10%)</a></li>
+  <li><a href="#optional-individual-or-team-presentation-5" id="toc-optional-individual-or-team-presentation-5" class="nav-link" data-scroll-target="#optional-individual-or-team-presentation-5"><span class="header-section-number">5.3</span> Optional Individual or Team Presentation (+5%)</a></li>
+  </ul></li>
+  <li><a href="#academic-misconduct" id="toc-academic-misconduct" class="nav-link" data-scroll-target="#academic-misconduct"><span class="header-section-number">6</span> Academic Misconduct</a></li>
+  <li><a href="#grading-appeals" id="toc-grading-appeals" class="nav-link" data-scroll-target="#grading-appeals"><span class="header-section-number">7</span> Grading Appeals</a></li>
+  <li><a href="#course-schedule-and-readings" id="toc-course-schedule-and-readings" class="nav-link" data-scroll-target="#course-schedule-and-readings"><span class="header-section-number">8</span> Course Schedule and Readings</a></li>
+  <li><a href="#students-with-disabilities" id="toc-students-with-disabilities" class="nav-link" data-scroll-target="#students-with-disabilities"><span class="header-section-number">9</span> Students with Disabilities</a></li>
+  <li><a href="#course-policies" id="toc-course-policies" class="nav-link" data-scroll-target="#course-policies"><span class="header-section-number">10</span> Course Policies</a>
+  <ul class="collapse">
+  <li><a href="#copyright-law" id="toc-copyright-law" class="nav-link" data-scroll-target="#copyright-law"><span class="header-section-number">10.1</span> Copyright Law</a></li>
+  <li><a href="#anti-graft-law" id="toc-anti-graft-law" class="nav-link" data-scroll-target="#anti-graft-law"><span class="header-section-number">10.2</span> Anti-Graft Law</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="syllabus.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -291,6 +401,272 @@ Topics covered include:<br>
 
 </main>
 <!-- /main column -->
+window.onload = function () {
+
+    // Select the necessary elements from the HTML
+
+    const canvas = document.getElementById("annotationCanvas");
+
+    const ctx = canvas.getContext("2d");
+
+    const colorPicker = document.getElementById("colorPicker");
+
+    const eraserButton = document.getElementById("eraserButton");
+
+    const clearButton = document.getElementById("clearButton");
+
+    const saveButton = document.getElementById("saveButton");
+
+    const undoButton = document.getElementById("undoButton");
+
+    const redoButton = document.getElementById("redoButton");
+
+
+
+    const PEN_TEXT = "✏️ Pen";
+
+    const ERASER_TEXT = "🧽 Eraser";
+
+
+
+    let drawing = false;
+
+    let erasing = false;
+
+    let currentColor = colorPicker ? colorPicker.value : "#ff0000"; // Set default if missing
+
+    let strokes = [];
+
+    let redoStack = [];
+
+
+
+    function resizeCanvas() {
+
+        canvas.width = canvas.parentElement.clientWidth;
+
+        canvas.height = canvas.parentElement.clientHeight;
+
+        redraw();
+
+    }
+
+
+
+    window.addEventListener("resize", resizeCanvas);
+
+    resizeCanvas();
+
+
+
+    let currentStroke = [];
+
+
+
+    canvas.addEventListener("mousedown", (e) =&gt; {
+
+        drawing = true;
+
+        currentStroke = [];
+
+        ctx.beginPath();
+
+        const rect = canvas.getBoundingClientRect();
+
+        ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+
+    });
+
+
+
+    canvas.addEventListener("mousemove", function (e) {
+
+        if (!drawing) return;
+
+
+
+        ctx.lineWidth = erasing ? 15 : 2;
+
+        ctx.lineCap = "round";
+
+        ctx.strokeStyle = erasing ? "white" : currentColor;
+
+        const rect = canvas.getBoundingClientRect();
+
+        ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+
+        ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+
+        ctx.stroke();
+
+        currentStroke.push({ x: e.clientX - rect.left, y: e.clientY - rect.top, color: ctx.strokeStyle, width: ctx.lineWidth });
+
+        currentStroke.push({ x: e.clientX, y: e.clientY, color: ctx.strokeStyle, width: ctx.lineWidth });
+
+    });
+
+
+
+    canvas.addEventListener("mouseup", () =&gt; {
+
+        if (currentStroke.length &gt; 0) {
+
+            strokes.push({ points: currentStroke, erasing });
+
+            redoStack = [];
+
+        }
+
+        drawing = false;
+
+        ctx.beginPath();
+
+    });
+
+
+
+    function redraw() {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let stroke of strokes) {
+
+            ctx.beginPath();
+
+            ctx.lineWidth = stroke.erasing ? 15 : 2;
+
+            ctx.strokeStyle = stroke.erasing ? "white" : stroke.points[0].color;
+
+            ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
+
+
+
+            for (let i = 1; i &lt; stroke.points.length; i++) {
+
+                let p = stroke.points[i];
+
+                ctx.lineTo(p.x, p.y);
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+
+
+    undoButton.addEventListener("click", function () {
+
+        if (strokes.length &gt; 0) {
+
+            redoStack.push(strokes.pop());
+
+            redraw();
+
+        }
+
+    });
+
+
+
+    redoButton.addEventListener("click", function () {
+
+        if (redoStack.length &gt; 0) {
+
+            strokes.push(redoStack.pop());
+
+            redraw();
+
+        }
+
+    });
+
+
+
+    function toggleEraser() {
+
+        erasing = !erasing;
+
+        eraserButton.textContent = erasing ? PEN_TEXT : ERASER_TEXT;
+
+    }
+
+
+
+    eraserButton.addEventListener("click", toggleEraser);
+
+
+
+    if (colorPicker) {
+
+        colorPicker.addEventListener("input", function () {
+
+            currentColor = colorPicker.value;
+
+            erasing = false;
+
+            eraserButton.textContent = ERASER_TEXT;
+
+        });
+
+    }
+
+
+
+    clearButton.addEventListener("click", function () {
+
+        strokes = [];
+
+        redoStack = [];
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    });
+
+
+
+    saveButton.addEventListener("click", function () {
+
+        const link = document.createElement("a");
+
+        link.download = "drawing.png";
+
+        link.href = canvas.toDataURL();
+
+        link.click();
+
+        event.preventDefault();
+
+        if (event.ctrlKey &amp;&amp; event.key.toLowerCase() === "z") {
+
+
+
+    document.addEventListener("keydown", (event) =&gt; {
+
+        if (event.ctrlKey &amp;&amp; event.key.toLowerCase() === "z") {
+
+            undoButton.click();
+
+        } else if (event.ctrlKey &amp;&amp; event.key.toLowerCase() === "y") {
+
+        } else if (event.key.toLowerCase() === "e") {
+
+            toggleEraser();
+
+            eraserButton.textContent = erasing ? "✏️ Pen" : "🧽 Eraser";
+
+        } else if (event.key.toLowerCase() === "c") {
+
+            clearButton.click();
+
+        }
+
+    });
+
+};
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

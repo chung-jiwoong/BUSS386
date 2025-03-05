@@ -1,12 +1,14 @@
 ---
 title: "BUSS386(03) Futures and Options"
 author: "Prof. Ji-Woong Chung"
-format: html
-number-sections: true
 ---
 
 
+
 ## Course Information  
+
+
+
 **Time and Venue:** Wednesdays, 13:30 – 16:15  
 **Instructor:** Ji-Woong Chung  
 - **Office:** 503, Main Building  
