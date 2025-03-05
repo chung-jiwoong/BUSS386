@@ -20,6 +20,9 @@ execute:
     eval: true
 ---
 
+
+
+
 ## Outline
 
 - Overview of derivatives/markets
@@ -255,7 +258,12 @@ Each participant contributes to the market's depth and liquidity.
 
 Suppose a stock price evolves as follows:
 
-```{r}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
 P0 <- 100
 P1 <- 110
 P2 <- 100
@@ -266,6 +274,26 @@ log_return <- log(P1 / P0)
 
 list(GrossReturn = R_t, NetReturn = r_t, LogReturn = log_return)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+$GrossReturn
+[1] 1.1
+
+$NetReturn
+[1] 0.1
+
+$LogReturn
+[1] 0.09531018
+```
+
+
+:::
+:::
+
+
+
 
 ---
 
@@ -285,12 +313,34 @@ $$
 
 In R:
 
-```{r}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
 r <- 0.10
 compounded_return <- (1 + r / 2)^2 - 1
 continuously_compounded <- exp(r) - 1
 list(CompoundedReturn = compounded_return, ContinuousReturn = continuously_compounded)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+$CompoundedReturn
+[1] 0.1025
+
+$ContinuousReturn
+[1] 0.1051709
+```
+
+
+:::
+:::
+
+
+
 
 What is the equivalent c.c. return of Bond XYZ?
 $$
@@ -361,12 +411,34 @@ $$
 
 In R:
 
-```{r}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
 returns <- c(0.05, 0.10, -0.02, 0.07)
 mean_arith <- mean(returns)
 mean_geom <- prod(1 + returns)^(1/length(returns)) - 1
 list(ArithmeticMean = mean_arith, GeometricMean = mean_geom)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+$ArithmeticMean
+[1] 0.05
+
+$GeometricMean
+[1] 0.04905428
+```
+
+
+:::
+:::
+
+
+
 
 ---
 
@@ -446,14 +518,30 @@ $$
 
 Example in R:
 
-```{r, echo=T}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
 # Load necessary libraries
 library(quantmod)
 library(PerformanceAnalytics)
 
 # Load Tesla (TSLA) stock data from Yahoo Finance
 getSymbols("TSLA", src = "yahoo", from = "2015-01-01", to = Sys.Date(), auto.assign = TRUE)
+```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "TSLA"
+```
+
+
+:::
+
+```{.r .cell-code}
 # Compute daily returns and remove missing values
 tsla_returns <- na.omit(dailyReturn(Cl(TSLA)))
 
@@ -463,12 +551,38 @@ annualized_std_dev <- sd(tsla_returns) * sqrt(252)  # Convert daily std to annua
 
 # Get the latest 3-month Treasury Bill (IRX) as risk-free rate
 getSymbols("^IRX", src = "yahoo", from = Sys.Date() - 30, to = Sys.Date(), auto.assign = TRUE)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "IRX"
+```
+
+
+:::
+
+```{.r .cell-code}
 risk_free_rate <- as.numeric(last(Cl(IRX))) / 100  # Convert from percentage
 
 # Compute Sharpe Ratio (Annualized)
 sharpe_ratio <- (annualized_return - risk_free_rate) / annualized_std_dev
 sharpe_ratio
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+                  daily.returns
+Annualized Return     0.5105525
+```
+
+
+:::
+:::
+
+
+
 
 - Risk premium: $E(r) - r_f$ vs. Excess return: $r- r_f$.
 
@@ -480,50 +594,17 @@ sharpe_ratio
 - We commonly assume that returns are normally distributed, $N(\mu, \sigma^2)$
 
 
-```{r, echo=FALSE, fig.align="center"}
-library(ggplot2)
 
-# Parameters
-mean_x <- 0.10
-sd_x <- 0.20
 
-# Generate x values
-x_vals <- seq(mean_x - 4 * sd_x, mean_x + 4 * sd_x, length.out = 1000)
-y_vals <- dnorm(x_vals, mean_x, sd_x)
 
-# Create data frame
-data <- data.frame(x = x_vals, y = y_vals)
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](chapter_intro_files/figure-revealjs/unnamed-chunk-5-1.png){fig-align='center' width=960}
+:::
+:::
 
-# Define probability labels & matching y-positions
-prob_labels <- c("68.26%", "95.44%", "99.74%")
-y_positions <- c(dnorm(mean_x, mean_x, sd_x) / 1.5,  # For ±1σ
-                 dnorm(mean_x, mean_x, sd_x) / 3,    # For ±2σ
-                 dnorm(mean_x, mean_x, sd_x) / 6)    # For ±3σ
 
-# Base plot
-ggplot(data, aes(x, y)) +
-  geom_line(color = "brown", size = 1.2) +  # Normal curve
 
-  # Shading the regions
-  geom_ribbon(data = subset(data, x >= mean_x - 1 * sd_x & x <= mean_x + 1 * sd_x), aes(ymin = 0, ymax = y), fill = "blue", alpha = 0.3) +
-  geom_ribbon(data = subset(data, x >= mean_x - 2 * sd_x & x <= mean_x + 2 * sd_x), aes(ymin = 0, ymax = y), fill = "green", alpha = 0.3) +
-  geom_ribbon(data = subset(data, x >= mean_x - 3 * sd_x & x <= mean_x + 3 * sd_x), aes(ymin = 0, ymax = y), fill = "orange", alpha = 0.3) +
-
-  # Probability annotations (aligned with arrows)
-  annotate("text", x = mean_x, y = y_positions[1], label = prob_labels[1], size = 5, color = "black", fontface = "bold", hjust = 0) +
-  annotate("text", x = mean_x, y = y_positions[2], label = prob_labels[2], size = 5, color = "black", fontface = "bold", hjust = 0) +
-  annotate("text", x = mean_x , y = y_positions[3], label = prob_labels[3], size = 5, color = "black", fontface = "bold", hjust = 0) +
-
-  # X-axis labels
-  scale_x_continuous(breaks = seq(mean_x - 3 * sd_x, mean_x + 3 * sd_x, sd_x),
-                     labels = c("-3σ\n-50%", "-2σ\n-30%", "-1σ\n-10%", "0\n10%", "+1σ\n30%", "+2σ\n50%", "+3σ\n70%")) +
-
-  # Labels and theme
-  labs(title = "Normal Distribution (Mean = 10%, SD = 20%)",
-       x = "", y = "Density") +
-  theme_minimal()
-
-```
 
 
 ---
@@ -554,26 +635,17 @@ $$
 - Consider a normal random variable $R$ with  $\mu=0$ and $\sigma=1$. In other words, $R \sim N(0,1)$. We call it a standard normal random variable.
 - Suppose that we want to find the probability that $R$ is lower than $x$. Graphically, this probability is the shadowed area in the figure below:
 
-```{r, echo=FALSE, fig.align="center", fig.width=20, fig.height=10}
-library(ggplot2)
 
-# Define the standard normal distribution
-x <- seq(-4, 4, length=1000)
-y <- dnorm(x)
 
-# Define the value of x to shade
-x_val <- 1
 
-# Create the plot
-ggplot(data.frame(x, y), aes(x, y)) +
-    geom_line() +
-    geom_area(data = subset(data.frame(x, y), x <= x_val), aes(x=x, y=y), fill="blue", alpha=0.5) +
-    labs(title = "Standard Normal Distribution",
-        x = "R",
-        y = "Density") +
-    theme_minimal() +
-    annotate("text", x = x_val, y = 0.02, label = "x", vjust = 3, size = 6)
-```
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](chapter_intro_files/figure-revealjs/unnamed-chunk-6-1.png){fig-align='center' width=1920}
+:::
+:::
+
+
+
 
 ---
 
@@ -593,17 +665,53 @@ ggplot(data.frame(x, y), aes(x, y)) +
 
 - ***Ex.1*** Suppose that $R_1 \sim \phi (0,1)$. What is the probability that $R_1$ is larger than 1?
 
-```{r, echo=T}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
 prob_R1 <- 1 - pnorm(1, mean = 0, sd = 1)
 cat("P(R1 > 1) =", prob_R1, "\n")
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+P(R1 > 1) = 0.1586553 
+```
+
+
+:::
+:::
+
+
+
+
 - ***Ex.2*** Suppose that $R_2 \sim \phi (0.1, 0.2)$. What is the probability that $R_2$ is equal to or smaller than 0.5?
 
-```{r, echo=T}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
 prob_R2 <- pnorm(0.5, mean = 0.1, sd = 0.2)
 cat("P(R2 ≤ 0.5) =", prob_R2, "\n")
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+P(R2 ≤ 0.5) = 0.9772499 
+```
+
+
+:::
+:::
+
+
+
 
 
 ---
@@ -613,52 +721,26 @@ cat("P(R2 ≤ 0.5) =", prob_R2, "\n")
 - Historical returns often deviate from the normal distribution.
 - Empirical distributions can exhibit skewness and kurtosis (fat tails).
 
-```{r, echo=FALSE, fig.align="center"}
-# Install missing packages if needed
-if (!requireNamespace("moments", quietly = TRUE)) install.packages("moments")
 
-# Load necessary libraries
-library(ggplot2)
-library(quantmod)
-library(moments)
 
-# Step 1: Load a more volatile stock (Tesla, TSLA)
-getSymbols("TSLA", src = "yahoo", from = "2015-01-01", to = Sys.Date(), auto.assign = TRUE)
-tsla_returns <- dailyReturn(Cl(TSLA))  # Extract daily % returns
-tsla_returns <- na.omit(as.numeric(tsla_returns))  # Convert xts to numeric & remove NAs
 
-# Step 2: Compute statistics
-mean_ret <- mean(tsla_returns, na.rm = TRUE)
-sd_ret <- sd(tsla_returns, na.rm = TRUE)
-skewness_ret <- skewness(tsla_returns, na.rm = TRUE)  # Measure asymmetry
-kurtosis_ret <- kurtosis(tsla_returns, na.rm = TRUE)  # Measure fat tails
+::: {.cell layout-align="center"}
+::: {.cell-output .cell-output-stdout}
 
-# Step 3: Generate normal distribution with same mean & SD
-simulated_norm <- rnorm(n = length(tsla_returns), mean = mean_ret, sd = sd_ret)
-
-# Step 4: Create data frame for visualization
-data <- data.frame(Returns = c(tsla_returns, simulated_norm),
-                   Type = rep(c("Empirical", "Normal"), each = length(tsla_returns)))
-
-# Step 5: Plot the empirical vs. normal distribution
-ggplot(data, aes(x = Returns, fill = Type)) +
-  # ✅ Fix 1: Use `after_stat(density)` instead of `..density..`
-  geom_histogram(aes(y = after_stat(density)), bins = 80, alpha = 0.5, position = "identity") +
-  
-  # ✅ Fix 2: Properly scale the normal curve
-  stat_function(fun = dnorm, args = list(mean = mean_ret, sd = sd_ret), 
-                color = "red", size = 1, n = 1000, inherit.aes = FALSE, 
-                aes(x = Returns)) +
-  
-  # Labels and theme
-  labs(title = "Empirical vs. Normal Distribution of Tesla (`TSLA`) Returns",
-       subtitle = paste0("Skewness: ", round(skewness_ret, 2), 
-                         " | Kurtosis: ", round(kurtosis_ret, 2)),
-       x = "Daily Returns", y = "Density") +
-  scale_fill_manual(values = c("blue", "gray")) +
-  theme_minimal(base_size = 16) +  # Increase text size
-  theme(legend.position = "top", plot.title = element_text(face = "bold", size = 20))
 ```
+[1] "TSLA"
+```
+
+
+:::
+
+::: {.cell-output-display}
+![](chapter_intro_files/figure-revealjs/unnamed-chunk-9-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+
 
 ---
 
@@ -825,52 +907,26 @@ $$
 - VaR estimation is based on the assumption that the distribution of future return is the same as (at least similar to) the distribution of past return.
 - This assumption may not hold in the real world.
 
-```{r,echo=F, fig.align="center"}
-# Load necessary libraries
-library(quantmod)
-library(PerformanceAnalytics)
-library(ggplot2)
-library(dplyr)
 
-# Set the symbol for KOSPI 200 (^KS200 is used for Yahoo Finance)
-symbol <- "^KS200"
 
-# Set the time period
-start_date <- as.Date("2010-01-01")
-end_date <- as.Date("2024-12-31")
 
-# Get KOSPI 200 data from Yahoo Finance
-getSymbols(symbol, src = "yahoo", from = start_date, to = end_date)
+::: {.cell layout-align="center"}
+::: {.cell-output .cell-output-stdout}
 
-# Extract adjusted closing prices
-kospi_prices <- KS200[,"KS200.Adjusted"]
-
-# Compute daily log returns
-kospi_returns <- dailyReturn(kospi_prices, type = "log")
-
-# Convert to data frame
-returns_df <- data.frame(Date = index(kospi_returns), Return = coredata(kospi_returns))
-
-# Add year column
-returns_df$Year <- format(returns_df$Date, "%Y")
-
-# Compute historical 5% Value at Risk (VaR) per year
-var_per_year <- returns_df %>%
-  group_by(Year) %>%
-  summarize(VaR_5 = quantile(daily.returns, probs = 0.05, na.rm = TRUE))
-
-# Convert Year to numeric for plotting
-var_per_year$Year <- as.numeric(var_per_year$Year)
-
-# Plot the 5% VaR per year
-ggplot(var_per_year, aes(x = Year, y = VaR_5)) +
-  geom_line(color = "blue", size = 1) +
-  geom_point(color = "red", size = 2) +
-  labs(title = "VaR at 5% for KOSPI Index (lowest 5% daily returns)",
-       x = "Year",
-       y = "5% VaR (Daily Log Return)") +
-  theme_minimal()
 ```
+[1] "KS200"
+```
+
+
+:::
+
+::: {.cell-output-display}
+![](chapter_intro_files/figure-revealjs/unnamed-chunk-10-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+
 
 ---
 
@@ -926,40 +982,44 @@ ggplot(var_per_year, aes(x = Year, y = VaR_5)) +
 
 ## Value at Risk and Expected Shortfall
 
-```{r, echo=F}
-# Load necessary libraries
-library(quantmod)
-library(PerformanceAnalytics)
 
-# Load Palantir (PLTR) stock data from Yahoo Finance
-getSymbols("PLTR", src = "yahoo", from = "2010-01-01", to = Sys.Date(), auto.assign = TRUE)
 
-# Compute daily returns & remove NAs
-pltr_returns <- na.omit(dailyReturn(Cl(PLTR)))
 
-# Set confidence level for 90% VaR & ES
-confidence_level <- 0.10  # 90% confidence level
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
 
-# **Manually Compute 90% Historical VaR**
-VaR_90 <- quantile(pltr_returns, probs = confidence_level, na.rm = TRUE)
-
-# **Manually Compute 90% Expected Shortfall (ES)**
-ES_90 <- mean(pltr_returns[pltr_returns <= VaR_90], na.rm = TRUE)
-
-# Print risk measures
-cat("90% Historical VaR:", round(VaR_90, 6), "\n")
-cat("90% Expected Shortfall:", round(ES_90, 6), "\n")
-
-# Visualize Return Distribution with VaR Line
-chart.Histogram(pltr_returns, 
-                breaks = 50,
-                main = "Palantir (PLTR) Return Distribution with 90% VaR & ES",
-                xlab = "Daily Returns",
-                method = c("add.rug", "add.normal", "add.risk", "add.density"))
-
-# Add rug (small markers at x-axis) for each return value
-rug(pltr_returns, col = "red")
 ```
+[1] "PLTR"
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+90% Historical VaR: -0.044821 
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+90% Expected Shortfall: -0.069202 
+```
+
+
+:::
+
+::: {.cell-output-display}
+![](chapter_intro_files/figure-revealjs/unnamed-chunk-11-1.png){width=960}
+:::
+:::
+
+
+
 
 ---
 
@@ -971,3 +1031,4 @@ rug(pltr_returns, col = "red")
     - **1996 Amendment**: Required capital = ***k \times VaR (1\%, 10 days)***, where ***k \ge 3***.
     - **Basel II (2007)**: Suggested ***VaR(0.1\%, 1-year)*** for risk assessment.
     - **Basel IV (2021)**: Recommended 97.5% expected shortfall (ES) for a comprehensive risk view.
+

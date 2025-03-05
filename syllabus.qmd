@@ -1,6 +1,10 @@
 ---
 title: "BUSS386(03) Futures and Options"
 author: "Prof. Ji-Woong Chung"
+toc: true
+format: 
+    html: default
+    pdf: default
 ---
 
 
