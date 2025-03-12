@@ -8,8 +8,6 @@
 
 ---
 
-## Lecture Notes
-
 
 **Lecture1: Introduction and Overview**
 

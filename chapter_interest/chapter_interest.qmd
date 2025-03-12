@@ -21,138 +21,135 @@ execute:
 
 ## Lecture Outline
 
-- Interest Rates
-  - Types
-  - Measurement
-  - Zero/Par/Forward rates
-  - Forward Rate Agreements
-  - Risk Management: Duration and convexity
-- Reading: Ch. 4
-
-
+-   Interest Rates
+    -   Types
+    -   Measurement
+    -   Zero/Par/Forward rates
+    -   Forward Rate Agreements
+    -   Risk Management: Duration and convexity
+-   Reading: Ch. 4
 
 # Interest Rates: Types and Measurement
 
----
+------------------------------------------------------------------------
 
 ## Interest Rates
 
-- Interest rates are crucial for valuing derivatives and financial assets.
-- There are various types of interest rates and methods to measure them.
-- Generally, interest rates are higher for riskier investments.
-  - The **risk-free interest rates** are the rates for an investment with zero risk.
-  - They serve as a reference rate for pricing other assets.
+-   Interest rates are crucial for valuing derivatives and financial assets.
+-   There are various types of interest rates and methods to measure them.
+-   Generally, interest rates are higher for riskier investments.
+    -   The **risk-free interest rates** are the rates for an investment with zero risk.
+    -   They serve as a reference rate for pricing other assets.
 
----
+------------------------------------------------------------------------
 
 ## Reference Rates
 
-- **Treasury Rates**
-  - The rate earned by investors when they invest in government (treasury) bonds.
-  - Governments are generally able to repay the principal and interest, making these bonds nearly risk-free (hence, they are often considered risk-free rates).^[Not always. Read: [Default Trap](https://en.wikipedia.org/wiki/Default_trap?utm_source=chatgpt.com)]
+-   **Treasury Rates**
+    -   The rate earned by investors when they invest in government (treasury) bonds.
+    -   Governments are generally able to repay the principal and interest, making these bonds nearly risk-free (hence, they are often considered risk-free rates).[^1]
+-   **LIBOR (London Interbank Offered Rate)**
+    -   Represents the rate at which banks can borrow from other banks.
+    -   Only banks with high creditworthiness (e.g., a credit rating of AA or higher) can borrow at LIBOR.
+    -   This rate is for unsecured loans, meaning there is a theoretical risk of default by the borrowing bank.
+    -   However, the risk of default is minimal because banks in the LIBOR market have high credit ratings, making it an almost risk-free rate.
 
-- **LIBOR (London Interbank Offered Rate)**
-  - Represents the rate at which banks can borrow from other banks.
-  - Only banks with high creditworthiness (e.g., a credit rating of AA or higher) can borrow at LIBOR.
-  - This rate is for unsecured loans, meaning there is a theoretical risk of default by the borrowing bank.
-  - However, the risk of default is minimal because banks in the LIBOR market have high credit ratings, making it an almost risk-free rate.
+[^1]: Not always. Read: [Default Trap](https://en.wikipedia.org/wiki/Default_trap?utm_source=chatgpt.com)
 
----
-
-## LIBOR Phase-out
-
-- The LIBOR Scandal in 2012^[Read: [Libor scandal](https://en.wikipedia.org/wiki/Libor_scandal)]
-- Regulators phased out LIBOR by the end of 2021, replacing it with new reference rates based on actual overnight market transactions.
-- New reference rates (based on repo rates where indicated):
-  - US dollar: SOFR (Secured Overnight Financing Rate)*
-  - Korea: KOFR (Korea Overnight Financing Repo Rate)*
-  - GBP: SONIA (Sterling Overnight Index Average)
-  - EU: ESTER (Euro Short-Term Rate)
-  - Switzerland: SARON (Swiss Average Overnight Rate)
-  - Japan: TONAR (Tokyo Overnight Average Rate)
-
----
+------------------------------------------------------------------------
 
 ## LIBOR Phase-out
 
-- While LIBOR has been largely phased out, it still exists in some legacy contracts.
+-   The LIBOR Scandal in 2012[^2]
+-   Regulators phased out LIBOR by the end of 2021, replacing it with new reference rates based on actual overnight market transactions.
+-   New reference rates (based on repo rates where indicated):
+    -   US dollar: SOFR (Secured Overnight Financing Rate)\*
+    -   Korea: KOFR (Korea Overnight Financing Repo Rate)\*
+    -   GBP: SONIA (Sterling Overnight Index Average)
+    -   EU: ESTER (Euro Short-Term Rate)
+    -   Switzerland: SARON (Swiss Average Overnight Rate)
+    -   Japan: TONAR (Tokyo Overnight Average Rate)
+
+[^2]: Read: [Libor scandal](https://en.wikipedia.org/wiki/Libor_scandal)
+
+------------------------------------------------------------------------
+
+## LIBOR Phase-out
+
+-   While LIBOR has been largely phased out, it still exists in some legacy contracts.
 
 ::: {style="text-align: center;"}
-![](img/interest_libor.png){width=120%}
+![](img/interest_libor.png){width="120%"}
 :::
 
-<center>
-<small>Source: https://www.bis.org/publ/qtrpdf/r_qt2212e.htm</small>
-</center>
+<center><small>Source: https://www.bis.org/publ/qtrpdf/r_qt2212e.htm</small></center>
 
-
----
+------------------------------------------------------------------------
 
 ## Reference Rates
 
-- New financial instruments now use alternative reference rates such as SOFR, SONIA, and others.
-  
-- **Overnight Rates**
-  - Banks must maintain a certain amount of cash, known as a reserve, with the central bank.
-  - They borrow and lend overnight to manage these reserves.
-  - Examples include the Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), and TONAR (Japan).
-- **Repo Rates**
-  - Unlike overnight rates, repo rates are for secured borrowing.
-  - Examples include SOFR (U.S.) and KOFR (Korea).
+-   New financial instruments now use alternative reference rates such as SOFR, SONIA, and others.
 
+-   **Overnight Rates**
 
----
+    -   Banks must maintain a certain amount of cash, known as a reserve, with the central bank.
+    -   They borrow and lend overnight to manage these reserves.
+    -   Examples include the Federal funds rate (U.S.), SONIA (U.K.), ESTER (Euro), SARON (Swiss), and TONAR (Japan).
 
-## Measuring Interest Rates
+-   **Repo Rates**
 
-- Interest rates are quoted as an **annual** rate.
-- However, the actual frequency at which interests are earned (or compounded) does not have to be annual
-  - semiannual compounding: interests are earned in every six months.
-  - quarterly compounding: interests are earned in every quarter.
-  - monthly compounding: interests are earned in every month, etc.
-  
-- Let $r$ denote the annual rate and $m$ denote the number of compounding periods in a year. If you invest \$1 for one year, then future value is
-  $$
-  \$1\times\left( 1 + \frac{r}{m} \right)^m
-  $$
+    -   Unlike most overnight rates, repo rates are for secured borrowing.
+    -   Examples include SOFR (U.S.) and KOFR (Korea).
 
----
+------------------------------------------------------------------------
 
 ## Measuring Interest Rates
 
-- **Continuous compounding** is an extreme case where interests are earned at every instant.
-- With the annual rate $r$, the future value of \$1 after one year with continuous compounding is
-  $$
-  \$1\times e^{r}
-  $$
-  
-- The future value after $T$ years is
-  $$
-  \$1\times e^{rT}
-  $$
+-   Interest rates are quoted as an **annual** rate.
+-   However, the actual frequency at which interests are earned (or compounded) does not have to be annual
+    -   semiannual compounding: interests are earned in every six months.
+    -   quarterly compounding: interests are earned in every quarter.
+    -   monthly compounding: interests are earned in every month, etc.
+-   Let $r$ denote the annual rate and $m$ denote the number of compounding periods in a year. If you invest \$1 for one year, then future value is $$
+    \$1\times\left( 1 + \frac{r}{m} \right)^m
+    $$
 
----
+------------------------------------------------------------------------
+
+## Measuring Interest Rates
+
+-   **Continuous compounding** is an extreme case where interests are earned at every instant.
+
+-   With the annual rate $r$, the future value of \$1 after one year with continuous compounding is $$
+    \$1\times e^{r}
+    $$
+
+-   The future value after $T$ years is $$
+    \$1\times e^{rT}
+    $$
+
+------------------------------------------------------------------------
 
 ## Conversion of Interest Rates
 
-- In some cases, we need to convert the interest rate with continuous compounding to the rate with different compounding frequency (or vice versa).
-- Let $r_c$ denote the rate with continuous compounding. Also, let $r_m$ denote the rate with compounding $m$ times per year. Then,
-  $$
-  e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
-  $$
-- **Example:** An interest rate is quoted as 10% per annum with semiannual compounding. What is the equivalent rate with continuous compounding? Higher or lower?
-- **Note:** Given $P_{t+1}$ and $P_t$,  $r_c =\ln\frac{P_{t+1}}{P_t}$. That is, $P_{t+1}=e^{r_C}P_t$.
+-   In some cases, we need to convert the interest rate with continuous compounding to the rate with different compounding frequency (or vice versa).
+-   Let $r_c$ denote the rate with continuous compounding. Also, let $r_m$ denote the rate with compounding $m$ times per year. Then, $$
+    e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
+    $$
+-   **Example:** An interest rate is quoted as 10% per annum with semiannual compounding. What is the equivalent rate with continuous compounding? Higher or lower?
+-   **Note:** Given $P_{t+1}$ and $P_t$, $r_c =\ln\frac{P_{t+1}}{P_t}$. That is, $P_{t+1}=e^{r_C}P_t$.
 
----
+------------------------------------------------------------------------
 
 ## Zero Rates
 
-- Consider a risk-free zero-coupon bond where all principal and interests are paid at the end of $n$ years.
-- The interest rate on such investment is called $n$-year zero-coupon interest rate (in short, we also call  $n$-year zero rate or $n$-year spot rate).
-- **Example:** 5-year zero-coupon bond with the principal of \$1,000 is priced at \$890. What is the 5-year zero rate with continuous compounding?
-  - Solving for $r$ such that $890\times e^{r5}=1000$, $r$=2.33%.
-- However, in practice, most bonds are coupon bonds.
+-   Consider a risk-free zero-coupon bond where all principal and interests are paid at the end of $n$ years.
+-   The interest rate on such investment is called $n$-year zero-coupon interest rate (in short, we also call $n$-year zero rate or $n$-year spot rate).
+-   **Example:** 5-year zero-coupon bond with the principal of \$1,000 is priced at \$890. What is the 5-year zero rate with continuous compounding?
+    -   Solving for $r$ such that $890\times e^{r5}=1000$, $r$=2.33%.
+-   However, in practice, most bonds are coupon bonds.
 
+````{=html}
 <!-- 
 ## Zero Rates - Facts I
 
@@ -298,17 +295,15 @@ ggplot(yield_data, aes(x = Date)) +
   theme_minimal()
 ```
  -->
+````
 
-
----
+------------------------------------------------------------------------
 
 ## Bond Pricing
 
-- A 2-year bond with a principal of \$100 provides coupons at the rate of 6% per annum semiannually. The theoretical price of the bond is
-  $$
-  3e^{-0.05(0.5)} + 3e^{-0.058(1.0)} + 3e^{-0.064(1.5)} + 103e^{-0.068(2.0)} = 98.39
-  $$
-
+-   A 2-year bond with a principal of \$100 provides coupons at the rate of 6% per annum semiannually. The theoretical price of the bond is $$
+    3e^{-0.05(0.5)} + 3e^{-0.058(1.0)} + 3e^{-0.064(1.5)} + 103e^{-0.068(2.0)} = 98.39
+    $$
 
 **Table 4.2 Zero Rates**
 
@@ -319,24 +314,19 @@ ggplot(yield_data, aes(x = Date)) +
 | 1.5              | 6.4                |
 | 2.0              | 6.8                |
 
+-   A **yield-to-maturity** is the single discount rate that gives a bond price equal to its market price ($y=6.76\%$). It is a convenient way to express price in terms of a single rate of interest.
 
-- A **yield-to-maturity** is the single discount rate that gives a bond price equal to its market price ($y=6.76\%$). It is a convenient way to express price in terms of a single rate of interest.
-  
-  $$
-  3e^{-y(0.5)} + 3e^{-y(1.0)} + 3e^{-y(1.5)} + 103e^{-y(2.0)} = 98.39
-  $$
+    $$
+    3e^{-y(0.5)} + 3e^{-y(1.0)} + 3e^{-y(1.5)} + 103e^{-y(2.0)} = 98.39
+    $$
 
----
-
-
+------------------------------------------------------------------------
 
 ## Bond Pricing (Compounded semi-annually) {background-color="#ffebf0"}
 
-- We can also use semi-annually compounded zero rates to price the bond:
-  $$
-  \frac{3}{(1 + 0.0506)} + \frac{3}{(1 + 0.0588)^{2}} + \frac{3}{(1 + 0.0651)^{3}} + \frac{103}{(1 + 0.0692)^{4}} = 98.39
-  $$
-
+-   We can also use semi-annually compounded zero rates to price the bond: $$
+    \frac{3}{(1 + 0.0506)} + \frac{3}{(1 + 0.0588)^{2}} + \frac{3}{(1 + 0.0651)^{3}} + \frac{103}{(1 + 0.0692)^{4}} = 98.39
+    $$
 
 | Maturity (years) | Zero rate (% c.c.) | Zero rate (% s.a.) |
 |------------------|--------------------|--------------------|
@@ -345,324 +335,310 @@ ggplot(yield_data, aes(x = Date)) +
 | 1.5              | 6.4                | 6.51               |
 | 2.0              | 6.8                | 6.92               |
 
-- The yield-to-maturity is $y=6.90\%$, s.a. compounded!
-  $$
-  \frac{3}{(1 + y)} + \frac{3}{(1 + y)^{2}} + \frac{3}{(1 + y)^{3}} + \frac{103}{(1 + y)^{4}} = 98.39
-  $$
+-   The yield-to-maturity is $y=6.90\%$, s.a. compounded! $$
+    \frac{3}{(1 + y)} + \frac{3}{(1 + y)^{2}} + \frac{3}{(1 + y)^{3}} + \frac{103}{(1 + y)^{4}} = 98.39
+    $$
 
----
-
+------------------------------------------------------------------------
 
 ## Par Rates
 
-- The par rate for a certain bond maturity is the coupon rate that makes the bond price equal its par value.
-- Suppose that the coupon on a 2-year bond is $c$ per annum. Using the zero rates in Table 4.2, the value of the bond is equal to its par value of 100 when $c=6.87\%$.
-  $$
-  \frac{c}{2}e^{-0.05(0.5)} + \frac{c}{2}e^{-0.058(1.0)} + \frac{c}{2}e^{-0.064(1.5)} + \left(100+\frac{c}{2}\right)e^{-0.068(2.0)} = 100
-  $$
+-   The par rate for a certain bond maturity is the coupon rate that makes the bond price equal its par value.
 
-- Useful for benchmarking and pricing:
-  - Can use to set the coupon rate of new bonds. (In fact, most bonds are par/coupon bonds)/
-  - Can compare bonds with different coupon rates.
+-   Suppose that the coupon on a 2-year bond is $c$ per annum. Using the zero rates in Table 4.2, the value of the bond is equal to its par value of 100 when $c=6.87\%$. $$
+    \frac{c}{2}e^{-0.05(0.5)} + \frac{c}{2}e^{-0.058(1.0)} + \frac{c}{2}e^{-0.064(1.5)} + \left(100+\frac{c}{2}\right)e^{-0.068(2.0)} = 100
+    $$
 
----
+-   Useful for benchmarking and pricing:
+
+    -   Can use to set the coupon rate of new bonds. (In fact, most bonds are par/coupon bonds)/
+    -   Can compare bonds with different coupon rates.
+
+------------------------------------------------------------------------
 
 ## Forward Rates
 
-- **Example:** Consider the following term-structure of interest rates:
+-   **Example:** Consider the following term-structure of interest rates:
 
-  | Maturity (years) | Interest rate (%) |
-  |------------------|-------------------|
-  | 1                | 3.0               |
-  | 2                | 4.0               |
+    | Maturity (years) | Interest rate (%) |
+    |------------------|-------------------|
+    | 1                | 3.0               |
+    | 2                | 4.0               |
 
-- We can find the **implicit** rate that can be earned from year 1 to year 2. Let $r$ denote the rate. Then,
-  $$
-  e^{0.04\times 2} = e^{0.03}e^r
-  $$
-  $r$ = 5.00%.
-- We call $r$ the **(implied) forward rate**.
+-   We can find the **implicit** rate that can be earned from year 1 to year 2. Let $r$ denote the rate. Then, $$
+    e^{0.04\times 2} = e^{0.03}e^r
+    $$ $r$ = 5.00%.
 
----
+-   We call $r$ the **(implied) forward rate**.
 
-## Forward Rates - Borrowing/Lending
-
-- We can lock in interests for future borrowing/lending at this forward rate.
-- Suppose that we want to borrow \$1 one year from now and repay in year 2. Also, we want to fix now the interest rate for this borrowing.
-- If we fix at the forward rate, this borrowing will have cash flows as follows:
-
-| Action                    | year 0 | year 1 | year 2       |
-|---------------------------|--------|--------|--------------|
-| borrowing at forward rate | 0      | 1      | $-e^{0.05}$  |
-
----
+------------------------------------------------------------------------
 
 ## Forward Rates - Borrowing/Lending
 
-- We may not have a financial instrument where we can borrow or lend at the forward rate in the markets.
-- Then, we can construct this by combining two zero coupon bonds. In this construction, we can choose the face-value of zero coupon bonds as we like.
+-   We can lock in interests for future borrowing/lending at this forward rate.
+-   Suppose that we want to borrow \$1 one year from now and repay in year 2. Also, we want to fix now the interest rate for this borrowing.
+-   If we fix at the forward rate, this borrowing will have cash flows as follows:
 
-| Action               | year 0            | year 1 | year 2       |
-|----------------------|-------------------|--------|--------------|
-| buy 1-yr bond (lend) | $-e^{-0.03}$      | 1      | 0            |
-| sell 2-yr bond       | $e^{-0.03}$       | 0      | $-e^{0.05}$  |
-| net                  | 0                 | 1      | $-e^{0.05}$  |
+| Action                    | year 0 | year 1 | year 2      |
+|---------------------------|--------|--------|-------------|
+| borrowing at forward rate | 0      | 1      | $-e^{0.05}$ |
 
+------------------------------------------------------------------------
 
----
+## Forward Rates - Borrowing/Lending
+
+-   We may not have a financial instrument where we can borrow or lend at the forward rate in the markets.
+-   Then, we can construct this by combining two zero coupon bonds. In this construction, we can choose the face-value of zero coupon bonds as we like.
+
+| Action               | year 0       | year 1 | year 2      |
+|----------------------|--------------|--------|-------------|
+| buy 1-yr bond (lend) | $-e^{-0.03}$ | 1      | 0           |
+| sell 2-yr bond       | $e^{-0.03}$  | 0      | $-e^{0.05}$ |
+| net                  | 0            | 1      | $-e^{0.05}$ |
+
+------------------------------------------------------------------------
 
 ## Forward Rates - Example
 
-- **Example:** Consider the following term-structure of interest rates:
+-   **Example:** Consider the following term-structure of interest rates:
 
-  | Maturity (years) | Interest rate (%) |
-  |------------------|-------------------|
-  | 1                | 3.0               |
-  | 2                | 4.0               |
-  | 3                | 4.6               |
+    | Maturity (years) | Interest rate (%) |
+    |------------------|-------------------|
+    | 1                | 3.0               |
+    | 2                | 4.0               |
+    | 3                | 4.6               |
 
-- **Q1:** What is the implied forward rate $r_0(2,3)$?
+-   **Q1:** What is the implied forward rate $r_0(2,3)$?
 
----
+------------------------------------------------------------------------
 
 ## Forward Rates - Borrowing/Lending - Example
 
-- **Q2:** An investor wants to lend \$100 in year 2 and receive in year 3. The investor wants to lock in the interest rate at $r_0(2,3)$. Construct this instrument using two zero bonds.
+-   **Q2:** An investor wants to lend \$100 in year 2 and receive in year 3. The investor wants to lock in the interest rate at $r_0(2,3)$. Construct this instrument using two zero bonds.
 
----
-
-## Forward Rate Agreements
-
-- A **forward rate agreement (FRA)** is an agreement to exchange a predetermined fixed rate for a reference rate that will be observed in the market at a future time (the principal itself is not exchanged).
-- Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of \$100 million. Party A (B) would agree to pay (receive) LIBOR and receive (pay) the fixed rate of 3%. Assume all rates are compounded quarterly. If three-month LIBOR proved to be 3.5% in two years, Party B would receive
-  $$
-  \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000
-  $$
-
-- As LIBOR is phased out, we see a deline of FRAs based on LIBOR and an increases in similar derivatives based on RFR such as SOFR.^[Read: [The Post-LIBOR World](https://www.bis.org/publ/qtrpdf/r_qt2212e.htm)]
-
----
+------------------------------------------------------------------------
 
 ## Forward Rate Agreements
 
-- At initiation, an FRA rate is set so as to have zero value. That is, the FRA rate = forward rate.
-- As time passes, the forward rate is likely to change. The FRA value deviates from zero.
+-   A **forward rate agreement (FRA)** is an agreement to exchange a predetermined fixed rate for a reference rate that will be observed in the market at a future time (the principal itself is not exchanged).
 
-  - **Example:** forward SOFR rate for the period between time 1.5 years and time 2 years in the future is 5% (with semiannual compounding)
-  - Some time ago a company entered into an FRA where it will receive 5.8% (with semiannual compounding) and pay SOFR on a principal of \$100 million for the period.
-  - The 2-year (SOFR) risk-free rate is 4% (with continuous compounding).
-  - The value of the FRA is
-    $$
-    \$100,000,000 \times \frac{(0.058 - 0.050)}{2} \times e^{-0.04(2)} = \$369,200
+-   Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of \$100 million. Party A (B) would agree to pay (receive) LIBOR and receive (pay) the fixed rate of 3%. Assume all rates are compounded quarterly. If three-month LIBOR proved to be 3.5% in two years, Party B would receive $$
+    \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000
     $$
 
+-   As LIBOR is phased out, we see a deline of FRAs based on LIBOR and an increases in similar derivatives based on RFR such as SOFR.[^3]
 
+[^3]: Read: [The Post-LIBOR World](https://www.bis.org/publ/qtrpdf/r_qt2212e.htm)
 
+------------------------------------------------------------------------
+
+## Forward Rate Agreements
+
+-   At initiation, an FRA rate is set so as to have zero value. That is, the FRA rate = forward rate.
+
+-   As time passes, the forward rate is likely to change. The FRA value deviates from zero.
+
+    -   **Example:** forward SOFR rate for the period between time 1.5 years and time 2 years in the future is 5% (with semiannual compounding)
+    -   Some time ago a company entered into an FRA where it will receive 5.8% (with semiannual compounding) and pay SOFR on a principal of \$100 million for the period.
+    -   The 2-year (SOFR) risk-free rate is 4% (with continuous compounding).
+    -   The value of the FRA is $$
+        \$100,000,000 \times \frac{(0.058 - 0.050)}{2} \times e^{-0.04(2)} = \$369,200
+        $$
 
 # Interest Rate Risk: Measurement and Management
 
----
+------------------------------------------------------------------------
 
 ## Interest Rate Risk
 
-- Interest rate or yield volatility translates into price volatility for fixed income securities.
-- Financial institutions like commercial and investment banks, and fixed income portfolio managers, are highly exposed to interest rate volatility
-- These institutions manage interest rate risk in a variety of ways that include forward, future and swap contracts, and dynamic hedging strategies
+-   Interest rate or yield volatility translates into price volatility for fixed income securities.
+-   Financial institutions like commercial and investment banks, and fixed income portfolio managers, are highly exposed to interest rate volatility
+-   These institutions manage interest rate risk in a variety of ways that include forward, future and swap contracts, and dynamic hedging strategies
 
----
+------------------------------------------------------------------------
 
 ## Duration and Convexity
 
-- A security’s price is function of its yield "y" and other factors: $ p(y; others)$:
-  - Other factors include maturity, coupon, embedded options, default risk, market conditions, etc.
-- Consider a bond with cash flows $K_{i}$ (coupon + par value) at time $t_i \in \{t_1, t_2, ..., t_N \}$.
-  - $P_0 = \sum_{i=1}^{N} K_i e^{-y_c t_i}$, when $y_c$ is quoted as continuously compounded.
-  - $P_0= \sum_{i=1}^{N} K_i (1+y_m/m)^{-mt_i}$ when $y_m$ is quoted as compounded $m$ times per year.
-- Duration measures are related to the first partial derivative: $\partial P / \partial y$
-- Convexity measures are related to the second derivative: $\partial^2 P / \partial y^2$
+-   A security’s price is function of its yield "y" and other factors: \$ p(y; others)\$:
+    -   Other factors include maturity, coupon, embedded options, default risk, market conditions, etc.
+-   Consider a bond with cash flows $K_{i}$ (coupon + par value) at time $t_i \in \{t_1, t_2, ..., t_N \}$.
+    -   $P_0 = \sum_{i=1}^{N} K_i e^{-y_c t_i}$, when $y_c$ is quoted as continuously compounded.
+    -   $P_0= \sum_{i=1}^{N} K_i (1+y_m/m)^{-mt_i}$ when $y_m$ is quoted as compounded $m$ times per year.
+-   Duration measures are related to the first partial derivative: $\partial P / \partial y$
+-   Convexity measures are related to the second derivative: $\partial^2 P / \partial y^2$
 
----
-
-## Duration: Basics
-
-- Duration measures the first order bond price sensitivity to interest rate changes.
-  - Higher duration means higher price sensitivity to interest rate changes (more price volatility).
-  
-- Macaulay duration: % change in $P$ w.r.t % change in $y$.
-  $$
-  D_{Mac} = -\frac{dP/P}{dy/(1+y/m)} = -\frac{dP/P}{dy} (1+y/m)
-  $$
-- Based on the promised cash flows. As such, it is only accurate for risk-free bonds with no embedded options.
-- Duration is a property of a security or a portfolio at a point in time. It changes over time.
-
----
+------------------------------------------------------------------------
 
 ## Duration: Basics
 
-- The formula for Macaulay duration is:
-  $$
-  D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{ K_i e^{-y_c t_i}}{P}  \right) (1+y_c/ m)
-  $$
-  $$
-  D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{K_i \left( 1+ y_m/m \right)^{-mt_i}}{P} \right)
-  $$
-- Macaulay duration is a weighted average of arrival time of cash flows, where the weights are the fraction of present value represented by that cash flow.
-  1. Macaulay duration of an option-free coupon bond is less than or equal to its time to maturity
-  2. Macaulay duration of a zero coupon option-free bond is equal to its time to maturity
-  3. The higher the coupon rate the shorter the duration
-  4. As market yield increases, duration decreases
+-   Duration measures the first order bond price sensitivity to interest rate changes.
+    -   Higher duration means higher price sensitivity to interest rate changes (more price volatility).
+-   Macaulay duration: % change in $P$ w.r.t % change in $y$. $$
+    D_{Mac} = -\frac{dP/P}{dy/(1+y/m)} = -\frac{dP/P}{dy} (1+y/m)
+    $$
+-   Based on the promised cash flows. As such, it is only accurate for risk-free bonds with no embedded options.
+-   Duration is a property of a security or a portfolio at a point in time. It changes over time.
 
----
+------------------------------------------------------------------------
+
+## Duration: Basics
+
+-   The formula for Macaulay duration is: $$
+    D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{ K_i e^{-y_c t_i}}{P}  \right) (1+y_c/ m)
+    $$ $$
+    D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{K_i \left( 1+ y_m/m \right)^{-mt_i}}{P} \right)
+    $$
+-   Macaulay duration is a weighted average of arrival time of cash flows, where the weights are the fraction of present value represented by that cash flow.
+    1.  Macaulay duration of an option-free coupon bond is less than or equal to its time to maturity
+    2.  Macaulay duration of a zero coupon option-free bond is equal to its time to maturity
+    3.  The higher the coupon rate the shorter the duration
+    4.  As market yield increases, duration decreases
+
+------------------------------------------------------------------------
 
 ## Modified Duration
 
-- Modified duration: $D = D_{Mod} = D_{Mac}/(1+y/m)$
-  - $D_{Mod} =\sum_{i=1}^{N} t_i \left( \frac{ K_i e^{-y_c t_i}}{P}  \right)$ with $y_c$.
-  - $D_{Mod}= \sum_{i=1}^{N} t_i \left( \frac{ K_i \left( 1+y_m/m \right)^{-mt_i}  }{P} \right) \left( 1+ y_m/m \right)^{-1}$ with $y_m$.
-- Therefore, $D_{Mod} = - \frac{dP/P}{dy}$
-- Rearranging it:  $\frac{dP}{P}  = -D_{Mod}dy$
-  - The percentage price change is approximated by: (modified duration) times (the change in the yield).
-  - However, duration only gives an accurate estimate of price change for small yield changes.
-  - Due to the convexity of the price function.
+-   Modified duration: $D = D_{Mod} = D_{Mac}/(1+y/m)$
+    -   $D_{Mod} =\sum_{i=1}^{N} t_i \left( \frac{ K_i e^{-y_c t_i}}{P}  \right)$ with $y_c$.
+    -   $D_{Mod}= \sum_{i=1}^{N} t_i \left( \frac{ K_i \left( 1+y_m/m \right)^{-mt_i}  }{P} \right) \left( 1+ y_m/m \right)^{-1}$ with $y_m$.
+-   Therefore, $D_{Mod} = - \frac{dP/P}{dy}$
+-   Rearranging it: $\frac{dP}{P}  = -D_{Mod}dy$
+    -   The percentage price change is approximated by: (modified duration) times (the change in the yield).
+    -   However, duration only gives an accurate estimate of price change for small yield changes.
+    -   Due to the convexity of the price function.
 
----
+------------------------------------------------------------------------
 
 ## Dollar Duration
 
-- Dollar duration, $D_d = D_{Mod} \times P = -\frac{dP/P}{dy} \times P = -\frac{dP}{dy}$
-- Therefore, $dP = -D_d dy = -D_{Mod} P dy$
-  - The dollar price change w.r.t. the change in yield.
-  - Dollar duration is useful in hedging strategies and for understanding risk of zero NPV portfolios (e.g. interest rate swap)
+-   Dollar duration, $D_d = D_{Mod} \times P = -\frac{dP/P}{dy} \times P = -\frac{dP}{dy}$
+-   Therefore, $dP = -D_d dy = -D_{Mod} P dy$
+    -   The dollar price change w.r.t. the change in yield.
+    -   Dollar duration is useful in hedging strategies and for understanding risk of zero NPV portfolios (e.g. interest rate swap)
 
----
-
+------------------------------------------------------------------------
 
 ## Portfolio Duration
 
-1. The modified duration of a bond portfolio is the value weighted average modified duration of bonds in the portfolio.
-2. The dollar duration of a portfolio is the sum of the dollar durations of the bonds in the portfolio.
-  - For a zero-value portfolio, only dollar duration is defined.
+1.  The modified duration of a bond portfolio is the value weighted average modified duration of bonds in the portfolio.
+2.  The dollar duration of a portfolio is the sum of the dollar durations of the bonds in the portfolio.
 
+-   For a zero-value portfolio, only dollar duration is defined.
 
----
+------------------------------------------------------------------------
 
 ## Effective Duration
 
-- An *empirical* change in bond price w.r.t change in yield.
-- For securities with uncertain cash flows due to optionality (like callable bonds, MBS with prepayment options, or securities with credit risk), effective duration can be significantly different from modified (or Macaulay) duration.
-- The standard duration formulas are inaccurate when cash flows are highly uncertain. In such cases effective duration is the better measure.
-$$
-D_{eff} = -\frac{1}{P}\frac{dP}{dy} =-\frac{1}{P}\frac{P(+x \; bps) - P(-x \; bps)}{2x}
-$$
+-   An *empirical* change in bond price w.r.t change in yield.
+-   For securities with uncertain cash flows due to optionality (like callable bonds, MBS with prepayment options, or securities with credit risk), effective duration can be significantly different from modified (or Macaulay) duration.
+-   The standard duration formulas are inaccurate when cash flows are highly uncertain. In such cases effective duration is the better measure. $$
+    D_{eff} = -\frac{1}{P}\frac{dP}{dy} =-\frac{1}{P}\frac{P(+x \; bps) - P(-x \; bps)}{2x}
+    $$
 
----
-
-## Convexity
-
-- Convexity is a measure of the curvature of the price-rate curve.
-- It is used to improve upon duration-based approximations and hedging strategies.
-- A long position in non-callable bonds always has positive convexity.
-- All else being equal, positive convexity is a desirable property for a long position; negative convexity is a bad thing.
-  - Positive convexity means that duration underestimates the price increase resulting from a drop in yields, and overestimates the price decrease from an increase in yields.
-
----
+------------------------------------------------------------------------
 
 ## Convexity
 
-- Convexity is found by taking the second derivative of the bond price function and then dividing by the price ($\frac{1}{P} \frac{d^2 P}{d y^2}$) for an option-free bond:
-  - $C_{Mod} =\sum_{i=1}^{N} t_i^2  \frac{ K_i  e^{-y_c t_i}}{P}$
-  - $C_{Mod} = \sum_{i=1}^{N} t_i \left( t_i + \frac{1}{m} \right)\frac{K_i \left( 1+ y_m/m \right)^{-(mt_i+2)}}{P}$
-  - $C_{Mac} = C_{Mod} \times (1+y/m)^2$
-  - Note that convexity is measured in terms of "years squared." The units have no intuitive interpretation.
-  - Dollar convexity: $C \times P$
+-   Convexity is a measure of the curvature of the price-rate curve.
+-   It is used to improve upon duration-based approximations and hedging strategies.
+-   A long position in non-callable bonds always has positive convexity.
+-   All else being equal, positive convexity is a desirable property for a long position; negative convexity is a bad thing.
+    -   Positive convexity means that duration underestimates the price increase resulting from a drop in yields, and overestimates the price decrease from an increase in yields.
 
----
+------------------------------------------------------------------------
 
+## Convexity
+
+-   Convexity is found by taking the second derivative of the bond price function and then dividing by the price ($\frac{1}{P} \frac{d^2 P}{d y^2}$) for an option-free bond:
+    -   $C_{Mod} =\sum_{i=1}^{N} t_i^2  \frac{ K_i  e^{-y_c t_i}}{P}$
+    -   $C_{Mod} = \sum_{i=1}^{N} t_i \left( t_i + \frac{1}{m} \right)\frac{K_i \left( 1+ y_m/m \right)^{-(mt_i+2)}}{P}$
+    -   $C_{Mac} = C_{Mod} \times (1+y/m)^2$
+    -   Note that convexity is measured in terms of "years squared." The units have no intuitive interpretation.
+    -   Dollar convexity: $C \times P$
+
+------------------------------------------------------------------------
 
 ## Using Convexity to Improve Price Sensitivity Estimates
 
-::: {.callout}
-**Taylor series**
-$$
+::: callout
+**Taylor series** $$
 f(x)-f(x_0) \approx f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
-$$
-$$
+$$ $$
 \Rightarrow P(y)-P(y_0) \approx P'(y_0)(y-y_0) + \frac{1}{2}P''(y_0)(y-y_0)^2
 $$
 :::
 
-- $P'(y_0)$: $-$Dollar duration, $P''(y_0)$: Dollar convexity
-$$
-\Rightarrow \frac{P(y)-P(y_0)}{P(y)}  \approx \frac{P'(y_0)}{P(y)}(y-y_0) + \frac{1}{2}\frac{P''(y_0)}{P(y)}(y-y_0)^2
-$$
-- Percent change in price:
-$$
-\frac{\Delta P}{P} \approx -D \Delta y + \frac{1}{2} C \Delta y^2 
-$$
+-   $P'(y_0)$: $-$Dollar duration, $P''(y_0)$: Dollar convexity $$
+    \Rightarrow \frac{P(y)-P(y_0)}{P(y)}  \approx \frac{P'(y_0)}{P(y)}(y-y_0) + \frac{1}{2}\frac{P''(y_0)}{P(y)}(y-y_0)^2
+    $$
+-   Percent change in price: $$
+    \frac{\Delta P}{P} \approx -D \Delta y + \frac{1}{2} C \Delta y^2 
+    $$
 
----
+------------------------------------------------------------------------
 
 ## Hedging with Duration and Convexity
 
-- Change in bond price with a change in interest rates:
-  $$
-  \Delta P \approx -D P \Delta y + \frac{1}{2} C P \Delta y^2 
-  $$
+-   Change in bond price with a change in interest rates: $$
+    \Delta P \approx -D P \Delta y + \frac{1}{2} C P \Delta y^2 
+    $$
 
-- A delta neutral portfolio equates the hedge ratio (duration) of assets and liabilities.
+-   A delta neutral portfolio equates the hedge ratio (duration) of assets and liabilities.
 
-- A gamma neutral portfolio is delta neutral, and also equates the gammas (convexity) of assets and liabilities.
+-   A gamma neutral portfolio is delta neutral, and also equates the gammas (convexity) of assets and liabilities.
 
-
----
+------------------------------------------------------------------------
 
 ## Example
 
-- A dealer in corporate bonds finds herself with an inventory of \$1mm in a 5 year 6.9% bonds (semiannual payments) at the end of the trading day, priced at par.
-- The bonds are illiquid, so selling them would entail a loss. Holding them overnight is risky, since their price might fall if rates rise.
-- An alternative to selling the corporate bonds is to short more liquid Treasury bonds. The following bonds are available:
+-   A dealer in corporate bonds finds herself with an inventory of \$1mm in a 5 year 6.9% bonds (semiannual payments) at the end of the trading day, priced at par.
 
-  - 10 yr, 8% Treasury, $p = \$1,109.0$ per \$1,000 face
-  - 3 yr, 6.3% Treasury, $p = \$1,008.1$ per \$1,000 face
+-   The bonds are illiquid, so selling them would entail a loss. Holding them overnight is risky, since their price might fall if rates rise.
 
-- How much of the 10 year bond would she need to short to hedge? How much of the 3 year bond?
-- If yields rise by 1% overnight on all the bonds, show the result of the transactions the next day when the short position is closed out.
+-   An alternative to selling the corporate bonds is to short more liquid Treasury bonds. The following bonds are available:
 
----
+    -   10 yr, 8% Treasury, $p = \$1,109.0$ per \$1,000 face
+    -   3 yr, 6.3% Treasury, $p = \$1,008.1$ per \$1,000 face
 
-## Example (cont'd)
+-   How much of the 10 year bond would she need to short to hedge? How much of the 3 year bond?
 
-1. Find modified duration of the bond to be hedged
-    - For 5 year 6.9% bond: $y = 6.9\%, D=4.1685$
+-   If yields rise by 1% overnight on all the bonds, show the result of the transactions the next day when the short position is closed out.
 
-2. Find modified duration of the bonds to be shorted (find yields first)
-    - For 10 year 8% bond: $y=6.5\%, D=7.004$
-    - For 3 year 6.3% bond: $y = 6.00\%, D = 2.6999$
-
-3. Find $x$ and $y$ in:
-    - $\$1m(4.1688)+x(7.005)=0  \Rightarrow x =\$595,167$
-    - $\$1m(4.1688)+y(2.7)=0 \Rightarrow y = \$1,543,947$
-
-4. If yields rise by 1% overnight on all the bonds:
-    - For 5 yr, yield to 7.9\%,: $P=\$959.423/1,000=0.959423$, Loss: $(\$1,000,000)(1-0.959423) = \$40,577$
-    - For 10 year yield to 7.5\% $P=\$1034.81/1109=0.93311$, Loss: $(\$595,167)(1-0.93311) = \$39,810$
-    - For 3 year yield to 7\%: $P=\$981.42/\$1,008.1=0.97353$, Loss: $(\$1,543,947)(1-.97353) = \$40,861$
-
----
+------------------------------------------------------------------------
 
 ## Example (cont'd)
 
-- What if the dealer wants the added protection of doing a gamma neutral hedge?
+1.  Find modified duration of the bond to be hedged
+    -   For 5 year 6.9% bond: $y = 6.9\%, D=4.1685$
+2.  Find modified duration of the bonds to be shorted (find yields first)
+    -   For 10 year 8% bond: $y=6.5\%, D=7.004$
+    -   For 3 year 6.3% bond: $y = 6.00\%, D = 2.6999$
+3.  Find $x$ and $y$ in:
+    -   $\$1m(4.1688)+x(7.005)=0  \Rightarrow x =\$595,167$
+    -   $\$1m(4.1688)+y(2.7)=0 \Rightarrow y = \$1,543,947$
+4.  If yields rise by 1% overnight on all the bonds:
+    -   For 5 yr, yield to 7.9%,: $P=\$959.423/1,000=0.959423$, Loss: $(\$1,000,000)(1-0.959423) = \$40,577$
+    -   For 10 year yield to 7.5% $P=\$1034.81/1109=0.93311$, Loss: $(\$595,167)(1-0.93311) = \$39,810$
+    -   For 3 year yield to 7%: $P=\$981.42/\$1,008.1=0.97353$, Loss: $(\$1,543,947)(1-.97353) = \$40,861$
 
-- Investment must be both delta neutral and gamma neutral. This requires matching deltas and gammas, and requires investments in both bonds.
-  - $P1 = \$1 m, D1 = 4.1685, C1 = 21.036$
-  - $P2 = ?, D2 = 7.004, C2 = 62.98$
-  - $P3 = ?, D3 = 2.699, C3 = 8.939$
+------------------------------------------------------------------------
 
-- Match hedge ratios:
-  - $\$1m(4.1685) = P2(7.004) + P3(2.699)$
+## Example (cont'd)
 
-- Match gamma:
-  - $\$1m(21.038) = P2(62.98) + P3(8.939)$
+-   What if the dealer wants the added protection of doing a gamma neutral hedge?
 
-- 2 linear equations in two unknowns. Solve for P2 and P3.
+-   Investment must be both delta neutral and gamma neutral. This requires matching deltas and gammas, and requires investments in both bonds.
+
+    -   $P1 = \$1 m, D1 = 4.1685, C1 = 21.036$
+    -   $P2 = ?, D2 = 7.004, C2 = 62.98$
+    -   $P3 = ?, D3 = 2.699, C3 = 8.939$
+
+-   Match hedge ratios:
+
+    -   $\$1m(4.1685) = P2(7.004) + P3(2.699)$
+
+-   Match gamma:
+
+    -   $\$1m(21.038) = P2(62.98) + P3(8.939)$
+
+-   2 linear equations in two unknowns. Solve for P2 and P3.
