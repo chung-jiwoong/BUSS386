@@ -1,0 +1,170 @@
+---
+title: "Introduction to Swaps: Solutions"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: html
+number-sections: true
+execute:
+    echo: true
+    eval: true
+---
+
+## Day counting 
+
+There are 32 calendar days between July 7, 2014 and August 8, 2014. There are 184 calendar days between July 7, 2014 and January 7, 2015. The interest earned per \$100 of principal is therefore 3.5×32/184=\$0.6087. For a corporate bond we assume 31 days between July 7 and August 8, 2014 and 180 days between July 7, 2014 and January 7, 2015. The interest earned is 3.5×31/180 = \$0.6028.
+
+## Cash price/Quoted price 
+
+There are 89 days between October 12, 2014, and January 9, 2015. There are 182 days between October 12, 2014, and April 12, 2014. The cash price of the bond is obtained by adding the accrued interest to the quoted price. The quoted price is 102 7/32 or 102.21875. The cash price is therefore
+
+102.21875+(89/182)×6=\$105.15
+
+## Cheapest to deliver 
+
+The cheapest-to-deliver bond is the one for which
+
+Quoted Price – Futures Price × Conversion Factor
+
+is least. Calculating this factor for each of the 4 bonds we get
+
+Bond 1:125.15625-101.375×1.2131=2.178
+
+Bond 2:142.46875-101.375×1.3792 = 2.652
+
+Bond 3:115.96875-101.375×1.1149= 2.946
+
+Bond 4:144.06250-101.375×1.4026=1.874
+
+Bond 4 is therefore the cheapest to deliver.
+
+## Bond futures price 
+
+There are 176 days between February 4 and July 30 and 181 days between February 4 and August 4. The cash price of the bond is, therefore:
+
+110+(176/181)×6.5=116.32
+
+The rate of interest with continuous compounding is 2ln1.06=0.1165 or 11.65% per annum. A coupon of 6.5 will be received in 5 days or 0.1370 years. The present value of the coupon is
+
+5e^(-0.1370×0.1165) = 6.490
+
+The futures contract lasts for 62 days or 0.1699 years. The cash futures price if the contract were written on the 13% bond would be
+
+(116.32-6.490)e^(0.1699×0.1165) = 112.03
+
+At delivery there are 57 days of accrued interest. The quoted futures price if the contract were written on the 13% bond would therefore be
+
+112.03-6.5×(57/184) = 110.01
+
+Taking the conversion factor into account the quoted futures price should be:
+
+110.01/1.5 = 73.34
+
+## Bond futures price 
+
+The cash bond price is currently
+
+137 + (9/184)×4=137.1957
+
+A coupon of 4 will be received after 175 days or 0.4795 years. The present value of the coupon on the bond is 4e-0.05×0.4795=3.9053. The futures contract lasts 296 days or 0.8110 years. The cash futures price if it were written on the 8% bond would therefore be
+
+(137.1957 - 3.9053)e^(0.05×0.8110)=138.8061
+
+At delivery there are 121 days of accrued interest. The quoted futures if the contract were written on the 8% bond would therefore be
+
+138.8061-4×(121/182) =136.1468
+
+The quoted price should therefore be
+
+136.1468/1.2191 = 111.68
+
+## Eurodollar futures 
+
+The Eurodollar futures price has increased by 6 basis points. The investor makes a gain per contract of 25×6=\$150 or \$300 in total.
+
+## Eurodollar futures 
+
+The forward interest rate for the time period between months 6 and 9 is 9% per annum with continuous compounding. This is because 9% per annum for three months when combined with 7.5% per annum for six months gives an average interest rate of 8% per annum for the nine-month period.
+
+With quarterly compounding the forward interest rate is
+
+4(e^(0.09/4) -1) = 0.09102
+
+or 9.102%. The three-month Eurodollar quote for a contract maturing in six months is therefore 100-9.102 = 90.898. Note we ignore the issues with day counting.
+
+## Duration and Convexity 
+
+a) D\_{Mac}=1 year. Therefore, D_m=D\_{Mac}/(1+y/k)=1/(1+0.03)=0.9708\$.
+
+The Macaulay convexity is t(t+1)K_t/(1+y), and the modified duration is
+
+C\_{Mac}/(1+y)^2=1.8852
+
+b) D_m=4.5042 and C_m=25.568.
+
+c) dP/P=dDdy + (1/2)C(dy)^2
+
+For bond (a), dP\_a/P\_a=-D\_a\*dy + (1/2)C\_a\*(dy)^2
+
+For bond (b), dP\_b/P\_b=-D\_b\*dy + (1/2)C\_b\*(dy)^2
+
+Finally,
+
+dP= dP\_a/P\_a \*P\_a + dP\_b/P\_b \*P\_b=\$6,115.67
+
+$$
+
+d) For floating rate payor, the swap is a long position in fixed rate bond and a short position in floating rate bond. Using duration, -dP/dy = +D\_{fixed}P\_{fixed}-D\_{float}P\_{float}, where D\_{fixed}P\_{fixed}=\$8.4223\$ and\$D\_{float}P\_{float}=\$0.9685\$.
+
+Therefore, -dP/dy=\$7.4538.
+
+## Hedging Interest Rate Risk 
+
+The treasurer should short Treasury bond futures contract. If bond prices go down, this futures position will provide offsetting gains. The number of contracts that should be shorted is
+
+(10,000,000×7.1)/(91,375×8.8) = 88.30
+
+Rounding to the nearest whole number 88 contracts should be shorted.
+
+This answer is designed to reduce the duration to zero. To reduce the duration from 7.1 to 3.0 instead of from 7.1 to 0, the treasurer should short
+
+(4.1/7.1)x88.30=50.99
+
+or 51 contracts.
+
+## Hedging Interest Rate Risk 
+
+The value of a contract is 108 × 1,000=\$108,468.75. The number of contracts that should be shorted is
+
+(6,000,000/108,468.75) × (8.2/7.6) = 59.7
+
+Rounding to the nearest whole number, 60 contracts should be shorted. The position should be closed out at the end of July.
+
+## Hedging Interest Rate Risk 
+
+a) You have positive duration 2.9. From 1(d), floating rate payor has a positive duration. Therefore, you should be fixed rate payor to eliminate your positive duration of the existing position.
+
+b) D\_{fund}P\_{fund}+D\_{swap}P\_{swap}=0. Therefore, 2.8(\$2,500) + (-7.4538)P\_{swap} =0
+
+c) dP = -DPdy. dP\_{swap}=18.125 and dP\_{fund}=18.12
+
+d) dP\_{swap} = -dP\_{fix}+dP\_{float} =\$17.8710
+
+-dP\_{fix} =-[-D\_{fix}dy + (1/2)*C\_{fix}(dy)^2]\*P
+
++dP\_{float} =+[-D\_{float}dy + (1/2)\*C\_{float}(dy)^2]\*P
+
+e) True. C\_{swap} =-C\_{fixed}+C\_{float}<0
+
+f) All.
+
+## Interest Rate Swap 
+
+A has an apparent comparative advantage in fixed-rate markets but wants to borrow floating. B has an apparent comparative advantage in floating-rate markets but wants to borrow fixed. This provides the basis for the swap. There is a 1.4% per annum differential between the fixed rates offered to the two companies and a 0.5% per annum differential between the floating rates offered to the two companies. The total gain to all parties from the swap is therefore 1.4-0.5=0.9% per annum. Because the bank gets 0.1% per annum of this gain, the swap should make each of A and B 0.4% per annum better off. This means that it should lead to A borrowing at LIBOR -0.3% and to B borrowing at 6.0%. The appropriate arrangement is therefore as shown below.
+
+*(Could not reconstruct image - provide a textual description or separate file for image)*
+
+## Currency Swap 
+
+X has a comparative advantage in yen markets but wants to borrow dollars. Y has a comparative advantage in dollar markets but wants to borrow yen. This provides the basis for the swap. There is a 1.5% per annum differential between the yen rates and a 0.4% per annum differential between the dollar rates. The total gain to all parties from the swap is therefore 1.5-0.4=1.1% per annum. The bank requires 0.5% per annum, leaving 0.3% per annum for each of X and Y. The swap should lead to X borrowing dollars at 9.6-0.3=9.3% per annum and to Y borrowing yen at 6.5-0.3=6.2% per annum. The appropriate arrangement is therefore as shown below. All foreign exchange risk is borne by the bank.
+
+*(Could not reconstruct image - provide a textual description or separate file for image)*

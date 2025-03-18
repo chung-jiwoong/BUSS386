@@ -325,7 +325,7 @@ ggplot(yield_data, aes(x = Date)) +
 ## Bond Pricing (Compounded semi-annually) {background-color="#ffebf0"}
 
 -   We can also use semi-annually compounded zero rates to price the bond: $$
-    \frac{3}{(1 + 0.0506)} + \frac{3}{(1 + 0.0588)^{2}} + \frac{3}{(1 + 0.0651)^{3}} + \frac{103}{(1 + 0.0692)^{4}} = 98.39
+    \frac{3}{(1 + 0.0506)/2} + \frac{3}{(1 + 0.0588/2)^{2}} + \frac{3}{(1 + 0.0651/2)^{3}} + \frac{103}{(1 + 0.0692/2)^{4}} = 98.39
     $$
 
 | Maturity (years) | Zero rate (% c.c.) | Zero rate (% s.a.) |
@@ -336,7 +336,7 @@ ggplot(yield_data, aes(x = Date)) +
 | 2.0              | 6.8                | 6.92               |
 
 -   The yield-to-maturity is $y=6.90\%$, s.a. compounded! $$
-    \frac{3}{(1 + y)} + \frac{3}{(1 + y)^{2}} + \frac{3}{(1 + y)^{3}} + \frac{103}{(1 + y)^{4}} = 98.39
+    \frac{3}{(1 + y/2)} + \frac{3}{(1 + y/2)^{2}} + \frac{3}{(1 + y/2)^{3}} + \frac{103}{(1 + y/2)^{4}} = 98.39
     $$
 
 ------------------------------------------------------------------------

@@ -1,0 +1,111 @@
+---
+title: "Introduction to Swaps"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: html
+number-sections: true
+execute:
+    echo: true
+    eval: true
+---
+
+## Day counting
+
+A U.S. Treasury bond pays a 7% coupon on January 7 and July 7. How much interest accrues per \$100 of principal to the bond holder between July 7, 2014 and August 8, 2014? How would your answer be different if it were a corporate bond?
+
+## Cash price/Quoted price
+
+It is January 9, 2015. The price of a Treasury bond with a 12% coupon that matures on October 12, 2030, is quoted as 102-07. What is the cash price?
+
+## Cheapest to deliver
+
+Suppose that the Treasury bond futures price is 101-12. Which of the following four bonds is cheapest to deliver?
+
+| Bond | Price   | Conversion Factor |
+| :--- | :------ | :---------------- |
+| 1    | 125-05  | 1.2131            |
+| 2    | 142-15  | 1.3792            |
+| 3    | 115-31  | 1.1149            |
+| 4    | 144-02  | 1.4026            |
+
+## Bond futures price
+
+It is July 30, 2015. The cheapest-to-deliver bond in a September 2015 Treasury bond futures contract is a 13% coupon bond, and delivery is expected to be made on September 30, 2015. Coupon payments on the bond are made on February 4 and August 4 each year. The term structure is flat, and the rate of interest with semiannual compounding is 12% per annum. The conversion factor for the bond is 1.5. The current quoted bond price is \$110. Calculate the quoted futures price for the contract.
+
+## Eurodollar futures
+
+A Eurodollar futures price changes from 96.76 to 96.82. What is the gain or loss to an investor who is long two contracts?
+
+## Eurodollar futures
+
+Suppose that the nine-month LIBOR interest rate is 8% per annum and the six-month LIBOR interest rate is 7.5% per annum (both with actual/365 and continuous compounding). Estimate the three-month Eurodollar futures price quote for a contract maturing in six months.
+
+## Duration and Convexity
+
+*Throughout, use duration and convexity based on discretely compounded yield (e.g. semi-annual)*
+
+Assume that the Treasury yield curve is flat at 3% on an annual basis.
+
+a) Calculate the modified duration and the convexity of a 1-year zero coupon Treasury bond.
+
+b) Calculate the modified duration and the convexity of a 5-year Treasury bond with a coupon rate of 4%. Assume that the coupon is paid annually.
+
+c) Suppose that you have a portfolio consisting of \$100,000 invested in the 1-year bond in (a) and \$250,000 invested in the 5-year bonds in (b). Using the approximation formula for price changes based on both duration and convexity, what will happen to the value of your portfolio if interest rates fall by 50 basis points (0.0050)?
+
+d) Calculate the dollar duration of a 10-year fixed-for-floating interest rate swap with annual payments, a fixed rate of 3.25% on an annual basis, and a floating payment based on the 1-year swap yield that resets annually. Assume that the swap is currently priced at par, meaning that a fixed rate that sets the present value of all future floating cash flows equal to the present value of all future fixed cash flows. Also, it has a notional principal of \$1 million, and the swap yield curve is flat at 3.25% on an annual basis. Report the result from the perspective of the floating rate payor.
+
+## Hedging Interest Rate Risk
+
+On August 1 a portfolio manager has a bond portfolio worth \$10 million. The duration of the portfolio in October will be 7.1 years. The December Treasury bond futures price is currently 91-12 and the cheapest-to-deliver bond will have a duration of 8.8 years at maturity. How should the portfolio manager immunize the portfolio against changes in interest rates over the next two months? How can the portfolio manager change the duration of the portfolio to 3.0 years?
+
+## Hedging Interest Rate Risk
+
+It is January 30. You are managing a bond portfolio worth \$6 million. The duration of the portfolio in six months will be 8.2 years. The September Treasury bond futures price is currently 108-15, and the cheapest-to-deliver bond will have a duration of 7.6 years in September. How should you hedge against changes in interest rates over the next six months?
+
+## Hedging Interest Rate Risk
+
+As the manager of a bond market mutual fund that holds a mix of corporate and Treasury bonds, you are concerned that the central bank will soon start to raise interest rates, causing the fund's value to fall and investors to redeem their holdings. The fund has \$2.5 billion of assets under management, and a modified duration of 2.9 years.
+
+a) If the fund rules permit the use of swaps and you want to hedge against rates rising, would you enter into the interest rate swap described in 1(d) as the fixed or floating rate payor?
+
+b) If you set up a delta hedge (duration-neutral) using swap in 1(d), what is the notional principal of the position you would take?
+
+c) If all interest rates rise by 25 basis points overnight, calculate the estimated gain or loss on the swap used to delta hedge, using the approximation formula for a price changes based only on duration. Also calculate the approximate change in the value of the mutual fund's assets. Use + and - to indicate gains and loss, respectively.
+
+d) If all interest rates rise by 25 basis points overnight, calculate the gain or loss on the swap used to hedge using both duration and convexity.
+
+e) Based on (c) and (d), the swap is adding negative convexity to the funds' overall interest rate exposure. (True or False)
+
+f) Which of the following are reasons that this hedge may be imperfect? Select all that apply.
+
+(1) The corporate bonds held by the mutual funds have default risk.
+
+(2) Intrest rate changes may be different at different points on the yield curve.
+
+(3) The convexity of the mutual fund holdings may be different than the convexity of the swap.
+
+(4) Interest rate move but the hedge is not adjusted.
+
+(5) There is a large jump in interest rates.
+
+### Interest Rate Swap
+
+Companies A and B have been offered the following rates per annum on a \$20 million five-year loan:
+
+| Company   | Fixed Rate | Floating Rate |
+| :-------- | :--------- | :------------ |
+| Company A | 5.0%       | LIBOR+0.1%    |
+| Company B | 6.4%       | LIBOR+0.6%    |
+
+Company A requires a floating-rate loan; company B requires a fixed-rate loan. Design a swap that will net a bank, acting as intermediary, 0.1% per annum and that will appear equally attractive to both companies.
+
+### Currency Swap
+
+Company X wishes to borrow U.S. dollars at a fixed rate of interest. Company Y wishes to borrow Japanese yen at a fixed rate of interest. The amounts required by the two companies are roughly the same at the current exchange rate. The companies have been quoted the following interest rates, which have been adjusted for the impact of taxes:
+
+| Company   | Yen   | Dollars |
+| :-------- | :---- | :------ |
+| Company X | 5.0%  | 9.6%    |
+| Company Y | 6.5%  | 10.0%   |
+
+Design a swap that will net a bank, acting as intermediary, 50 basis points per annum. Make the swap equally attractive to the two companies and ensure that all foreign exchange risk is assumed by the bank.

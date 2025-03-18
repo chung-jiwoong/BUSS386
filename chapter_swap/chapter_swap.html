@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="chapter_swap_files/libs/clipboard/clipboard.min.js"></script>
+<script src="chapter_swap_files/libs/quarto-html/tabby.min.js"></script>
+<script src="chapter_swap_files/libs/quarto-html/popper.min.js"></script>
+<script src="chapter_swap_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="chapter_swap_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="chapter_swap_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="chapter_swap_files/libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.41">
+
+  <meta name="author" content="Prof.&nbsp;Ji-Woong Chung">
+  <title>Introduction to Swaps</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="chapter_swap_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="chapter_swap_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="chapter_swap_files/libs/revealjs/dist/theme/quarto-8f3eebe07241f08526c91a7e9cbef8fd.css">
+  <link href="chapter_swap_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="chapter_swap_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="chapter_swap_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="chapter_swap_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="chapter_swap_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="chapter_swap_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Introduction to Swaps</h1>
+  <p class="subtitle">BUSS386 Futures and Options</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof.&nbsp;Ji-Woong Chung 
+</div>
+</div>
+</div>
+
+</section>
+<section id="lecture-outline" class="slide level2">
+<h2>Lecture Outline</h2>
+<ul>
+<li><p>Interest Rate Futures</p>
+<ul>
+<li>Treasury bond futures</li>
+<li>Eurdollar and SOFR futures</li>
+</ul></li>
+<li><p>Swaps</p>
+<ul>
+<li>Products, pricing and risk management applications</li>
+<li>Currency, commodity, total rate of return swaps</li>
+</ul></li>
+<li><p>Reading: Ch. 6.1–6.3 and Ch. 7</p></li>
+</ul>
+</section>
+<section>
+<section id="interest-rate-futures" class="title-slide slide level1 center">
+<h1>Interest Rate Futures</h1>
+
+</section>
+<section id="day-count-conventions" class="slide level2">
+<h2>Day Count Conventions</h2>
+<ul>
+<li><p>Pricing in financial markets started long before computers…</p>
+<ul>
+<li>People in different countries took different strategies to ease the calculation of accrued interests over time</li>
+<li>30 days per month? 360 or 365 days per year?</li>
+</ul></li>
+<li><p>Conventions vary from country to country and from instrument to instrument</p>
+<ul>
+<li><p><strong>Actual/Acutal</strong>: US treasury bonds, Australia</p></li>
+<li><p><strong>30/360 method</strong>: US corporate/municipal bonds, Eurobonds</p></li>
+<li><p><strong>Actual/360</strong>: US money market</p></li>
+<li><p><strong>Actual/365</strong>: Korea, UK, Japan</p></li>
+<li><p>$ X/Y $, where <span class="math inline">\(X\)</span> is the number of days in a month, and <span class="math inline">\(Y\)</span> is the number of days in a year.</p></li>
+</ul>
+<p><small> <a href="https://www.rbcits.com/en/gmi/global-custody/market-profiles.page">Source:https://www.rbcits.com/en/gmi/global-custody/market-profiles.page</a> </small></p></li>
+</ul>
+</section>
+<section id="day-count-conventions-example" class="slide level2">
+<h2>Day Count Conventions: Example</h2>
+<ul>
+<li><p>Consider a Treasury bond and a corporate bond both have the same annual coupon payment dates (Principal: $100, coupon rate: 8%).</p>
+<ul>
+<li>Their last coupon payment date is March 1, 2018, and the next coupon date is September 1, 2018.</li>
+</ul></li>
+<li><p>How much interest is accured for the period from March 1, 2018 to July 3, 2018, for the two bonds, respectively?</p>
+<ul>
+<li><p>Act/Act: <span class="math inline">\(\frac{124}{184} \times \$4 =2.6957\)</span></p></li>
+<li><p>30/360: <span class="math inline">\(\frac{122}{180} \times \$4 =2.7111\)</span></p></li>
+</ul></li>
+<li><p>How about from October 3, 2018 to January 1, 2019?</p>
+<ul>
+<li><p>Act/Act: <span class="math inline">\(\frac{92}{181} \times \$4 =2.0331\)</span></p></li>
+<li><p>30/360: <span class="math inline">\(\frac{90}{180} \times \$4 =2.0000\)</span></p></li>
+</ul></li>
+<li><p>Excel functions: <code>Days</code> and <code>Days360</code></p></li>
+</ul>
+</section>
+<section id="day-count-conventions-example-contd" class="slide level2">
+<h2>Day Count Conventions: Example (cont’d)</h2>
+<ul>
+<li><p>What if we use Actual/365?</p>
+<ul>
+<li>Divide 8% by 365 = 0.02191</li>
+<li>Multiply by # of days from March 1 to July 3, 2018 (124) = 2.7178</li>
+</ul></li>
+<li><p>Actual/360?</p>
+<ul>
+<li>Divide 8% by 360 = 0.02222</li>
+<li>Multiply by # of days from March 1 to July 3, 2018 (124) = 2.7555</li>
+</ul></li>
+<li><p>[NB] Therefore, 8% in Actual/360 is equivalent to <span class="math inline">\(8\% \times \frac{365}{360} = 8.1111\%\)</span></p>
+<ul>
+<li>Divide 8.1111% by 365 = 0.02222</li>
+<li>Multiply by # of days from March 1 to July 3, 2018 (124) = 2.7555</li>
+</ul></li>
+<li><p>[NB] 1% in Actual/360 would earn <span class="math inline">\(1\% \times 365/360\)</span> of interest in 365 days.</p></li>
+</ul>
+</section>
+<section id="treasury-futures" class="slide level2">
+<h2>Treasury Futures</h2>
+<ul>
+<li><p>Underlying variable: ``Virtual’’ bond price or interest rate</p>
+<ul>
+<li>Treasury bonds, 10-year, 5-year, 2-year Treasury notes, with 6% coupon rate in U.S., 5% in Korea</li>
+<li>Federal funds rates/Eurodollar/SOFR futures <span class="math inline">\(\Rightarrow\)</span> Interest rate</li>
+</ul></li>
+<li><p>In the U.S., the bonds actually delivered by the party on the short side of the futures contract are not necessarily of those exact same maturities.</p>
+<ul>
+<li><p>Acceptable government bonds/notes to deliver are:</p>
+<ul>
+<li>Ultra T-Bond: 25 years <span class="math inline">\(&lt;\)</span> maturity</li>
+<li>Treasury Bond: 15 <span class="math inline">\(\le\)</span> maturity <span class="math inline">\(\le\)</span> 25 years</li>
+<li>10-year Treasury note: 6.5 <span class="math inline">\(&lt;\)</span> maturity <span class="math inline">\(\le\)</span> 10</li>
+<li>5-year Treasury note <span class="math inline">\(\approx\)</span> 5 %the original life must be less than 5.25 years.</li>
+<li>2-year Treasury note <span class="math inline">\(\approx\)</span> 2 %the original life must be less than 5.25 years.</li>
+</ul></li>
+</ul></li>
+<li><p>In Korea, TB futures are cash-settled.</p></li>
+</ul>
+</section>
+<section id="treasury-futures-quotes" class="slide level2">
+<h2>Treasury Futures: Quotes</h2>
+<div style="text-align: center;">
+<p><img data-src="img/swap_Table6.1.png"></p>
+</div>
+<ul>
+<li><p>In the U.S., thirty-seconds of a dollar per $100 face value. In Korea, percentage point.</p>
+<ul>
+<li><span class="math inline">\(220'06 = 220 + 6/32 = 220.1875\)</span></li>
+<li><span class="math inline">\(134'215 = 134+21.5/32 = 134.671875\)</span></li>
+<li><span class="math inline">\(124'1525 = 124+15.25/32 = 124.4765625\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="treasury-bond-quotes" class="slide level2">
+<h2>Treasury Bond Quotes</h2>
+<ul>
+<li><p>The quoted price is for a bond with a face value of $100.</p></li>
+<li><p>Example: a quote of 90’05 indicates that if the bond has a face value of $100,000 its price will be <span class="math inline">\((90+5/32)\times 1,000 = \$90,156.25\)</span></p></li>
+<li><p>This quoted price is also known as the clean price.</p></li>
+<li><p>The actual cash price that has to be paid by the purchaser of the bond is known as the dirty price.</p>
+<p><strong>Cash price = Quoted price + Accrued Interest</strong></p></li>
+</ul>
+</section>
+<section id="treasury-bond-quotes-example" class="slide level2">
+<h2>Treasury Bond Quotes: Example</h2>
+<ul>
+<li><p>On March 5th 2013, there is a 11%-coupon treasury bond maturing on July 10th 2028, with a quoted price of 95’16.</p></li>
+<li><p>Coupons semi-annually: last coupon was paid on January 10th 2013. The next coupon date is July 10th 2013.</p>
+<ul>
+<li>The actual number of days between Jan 10 and Mar 5 is 54.</li>
+<li>The actual number of days between Jan 10 and Jul 10 is 181.</li>
+<li>Each coupon pays <span class="math inline">\(\$100 \times 0.11 / 2 = \$5.50\)</span> (on Jan 10 and Jul 10)</li>
+</ul></li>
+<li><p>The accrued interest on Mar 5 is: <span class="math inline">\(\$5.50 \times 54 / 181 = \$1.64\)</span></p></li>
+<li><p>The cash price per $100 face value is thus <span class="math inline">\(\$95.50+\$1.64 = \$97.14\)</span></p></li>
+<li><p>The cash price of a $100,000 face value bond is thus: $97,140</p></li>
+</ul>
+</section>
+<section id="treasury-futures-settlement" class="slide level2">
+<h2>Treasury Futures: Settlement</h2>
+<ul>
+<li>Example: The Treasury bond futures contract allows the party with the short position to choose to deliver any government bond with a maturity left between 15 and 25 years.</li>
+</ul>
+<p>Cash price = Quoted Price + Accrued interest</p>
+<p>(Quoted price is called settlement price for futures.)</p>
+<p>Cash price = Settlement Price + Accrued interest</p>
+<p>(But the delivered bond may not be a 6% coupon bond.)</p>
+<p>Cash price = Settlement Price <span class="math inline">\(\times\)</span> Conversion factor + Accrued interest</p>
+<ul>
+<li><p>Example</p>
+<ul>
+<li>Settlement price: 120’00</li>
+<li>Conversion factor: 1.3800</li>
+<li>Accrued interest: $3 per $100 face value.</li>
+<li>The cash received by the party with the short position (per $100 face value)</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+(1.3800 \times 120.00) + 3.00 = \$168.60
+\]</span></p>
+<ul>
+<li>The actual price <span class="math inline">\(= \$168.60 \times 1,000=\$168,600\)</span></li>
+</ul>
+</section>
+<section id="cheapest-to-deliver-bond" class="slide level2">
+<h2>Cheapest-to-Deliver Bond</h2>
+<ul>
+<li><p>At any given time during the delivery month, there are many bonds that can be delivered in bond futures contracts</p></li>
+<li><p>The party with the short position, when delivering the bond, receives:</p></li>
+</ul>
+<p><strong>[1] Settlement Price <span class="math inline">\(\times\)</span> Conversion factor + Accrued interest</strong></p>
+<ul>
+<li>The cost of purchasing the bond is:</li>
+</ul>
+<p><strong>[2] Quoted bond price + Accrued interest</strong></p>
+<ul>
+<li>Thus the cheapest-to-deliver bond is the one minimizing: <strong>[2]-[1]</strong></li>
+</ul>
+<p><strong>Quoted bond price <span class="math inline">\(-\)</span> (Settlement price <span class="math inline">\(\times\)</span> Conversion factor)</strong></p>
+</section>
+<section id="cheapest-to-deliver-bond-example" class="slide level2">
+<h2>Cheapest-to-Deliver Bond: Example</h2>
+<ul>
+<li>The party with the short position has decided to deliver and is trying to choose between the three bonds in the table below. Assume the most recent settlement price is 93-08, or 93.25.</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Bond</th>
+<th style="text-align: left;">Quoted price</th>
+<th style="text-align: left;">Conversion factor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">99.50</td>
+<td style="text-align: left;">1.0382</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">143.50</td>
+<td style="text-align: left;">1.5188</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">119.75</td>
+<td style="text-align: left;">1.2615</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The cost of delivering each of the bonds is as follows:</li>
+</ul>
+<p>Bond 1: <span class="math inline">\(99.50 - 93.25 \times 1.0382 = \$2.69\)</span></p>
+<p>Bond 2: <span class="math inline">\(143.50 - 93.25 \times 1.5188 = \$1.87\)</span></p>
+<p>Bond 3: <span class="math inline">\(119.75 - 93.25 \times 1.2615 = \$2.12\)</span></p>
+<p>The cheapest-to-deliver bond is Bond 2.</p>
+</section>
+<section id="treasury-bond-futures-conversion-factor" class="slide level2">
+<h2>Treasury Bond Futures: Conversion factor</h2>
+<ul>
+<li><p>The conversion factor for a bond is equal to the quoted price the bond would have (per dollar of principal) on the first day of the delivery month on the assumption that the yield curve is flat at 6% with semiannual compounding.</p></li>
+<li><p>Details…</p>
+<ul>
+<li>The bond maturity and the times to the coupon payment dates are rounded down to the nearest 3 months for the purposes of the calculation (in order to be able to produce comprehensive tables).</li>
+<li>After rounding, if the bond lasts for an exact number of six-month periods, the first coupon is assumed to be made in 6 months.</li>
+<li>If it does not (i.e.&nbsp;there are extra 3 months), the first coupon is assumed to be paid after 3 months, and accrued interest is subtracted (for the 3 months preceding the present).</li>
+</ul></li>
+<li><p>[NB] In the case of the 2-year and 5-year note futures contract, a similar calculation is used to determine the conversion factor except that the time to maturity is rounded to the nearest month.</p></li>
+</ul>
+</section>
+<section id="treasury-bond-futures-conversion-factor---example" class="slide level2">
+<h2>Treasury Bond Futures: Conversion factor - Example</h2>
+<p>[NB] We don’t use c.c. interest rate here.</p>
+<ul>
+<li><p>Assume a 10% coupon bond with 20 years and 2 months to maturity.</p></li>
+<li><p>Rounding down to the nearest 3 months, the bond is thus assumed to have exactly 20 years to maturity.</p></li>
+<li><p>Since 20 years is an exact number of 6-month periods, the first coupon payment is therefore assumed to be made after 6 months.</p></li>
+<li><p>Assuming a $100 face value, and a flat 6% per annum discount rate with semiannual compounding, the value of the bond is:</p></li>
+</ul>
+<p><span class="math display">\[
+\sum_{i=1}^{40}\frac{100(0.10/2)}{(1+0.06/2)^i} +\frac{100}{(1+0.06/2)^{40}}=\$146.23
+\]</span></p>
+<ul>
+<li>The conversion factor is therefore 1.4623</li>
+</ul>
+</section>
+<section id="treasury-bond-futures-conversion-factor---example-1" class="slide level2">
+<h2>Treasury Bond Futures: Conversion factor - Example</h2>
+<ul>
+<li><p>Assume an 8% coupon bond with 18 years and 4 months to maturity.</p></li>
+<li><p>Rounding down to the nearest 3 months, the bond is thus assumed to have exactly 18 years and 3 months to maturity.</p></li>
+<li><p>Compute the price of the bond at a “time point” 3 months from now when the first coupon happens.</p></li>
+<li><p>The value of the bond at that point is:</p></li>
+</ul>
+<p><span class="math display">\[
+100(0.08/2)+\sum_{i=1}^{36}\frac{100(0.08/2)}{(1+0.06/2)^i} +\frac{100}{(1+0.06/2)^{36}}=\$125.83
+\]</span></p>
+<ul>
+<li><p>At “time 0”, the price is <span class="math inline">\(\$125.83/(1+0.06/2)^{1/2} = \$123.99\)</span>: cash price of the bond.</p></li>
+<li><p>To get the quoted price of the bond, subtract the accrued interest from the prior 3 months: <span class="math inline">\(\$123.99 - \$4/2 = \$121.99\)</span> and the conversion factor 1.2199.</p></li>
+</ul>
+</section>
+<section id="treasury-bond-futures-conversion-factor---intuition" class="slide level2">
+<h2>Treasury Bond Futures: Conversion factor - Intuition</h2>
+<ul>
+<li><p>The reason for the 6% discount rate used in the computation of the conversion factor is the fact that bond futures prices, by construction, assume a 6% coupon rate.</p>
+<ul>
+<li><p>If the bond being delivered actually has a 6% coupon rate, the conversion factor will be equal to 1 since it will discount future $6 coupon payments ($3 twice a year equating $6 per year) at a rate of 6%.</p></li>
+<li><p>The short party would actually receive the futures settlement price without any modification (except for possible accrued interest).</p></li>
+<li><p>But if the bond has a higher coupon payment, the short party should be compensated for the fact that he is giving a higher-paying bond. The conversion factor will reflect that since it will be higher than 1.</p></li>
+<li><p>Conversely, if the bond has a lower coupon payment, the short party should receive a little less because of the fact that he is giving a lower-paying bond. The conversion factor will reflect that since it will be lower than 1.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="treasury-bond-futures-why-designed-this-way" class="slide level2">
+<h2>Treasury Bond Futures: Why designed this way?</h2>
+<ul>
+<li><p>If the contract designated a particular T-bond as the underlying asset, that T-bond could be in short supply, and in fact it might be possible for someone to corner the available supply. A short would then be unable to obtain the bond to deliver.</p></li>
+<li><p>An alternative scheme could have had the contract cash-settle against a T-bond index, much like the S&amp;P 500. This arrangement, however, introduces basis risk, as the T-bond futures contract might then track the index but fail to track any particular bond.</p></li>
+<li><p>The idea that there is a cheapest to deliver is not exclusive to Treasury bonds. The same issue arises with commodities, where a futures contract may permit delivery of commodities at different locations or of different qualities.</p></li>
+</ul>
+</section>
+<section id="determining-the-futures-price" class="slide level2">
+<h2>Determining the Futures Price</h2>
+<ul>
+<li><p>Exact theoretical futures prices are difficult to determine because there are many factors that affect the futures price:</p>
+<ul>
+<li>Delivery can be made any time during the delivery month</li>
+<li>Any of a range of eligible bonds can be delivered</li>
+</ul></li>
+<li><p>Assume, for simplicity, that the cheapest-to-deliver bond and the delivery date are known. Then <span class="math inline">\(F_0=(S_0-I)e^{rT}\)</span></p>
+<ul>
+<li><span class="math inline">\(I\)</span> is the present value of the coupons during the life of the futures contract,</li>
+<li><span class="math inline">\(T\)</span> is the time until the futures contract matures, and</li>
+<li><span class="math inline">\(r\)</span> is the risk-free interest rate applicable to a time period of length <span class="math inline">\(T\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="determining-the-futures-price-example" class="slide level2">
+<h2>Determining the Futures Price: Example</h2>
+<div style="text-align: center;">
+<p><img data-src="img/swap_futures_price.png"></p>
+</div>
+<ul>
+<li><p>Suppose we know the cheapest-to-deliver bond will be a 12% coupon bond with a conversion factor of 1.6000, and delivery will be in 270 days.</p></li>
+<li><p>Coupons are payable semiannually on the bond.</p></li>
+<li><p>The last coupon date was 60 days ago, the next coupon date is in 122 days, and the coupon date thereafter is in 305 days.</p></li>
+<li><p>Interest rate is 10% per annum (continuous compounding). The quoted bond price is $115.</p></li>
+<li><p>The cash price of the bond is <span class="math inline">\(115 + \frac{60}{60+122}\times 6 = 116.978\)</span></p></li>
+<li><p>The present value of a coupon in 122 days is <span class="math inline">\(6e^{(-0.1)(122/365)} = 5.803\)</span>.</p></li>
+<li><p>The futures value is <span class="math inline">\((116.978 - 5.803)e^{(0.1)(270/365)} = 119.711\)</span>.</p></li>
+<li><p>At delivery, the settlement futures price (12%) is calculated by subtracting the accrued interest <span class="math inline">\(Cash = Q \times CF + AI\)</span></p></li>
+</ul>
+<p><span class="math inline">\(119.71 = Q \times 1.6 + \frac{148}{35+148}\times 6 \Rightarrow Q = \frac{114.859}{1.6000}=71.79\)</span></p>
+</section>
+<section id="eurodollar-futures" class="slide level2">
+<h2>Eurodollar Futures</h2>
+<ul>
+<li><p>The 3-month Eurodollar futures contract is the most popular interest rate futures contract.</p>
+<ul>
+<li>A Eurodollar is a dollar deposited in a bank outside the U.S.</li>
+<li>A 3-month Eurodollar futures contract is a futures contract on the interest that will be paid (by someone who borrows at the Eurodollar interest or deposit rate, same as 3-month LIBOR rate) on $1 million for a future period of 3 months.</li>
+<li>A change of one basis point or 0.01 in a Eurodollar futures quote corresponds to a contract price change of <span class="math inline">\(\$25 = \$1,000,000 \times 0.0001 \times (3/12)\)</span></li>
+</ul></li>
+<li><p>A Eurodollar futures contract is settled in cash</p>
+<ul>
+<li>When it expires the final settlement price is: <span class="math inline">\(100 - R\)</span>, where <span class="math inline">\(R\)</span> is the actual 3-month Eurodollar interest rate on that day.</li>
+<li><span class="math inline">\(R\)</span> is expressed with quarterly compounding.</li>
+<li><span class="math inline">\(R\)</span> uses an actual/360 day count convention.</li>
+</ul></li>
+</ul>
+</section>
+<section id="eurodollar-futures-example" class="slide level2">
+<h2>Eurodollar Futures: Example</h2>
+<ul>
+<li><p>An investor wants to lock in the interest rate for a 3-month period starting Sep 16th 2015, for $100 million (to invest).</p></li>
+<li><p>Today, the Sep 2015 Euro futures quote is 96.500, meaning that the investor can lock in a rate of <span class="math inline">\(100-96.5 = 3.5\%\)</span> per annum.</p></li>
+<li><p>The investor hedges by buying 100 contracts.</p></li>
+<li><p>On Sep 16th 2015, the 3-month Eurodollar quote is 97.400.</p>
+<ul>
+<li>The difference in basis points is <span class="math inline">\(100 \times (97.40-96.50) = 90\)</span></li>
+<li>The investor gains: <span class="math inline">\(100 \times 25 \times 90 = 225,000\)</span> on the Eurodollar futures.</li>
+<li>The interest earned on the 3-month investment is: <span class="math inline">\(100,000,000 \times (100-97.4)/100 \times (1/4)= 650,000\)</span></li>
+<li>Once we add the futures gains to the interest, the total earned is: <span class="math inline">\(650,000 + 225,000 = 875,000\)</span></li>
+<li>Checking that 3.5% was indeed locked in: <span class="math inline">\(100,000,000 \times (100-96.5)/100 \times (1/4) = 875,000\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="sofr-futures" class="slide level2">
+<h2>SOFR Futures</h2>
+<ul>
+<li><p>Three-month SOFR futures and Eurodollar futures contracts are very similar.</p></li>
+<li><p>Main difference: The Eurodollar futures contract is settled at the beginning of the three-month period to which the rate applies whereas the three-moth SOFR futures contract is settled at the end of the three-month period.</p>
+<ul>
+<li>SOFR futures settlement equals 100 minus the result of compounding one-day SOFR rates over the previous three months</li>
+<li>Suppose that the (annualized) SOFR overnight rate on the <span class="math inline">\(i\)</span>th business day of a period is <span class="math inline">\(r_i\)</span> and the rate applies to <span class="math inline">\(d_i\)</span> days. The (annualized) interest rate for the period is</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+[(1+r_1 \hat{d}_1)(1+r_2 \hat{d}_2)\dots (1+r_n \hat{d}_n)-1]\times \frac{360}{D},
+\]</span></p>
+<pre><code>where $\hat{d}_i = d_i/360$ and $D=\sum d_i$ is the number of days in the period. On most days $d_i = 1$\footnote{But weekends and holidays lead to the overnight rates being applied to more than one day. For example, on a Friday $d_i$ will normally be equal to 3.}</code></pre>
+</section>
+<section id="sofr-futures-example" class="slide level2">
+<h2>SOFR Futures: Example</h2>
+<ul>
+<li><p>Suppose that on May 21, 2020, an investor has agreed to pay the three-month SOFR rate plus 200 basis points on $100 million of borrowings for three months beginning on December 16, 2021.</p></li>
+<li><p>The December 2021 three-month SOFR futures is 99.990 (i.e., SOFR rate=0.01%).</p></li>
+<li><p>She uses futures to lock in a borrowing rate of <span class="math inline">\(0.01\%+2\%\)</span>.</p>
+<ul>
+<li>Short 100 December contracts ($1m each).</li>
+<li>Suppose that the final settlement proves to be 99.200.</li>
+<li>The rate paid on the loan would then be <span class="math inline">\(0.8\%+2\%\)</span> per annum and the total interest would be <span class="math inline">\(0.25 \times \$100,000,000 \times 2.8\% = \$700,000\)</span>.</li>
+<li>However, the futures contract has declined by 79 basis points (from 99.990 to 99.200).</li>
+<li>The gain is <span class="math inline">\(100 \times \$25 \times 79 = \$197,500\)</span> on 100 contracts.</li>
+<li>When this is taken into account, the amount paid is <span class="math inline">\(\$700,000 - \$197,000 = \$502,500\)</span>, which corresponds to a rate of <span class="math inline">\(2.01\% (\$502,500 = 0.25 \times \$100,000,000 \times 2.1\%)\)</span>.</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="swaps" class="title-slide slide level1 center">
+<h1>Swaps</h1>
+
+</section>
+<section id="swap-basics" class="slide level2">
+<h2>Swap basics</h2>
+<ul>
+<li><p>A swap is a contract calling for an exchange of payments, on one or more future dates, determined by the difference in two reference prices or interest rates.</p></li>
+<li><p>A single-payment swap is equivalent to a cash-settled forward contract.</p></li>
+<li><p>A swap provides a means to hedge or speculate on a stream of risky cash flows.</p></li>
+<li><p>Traded in over-the-counter market.</p></li>
+</ul>
+</section>
+<section id="structure-of-a-plain-vanilla-interest-rate-swap" class="slide level2">
+<h2>Structure of a “Plain Vanilla” Interest Rate Swap</h2>
+<ul>
+<li><p>In the most common type of interest rate swap (fixed for floating), fixed interest rate payments are exchanged for floating interest rate payments at regular intervals over the life of the contract.</p></li>
+<li><p>No principal is exchanged.</p></li>
+</ul>
+<div style="text-align: center;">
+<p><img data-src="img/swap_swap.png"></p>
+</div>
+<p><small> LIBOR is the London Interbank Offer Rate. For many years it was the most common reference floating rate for swaps. It is being replaced by other reference rates, e.g., SOFR. </small></p>
+<ul>
+<li><p>An interest rate swap can also be described as a package of forward rate agreements (FRAs)</p>
+<ul>
+<li>A forward rate agreement is a one-time exchange based on a fixed interest rate and a floating one</li>
+</ul></li>
+</ul>
+</section>
+<section id="swaps---terminology" class="slide level2">
+<h2>Swaps - Terminology</h2>
+<ul>
+<li><p>Notional Principal: Amount of principal upon which the interest payments are based. This principal may not be exchanged.</p></li>
+<li><p>Counterparties: The two participants in the swap.</p></li>
+<li><p>Payer, receiver?!? Be careful…</p>
+<ul>
+<li>Fixed Rate Payor: The counterparty who pays a fixed rate, and receives a floating rate in the swap. The fixed rate payor is said to have “bought the swap” or is long in the swap.</li>
+<li>Floating Rate Payor: The counterparty who pays a floating rate, and receives a fixed rate in the swap. The floating rate payor is said to have “sold the swap” or is short in the swap.</li>
+</ul></li>
+</ul>
+</section>
+<section id="organization-of-trading" class="slide level2">
+<h2>Organization of Trading</h2>
+<ul>
+<li>Financial institutions act as market makers and provide bid and ask quotes for the fixed rates that they are prepared to exchange in swaps.</li>
+</ul>
+<div class="center">
+<p><img data-src="img/swap_Table7.4.png" style="width:65.0%"></p>
+</div>
+<ul>
+<li>Bid: fixed rate that the market maker pays to receive floating</li>
+<li>Ask: fixed rate that the market maker receive to pay floating.</li>
+<li>Swap rate: the average of the bid and ask rates</li>
+<li>The spread compensates the market maker for its costs.</li>
+</ul>
+</section>
+<section id="interest-rate-swap-pricing" class="slide level2">
+<h2>Interest rate swap pricing</h2>
+<ul>
+<li><p>For floating rate payor, swap is initially equivalent to going long in a fixed rate bond priced at par, and going short in a floating rate bond priced at par</p></li>
+<li><p>For the fixed rate payor, the equivalent cash position is the opposite</p></li>
+<li><p>In general, we price a swap by finding the difference between the present value of the fixed and floating rate payments.</p></li>
+</ul>
+</section>
+<section id="swap-pricing-valuing-a-floating-rate-bond" class="slide level2">
+<h2>Swap Pricing: Valuing a Floating Rate Bond</h2>
+<ul>
+<li><p>Floating rate bonds always are priced at par at reset dates.</p>
+<ul>
+<li><p>Let <span class="math inline">\(r_T\)</span> be the one-period reset rate realized at time <span class="math inline">\(T\)</span>.</p>
+<ul>
+<li>We find the price at time 0 by working backwards.</li>
+<li>At time <span class="math inline">\(T-1\)</span>, there is one remaining payment of principal and interest, equal to <span class="math inline">\(F e^{r_{T-1}}\)</span>. Its value at time <span class="math inline">\(T-1\)</span>, <span class="math inline">\(P_{T-1}=F e^{r_{T-1}} e^{-r_{T-1}}=F.\)</span></li>
+<li>Stepping back to time <span class="math inline">\(T-2\)</span>, <span class="math inline">\(P_{T-2}=F e^{r_{T-2}} e^{-r_{T-2}}=F.\)</span></li>
+<li>Continuing in this way, it is clear that the price equals the face value on all reset dates, including at time 0.</li>
+<li>Assume that reset frequency is annual.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="swap-pricing-a-no-arbitrage-condition" class="slide level2">
+<h2>Swap Pricing: A No-Arbitrage Condition</h2>
+<ul>
+<li><p>At swap initiation, the present value of the fixed and floating rate payments must be equal.</p>
+<ul>
+<li>That is because entering into a swap is free, and a voluntary exchange has to be fair to both sides.</li>
+</ul></li>
+<li><p>Because we know that the present value of the floating payments equals the face value of the floating rate bond, the present value of the fixed rate payments also must equal the face value of the fixed rate bond.</p></li>
+<li><p>Thus, the fixed rate on the swap is determined by setting the present value of the future fixed rate payments equal to par.</p></li>
+</ul>
+</section>
+<section id="swap-pricing-implementation" class="slide level2">
+<h2>Swap Pricing: Implementation</h2>
+<ul>
+<li><p>Imagine that you have derived a spot yield curve <span class="math inline">\(Y_1, Y_2, …, Y_T\)</span> that is appropriate for discounting the fixed rate swap payments</p></li>
+<li><p>Then the coupon rate on the swap solves:</p></li>
+</ul>
+<p><span class="math display">\[
+F = cFe^{-Y_1}+cFe^{-2Y_2}+ ... +F(1+c)e^{-TY_T}
+\]</span></p>
+<ul>
+<li>Assume that reset frequency is annual.</li>
+</ul>
+<p><span class="math display">\[
+c = \frac{1-e^{-TY_T}}{e^{-Y_1}+e^{-2Y_2}+ ... +e^{-TY_T}}
+\]</span></p>
+<ul>
+<li><p>Note:</p>
+<ul>
+<li>Swaps are priced to be consistent with the yield curve and hence with implied forward rates, FRAs, and other interest rate forwards and futures</li>
+<li>Over time the value of the swap changes with market interest rates. Like forward contracts, it is zero sum across the two counterparties.</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-hedging-bank-balance-sheet-risk" class="slide level2">
+<h2>Example: Hedging bank balance sheet risk</h2>
+<ul>
+<li><p>It is December 2025. Southwest savings bank is expanding its holdings:</p>
+<ul>
+<li>It funds $1mm of new 10-year mortgages using 3-month time deposits.</li>
+<li>The current mortgage rate is 10% per year, fixed.</li>
+<li>The current 3-month rate on time deposits is 8%.</li>
+</ul></li>
+<li><p>A profit of 2% is locked in over the first three months.</p></li>
+<li><p>After that, the bank bears the risk that interest rates might rise. This risk can be hedged with futures contracts, or more effectively, with an interest rate swap</p></li>
+</ul>
+</section>
+<section id="example-contd" class="slide level2">
+<h2>Example (cont’d)</h2>
+<ul>
+<li><p>Imagine that Southwest can enter into an interest rate swap with the following terms:</p>
+<ul>
+<li>Maturity = 10 years</li>
+<li>Fixed rate payor = Southwest S&amp;L.</li>
+<li>Fixed Rate = 8.65%.</li>
+<li>Floating Rate = LIBOR</li>
+<li>Payment Frequency = Semiannual for both fixed and floating.</li>
+</ul></li>
+<li><p>Now Southwest can use the fixed (10%) payments from the mortgages to meet their obligations in the swap.</p></li>
+<li><p>The floating rate payments received in the swap will be used to pay interest on the deposits backing the mortgages.</p></li>
+</ul>
+</section>
+<section id="example-contd-1" class="slide level2">
+<h2>Example (cont’d)</h2>
+<ul>
+<li><p>The advantages over the strip of futures contracts include:</p>
+<ul>
+<li>only one contract</li>
+<li>covers the entire 10 years</li>
+<li>avoids illiquid contracts for long-dated futures</li>
+<li>the timing is more flexible</li>
+</ul></li>
+<li><p>But this swap is not a perfect hedge for Southwest:</p>
+<ul>
+<li>Mortgages are usually amortized over their lifetime, so that the principal balance is declining</li>
+<li>The frequency of the mortgage payments (often monthly) does not match the semiannual frequency of the fixed payments on a plain vanilla swap</li>
+<li>The three month rate paid to depositors does not match the six month LIBOR rate received in the swap</li>
+<li>Mortgages can usually be prepaid</li>
+</ul></li>
+</ul>
+</section>
+<section id="customized-swap-contracts" class="slide level2">
+<h2>Customized Swap Contracts</h2>
+<ul>
+<li><p>Those features of mortgages, which make a plain vanilla swap a less-than perfect hedge for Southwest, is an example of why there is a demand for more specialized swap products such as:</p>
+<ul>
+<li>Amortizing Swaps</li>
+<li>Basis Swaps: exchange two floating rates</li>
+<li>Swaptions: option to enter a swap</li>
+</ul></li>
+<li><p>Specialized swaps tend to be more expensive than a plain vanilla swap and a counterparty may be harder to locate</p></li>
+</ul>
+</section>
+<section id="why-does-irs-exist" class="slide level2">
+<h2>Why does IRS exist?</h2>
+<ul>
+<li><strong>The comparative advantage argument</strong></li>
+<li>Consider a 5-year IRS:</li>
+</ul>
+<div style="text-align: center;">
+<p><img data-src="img/swap_Table7.5.png"></p>
+</div>
+<ul>
+<li><p>In fixed rate: AAA saves 0.8% more</p></li>
+<li><p>In floating rate: AAA saves 0.7% more</p></li>
+<li><p>AAA is ``comparatively’’ advantagenous in fixed rate.</p>
+<ul>
+<li>When AAA uses fixed and BBB uses floating, total borrowing cost is 4.0% + Floating + 0.6%</li>
+<li>It is 5.2% + Floating - 0.1% when AAA uses floating and BBB uses fixed.</li>
+</ul></li>
+<li><p>Choosing 1, we save 0.5%. Create an IRS and split the surplus.</p></li>
+</ul>
+<div style="text-align: center;">
+<p><img data-src="img/swap_Table7.8.png"></p>
+</div>
+</section>
+<section id="why-does-irs-exist-contd" class="slide level2">
+<h2>Why does IRS exist? (Cont’d)</h2>
+<ul>
+<li><p>The IRS market has been in existence for a long time, we might reasonably expect these types of differences to have been arbitraged away. Then why continue to exist?</p></li>
+<li><p>The fixed rate is valid for 5 years.</p></li>
+<li><p>However, the spread over the floating reference rate (LIBOR or overnight rate) is adjusted periodically (say, 3-month) after the lender’s review.</p>
+<ul>
+<li>If the credit quality deteriorates, the lender would charge a higher spread.</li>
+</ul></li>
+<li><p>The credit spread is increasing in maturity.</p>
+<ul>
+<li>AAA<span class="math inline">\(-\)</span>BBB spread is wider in fixed rate (5-year) than in floating (3-month)</li>
+</ul></li>
+<li><p>BBB’s borrowing cost is likely higher than <span class="math inline">\(4.97\% (=4.37\%+0.6\%)\)</span>, which is valid until the next reset date.</p>
+<ul>
+<li>The expected cost of borrowing for the next 5-year should be 5.2%.</li>
+<li>In other words, the market expects that the spread over floating rate will rise for BBB.</li>
+</ul></li>
+</ul>
+</section>
+<section id="currency-swap" class="slide level2">
+<h2>Currency Swap</h2>
+<ul>
+<li><p>A currency swap is an agreement to periodically exchange a payment in one currency for a payment in a second currency</p>
+<ul>
+<li>Payments can be fixed for fixed, fixed for floating, or floating for floating</li>
+<li>Fixed for fixed is like a portfolio of forward currency contracts</li>
+</ul></li>
+<li><p>Example</p>
+<ul>
+<li><p>A US exporter is due to receive € 5m in 5 equal installments, every 6 months for 2.5 years.</p></li>
+<li><p>The US company can enter into five forward (or futures) contracts to hedge each installment as a stand-alone cash flow.</p></li>
+<li><p>Suppose <span class="math inline">\(S_0 = 1.2673, r_\$ = 5\%, r_€ = 3\%\)</span> (flat term structure in both countries)</p></li>
+<li><p>Using <span class="math inline">\(F=S_0 e^{(r_\$-r_€)T}\)</span> implies the forward rate schedule:</p></li>
+</ul></li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Maturity</th>
+<th style="text-align: left;">0.5</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">1.5</th>
+<th style="text-align: left;">2</th>
+<th style="text-align: left;">2.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Forward rate</td>
+<td style="text-align: left;">1.2800</td>
+<td style="text-align: left;">1.2929</td>
+<td style="text-align: left;">1.3059</td>
+<td style="text-align: left;">1.3190</td>
+<td style="text-align: left;">1.3323</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="currency-swap-example-contd" class="slide level2">
+<h2>Currency swap example (cont’d)</h2>
+<ul>
+<li><p>Alternatively, the US firm can enter into a currency swap</p></li>
+<li><p>For instance, the swap contract between the US firm and a bank may be specified, <strong>hypothetically</strong>, as:</p>
+<ul>
+<li>US firm pays bank € 1 mil on <span class="math inline">\(t\)</span> = 0.5, 1, . . . , 2.5</li>
+<li>Bank pays US firm € 1 mil <span class="math inline">\(\times\)</span> $K/€ (where <span class="math inline">\(K\)</span> is the swap rate, say <span class="math inline">\(K\)</span> = 1.306) on the same dates.</li>
+</ul></li>
+<li><p>What is the net $ cash flow for the U.S. firm from the swap at any payment date?</p>
+<ul>
+<li>At every <span class="math inline">\(t\)</span>, the firm receives $ 1 mil <span class="math inline">\(\times\)</span> <span class="math inline">\(K\)</span>, and must pay $ 1 mil <span class="math inline">\(\times\)</span> <span class="math inline">\(S_t\)</span> dollars/euro (cash settled)</li>
+<li>Net amount received in the swap is $1 mil <span class="math inline">\(\times\)</span> <span class="math inline">\((K - S_t)\)</span>. Only this amount is settled.</li>
+</ul></li>
+<li><p>U.S. firm also sells Euros received for dollars at current spot rate <span class="math inline">\(S_t\)</span>. Net $ cash flow = 1 mil <span class="math inline">\(\times\)</span> <span class="math inline">\(K\)</span></p>
+<ul>
+<li>Note that the notional value, € 1 mil, is not delivered to the bank.</li>
+</ul></li>
+</ul>
+</section>
+<section id="currency-swap-example-contd-1" class="slide level2">
+<h2>Currency swap example (cont’d)</h2>
+<ul>
+<li><p>How is the swap rate <span class="math inline">\(K\)</span> determined?</p></li>
+<li><p>The swap rate <span class="math inline">\(K\)</span> is chosen at time 0 so that the value of the swap is equal to zero, i.e., no exchange of money at inception but only in the future.</p>
+<ul>
+<li>It is determined by a no-arbitrage condition between the forward and swap markets</li>
+</ul></li>
+<li><p>Construct a portfolio with swap &amp; set of forward contracts</p>
+<ul>
+<li>Payoff at every <span class="math inline">\(t\)</span> from swap + forward <span class="math inline">\(=\$1 \times [(K - S_t) + (S_t -F_t )]\)</span></li>
+<li>PV of cash flows <span class="math inline">\(\$1 \times (e^{-r_\$ 0.5} (K-F_{0.5}) + ... + e^{-r_\$ 2.5} (K-F_{2.5}))\)</span></li>
+</ul></li>
+<li><p>Set <span class="math inline">\(K\)</span> so that present value of portfolio equals zero, and hence swap value is zero.</p></li>
+</ul>
+<p><span class="math display">\[
+K=w_{0.5}F_{0.5}+...+w_{2.5}F_{2.5}
+\]</span></p>
+<p><span class="math display">\[
+w_t = \frac{e^{-r_\$ t}}{e^{-r_\$ 0.5} +...+  e^{-r_\$ 2.5}}
+\]</span></p>
+</section>
+<section id="currency-swap-example-contd-2" class="slide level2">
+<h2>Currency swap example (cont’d)</h2>
+<ul>
+<li>We obtain an alternative (equivalent) formulation by substituting the forward prices</li>
+</ul>
+<p><span class="math display">\[
+F=S_0 e^{(r_\$ - r_€)T}
+\]</span></p>
+<ul>
+<li>Then we have a currency swap rate</li>
+</ul>
+<p><span class="math display">\[
+K=S_0 \frac{e^{-r_€ 0.5} +...+  e^{-r_€ 2.5}}{e^{-r_\$ 0.5} +...+  e^{-r_\$ 2.5}}
+\]</span></p>
+<ul>
+<li><p>PV of $K for 2.5 years = PV of € 1 for 2.5 years in $ term</p></li>
+<li><p>The currency swap rate equals the current exchange rate multiplied by the ratio of the relative risk-free borrowing costs in the two currencies</p>
+<ul>
+<li>If $ borrowing is more costly (i.e., the ratio <span class="math inline">\(&gt;\)</span> 1), then <span class="math inline">\(K &gt; S_0\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="hedging-with-swaps-versus-forwards" class="slide level2">
+<h2>Hedging with swaps versus forwards</h2>
+<ul>
+<li><p>The payoff profile from the sequence of forwards and one swap is different:</p>
+<ul>
+<li>The sequence of forwards implies the US firm gets less money early on, and more later on (from $1.28 mil to $1.3323 mil)</li>
+<li>The swap implies the firm gets a constant amount $1.306 mil every payment</li>
+</ul></li>
+<li><p>Both strategies perfectly hedge the exposure, as the exchange rate risk is eliminated and both payoff profiles are known at 0. And both have the same present value.</p></li>
+<li><p>Differs in liquidity, transaction costs, etc.</p></li>
+</ul>
+</section>
+<section id="why-does-currency-swap-exist" class="slide level2">
+<h2>Why does currency swap exist?</h2>
+<ul>
+<li>The comparative advantage argument makes sense here.</li>
+</ul>
+<div style="text-align: center;">
+<p><img data-src="img/swap_Table7.7.png"></p>
+</div>
+<ul>
+<li><p>Possible sources of comparative advatange</p>
+<ul>
+<li>Taxes</li>
+<li>Reputation</li>
+</ul></li>
+</ul>
+<div style="text-align: center;">
+<p><img data-src="img/swap_Table7.11.png"></p>
+</div>
+</section>
+<section id="commodity-swaps" class="slide level2">
+<h2>Commodity swaps</h2>
+<ul>
+<li><p>A commodity swap is an agreement to periodically exchange a pre-specified fixed payment for a payment linked to the market price of a commodity</p>
+<ul>
+<li>Usually contract calls for cash-settlement but in principle could require physical deliveries</li>
+</ul></li>
+<li><p>Example of commodity swap</p>
+<ul>
+<li>A company needs to buy 100,000 barrels of oil 1 year from today and 2 years from today.</li>
+<li>The forward prices for deliver in 1 year and 2 years are $110 and $111/barrel.</li>
+<li>The 1- and 2-year zero-coupon bond yields are 6% and 6.5%</li>
+</ul></li>
+</ul>
+</section>
+<section id="commodity-swaps-example-contd" class="slide level2">
+<h2>Commodity swaps example (cont’d)</h2>
+<ul>
+<li><p>Company can guarantee the cost of buying oil for the next 2 years by entering into long forward contracts for 100,000 barrels in each of the next 2 years.</p></li>
+<li><p>The PV of this cost per barrel is</p></li>
+</ul>
+<p><span class="math display">\[
+110 e^{-0.06} + 111 e^{-0.065 \times 2}=201.063
+\]</span></p>
+<ul>
+<li><p>Typically a swap will call for equal payments each year.</p></li>
+<li><p>For example, the payment per barrel, <span class="math inline">\(x\)</span>, should be such that</p></li>
+</ul>
+<p><span class="math display">\[
+x e^{-0.06} + x e^{-0.065 \times 2}=201.063
+\]</span></p>
+<ul>
+<li>Then the no-arbitrage 2-year swap price per barrel is $110.483</li>
+</ul>
+</section>
+<section id="commodity-swaps-example-contd-1" class="slide level2">
+<h2>Commodity swaps example (cont’d)</h2>
+<ul>
+<li><p>This example illustrates that swaps are equivalent to forward contracts coupled with borrowing and lending money.</p></li>
+<li><p>Consider the swap price of $110.483/barrel versus the forward prices.</p>
+<ul>
+<li>Relative to the forward curve price of $110 in 1 year and $111 in 2 years, we are overpaying by $0.483 in the first year, and we are underpaying by $0.517 in the second year.</li>
+</ul></li>
+<li><p>Thus, by entering into the swap, we are lending the counterparty money for 1 year. The implied interest rate on this loan is</p></li>
+</ul>
+<p><span class="math display">\[
+e^{r}(0.483)=0.517 \rightarrow r=7\%
+\]</span></p>
+<ul>
+<li><p>Given the 1 and 2-year zero-coupon bond yields of 6% and 6.5%, 7% is the implied forward yield between years 1 and 2. (rounding error)</p></li>
+<li><p>The deal, which is fairly priced, has an embedded borrowing and lending rates equal to the implied forward rates in the yield curve.</p></li>
+</ul>
+</section>
+<section id="total-rate-of-return-tror-swaps" class="slide level2">
+<h2>Total Rate of Return (TROR) Swaps</h2>
+<ul>
+<li><p>An exchange of an interest payment for the total return on a reference asset, paid periodically over the life of the TROR contract.</p></li>
+<li><p>Total Return = Cash Flows + (Change in Market Value)</p></li>
+<li><p>Fixed maturity date: Need not match reference asset maturity</p></li>
+<li><p>Reference Asset:</p>
+<ul>
+<li>Bond, Loan (e.g., emerging market, sovereign, bank debt, mortgage-backed securities, or corporate loan), Index, Equity, Commodity</li>
+<li>Payor need not own reference asset, but if it is owned, it hedges the cash flows for the payor. (Again, payor / receiver?!?)</li>
+</ul></li>
+</ul>
+</section>
+<section id="tror-swap-contd" class="slide level2">
+<h2>TROR Swap (cont’d)</h2>
+<ul>
+<li><p>Total rate of return swap with notional principal $10 million. Sold at LIBOR flat.</p></li>
+<li><p>Reference asset earns <span class="math inline">\(-10\%\)</span> over the period (interest and capital gain/loss)</p></li>
+<li><p>LIBOR is 4.5% over the period.</p></li>
+<li><p>What is the net cash flow on the swap on the payment date?</p></li>
+<li><p>Payor: pays <span class="math inline">\(10\% + 4.5\%\)</span></p></li>
+</ul>
+</section>
+<section id="tror-swap---pricing-basics" class="slide level2">
+<h2>TROR Swap - Pricing Basics</h2>
+<ul>
+<li><p>From the TROR payor’s perspective</p>
+<ul>
+<li>On each leg the swap is equivalent to a short position in the reference asset and a long position in a floating rate bond.</li>
+</ul></li>
+<li><p>From the TROR receiver’s perspective</p>
+<ul>
+<li>The swap is equivalent to a long position in the reference asset and a short position in a floating rate bond.</li>
+</ul></li>
+<li><p>The net swap value is zero at payment dates, after the total net return is exchanged.</p>
+<ul>
+<li>Effectively, the swap restarts at each payment date on a fixed notional amount of assets</li>
+<li>Between payment dates the value is the difference between the value of the floating rate bond and the reference asset.</li>
+</ul></li>
+</ul>
+</section>
+<section id="some-motivations-of-tror-receivers" class="slide level2">
+<h2>Some motivations of TROR Receivers</h2>
+<ul>
+<li><p>May gain off-balance sheet exposure to a desired asset class</p></li>
+<li><p>Reduce administrative costs (relative to outright purchase of reference asset)</p>
+<ul>
+<li>Especially if underlying is illiquid or regulation prohibits direct ownership</li>
+</ul></li>
+<li><p>Provides a highly leveraged position, since no cash payments are initially made, and only net return is exchanged</p>
+<ul>
+<li>Leverage is the main reason hedge funds tend to be TROR receivers.</li>
+<li>But generally requires some collateral and/or capital, which reduces leverage.</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-creating-leverage-with-tror-swap" class="slide level2">
+<h2>Example: Creating leverage with TROR swap</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">HF A</th>
+<th style="text-align: left;">HF B</th>
+<th style="text-align: left;">Cash investor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Asset yield</td>
+<td style="text-align: left;">8.30%</td>
+<td style="text-align: left;">8.30%</td>
+<td style="text-align: left;">8.30%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Libor</td>
+<td style="text-align: left;">-5.80%</td>
+<td style="text-align: left;">-5.80%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Net asset spread</td>
+<td style="text-align: left;">2.50%</td>
+<td style="text-align: left;">2.50%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spread to LIBOR</td>
+<td style="text-align: left;">-1.00%</td>
+<td style="text-align: left;">-1.00%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Net swap spread</td>
+<td style="text-align: left;">1.50%</td>
+<td style="text-align: left;">1.50%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Collateral</td>
+<td style="text-align: left;">5%</td>
+<td style="text-align: left;">10%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Leverage</td>
+<td style="text-align: left;">20 to 1</td>
+<td style="text-align: left;">10 to 1</td>
+<td style="text-align: left;">1 to 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interest on collateral</td>
+<td style="text-align: left;">5.80%</td>
+<td style="text-align: left;">5.80%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Net return</td>
+<td style="text-align: left;">35.80%</td>
+<td style="text-align: left;">20.80%</td>
+<td style="text-align: left;">8.30%</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(35.80\%=[.083(100) -.068(100) +.058(5)]/5\)</span></p>
+</section>
+<section id="some-motivations-of-tror-payers" class="slide level2">
+<h2>Some Motivations of TROR Payers</h2>
+<ul>
+<li>When owning the reference asset, you can hedge price risk and default risk of reference asset</li>
+<li>Avoid sales (tax consequences) and speculate on temporary price decline of asset</li>
+<li>Avoid restrictions on shorting</li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="chapter_swap_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="chapter_swap_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/reveal-text-resizer/revealjs-text-resizer.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="chapter_swap_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="chapter_swap_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealTextResizer, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

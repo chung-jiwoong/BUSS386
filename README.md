@@ -19,8 +19,8 @@
 
 [Note: HTML](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_interest/chapter_interest.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_interest/chapter_interest.pdf) / 
-[Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/problem_interest/problem_interest.html) / 
-[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/solution_interest/solution_interest.html) / 
+[Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_interest/problem_interest.html) / 
+[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_interest/solution_interest.html) / 
 [Duration and Convexity (Excel)](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/data/Duration_Convexity2.xlsx)
 
 
@@ -34,9 +34,17 @@
 
 [Note: HTML](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_pricing_forwards/chapter_pricing_forwards.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_pricing_forwards/chapter_pricing_forwards.pdf) / 
-[Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/problem_pricing_forwards/problem_pricing_forwards.html) / 
-[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/solution_pricing_forwards/solution_pricing_forwards.html)
+[Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_pricing_forwards/problem_pricing_forwards.html) / 
+[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_pricing_forwards/solution_pricing_forwards.html)
 
+
+
+**Lecture5: Introduction to Swaps**
+
+[Note: HTML](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_swap/chapter_swap.html) / 
+[Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_swap/chapter_swap.pdf) / 
+[Problem Set](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_swap/problem_swap.html) / 
+[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_swap/solution_swap.html)
 
 
 

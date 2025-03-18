@@ -1,0 +1,837 @@
+---
+title: "Introduction to Swaps"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: 
+  pdf: default
+  revealjs:
+    theme: simple
+    transition: fade
+    transition-speed: fast
+    scrollable: true
+    slide-number: true
+    chalkboard: TRUE
+revealjs-plugins:
+    - revealjs-text-resizer       
+execute:
+    echo: true
+    eval: true
+---
+
+## Lecture Outline
+
+-   Interest Rate Futures
+
+    -   Treasury bond futures
+    -   Eurdollar and SOFR futures
+
+-   Swaps
+
+    -   Products, pricing and risk management applications
+    -   Currency, commodity, total rate of return swaps
+
+-   Reading: Ch. 6.1--6.3 and Ch. 7
+
+# Interest Rate Futures
+
+## Day Count Conventions
+
+-   Pricing in financial markets started long before computers…
+
+    -   People in different countries took different strategies to ease the calculation of accrued interests over time
+    -   30 days per month? 360 or 365 days per year?
+
+-   Conventions vary from country to country and from instrument to instrument
+
+    -   **Actual/Acutal**: US treasury bonds, Australia
+
+    -   **30/360 method**: US corporate/municipal bonds, Eurobonds
+
+    -   **Actual/360**: US money market
+
+    -   **Actual/365**: Korea, UK, Japan
+
+    -   \$ X/Y \$, where $X$ is the number of days in a month, and $Y$ is the number of days in a year.
+
+    <small> [Source:https://www.rbcits.com/en/gmi/global-custody/market-profiles.page](https://www.rbcits.com/en/gmi/global-custody/market-profiles.page) </small>
+
+## Day Count Conventions: Example
+
+-   Consider a Treasury bond and a corporate bond both have the same annual coupon payment dates (Principal: \$100, coupon rate: 8%).
+
+    -   Their last coupon payment date is March 1, 2018, and the next coupon date is September 1, 2018.
+
+-   How much interest is accured for the period from March 1, 2018 to July 3, 2018, for the two bonds, respectively?
+
+    -   Act/Act: $\frac{124}{184} \times \$4 =2.6957$
+
+    -   30/360: $\frac{122}{180} \times \$4 =2.7111$
+
+-   How about from October 3, 2018 to January 1, 2019?
+
+    -   Act/Act: $\frac{92}{181} \times \$4 =2.0331$
+
+    -   30/360: $\frac{90}{180} \times \$4 =2.0000$
+
+-   Excel functions: `Days` and `Days360`
+
+## Day Count Conventions: Example (cont'd)
+
+-   What if we use Actual/365?
+
+    -   Divide 8% by 365 = 0.02191
+    -   Multiply by \# of days from March 1 to July 3, 2018 (124) = 2.7178
+
+-   Actual/360?
+
+    -   Divide 8% by 360 = 0.02222
+    -   Multiply by \# of days from March 1 to July 3, 2018 (124) = 2.7555
+
+-   \[NB\] Therefore, 8% in Actual/360 is equivalent to $8\% \times \frac{365}{360} = 8.1111\%$
+
+    -   Divide 8.1111% by 365 = 0.02222
+    -   Multiply by \# of days from March 1 to July 3, 2018 (124) = 2.7555
+
+-   \[NB\] 1% in Actual/360 would earn $1\% \times 365/360$ of interest in 365 days.
+
+## Treasury Futures
+
+-   Underlying variable: \`\`Virtual'' bond price or interest rate
+
+    -   Treasury bonds, 10-year, 5-year, 2-year Treasury notes, with 6% coupon rate in U.S., 5% in Korea
+    -   Federal funds rates/Eurodollar/SOFR futures $\Rightarrow$ Interest rate
+
+-   In the U.S., the bonds actually delivered by the party on the short side of the futures contract are not necessarily of those exact same maturities.
+
+    -   Acceptable government bonds/notes to deliver are:
+
+        -   Ultra T-Bond: 25 years $<$ maturity
+        -   Treasury Bond: 15 $\le$ maturity $\le$ 25 years
+        -   10-year Treasury note: 6.5 $<$ maturity $\le$ 10
+        -   5-year Treasury note $\approx$ 5 %the original life must be less than 5.25 years.
+        -   2-year Treasury note $\approx$ 2 %the original life must be less than 5.25 years.
+
+-   In Korea, TB futures are cash-settled.
+
+## Treasury Futures: Quotes
+
+::: {style="text-align: center;"}
+![](img/swap_Table6.1.png)
+:::
+
+-   In the U.S., thirty-seconds of a dollar per \$100 face value. In Korea, percentage point.
+
+    -   $220'06 = 220 + 6/32 = 220.1875$
+    -   $134'215 = 134+21.5/32 = 134.671875$
+    -   $124'1525 = 124+15.25/32 = 124.4765625$
+
+## Treasury Bond Quotes
+
+-   The quoted price is for a bond with a face value of \$100.
+
+-   Example: a quote of 90'05 indicates that if the bond has a face value of \$100,000 its price will be $(90+5/32)\times 1,000 = \$90,156.25$
+
+-   This quoted price is also known as the clean price.
+
+-   The actual cash price that has to be paid by the purchaser of the bond is known as the dirty price.
+
+    **Cash price = Quoted price + Accrued Interest**
+
+## Treasury Bond Quotes: Example
+
+-   On March 5th 2013, there is a 11%-coupon treasury bond maturing on July 10th 2028, with a quoted price of 95'16.
+
+-   Coupons semi-annually: last coupon was paid on January 10th 2013. The next coupon date is July 10th 2013.
+
+    -   The actual number of days between Jan 10 and Mar 5 is 54.
+    -   The actual number of days between Jan 10 and Jul 10 is 181.
+    -   Each coupon pays $\$100 \times 0.11 / 2 = \$5.50$ (on Jan 10 and Jul 10)
+
+-   The accrued interest on Mar 5 is: $\$5.50 \times 54 / 181 = \$1.64$
+
+-   The cash price per \$100 face value is thus $\$95.50+\$1.64 = \$97.14$
+
+-   The cash price of a \$100,000 face value bond is thus: \$97,140
+
+## Treasury Futures: Settlement
+
+-   Example: The Treasury bond futures contract allows the party with the short position to choose to deliver any government bond with a maturity left between 15 and 25 years.
+
+Cash price = Quoted Price + Accrued interest
+
+(Quoted price is called settlement price for futures.)
+
+Cash price = Settlement Price + Accrued interest
+
+(But the delivered bond may not be a 6% coupon bond.)
+
+Cash price = Settlement Price $\times$ Conversion factor + Accrued interest
+
+-   Example
+
+    -   Settlement price: 120'00
+    -   Conversion factor: 1.3800
+    -   Accrued interest: \$3 per \$100 face value.
+    -   The cash received by the party with the short position (per \$100 face value)
+
+$$
+(1.3800 \times 120.00) + 3.00 = \$168.60
+$$
+
+        
+-   The actual price $= \$168.60 \times 1,000=\$168,600$
+
+
+## Cheapest-to-Deliver Bond
+
+-   At any given time during the delivery month, there are many bonds that can be delivered in bond futures contracts
+
+-   The party with the short position, when delivering the bond, receives:
+
+**[1] Settlement Price $\times$ Conversion factor + Accrued interest**
+
+-   The cost of purchasing the bond is:
+
+**[2] Quoted bond price + Accrued interest**
+
+-   Thus the cheapest-to-deliver bond is the one minimizing: **[2]-[1]**
+
+**Quoted bond price $-$ (Settlement price $\times$ Conversion factor)**
+
+## Cheapest-to-Deliver Bond: Example
+
+-   The party with the short position has decided to deliver and is trying to choose between the three bonds in the table below. Assume the most recent settlement price is 93-08, or 93.25.
+
+| Bond | Quoted price | Conversion factor |
+|:-----|:-------------|:------------------|
+| 1    | 99.50        | 1.0382            |
+| 2    | 143.50       | 1.5188            |
+| 3    | 119.75       | 1.2615            |
+
+-   The cost of delivering each of the bonds is as follows:
+
+Bond 1: $99.50 - 93.25 \times 1.0382 = \$2.69$
+
+Bond 2: $143.50 - 93.25 \times 1.5188 = \$1.87$
+
+Bond 3: $119.75 - 93.25 \times 1.2615 = \$2.12$
+
+The cheapest-to-deliver bond is Bond 2.
+
+## Treasury Bond Futures: Conversion factor
+
+-   The conversion factor for a bond is equal to the quoted price the bond would have (per dollar of principal) on the first day of the delivery month on the assumption that the yield curve is flat at 6% with semiannual compounding.
+
+-   Details...
+
+    -   The bond maturity and the times to the coupon payment dates are rounded down to the nearest 3 months for the purposes of the calculation (in order to be able to produce comprehensive tables).
+    -   After rounding, if the bond lasts for an exact number of six-month periods, the first coupon is assumed to be made in 6 months.
+    -   If it does not (i.e. there are extra 3 months), the first coupon is assumed to be paid after 3 months, and accrued interest is subtracted (for the 3 months preceding the present).
+
+-   \[NB\] In the case of the 2-year and 5-year note futures contract, a similar calculation is used to determine the conversion factor except that the time to maturity is rounded to the nearest month.
+
+
+
+## Treasury Bond Futures: Conversion factor - Example
+
+[NB] We don't use c.c. interest rate here.
+
+-   Assume a 10% coupon bond with 20 years and 2 months to maturity.
+
+-   Rounding down to the nearest 3 months, the bond is thus assumed to have exactly 20 years to maturity.
+
+-   Since 20 years is an exact number of 6-month periods, the first coupon payment is therefore assumed to be made after 6 months.
+
+-   Assuming a \$100 face value, and a flat 6% per annum discount rate with semiannual compounding, the value of the bond is:
+
+$$
+\sum_{i=1}^{40}\frac{100(0.10/2)}{(1+0.06/2)^i} +\frac{100}{(1+0.06/2)^{40}}=\$146.23
+$$
+
+-   The conversion factor is therefore 1.4623
+
+## Treasury Bond Futures: Conversion factor - Example
+
+-   Assume an 8% coupon bond with 18 years and 4 months to maturity.
+
+-   Rounding down to the nearest 3 months, the bond is thus assumed to have exactly 18 years and 3 months to maturity.
+
+-   Compute the price of the bond at a "time point" 3 months from now when the first coupon happens.
+
+-   The value of the bond at that point is:
+
+$$
+100(0.08/2)+\sum_{i=1}^{36}\frac{100(0.08/2)}{(1+0.06/2)^i} +\frac{100}{(1+0.06/2)^{36}}=\$125.83
+$$
+
+-   At "time 0", the price is $\$125.83/(1+0.06/2)^{1/2} = \$123.99$: cash price of the bond.
+
+-   To get the quoted price of the bond, subtract the accrued interest from the prior 3 months: $\$123.99 - \$4/2 = \$121.99$ and the conversion factor 1.2199.
+
+## Treasury Bond Futures: Conversion factor - Intuition
+
+-   The reason for the 6% discount rate used in the computation of the conversion factor is the fact that bond futures prices, by construction, assume a 6% coupon rate.
+
+    -   If the bond being delivered actually has a 6% coupon rate, the conversion factor will be equal to 1 since it will discount future \$6 coupon payments (\$3 twice a year equating \$6 per year) at a rate of 6%.
+
+    -   The short party would actually receive the futures settlement price without any modification (except for possible accrued interest).
+
+    -   But if the bond has a higher coupon payment, the short party should be compensated for the fact that he is giving a higher-paying bond. The conversion factor will reflect that since it will be higher than 1.
+
+    -   Conversely, if the bond has a lower coupon payment, the short party should receive a little less because of the fact that he is giving a lower-paying bond. The conversion factor will reflect that since it will be lower than 1.
+
+## Treasury Bond Futures: Why designed this way?
+
+-   If the contract designated a particular T-bond as the underlying asset, that T-bond could be in short supply, and in fact it might be possible for someone to corner the available supply. A short would then be unable to obtain the bond to deliver.
+
+-   An alternative scheme could have had the contract cash-settle against a T-bond index, much like the S&P 500. This arrangement, however, introduces basis risk, as the T-bond futures contract might then track the index but fail to track any particular bond.
+
+-   The idea that there is a cheapest to deliver is not exclusive to Treasury bonds. The same issue arises with commodities, where a futures contract may permit delivery of commodities at different locations or of different qualities.
+
+## Determining the Futures Price
+
+-   Exact theoretical futures prices are difficult to determine because there are many factors that affect the futures price:
+
+    -   Delivery can be made any time during the delivery month
+    -   Any of a range of eligible bonds can be delivered
+
+-   Assume, for simplicity, that the cheapest-to-deliver bond and the delivery date are known. Then $F_0=(S_0-I)e^{rT}$
+
+    -   $I$ is the present value of the coupons during the life of the futures contract,
+    -   $T$ is the time until the futures contract matures, and
+    -   $r$ is the risk-free interest rate applicable to a time period of length $T$.
+
+## Determining the Futures Price: Example
+
+::: {style="text-align: center;"}
+![](img/swap_futures_price.png)
+:::
+
+-   Suppose we know the cheapest-to-deliver bond will be a 12% coupon bond with a conversion factor of 1.6000, and delivery will be in 270 days.
+
+-   Coupons are payable semiannually on the bond.
+
+-   The last coupon date was 60 days ago, the next coupon date is in 122 days, and the coupon date thereafter is in 305 days.
+
+-   Interest rate is 10% per annum (continuous compounding). The quoted bond price is \$115.
+
+-   The cash price of the bond is $115 + \frac{60}{60+122}\times 6 = 116.978$
+
+-   The present value of a coupon in 122 days is $6e^{(-0.1)(122/365)} = 5.803$.
+
+-   The futures value is $(116.978 - 5.803)e^{(0.1)(270/365)} = 119.711$.
+
+-   At delivery, the settlement futures price (12%) is calculated by subtracting the accrued interest $Cash = Q \times CF + AI$
+
+$119.71 = Q \times 1.6 + \frac{148}{35+148}\times 6 \Rightarrow Q = \frac{114.859}{1.6000}=71.79$
+
+
+
+
+
+## Eurodollar Futures
+
+-   The 3-month Eurodollar futures contract is the most popular interest rate futures contract.
+
+    -   A Eurodollar is a dollar deposited in a bank outside the U.S.
+    -   A 3-month Eurodollar futures contract is a futures contract on the interest that will be paid (by someone who borrows at the Eurodollar interest or deposit rate, same as 3-month LIBOR rate) on \$1 million for a future period of 3 months.
+    -   A change of one basis point or 0.01 in a Eurodollar futures quote corresponds to a contract price change of $\$25 = \$1,000,000 \times 0.0001 \times (3/12)$
+
+-   A Eurodollar futures contract is settled in cash
+
+    -   When it expires the final settlement price is: $100 - R$, where $R$ is the actual 3-month Eurodollar interest rate on that day.
+    -   $R$ is expressed with quarterly compounding.
+    -   $R$ uses an actual/360 day count convention.
+
+## Eurodollar Futures: Example
+
+-   An investor wants to lock in the interest rate for a 3-month period starting Sep 16th 2015, for \$100 million (to invest).
+
+-   Today, the Sep 2015 Euro futures quote is 96.500, meaning that the investor can lock in a rate of $100-96.5 = 3.5\%$ per annum.
+
+-   The investor hedges by buying 100 contracts.
+
+-   On Sep 16th 2015, the 3-month Eurodollar quote is 97.400.
+
+    -   The difference in basis points is $100 \times (97.40-96.50) = 90$
+    -   The investor gains: $100 \times 25 \times 90 = 225,000$ on the Eurodollar futures.
+    -   The interest earned on the 3-month investment is: $100,000,000 \times (100-97.4)/100 \times (1/4)= 650,000$
+    -   Once we add the futures gains to the interest, the total earned is: $650,000 + 225,000 = 875,000$
+    -   Checking that 3.5% was indeed locked in: $100,000,000 \times (100-96.5)/100 \times (1/4) = 875,000$
+
+## SOFR Futures
+
+-   Three-month SOFR futures and Eurodollar futures contracts are very similar.
+
+-   Main difference: The Eurodollar futures contract is settled at the beginning of the three-month period to which the rate applies whereas the three-moth SOFR futures contract is settled at the end of the three-month period.
+
+    -   SOFR futures settlement equals 100 minus the result of compounding one-day SOFR rates over the previous three months
+    -   Suppose that the (annualized) SOFR overnight rate on the $i$th business day of a period is $r_i$ and the rate applies to $d_i$ days. The (annualized) interest rate for the period is
+
+$$
+[(1+r_1 \hat{d}_1)(1+r_2 \hat{d}_2)\dots (1+r_n \hat{d}_n)-1]\times \frac{360}{D},
+$$
+
+```         
+where $\hat{d}_i = d_i/360$ and $D=\sum d_i$ is the number of days in the period. On most days $d_i = 1$\footnote{But weekends and holidays lead to the overnight rates being applied to more than one day. For example, on a Friday $d_i$ will normally be equal to 3.}
+```
+
+## SOFR Futures: Example
+
+-   Suppose that on May 21, 2020, an investor has agreed to pay the three-month SOFR rate plus 200 basis points on \$100 million of borrowings for three months beginning on December 16, 2021.
+
+-   The December 2021 three-month SOFR futures is 99.990 (i.e., SOFR rate=0.01%).
+
+-   She uses futures to lock in a borrowing rate of $0.01\%+2\%$.
+
+    -   Short 100 December contracts (\$1m each).
+    -   Suppose that the final settlement proves to be 99.200.
+    -   The rate paid on the loan would then be $0.8\%+2\%$ per annum and the total interest would be $0.25 \times \$100,000,000 \times 2.8\% = \$700,000$.
+    -   However, the futures contract has declined by 79 basis points (from 99.990 to 99.200).
+    -   The gain is $100 \times \$25 \times 79 = \$197,500$ on 100 contracts.
+    -   When this is taken into account, the amount paid is $\$700,000 - \$197,000 = \$502,500$, which corresponds to a rate of $2.01\% (\$502,500 = 0.25 \times \$100,000,000 \times 2.1\%)$.
+
+
+
+# Swaps
+
+
+
+
+## Swap basics
+
+-   A swap is a contract calling for an exchange of payments, on one or more future dates, determined by the difference in two reference prices or interest rates.
+
+-   A single-payment swap is equivalent to a cash-settled forward contract.
+
+-   A swap provides a means to hedge or speculate on a stream of risky cash flows.
+
+-   Traded in over-the-counter market.
+
+## Structure of a "Plain Vanilla" Interest Rate Swap
+
+-   In the most common type of interest rate swap (fixed for floating), fixed interest rate payments are exchanged for floating interest rate payments at regular intervals over the life of the contract.
+
+-   No principal is exchanged.
+
+::: {style="text-align: center;"}
+![](img/swap_swap.png)
+:::
+<small>
+LIBOR is the London Interbank Offer Rate. For many years it was the most common reference floating rate for swaps. It is being replaced by other reference rates, e.g., SOFR. 
+</small>
+
+-   An interest rate swap can also be described as a package of forward rate agreements (FRAs)
+
+    -   A forward rate agreement is a one-time exchange based on a fixed interest rate and a floating one
+
+
+
+## Swaps - Terminology
+
+-   Notional Principal: Amount of principal upon which the interest payments are based. This principal may not be exchanged.
+
+-   Counterparties: The two participants in the swap.
+
+-   Payer, receiver?!? Be careful...
+
+    -   Fixed Rate Payor: The counterparty who pays a fixed rate, and receives a floating rate in the swap. The fixed rate payor is said to have "bought the swap" or is long in the swap.
+    -   Floating Rate Payor: The counterparty who pays a floating rate, and receives a fixed rate in the swap. The floating rate payor is said to have "sold the swap" or is short in the swap.
+
+## Organization of Trading
+
+-   Financial institutions act as market makers and provide bid and ask quotes for the fixed rates that they are prepared to exchange in swaps.
+
+::: center
+![](img/swap_Table7.4.png){width="65%"}
+:::
+
+-   Bid: fixed rate that the market maker pays to receive floating
+-   Ask: fixed rate that the market maker receive to pay floating.
+-   Swap rate: the average of the bid and ask rates
+-   The spread compensates the market maker for its costs.
+
+## Interest rate swap pricing
+
+-   For floating rate payor, swap is initially equivalent to going long in a fixed rate bond priced at par, and going short in a floating rate bond priced at par
+
+-   For the fixed rate payor, the equivalent cash position is the opposite
+
+-   In general, we price a swap by finding the difference between the present value of the fixed and floating rate payments.
+
+## Swap Pricing: Valuing a Floating Rate Bond
+
+-   Floating rate bonds always are priced at par at reset dates.
+
+    -   Let $r_T$ be the one-period reset rate realized at time $T$.
+
+        -   We find the price at time 0 by working backwards.
+        -   At time $T-1$, there is one remaining payment of principal and interest, equal to $F e^{r_{T-1}}$. Its value at time $T-1$, $P_{T-1}=F e^{r_{T-1}} e^{-r_{T-1}}=F.$
+        -   Stepping back to time $T-2$, $P_{T-2}=F e^{r_{T-2}} e^{-r_{T-2}}=F.$
+        -   Continuing in this way, it is clear that the price equals the face value on all reset dates, including at time 0.
+        -   Assume that reset frequency is annual.
+
+## Swap Pricing: A No-Arbitrage Condition
+
+-   At swap initiation, the present value of the fixed and floating rate payments must be equal.
+
+    -   That is because entering into a swap is free, and a voluntary exchange has to be fair to both sides.
+
+-   Because we know that the present value of the floating payments equals the face value of the floating rate bond, the present value of the fixed rate payments also must equal the face value of the fixed rate bond.
+
+-   Thus, the fixed rate on the swap is determined by setting the present value of the future fixed rate payments equal to par.
+
+## Swap Pricing: Implementation
+
+-   Imagine that you have derived a spot yield curve $Y_1, Y_2, …, Y_T$ that is appropriate for discounting the fixed rate swap payments
+
+-   Then the coupon rate on the swap solves:
+
+$$
+F = cFe^{-Y_1}+cFe^{-2Y_2}+ ... +F(1+c)e^{-TY_T} 
+$$
+
+-   Assume that reset frequency is annual.
+
+$$
+c = \frac{1-e^{-TY_T}}{e^{-Y_1}+e^{-2Y_2}+ ... +e^{-TY_T}} 
+$$
+
+-   Note:
+
+    -   Swaps are priced to be consistent with the yield curve and hence with implied forward rates, FRAs, and other interest rate forwards and futures
+    -   Over time the value of the swap changes with market interest rates. Like forward contracts, it is zero sum across the two counterparties.
+
+## Example: Hedging bank balance sheet risk
+
+-   It is December 2025. Southwest savings bank is expanding its holdings:
+
+    -   It funds \$1mm of new 10-year mortgages using 3-month time deposits.
+    -   The current mortgage rate is 10% per year, fixed.
+    -   The current 3-month rate on time deposits is 8%.
+
+-   A profit of 2% is locked in over the first three months.
+
+-   After that, the bank bears the risk that interest rates might rise. This risk can be hedged with futures contracts, or more effectively, with an interest rate swap
+
+## Example (cont'd)
+
+-   Imagine that Southwest can enter into an interest rate swap with the following terms:
+
+    -   Maturity = 10 years
+    -   Fixed rate payor = Southwest S&L.
+    -   Fixed Rate = 8.65%.
+    -   Floating Rate = LIBOR
+    -   Payment Frequency = Semiannual for both fixed and floating.
+
+-   Now Southwest can use the fixed (10%) payments from the mortgages to meet their obligations in the swap.
+
+-   The floating rate payments received in the swap will be used to pay interest on the deposits backing the mortgages.
+
+## Example (cont'd)
+
+-   The advantages over the strip of futures contracts include:
+
+    -   only one contract
+    -   covers the entire 10 years
+    -   avoids illiquid contracts for long-dated futures
+    -   the timing is more flexible
+
+-   But this swap is not a perfect hedge for Southwest:
+
+    -   Mortgages are usually amortized over their lifetime, so that the principal balance is declining
+    -   The frequency of the mortgage payments (often monthly) does not match the semiannual frequency of the fixed payments on a plain vanilla swap
+    -   The three month rate paid to depositors does not match the six month LIBOR rate received in the swap
+    -   Mortgages can usually be prepaid
+
+
+
+
+
+## Customized Swap Contracts
+
+-   Those features of mortgages, which make a plain vanilla swap a less-than perfect hedge for Southwest, is an example of why there is a demand for more specialized swap products such as:
+
+    -   Amortizing Swaps
+    -   Basis Swaps: exchange two floating rates
+    -   Swaptions: option to enter a swap
+
+-   Specialized swaps tend to be more expensive than a plain vanilla swap and a counterparty may be harder to locate
+
+
+
+
+## Why does IRS exist?
+
+-   **The comparative advantage argument**
+-   Consider a 5-year IRS:
+
+::: {style="text-align: center;"}
+![](img/swap_Table7.5.png)
+:::
+
+-   In fixed rate: AAA saves 0.8% more
+-   In floating rate: AAA saves 0.7% more
+-   AAA is ``comparatively'' advantagenous in fixed rate.
+
+    -   When AAA uses fixed and BBB uses floating, total borrowing cost is 4.0% + Floating + 0.6%
+    -   It is 5.2% + Floating - 0.1% when AAA uses floating and BBB uses fixed.
+-   Choosing 1, we save 0.5%. Create an IRS and split the surplus.
+
+::: {style="text-align: center;"}
+![](img/swap_Table7.8.png)
+:::
+
+## Why does IRS exist? (Cont'd)
+
+-   The IRS market has been in existence for a long time, we might reasonably expect these types of differences to have been arbitraged away. Then why continue to exist?
+
+-   The fixed rate is valid for 5 years.
+
+-   However, the spread over the floating reference rate (LIBOR or overnight rate) is adjusted periodically (say, 3-month) after the lender's review.
+
+    -   If the credit quality deteriorates, the lender would charge a higher spread.
+
+-   The credit spread is increasing in maturity.
+
+    -   AAA$-$BBB spread is wider in fixed rate (5-year) than in floating (3-month)
+
+-   BBB's borrowing cost is likely higher than $4.97\% (=4.37\%+0.6\%)$, which is valid until the next reset date.
+
+    -   The expected cost of borrowing for the next 5-year should be 5.2%.
+    -   In other words, the market expects that the spread over floating rate will rise for BBB.
+
+## Currency Swap
+
+-   A currency swap is an agreement to periodically exchange a payment in one currency for a payment in a second currency
+
+    -   Payments can be fixed for fixed, fixed for floating, or floating for floating
+    -   Fixed for fixed is like a portfolio of forward currency contracts
+
+-   Example
+
+    -   A US exporter is due to receive € 5m in 5 equal installments, every 6 months for 2.5 years.
+
+    -   The US company can enter into five forward (or futures) contracts to hedge each installment as a stand-alone cash flow.
+
+    -   Suppose $S_0 = 1.2673, r_\$ = 5\%, r_€ = 3\%$ (flat term structure in both countries)
+
+    -   Using $F=S_0 e^{(r_\$-r_€)T}$ implies the forward rate schedule:
+
+| Maturity     | 0.5    | 1      | 1.5    | 2      | 2.5    |
+|:-------------|:-------|:-------|:-------|:-------|:-------|
+| Forward rate | 1.2800 | 1.2929 | 1.3059 | 1.3190 | 1.3323 |
+
+## Currency swap example (cont'd)
+
+-   Alternatively, the US firm can enter into a currency swap
+
+-   For instance, the swap contract between the US firm and a bank may be specified, **hypothetically**, as:
+
+    -   US firm pays bank € 1 mil on $t$ = 0.5, 1, . . . , 2.5
+    -   Bank pays US firm € 1 mil $\times$ \$K/€ (where $K$ is the swap rate, say $K$ = 1.306) on the same dates.
+
+-   What is the net \$ cash flow for the U.S. firm from the swap at any payment date?
+
+    -   At every $t$, the firm receives \$ 1 mil $\times$ $K$, and must pay \$ 1 mil $\times$ $S_t$ dollars/euro (cash settled)
+    -   Net amount received in the swap is \$1 mil $\times$ $(K - S_t)$. Only this amount is settled.
+
+-   U.S. firm also sells Euros received for dollars at current spot rate $S_t$. Net \$ cash flow = 1 mil $\times$ $K$
+
+    -   Note that the notional value, € 1 mil, is not delivered to the bank.
+
+## Currency swap example (cont'd)
+
+-   How is the swap rate $K$ determined?
+
+-   The swap rate $K$ is chosen at time 0 so that the value of the swap is equal to zero, i.e., no exchange of money at inception but only in the future.
+
+    -   It is determined by a no-arbitrage condition between the forward and swap markets
+
+-   Construct a portfolio with swap \& set of forward contracts
+
+    -   Payoff at every $t$ from swap + forward $=\$1 \times [(K - S_t) + (S_t -F_t )]$
+    -   PV of cash flows $\$1 \times (e^{-r_\$ 0.5} (K-F_{0.5}) + ... + e^{-r_\$ 2.5} (K-F_{2.5}))$
+
+-   Set $K$ so that present value of portfolio equals zero, and hence swap value is zero.
+
+$$
+K=w_{0.5}F_{0.5}+...+w_{2.5}F_{2.5}
+$$
+
+$$
+w_t = \frac{e^{-r_\$ t}}{e^{-r_\$ 0.5} +...+  e^{-r_\$ 2.5}}
+$$
+
+## Currency swap example (cont'd)
+
+-   We obtain an alternative (equivalent) formulation by substituting the forward prices
+
+$$
+F=S_0 e^{(r_\$ - r_€)T}
+$$
+
+-   Then we have a currency swap rate
+
+$$
+K=S_0 \frac{e^{-r_€ 0.5} +...+  e^{-r_€ 2.5}}{e^{-r_\$ 0.5} +...+  e^{-r_\$ 2.5}}
+$$
+
+-   PV of \$K for 2.5 years = PV of € 1 for 2.5 years in \$ term
+-   The currency swap rate equals the current exchange rate multiplied by the ratio of the relative risk-free borrowing costs in the two currencies
+
+    -   If \$ borrowing is more costly (i.e., the ratio $>$ 1), then $K > S_0$
+
+## Hedging with swaps versus forwards
+
+-   The payoff profile from the sequence of forwards and one swap is different:
+
+    -   The sequence of forwards implies the US firm gets less money early on, and more later on (from \$1.28 mil to \$1.3323 mil)
+    -   The swap implies the firm gets a constant amount \$1.306 mil every payment
+
+-   Both strategies perfectly hedge the exposure, as the exchange rate risk is eliminated and both payoff profiles are known at 0. And both have the same present value.
+
+-   Differs in liquidity, transaction costs, etc.
+
+## Why does currency swap exist?
+
+-   The comparative advantage argument makes sense here.
+
+::: {style="text-align: center;"}
+![](img/swap_Table7.7.png)
+:::
+
+-   Possible sources of comparative advatange
+
+    -   Taxes
+    -   Reputation
+
+::: {style="text-align: center;"}
+![](img/swap_Table7.11.png)
+:::
+
+## Commodity swaps
+
+-   A commodity swap is an agreement to periodically exchange a pre-specified fixed payment for a payment linked to the market price of a commodity
+
+    -   Usually contract calls for cash-settlement but in principle could require physical deliveries
+
+-   Example of commodity swap
+
+    -   A company needs to buy 100,000 barrels of oil 1 year from today and 2 years from today.
+    -   The forward prices for deliver in 1 year and 2 years are \$110 and \$111/barrel.
+    -   The 1- and 2-year zero-coupon bond yields are 6% and 6.5%
+
+## Commodity swaps example (cont'd)
+
+-   Company can guarantee the cost of buying oil for the next 2 years by entering into long forward contracts for 100,000 barrels in each of the next 2 years.
+
+-   The PV of this cost per barrel is
+
+$$
+110 e^{-0.06} + 111 e^{-0.065 \times 2}=201.063
+$$
+
+-   Typically a swap will call for equal payments each year.
+
+-   For example, the payment per barrel, $x$, should be such that
+
+$$
+x e^{-0.06} + x e^{-0.065 \times 2}=201.063
+$$
+
+-   Then the no-arbitrage 2-year swap price per barrel is \$110.483
+
+## Commodity swaps example (cont'd)
+
+-   This example illustrates that swaps are equivalent to forward contracts coupled with borrowing and lending money.
+
+-   Consider the swap price of \$110.483/barrel versus the forward prices.
+
+    -   Relative to the forward curve price of \$110 in 1 year and \$111 in 2 years, we are overpaying by \$0.483 in the first year, and we are underpaying by \$0.517 in the second year.
+
+-   Thus, by entering into the swap, we are lending the counterparty money for 1 year. The implied interest rate on this loan is
+
+$$
+e^{r}(0.483)=0.517 \rightarrow r=7\%
+$$
+
+-   Given the 1 and 2-year zero-coupon bond yields of 6% and 6.5%, 7% is the implied forward yield between years 1 and 2. (rounding error)
+
+-   The deal, which is fairly priced, has an embedded borrowing and lending rates equal to the implied forward rates in the yield curve.
+
+## Total Rate of Return (TROR) Swaps
+
+-   An exchange of an interest payment for the total return on a reference asset, paid periodically over the life of the TROR contract.
+
+-   Total Return = Cash Flows + (Change in Market Value)
+
+-   Fixed maturity date: Need not match reference asset maturity
+
+-   Reference Asset:
+
+    -   Bond, Loan (e.g., emerging market, sovereign, bank debt, mortgage-backed securities, or corporate loan), Index, Equity, Commodity
+    -   Payor need not own reference asset, but if it is owned, it hedges the cash flows for the payor. (Again, payor / receiver?!?)
+
+## TROR Swap (cont'd)
+
+-   Total rate of return swap with notional principal \$10 million. Sold at LIBOR flat.
+
+-   Reference asset earns $-10\%$ over the period (interest and capital gain/loss)
+
+-   LIBOR is 4.5% over the period.
+
+-   What is the net cash flow on the swap on the payment date?
+
+-   Payor: pays $10\% + 4.5\%$
+
+## TROR Swap - Pricing Basics
+
+-   From the TROR payor’s perspective
+
+    -   On each leg the swap is equivalent to a short position in the reference asset and a long position in a floating rate bond.
+
+-   From the TROR receiver’s perspective
+
+    -   The swap is equivalent to a long position in the reference asset and a short position in a floating rate bond.
+
+-   The net swap value is zero at payment dates, after the total net return is exchanged.
+
+    -   Effectively, the swap restarts at each payment date on a fixed notional amount of assets
+    -   Between payment dates the value is the difference between the value of the floating rate bond and the reference asset.
+
+## Some motivations of TROR Receivers
+
+-   May gain off-balance sheet exposure to a desired asset class
+
+-   Reduce administrative costs (relative to outright purchase of reference asset)
+
+    -   Especially if underlying is illiquid or regulation prohibits direct ownership
+
+-   Provides a highly leveraged position, since no cash payments are initially made, and only net return is exchanged
+
+    -   Leverage is the main reason hedge funds tend to be TROR receivers.
+    -   But generally requires some collateral and/or capital, which reduces leverage.
+
+## Example: Creating leverage with TROR swap
+
+|                      | HF A       | HF B       | Cash investor |
+|:---------------------|:-----------|:-----------|:--------------|
+| Asset yield            | 8.30%      | 8.30%      | 8.30%         |
+| Libor                  | -5.80%     | -5.80%     |               |
+| Net asset spread       | 2.50%      | 2.50%      |               |
+| Spread to LIBOR        | -1.00%     | -1.00%     |               |
+| Net swap spread        | 1.50%      | 1.50%      |               |
+| Collateral             | 5%         | 10%        |               |
+| Leverage               | 20 to 1    | 10 to 1    | 1 to 1        |
+| Interest on collateral | 5.80%      | 5.80%      |               |
+| Net return             | 35.80%     | 20.80%     | 8.30%         |
+
+
+$35.80\%=[.083(100) -.068(100) +.058(5)]/5$
+
+## Some Motivations of TROR Payers
+
+-   When owning the reference asset, you can hedge price risk and default risk of reference asset
+-   Avoid sales (tax consequences) and speculate on temporary price decline of asset
+-   Avoid restrictions on shorting

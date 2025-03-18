@@ -702,9 +702,10 @@ ggplot(data, aes(x = Returns, fill = Type)) +
 
 ## Value at Risk
 
-- Value at Risk (VaR) is intended to focus on downside risk of the distribution.
-- VaR is the estimate of the losses that occur with a given probability.
-    - ***e.g.*** How much loss we might have on our portfolio such that there is only a 5\% chance that we will do worse?
+- Value at Risk (VaR) represents the potential loss in value of a portfolio, given a certain probability over a specific time period.
+    - Key question: How much could we lose with a given probability
+    - E.g., with a 5% probability, our portfolio may experience a loss greater than the VaR amount.
+    - I.e., There is a 95% probability that our loss will not excees the VaR amount.
 
 
 ::: {style="text-align: center;"}
@@ -739,9 +740,9 @@ $$
 
 ## Value at Risk - Example I
 
-- Suppose we own a stock whose return is normally distributed with a mean of 15% and a standard deviation of 30%. What is the 5% Value at Risk (VaR) for this stock?
+- Suppose we own a stock whose return is normally distributed with a mean of 15% and a standard deviation of 30%. What is the 95% Value at Risk (VaR) for this stock?
 
-    ***Answer:*** Let $X$ denote the 5% VaR. Then, $\Pr(R \le X) = \texttt{norm.inv}(0.05, 0.15, 0.30) = -34.3\%$
+    ***Answer:*** Let $X$ denote the 95% VaR. Then, $\Pr(R \le X) = \texttt{norm.inv}(0.05, 0.15, 0.30) = -34.3\%$
     
     Alternatively,
     \begin{align*}
@@ -783,7 +784,7 @@ $$
 
 ## Value at Risk - Multiple Stocks
 
-- ***Ex.*** Consider a portfolio consisting of stock A and stock B. In the portfolio, \$5 million are invested in each of stock A and stock B. The return on each stock is normally distributed. Stock A has an expected return of 15% and a standard deviation of 30%. Stock B has an expected return of 18% and a standard deviation of 45%. The correlation between stock A and stock B is 0.4. What is the 10% VaR for the portfolio?
+- ***Ex.*** Consider a portfolio consisting of stock A and stock B. In the portfolio, \$5 million are invested in each of stock A and stock B. The return on each stock is normally distributed. Stock A has an expected return of 15% and a standard deviation of 30%. Stock B has an expected return of 18% and a standard deviation of 45%. The correlation between stock A and stock B is 0.4. What is the 90% VaR for the portfolio?
     - \textbf{Note:} When $X \sim \phi(\mu_x, \sigma_x^2)$ and $Y \sim \phi(\mu_y, \sigma_y^2)$, then $X + Y \sim \phi(\mu_x + \mu_y, \sigma_x^2 + \sigma_y^2 + 2\rho\sigma_x\sigma_y)$
 
     ***Answer:*** 
@@ -795,11 +796,11 @@ $$
     $$
     \sigma_p = \sqrt{(0.5 \times 0.30)^2 + (0.5 \times 0.45)^2 + 2 \times 0.5 \times 0.5 \times 0.4 \times 0.30 \times 0.45} = 0.315 \text{ or } 31.5\%
     $$
-    - The 10% VaR for the portfolio is:
+    - The 90% VaR for the portfolio is:
     $$
-    \text{VaR}_{10\%} = \mu_p + \sigma_p \times \texttt{norm.s.inv}(0.10) = 0.165 + 0.315 \times (-1.282) = -0.239 \text{ or } -23.9\%
+    \text{VaR}_{90\%} = \mu_p + \sigma_p \times \texttt{norm.s.inv}(0.10) = 0.165 + 0.315 \times (-1.282) = -0.239 \text{ or } -23.9\%
     $$
-    - Therefore, the 10% VaR for the \$10 million portfolio is:
+    - Therefore, the 90% VaR for the \$10 million portfolio is:
     $$
     10,000,000 \times 0.239 = \$2,390,000
     $$

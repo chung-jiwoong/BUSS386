@@ -1,0 +1,187 @@
+---
+title: "Pricing Forwards: Solutions"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: html
+number-sections: true
+execute:
+    echo: true
+    eval: true
+---
+
+- If you notice any typos or errors, please feel free to [email me](chung_jiwoong@korea.ac.kr).
+
+---
+
+# Computational Exercises
+
+---
+
+## Margin Account
+
+Solution:
+
+There is a margin call if more than \$1,500 is lost on one contract. This happens if the futures price falls by more than 10 cents (to below 150 cents per pound). \$2,000 can be withdrawn if there is a gain on one contract of \$1,000, which occurs if the futures price rises by 6.67 cents (to 166.67 cents per pound).
+
+## Trading Futures
+
+Solution:
+
+The total profit is computed as 40,000×(1.2120-1.1830), which is \$1,160.
+
+## Forwards vs. Futures
+
+Solution:
+
+Each trader’s profit in dollars is 0.03×1,000,000 = \$30,000. However, due to daily settlement, Trader B benefits by avoiding interim cash flow issues, so Trader B does better.
+
+## Arbitrage with Futures
+
+Solution:
+
+Go long one June oil contract and short one December contract. In June, take delivery using a \$80 loan at 5% with interest of approximately \$2 and in December sell the oil at \$86. The strategy produces a profit since \$86 > \$82 (loan repayment).
+
+## Minimum-Variance Hedge Ratio
+
+Solution:
+
+No hedging occurs when the coefficient of correlation between futures and spot price changes is zero.
+
+## Minimum-Variance Hedge Ratio (Example 2)
+
+Solution:
+
+The optimal hedge ratio is calculated as 0.8×(0.65/0.81) = 0.642. This means the futures position should be 64.2% of the underlying exposure.
+
+## Minimum-Variance Hedge Ratio (Example 3)
+
+Solution:
+
+The optimal number of contracts is 1.2×(20,000,000/(1080×250)) ≈ 88.9, rounded to 89 contracts. To reduce beta to 0.6, the position should be halved to 44 contracts.
+
+## Hedging with Futures
+
+Solution:
+
+The optimal hedge ratio is 0.7×(1.2/1.4) = 0.6. For a 200,000‑pound exposure, the beef producer should take a long position equivalent to 120,000 pounds. With contracts of 40,000 pounds each, 3 contracts are required.
+
+## Futures
+
+Solution:
+
+Daily settlement can trigger margin calls when prices move unfavorably, leading to significant cash outflows before the final asset sale, thereby causing cash flow problems.
+
+## Minimum-Variance Hedge Ratio with Data
+
+Solution:
+
+Using the provided sums and standard deviations, the correlation is about 0.981 and the hedge ratio is calculated as 0.981×(0.4933/0.5116) = 0.946.
+
+## Forward Price
+
+Solution:
+
+The forward price is the contract price for future delivery, while the value of the forward contract is zero at inception but changes as the underlying price evolves.
+
+## Forward Price (Example 2)
+
+Solution:
+
+The futures price is calculated as 350e^[(0.08-0.04)×0.3333] ≈ \$354.7.
+
+## Forward Pricing
+
+Solution:
+
+a) F = 40e^(0.1×1) ≈ \$44.21 with an initial contract value of zero.
+b) After six months, with the stock at \$45, the forward price is 45e^(0.1×0.5) ≈ \$47.31 and the contract value is approximately \$2.95.
+
+## Forward Pricing (Example 2)
+
+Solution:
+
+The theoretical price is 400e^[(0.10-0.04)×(4/12)] ≈ \$408.08. Since the actual price is 405, the index is undervalued, suggesting a strategy of buying futures and shorting the underlying shares.
+
+## Arbitrage
+
+Solution:
+
+For a forward rate of 1.03, borrow Swiss francs, convert and invest in dollars and use the forward market to buy francs back for a profit. If the forward rate is 1.05, borrow dollars instead, convert to francs, invest, and sell forward to realize a profit.
+
+## Forward Pricing (Example 3)
+
+Solution:
+
+a) The present value of dividends is I ≈ 1.9540 and the forward price is (50-I)e^(0.08×0.5) ≈ \$50.01.
+b) After three months, with the stock at \$48, the forward price recalculates to ≈ \$47.96 and the short contract’s value is approximately \$2.01.
+
+## Forward Pricing (Example 4)
+
+Solution:
+
+No arbitrage exists if the one-year forward price is between 1249×1.055 (≈\$1317.70) and 1250×1.06 (≈\$1325).
+
+## Forward Pricing (Example 5)
+
+Solution:
+
+The bank adjusts K₂ so that the rolled contract retains a value of S₁–K₁. In formula form, K₂ = S₁e^[(r–r_f)(T₂–T₁)] – (S₁–K₁)e^(r(T₂–T₁)).
+
+---
+
+# Programming Exercises Solutions
+
+---
+
+## Calculating Forward Prices with Dividends
+
+Solution (R Code):
+```r
+library(quantmod)
+library(lubridate)
+symbol <- "AAPL"
+risk_free_rate <- 0.05
+valuation_date <- as.Date("2025-01-02")
+time_to_maturity <- 1
+getSymbols(symbol, src = "yahoo", from = "2025-01-01", to = "2025-01-10", auto.assign = TRUE)
+aapl_prices <- Cl(get(symbol))
+spot_price <- as.numeric(first(na.omit(aapl_prices)))
+dividends <- as.numeric(getDividends(symbol, from = "2024-01-01", to = "2024-12-31", auto.assign = FALSE))
+dividend_dates <- index(getDividends(symbol, from = "2024-01-01", to = "2024-12-31", auto.assign = FALSE))
+projected_dividend_dates <- dividend_dates + years(1)
+time_to_dividends <- as.numeric(difftime(projected_dividend_dates, valuation_date, units = "days"))/365
+pv_dividends <- sum(dividends * exp(-risk_free_rate * time_to_dividends))
+forward_price <- (spot_price - pv_dividends) * exp(risk_free_rate * time_to_maturity)
+cat("Closing Price on Jan 2, 2025: $", round(spot_price,2), "\n")
+cat("Present Value of Estimated Dividends: $", round(pv_dividends,2), "\n")
+cat("1-Year Forward Price: $", round(forward_price,2), "\n")
+```
+
+## Minimum Variance Hedge Ratio (Using Real Futures Data)
+
+Solution (R Code):
+
+```r
+library(quantmod)
+library(lubridate)
+library(dplyr)
+spot_symbol <- "GLD"
+futures_symbol <- "GC=F"
+start_date <- as.Date("2023-12-01")
+end_date <- as.Date("2024-12-31")
+getSymbols(c(spot_symbol, futures_symbol), src = "yahoo", from = start_date, to = end_date, auto.assign = TRUE)
+spot_prices <- na.omit(Ad(get(spot_symbol)))
+futures_prices <- na.omit(Ad(get(futures_symbol)))
+monthly_spot <- to.monthly(spot_prices, indexAt="lastof", OHLC=FALSE)
+monthly_futures <- to.monthly(futures_prices, indexAt="lastof", OHLC=FALSE)
+dS <- na.omit(diff(monthly_spot) / lag.xts(monthly_spot, k=1))
+dF <- na.omit(diff(monthly_futures) / lag.xts(monthly_futures, k=1))
+correlation <- cor(dS,dF)
+sd_dS <- sd(dS)
+sd_dF <- sd(dF)
+hedge_ratio <- correlation * (sd_dS / sd_dF)
+cat("Correlation:", round(correlation,4), "\n")
+cat("Standard deviation of dS:", round(sd_dS,4), "\n")
+cat("Standard deviation of dF:", round(sd_dF,4), "\n")
+cat("Minimum Variance Hedge Ratio:", round(hedge_ratio,4), "\n")
+```
