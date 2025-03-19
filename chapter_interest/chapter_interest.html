@@ -230,47 +230,9 @@ Prof.&nbsp;Ji-Woong Chung
 </ul></li>
 <li><p><strong>Repo Rates</strong></p>
 <ul>
-<li>Unlike overnight rates, repo rates are for secured borrowing.</li>
+<li>Unlike most overnight rates, repo rates are for secured borrowing.</li>
 <li>Examples include SOFR (U.S.) and KOFR (Korea).</li>
 </ul></li>
-</ul>
-</section>
-<section id="measuring-interest-rates" class="slide level2">
-<h2>Measuring Interest Rates</h2>
-<ul>
-<li>Interest rates are quoted as an <strong>annual</strong> rate.</li>
-<li>However, the actual frequency at which interests are earned (or compounded) does not have to be annual
-<ul>
-<li>semiannual compounding: interests are earned in every six months.</li>
-<li>quarterly compounding: interests are earned in every quarter.</li>
-<li>monthly compounding: interests are earned in every month, etc.</li>
-</ul></li>
-<li>Let <span class="math inline">\(r\)</span> denote the annual rate and <span class="math inline">\(m\)</span> denote the number of compounding periods in a year. If you invest $1 for one year, then future value is <span class="math display">\[
-\$1\times\left( 1 + \frac{r}{m} \right)^m
-\]</span></li>
-</ul>
-</section>
-<section id="measuring-interest-rates-1" class="slide level2">
-<h2>Measuring Interest Rates</h2>
-<ul>
-<li><p><strong>Continuous compounding</strong> is an extreme case where interests are earned at every instant.</p></li>
-<li><p>With the annual rate <span class="math inline">\(r\)</span>, the future value of $1 after one year with continuous compounding is <span class="math display">\[
-\$1\times e^{r}
-\]</span></p></li>
-<li><p>The future value after <span class="math inline">\(T\)</span> years is <span class="math display">\[
-\$1\times e^{rT}
-\]</span></p></li>
-</ul>
-</section>
-<section id="conversion-of-interest-rates" class="slide level2">
-<h2>Conversion of Interest Rates</h2>
-<ul>
-<li>In some cases, we need to convert the interest rate with continuous compounding to the rate with different compounding frequency (or vice versa).</li>
-<li>Let <span class="math inline">\(r_c\)</span> denote the rate with continuous compounding. Also, let <span class="math inline">\(r_m\)</span> denote the rate with compounding <span class="math inline">\(m\)</span> times per year. Then, <span class="math display">\[
-e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
-\]</span></li>
-<li><strong>Example:</strong> An interest rate is quoted as 10% per annum with semiannual compounding. What is the equivalent rate with continuous compounding? Higher or lower?</li>
-<li><strong>Note:</strong> Given <span class="math inline">\(P_{t+1}\)</span> and <span class="math inline">\(P_t\)</span>, <span class="math inline">\(r_c =\ln\frac{P_{t+1}}{P_t}\)</span>. That is, <span class="math inline">\(P_{t+1}=e^{r_C}P_t\)</span>.</li>
 </ul>
 </section>
 <section id="zero-rates" class="slide level2">
@@ -290,8 +252,6 @@ e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
 - Zero rates vary by maturity, forming the **term structure** of interest rates.
 
 
-
-
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](chapter_interest_files/figure-revealjs/unnamed-chunk-1-1.png){fig-align='center' width=960}
@@ -299,15 +259,11 @@ e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
 :::
 
 
-
-
 ---
 
 ## Zero Rates - Facts II
 
 - The interest rate for a certain maturity can change over time.
-
-
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output .cell-output-stdout}
@@ -323,8 +279,6 @@ e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
 ![](chapter_interest_files/figure-revealjs/unnamed-chunk-2-1.png){fig-align='center' width=960}
 :::
 :::
-
-
  -->
 </section>
 <section id="bond-pricing" class="slide level2">
@@ -372,7 +326,7 @@ e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
 <h2>Bond Pricing (Compounded semi-annually)</h2>
 <ul>
 <li>We can also use semi-annually compounded zero rates to price the bond: <span class="math display">\[
-\frac{3}{(1 + 0.0506)} + \frac{3}{(1 + 0.0588)^{2}} + \frac{3}{(1 + 0.0651)^{3}} + \frac{103}{(1 + 0.0692)^{4}} = 98.39
+\frac{3}{(1 + 0.0506/2)} + \frac{3}{(1 + 0.0588/2)^{2}} + \frac{3}{(1 + 0.0651/2)^{3}} + \frac{103}{(1 + 0.0692/2)^{4}} = 98.39
 \]</span></li>
 </ul>
 <table class="caption-top">
@@ -408,7 +362,7 @@ e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
 </table>
 <ul>
 <li>The yield-to-maturity is <span class="math inline">\(y=6.90\%\)</span>, s.a. compounded! <span class="math display">\[
-\frac{3}{(1 + y)} + \frac{3}{(1 + y)^{2}} + \frac{3}{(1 + y)^{3}} + \frac{103}{(1 + y)^{4}} = 98.39
+\frac{3}{(1 + y/2)} + \frac{3}{(1 + y/2)^{2}} + \frac{3}{(1 + y/2)^{3}} + \frac{103}{(1 + y/2)^{4}} = 98.39
 \]</span></li>
 </ul>
 </section>
@@ -593,7 +547,7 @@ e^{0.04\times 2} = e^{0.03}e^r
 <section id="duration-and-convexity" class="slide level2">
 <h2>Duration and Convexity</h2>
 <ul>
-<li>A security’s price is function of its yield “y” and other factors: $ p(y; others)$:
+<li>A security’s price is function of its yield “y” and other factors: <span class="math inline">\(p(y; others)\)</span>:
 <ul>
 <li>Other factors include maturity, coupon, embedded options, default risk, market conditions, etc.</li>
 </ul></li>
@@ -712,19 +666,14 @@ D_{eff} = -\frac{1}{P}\frac{dP}{dy} =-\frac{1}{P}\frac{P(+x \; bps) - P(-x \; bp
 </section>
 <section id="using-convexity-to-improve-price-sensitivity-estimates" class="slide level2">
 <h2>Using Convexity to Improve Price Sensitivity Estimates</h2>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
 <p><strong>Taylor series</strong> <span class="math display">\[
 f(x)-f(x_0) \approx f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
-\]</span> <span class="math display">\[
+\]</span></p>
+<p><span class="math display">\[
 \Rightarrow P(y)-P(y_0) \approx P'(y_0)(y-y_0) + \frac{1}{2}P''(y_0)(y-y_0)^2
 \]</span></p>
-</div>
-</div>
-</div>
 <ul>
-<li><span class="math inline">\(P'(y_0)\)</span>: <span class="math inline">\(-\)</span>Dollar duration, <span class="math inline">\(P''(y_0)\)</span>: Dollar convexity <span class="math display">\[
+<li><span class="math inline">\(P'(y_0)\)</span>: -Dollar duration, <span class="math inline">\(P''(y_0)\)</span>: Dollar convexity <span class="math display">\[
 \Rightarrow \frac{P(y)-P(y_0)}{P(y)}  \approx \frac{P'(y_0)}{P(y)}(y-y_0) + \frac{1}{2}\frac{P''(y_0)}{P(y)}(y-y_0)^2
 \]</span></li>
 <li>Percent change in price: <span class="math display">\[

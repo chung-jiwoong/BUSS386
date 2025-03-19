@@ -3,7 +3,6 @@ title: "Interest Rates"
 subtitle: "BUSS386 Futures and Options"
 author: "Prof. Ji-Woong Chung"
 format: 
-  pdf: default
   revealjs:
     theme: simple
     transition: fade
@@ -12,6 +11,7 @@ format:
     slide-number: true
     #toc: true
     chalkboard: true
+  pdf: default
 revealjs-plugins:
     - revealjs-text-resizer
 execute:
@@ -103,43 +103,6 @@ execute:
 
 ------------------------------------------------------------------------
 
-## Measuring Interest Rates
-
--   Interest rates are quoted as an **annual** rate.
--   However, the actual frequency at which interests are earned (or compounded) does not have to be annual
-    -   semiannual compounding: interests are earned in every six months.
-    -   quarterly compounding: interests are earned in every quarter.
-    -   monthly compounding: interests are earned in every month, etc.
--   Let $r$ denote the annual rate and $m$ denote the number of compounding periods in a year. If you invest \$1 for one year, then future value is $$
-    \$1\times\left( 1 + \frac{r}{m} \right)^m
-    $$
-
-------------------------------------------------------------------------
-
-## Measuring Interest Rates
-
--   **Continuous compounding** is an extreme case where interests are earned at every instant.
-
--   With the annual rate $r$, the future value of \$1 after one year with continuous compounding is $$
-    \$1\times e^{r}
-    $$
-
--   The future value after $T$ years is $$
-    \$1\times e^{rT}
-    $$
-
-------------------------------------------------------------------------
-
-## Conversion of Interest Rates
-
--   In some cases, we need to convert the interest rate with continuous compounding to the rate with different compounding frequency (or vice versa).
--   Let $r_c$ denote the rate with continuous compounding. Also, let $r_m$ denote the rate with compounding $m$ times per year. Then, $$
-    e^{r_c} =\left( 1+ \frac{r_m}{m} \right)^m
-    $$
--   **Example:** An interest rate is quoted as 10% per annum with semiannual compounding. What is the equivalent rate with continuous compounding? Higher or lower?
--   **Note:** Given $P_{t+1}$ and $P_t$, $r_c =\ln\frac{P_{t+1}}{P_t}$. That is, $P_{t+1}=e^{r_C}P_t$.
-
-------------------------------------------------------------------------
 
 ## Zero Rates
 
@@ -301,7 +264,8 @@ ggplot(yield_data, aes(x = Date)) +
 
 ## Bond Pricing
 
--   A 2-year bond with a principal of \$100 provides coupons at the rate of 6% per annum semiannually. The theoretical price of the bond is $$
+-   A 2-year bond with a principal of \$100 provides coupons at the rate of 6% per annum semiannually. The theoretical price of the bond is 
+    $$
     3e^{-0.05(0.5)} + 3e^{-0.058(1.0)} + 3e^{-0.064(1.5)} + 103e^{-0.068(2.0)} = 98.39
     $$
 
@@ -324,8 +288,9 @@ ggplot(yield_data, aes(x = Date)) +
 
 ## Bond Pricing (Compounded semi-annually) {background-color="#ffebf0"}
 
--   We can also use semi-annually compounded zero rates to price the bond: $$
-    \frac{3}{(1 + 0.0506)/2} + \frac{3}{(1 + 0.0588/2)^{2}} + \frac{3}{(1 + 0.0651/2)^{3}} + \frac{103}{(1 + 0.0692/2)^{4}} = 98.39
+-   We can also use semi-annually compounded zero rates to price the bond: 
+    $$
+    \frac{3}{(1 + 0.0506/2)} + \frac{3}{(1 + 0.0588/2)^{2}} + \frac{3}{(1 + 0.0651/2)^{3}} + \frac{103}{(1 + 0.0692/2)^{4}} = 98.39
     $$
 
 | Maturity (years) | Zero rate (% c.c.) | Zero rate (% s.a.) |
@@ -335,7 +300,8 @@ ggplot(yield_data, aes(x = Date)) +
 | 1.5              | 6.4                | 6.51               |
 | 2.0              | 6.8                | 6.92               |
 
--   The yield-to-maturity is $y=6.90\%$, s.a. compounded! $$
+-   The yield-to-maturity is $y=6.90\%$, s.a. compounded! 
+    $$
     \frac{3}{(1 + y/2)} + \frac{3}{(1 + y/2)^{2}} + \frac{3}{(1 + y/2)^{3}} + \frac{103}{(1 + y/2)^{4}} = 98.39
     $$
 
@@ -345,7 +311,8 @@ ggplot(yield_data, aes(x = Date)) +
 
 -   The par rate for a certain bond maturity is the coupon rate that makes the bond price equal its par value.
 
--   Suppose that the coupon on a 2-year bond is $c$ per annum. Using the zero rates in Table 4.2, the value of the bond is equal to its par value of 100 when $c=6.87\%$. $$
+-   Suppose that the coupon on a 2-year bond is $c$ per annum. Using the zero rates in Table 4.2, the value of the bond is equal to its par value of 100 when $c=6.87\%$. 
+    $$
     \frac{c}{2}e^{-0.05(0.5)} + \frac{c}{2}e^{-0.058(1.0)} + \frac{c}{2}e^{-0.064(1.5)} + \left(100+\frac{c}{2}\right)e^{-0.068(2.0)} = 100
     $$
 
@@ -365,7 +332,8 @@ ggplot(yield_data, aes(x = Date)) +
     | 1                | 3.0               |
     | 2                | 4.0               |
 
--   We can find the **implicit** rate that can be earned from year 1 to year 2. Let $r$ denote the rate. Then, $$
+-   We can find the **implicit** rate that can be earned from year 1 to year 2. Let $r$ denote the rate. Then, 
+    $$
     e^{0.04\times 2} = e^{0.03}e^r
     $$ $r$ = 5.00%.
 
@@ -422,7 +390,8 @@ ggplot(yield_data, aes(x = Date)) +
 
 -   A **forward rate agreement (FRA)** is an agreement to exchange a predetermined fixed rate for a reference rate that will be observed in the market at a future time (the principal itself is not exchanged).
 
--   Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of \$100 million. Party A (B) would agree to pay (receive) LIBOR and receive (pay) the fixed rate of 3%. Assume all rates are compounded quarterly. If three-month LIBOR proved to be 3.5% in two years, Party B would receive $$
+-   Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of \$100 million. Party A (B) would agree to pay (receive) LIBOR and receive (pay) the fixed rate of 3%. Assume all rates are compounded quarterly. If three-month LIBOR proved to be 3.5% in two years, Party B would receive 
+    $$
     \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000
     $$
 
@@ -441,7 +410,8 @@ ggplot(yield_data, aes(x = Date)) +
     -   **Example:** forward SOFR rate for the period between time 1.5 years and time 2 years in the future is 5% (with semiannual compounding)
     -   Some time ago a company entered into an FRA where it will receive 5.8% (with semiannual compounding) and pay SOFR on a principal of \$100 million for the period.
     -   The 2-year (SOFR) risk-free rate is 4% (with continuous compounding).
-    -   The value of the FRA is $$
+    -   The value of the FRA is 
+        $$
         \$100,000,000 \times \frac{(0.058 - 0.050)}{2} \times e^{-0.04(2)} = \$369,200
         $$
 
@@ -459,7 +429,7 @@ ggplot(yield_data, aes(x = Date)) +
 
 ## Duration and Convexity
 
--   A security’s price is function of its yield "y" and other factors: \$ p(y; others)\$:
+-   A security’s price is function of its yield "y" and other factors: $p(y; others)$:
     -   Other factors include maturity, coupon, embedded options, default risk, market conditions, etc.
 -   Consider a bond with cash flows $K_{i}$ (coupon + par value) at time $t_i \in \{t_1, t_2, ..., t_N \}$.
     -   $P_0 = \sum_{i=1}^{N} K_i e^{-y_c t_i}$, when $y_c$ is quoted as continuously compounded.
@@ -473,7 +443,8 @@ ggplot(yield_data, aes(x = Date)) +
 
 -   Duration measures the first order bond price sensitivity to interest rate changes.
     -   Higher duration means higher price sensitivity to interest rate changes (more price volatility).
--   Macaulay duration: % change in $P$ w.r.t % change in $y$. $$
+-   Macaulay duration: % change in $P$ w.r.t % change in $y$. 
+    $$
     D_{Mac} = -\frac{dP/P}{dy/(1+y/m)} = -\frac{dP/P}{dy} (1+y/m)
     $$
 -   Based on the promised cash flows. As such, it is only accurate for risk-free bonds with no embedded options.
@@ -483,9 +454,11 @@ ggplot(yield_data, aes(x = Date)) +
 
 ## Duration: Basics
 
--   The formula for Macaulay duration is: $$
+-   The formula for Macaulay duration is: 
+    $$
     D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{ K_i e^{-y_c t_i}}{P}  \right) (1+y_c/ m)
-    $$ $$
+    $$ 
+    $$
     D_{Mac} = \sum_{i=1}^{N} t_i \left( \frac{K_i \left( 1+ y_m/m \right)^{-mt_i}}{P} \right)
     $$
 -   Macaulay duration is a weighted average of arrival time of cash flows, where the weights are the fraction of present value represented by that cash flow.
@@ -531,7 +504,8 @@ ggplot(yield_data, aes(x = Date)) +
 
 -   An *empirical* change in bond price w.r.t change in yield.
 -   For securities with uncertain cash flows due to optionality (like callable bonds, MBS with prepayment options, or securities with credit risk), effective duration can be significantly different from modified (or Macaulay) duration.
--   The standard duration formulas are inaccurate when cash flows are highly uncertain. In such cases effective duration is the better measure. $$
+-   The standard duration formulas are inaccurate when cash flows are highly uncertain. In such cases effective duration is the better measure. 
+    $$
     D_{eff} = -\frac{1}{P}\frac{dP}{dy} =-\frac{1}{P}\frac{P(+x \; bps) - P(-x \; bps)}{2x}
     $$
 
@@ -560,18 +534,21 @@ ggplot(yield_data, aes(x = Date)) +
 
 ## Using Convexity to Improve Price Sensitivity Estimates
 
-::: callout
-**Taylor series** $$
+**Taylor series** 
+$$
 f(x)-f(x_0) \approx f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
-$$ $$
+$$
+
+$$
 \Rightarrow P(y)-P(y_0) \approx P'(y_0)(y-y_0) + \frac{1}{2}P''(y_0)(y-y_0)^2
 $$
-:::
 
--   $P'(y_0)$: $-$Dollar duration, $P''(y_0)$: Dollar convexity $$
+-   $P'(y_0)$: -Dollar duration, $P''(y_0)$: Dollar convexity 
+    $$
     \Rightarrow \frac{P(y)-P(y_0)}{P(y)}  \approx \frac{P'(y_0)}{P(y)}(y-y_0) + \frac{1}{2}\frac{P''(y_0)}{P(y)}(y-y_0)^2
     $$
--   Percent change in price: $$
+-   Percent change in price: 
+    $$
     \frac{\Delta P}{P} \approx -D \Delta y + \frac{1}{2} C \Delta y^2 
     $$
 
@@ -579,7 +556,8 @@ $$
 
 ## Hedging with Duration and Convexity
 
--   Change in bond price with a change in interest rates: $$
+-   Change in bond price with a change in interest rates: 
+    $$
     \Delta P \approx -D P \Delta y + \frac{1}{2} C P \Delta y^2 
     $$
 
