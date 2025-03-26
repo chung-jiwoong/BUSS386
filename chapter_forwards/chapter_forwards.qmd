@@ -3,7 +3,6 @@ title: "Forwards and Futures"
 subtitle: "BUSS386 Futures and Options"
 author: "Prof. Ji-Woong Chung"
 format: 
-  pdf: default
   revealjs:
     theme: simple
     transition: fade
@@ -12,6 +11,7 @@ format:
     slide-number: true
     #toc: true
     chalkboard: true
+  pdf: default
 revealjs-plugins:
     - revealjs-text-resizer
 execute:
