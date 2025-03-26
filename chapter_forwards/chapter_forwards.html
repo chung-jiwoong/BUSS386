@@ -395,7 +395,7 @@ Prof.&nbsp;Ji-Woong Chung
 <li><p>The exchange requires the investors from day 0 to abandon the old contract and move to the new one.</p></li>
 <li><p>In this settlement, the exchange pays or receives cash to compensate for the price difference.</p>
 <ul>
-<li>When moving from the old <span class="math inline">\((F\_0=1250)\)</span> to the new <span class="math inline">\((F\_1=1255)\)</span>, the long-position investor receives $5.</li>
+<li>When moving from the old <span class="math inline">\((F_0=1250)\)</span> to the new <span class="math inline">\((F_1=1255)\)</span>, the long-position investor receives $5.</li>
 </ul></li>
 </ul>
 </div></div>
@@ -435,17 +435,17 @@ Prof.&nbsp;Ji-Woong Chung
 <tr class="even">
 <td>1</td>
 <td>1,255</td>
-<td>(1,255-1,250) = 5</td>
+<td><span class="math inline">\((1,255-1,250) = 5\)</span></td>
 </tr>
 <tr class="odd">
 <td>2</td>
 <td>1,248</td>
-<td>(1,248-1,255) = -7</td>
+<td><span class="math inline">\((1,248-1,255) = -7\)</span></td>
 </tr>
 <tr class="even">
 <td>3</td>
 <td>1,242</td>
-<td>(1,242-1,248) = -6</td>
+<td><span class="math inline">\((1,242-1,248) = -6\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\vdots\)</span></td>
@@ -525,14 +525,14 @@ Prof.&nbsp;Ji-Woong Chung
 <tr class="even">
 <td>1</td>
 <td>1,241</td>
-<td>-900</td>
+<td>$-$900</td>
 <td>2,100</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2</td>
 <td>1,238</td>
-<td>-300</td>
+<td>$-$300</td>
 <td>1,800</td>
 <td>1,200</td>
 </tr>
@@ -546,7 +546,7 @@ Prof.&nbsp;Ji-Woong Chung
 <tr class="odd">
 <td>4</td>
 <td>1,242</td>
-<td>-200</td>
+<td>$-$200</td>
 <td>3,400</td>
 <td></td>
 </tr>
@@ -760,13 +760,14 @@ S_T + (F_0 - F_T) = \underbrace{(S_T - F_T)}_{\neq 0} + F_0
 </ul></li>
 <li><p>Example</p>
 <ul>
-<li>On March 1, a U.S. company expects to receive 50 million yen at the end of July.</li>
+<li>On March 1, a U.S. company expects to receive 50 million yen in July.</li>
 <li>Yen futures contracts are available for March, June, September, and December, with each contract covering 12.5 million yen.</li>
-<li>The company shorts four September yen futures contracts on March 1.</li>
+<li>The company shorts 4 September yen futures contracts on March 1.</li>
 <li>When the yen are received in July, the company closes its position.</li>
 <li>The futures price on March 1 is <span class="math inline">\(1.0800\)</span> cents per yen, and the spot and futures prices at the end of July are <span class="math inline">\(1.0200\)</span> and <span class="math inline">\(1.0250\)</span> cents per yen, respectively.</li>
-<li>The gain on the futures contract is <span class="math inline">\(0.0550\)</span> cents per yen, and the basis is <span class="math inline">\(1.02000-1.02500=-0.0050\)</span> cents per yen.</li>
+<li>The gain on the futures contract is <span class="math inline">\(0.0550\)</span> cents per yen.</li>
 <li>The effective price obtained is <span class="math inline">\(1.0200+0.05500=1.0750\)</span> cents per yen.</li>
+<li>If a July contract were available with <span class="math inline">\(F_0=1.0800\)</span>, the company could have gotton <span class="math inline">\(1.0200+(1.0800-1.0200)=1.0800\)</span>. The difference <span class="math inline">\(1.0800-1.0750=0.005\)</span> is the basis. Due to undertain about the magnitude of the basis, the company faces risk.</li>
 </ul></li>
 </ul>
 </section>
@@ -851,7 +852,7 @@ h^* = \rho\frac{\sigma_S}{\sigma_F}
 <section id="cross-hedge---example" class="slide level2">
 <h2>Cross Hedge - Example</h2>
 <ul>
-<li>An airline expects to purchase two million gallons of jet fuel in one month and decides to use heating oil futures for hedging. The standard deviation of futures price is $_F=0.0313$, the standard deviation of jut fuel price is $_S=0.0263$, and the correlation coefficient is $$.</li>
+<li>An airline expects to purchase two million gallons of jet fuel in one month and decides to use heating oil futures for hedging. The standard deviation of futures price is <span class="math inline">\(\sigma_F=0.0313\)</span>, the standard deviation of jut fuel price is <span class="math inline">\(\sigma_S=0.0263\)</span>, and the correlation coefficient is <span class="math inline">\(\rho=0.928\)</span>.</li>
 <li>Q1. What is the minimum variance hedge ratio?</li>
 <li>Q2. Each of the futures contract is for 42,000 gallons of heating oil. How many contracts does the airline need?</li>
 </ul>

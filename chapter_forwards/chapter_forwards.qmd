@@ -192,7 +192,7 @@ where $S_T$ is the spot price of the underlying asset at the expiration.
 -   The exchange requires the investors from day 0 to abandon the old contract and move to the new one.
 -   In this settlement, the exchange pays or receives cash to compensate for the price difference.
 
-    -   When moving from the old $(F\_0=1250)$ to the new $(F\_1=1255)$, the long-position investor receives \$5.
+    -   When moving from the old $(F_0=1250)$ to the new $(F_1=1255)$, the long-position investor receives $5.
 :::
 :::
 
@@ -220,11 +220,11 @@ $$
 | Day    | Futures price | Daily gain             |
 | ------ | ------------- | ---------------------- |
 | 0      | 1,250         |                        |
-| 1      | 1,255         | (1,255-1,250) = 5      |
-| 2      | 1,248         | (1,248-1,255) = -7     |
-| 3      | 1,242         | (1,242-1,248) = -6     |
+| 1      | 1,255         | $(1,255-1,250) = 5$      |
+| 2      | 1,248         | $(1,248-1,255) = -7$     |
+| 3      | 1,242         | $(1,242-1,248) = -6$     |
 | $\vdots$ | $\vdots$      | $\vdots$               |
-| T      | $F_T$         | \$(F\_{T} - F\_{T-1})\$ |
+| T      | $F_T$         | \$(F_{T} - F_{T-1})\$ |
 
 ---
 
@@ -275,10 +275,10 @@ $$
 | Day    | Futures price | Daily gain | Balance | Margin calls |
 | ------ | ------------- | ---------- | ------- | ------------ |
 | 0      | 1,250         |            | 3,000   |              |
-| 1      | 1,241         | -900       | 2,100   |              |
-| 2      | 1,238         | -300       | 1,800   | 1,200        |
+| 1      | 1,241         | $-$900       | 2,100   |              |
+| 2      | 1,238         | $-$300       | 1,800   | 1,200        |
 | 3      | 1,244         | 600        | 3,600   |              |
-| 4      | 1,242         | -200       | 3,400   |              |
+| 4      | 1,242         | $-$200       | 3,400   |              |
 | $\vdots$ | $\vdots$      | $\vdots$   | $\vdots$ | $\vdots$     |
 
 ---
@@ -508,13 +508,14 @@ $$
     -   The futures price and spot price may not move in perfect lockstep. The lack of exact match leads to hedging inaccuracy, known as "basis risk."
 -   Example
 
-    -   On March 1, a U.S. company expects to receive 50 million yen at the end of July.
+    -   On March 1, a U.S. company expects to receive 50 million yen in July.
     -   Yen futures contracts are available for March, June, September, and December, with each contract covering 12.5 million yen.
-    -   The company shorts four September yen futures contracts on March 1.
+    -   The company shorts 4 September yen futures contracts on March 1.
     -   When the yen are received in July, the company closes its position.
     -   The futures price on March 1 is $1.0800$ cents per yen, and the spot and futures prices at the end of July are $1.0200$ and $1.0250$ cents per yen, respectively.
-    -   The gain on the futures contract is $0.0550$ cents per yen, and the basis is $1.02000-1.02500=-0.0050$ cents per yen.
+    -   The gain on the futures contract is $0.0550$ cents per yen.
     -   The effective price obtained is $1.0200+0.05500=1.0750$ cents per yen.
+    -   If a July contract were available with $F_0=1.0800$, the company could have gotton $1.0200+(1.0800-1.0200)=1.0800$. The difference $1.0800-1.0750=0.005$ is the basis. Due to undertain about the magnitude of the basis, the company faces risk. 
 
 ---
 
@@ -599,7 +600,7 @@ where
 
 ## Cross Hedge - Example
 
--   An airline expects to purchase two million gallons of jet fuel in one month and decides to use heating oil futures for hedging. The standard deviation of futures price is \$\sigma\_F=0.0313\$, the standard deviation of jut fuel price is \$\sigma\_S=0.0263\$, and the correlation coefficient is \$\rho=0.928\$.
+-   An airline expects to purchase two million gallons of jet fuel in one month and decides to use heating oil futures for hedging. The standard deviation of futures price is $\sigma_F=0.0313$, the standard deviation of jut fuel price is $\sigma_S=0.0263$, and the correlation coefficient is $\rho=0.928$.
 -   Q1. What is the minimum variance hedge ratio?
 -   Q2. Each of the futures contract is for 42,000 gallons of heating oil. How many contracts does the airline need?
 
