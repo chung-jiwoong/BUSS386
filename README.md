@@ -27,7 +27,7 @@
 **Lecture3: Forwards and Futures**
 
 [Note: HTML](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_forwards/chapter_forwards.html) / 
-[Note: HTML](https://cdn.statically.io/gh/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_forwards/chapter_forwards.html)
+[Note: HTML](https://cdn.statically.io/gh/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_forwards/chapter_forwards.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_forwards/chapter_forwards.pdf) 
 
 
