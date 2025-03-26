@@ -11,7 +11,7 @@
 
 **Lecture1: Introduction and Overview**
 
-[Note: HTML](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_intro/chapter_intro.html) / 
+[Note: HTML](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_intro/chapter_intro.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/chapter_intro.pdf)
     
     
