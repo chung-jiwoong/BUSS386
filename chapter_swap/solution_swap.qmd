@@ -93,29 +93,29 @@ or 9.102%. The three-month Eurodollar quote for a contract maturing in six month
 
 ## Duration and Convexity 
 
-a) D\_{Mac}=1 year. Therefore, D_m=D\_{Mac}/(1+y/k)=1/(1+0.03)=0.9708\$.
+a) $D\_{Mac}=1$ year. Therefore, $D_m=D\_{Mac}/(1+y/k)=1/(1+0.03)=0.9708\$$.
 
 The Macaulay convexity is t(t+1)K_t/(1+y), and the modified duration is
 
-C\_{Mac}/(1+y)^2=1.8852
+$C\_{Mac}/(1+y)^2=1.8852$
 
-b) D_m=4.5042 and C_m=25.568.
+b) $D_m=4.5042$ and $C_m=25.568$.
 
-c) dP/P=dDdy + (1/2)C(dy)^2
+c) $dP/P=dDdy + (1/2)C(dy)^2$
 
-For bond (a), dP\_a/P\_a=-D\_a\*dy + (1/2)C\_a\*(dy)^2
+For bond (a), $dP_a/P_a=-D_a*dy + (1/2)C_a*(dy)^2$
 
-For bond (b), dP\_b/P\_b=-D\_b\*dy + (1/2)C\_b\*(dy)^2
+For bond (b), $dP_b/P_b=-D_b*dy + (1/2)C_b*(dy)^2$
 
 Finally,
 
-dP= dP\_a/P\_a \*P\_a + dP\_b/P\_b \*P\_b=\$6,115.67
+$dP= dP_a/P_a*P_a + dP_b/P_b*P_b=\$6,115.67$
 
-$$
 
-d) For floating rate payor, the swap is a long position in fixed rate bond and a short position in floating rate bond. Using duration, -dP/dy = +D\_{fixed}P\_{fixed}-D\_{float}P\_{float}, where D\_{fixed}P\_{fixed}=\$8.4223\$ and\$D\_{float}P\_{float}=\$0.9685\$.
 
-Therefore, -dP/dy=\$7.4538.
+d) For floating rate payor, the swap is a long position in fixed rate bond and a short position in floating rate bond. Using duration, $-dP/dy = +D_{fixed}P_{fixed}-D_{float}P_{float}$, where $D_{fixed}P_{fixed}=\$8.4223$ and $\$D_{float}P_{float}=\$0.9685$.
+
+Therefore, $-dP/dy=\$7.4538$.
 
 ## Hedging Interest Rate Risk 
 
@@ -143,28 +143,26 @@ Rounding to the nearest whole number, 60 contracts should be shorted. The positi
 
 a) You have positive duration 2.9. From 1(d), floating rate payor has a positive duration. Therefore, you should be fixed rate payor to eliminate your positive duration of the existing position.
 
-b) D\_{fund}P\_{fund}+D\_{swap}P\_{swap}=0. Therefore, 2.8(\$2,500) + (-7.4538)P\_{swap} =0
+b) $D_{fund}P_{fund}+D_{swap}P_{swap}=0$. Therefore, $2.8(\$2,500) + (-7.4538)P_{swap} =0$
 
-c) dP = -DPdy. dP\_{swap}=18.125 and dP\_{fund}=18.12
+c) $dP = -DPdy. dP_{swap}=18.125$ and $dP_{fund}=18.12$
 
-d) dP\_{swap} = -dP\_{fix}+dP\_{float} =\$17.8710
+d) $dP_{swap} = -dP_{fix}+dP_{float} =\$17.8710$
 
--dP\_{fix} =-[-D\_{fix}dy + (1/2)*C\_{fix}(dy)^2]\*P
+$-dP_{fix} =-[-D_{fix}dy + (1/2)*C_{fix}(dy)^2]*P$
 
-+dP\_{float} =+[-D\_{float}dy + (1/2)\*C\_{float}(dy)^2]\*P
+$+dP_{float} =+[-D_{float}dy + (1/2)*C_{float}(dy)^2]*P$
 
-e) True. C\_{swap} =-C\_{fixed}+C\_{float}<0
+e) True. $C_{swap} =-C_{fixed}+C_{float}<0$
 
 f) All.
 
 ## Interest Rate Swap 
 
-A has an apparent comparative advantage in fixed-rate markets but wants to borrow floating. B has an apparent comparative advantage in floating-rate markets but wants to borrow fixed. This provides the basis for the swap. There is a 1.4% per annum differential between the fixed rates offered to the two companies and a 0.5% per annum differential between the floating rates offered to the two companies. The total gain to all parties from the swap is therefore 1.4-0.5=0.9% per annum. Because the bank gets 0.1% per annum of this gain, the swap should make each of A and B 0.4% per annum better off. This means that it should lead to A borrowing at LIBOR -0.3% and to B borrowing at 6.0%. The appropriate arrangement is therefore as shown below.
+A has an apparent comparative advantage in fixed-rate markets but wants to borrow floating. B has an apparent comparative advantage in floating-rate markets but wants to borrow fixed. This provides the basis for the swap. There is a 1.4\% per annum differential between the fixed rates offered to the two companies and a 0.5\% per annum differential between the floating rates offered to the two companies. The total gain to all parties from the swap is therefore 1.4-0.5=0.9\% per annum. Because the bank gets 0.1\% per annum of this gain, the swap should make each of A and B 0.4\% per annum better off. This means that it should lead to A borrowing at LIBOR -0.3\% and to B borrowing at 6.0\%. 
 
-*(Could not reconstruct image - provide a textual description or separate file for image)*
+
 
 ## Currency Swap 
 
-X has a comparative advantage in yen markets but wants to borrow dollars. Y has a comparative advantage in dollar markets but wants to borrow yen. This provides the basis for the swap. There is a 1.5% per annum differential between the yen rates and a 0.4% per annum differential between the dollar rates. The total gain to all parties from the swap is therefore 1.5-0.4=1.1% per annum. The bank requires 0.5% per annum, leaving 0.3% per annum for each of X and Y. The swap should lead to X borrowing dollars at 9.6-0.3=9.3% per annum and to Y borrowing yen at 6.5-0.3=6.2% per annum. The appropriate arrangement is therefore as shown below. All foreign exchange risk is borne by the bank.
-
-*(Could not reconstruct image - provide a textual description or separate file for image)*
+X has a comparative advantage in yen markets but wants to borrow dollars. Y has a comparative advantage in dollar markets but wants to borrow yen. This provides the basis for the swap. There is a 1.5\% per annum differential between the yen rates and a 0.4\% per annum differential between the dollar rates. The total gain to all parties from the swap is therefore 1.5-0.4=1.1\% per annum. The bank requires 0.5\% per annum, leaving 0.3\% per annum for each of X and Y. The swap should lead to X borrowing dollars at 9.6-0.3=9.3\% per annum and to Y borrowing yen at 6.5-0.3=6.2\% per annum. All foreign exchange risk is borne by the bank.
