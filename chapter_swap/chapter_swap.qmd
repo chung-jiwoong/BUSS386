@@ -3,7 +3,6 @@ title: "Introduction to Swaps"
 subtitle: "BUSS386 Futures and Options"
 author: "Prof. Ji-Woong Chung"
 format: 
-  pdf: default
   revealjs:
     theme: simple
     transition: fade
@@ -11,6 +10,7 @@ format:
     scrollable: true
     slide-number: true
     chalkboard: TRUE
+  pdf: default
 revealjs-plugins:
     - revealjs-text-resizer       
 execute:
@@ -372,9 +372,15 @@ $$
 [(1+r_1 \hat{d}_1)(1+r_2 \hat{d}_2)\dots (1+r_n \hat{d}_n)-1]\times \frac{360}{D},
 $$
 
-```         
-where $\hat{d}_i = d_i/360$ and $D=\sum d_i$ is the number of days in the period. On most days $d_i = 1$\footnote{But weekends and holidays lead to the overnight rates being applied to more than one day. For example, on a Friday $d_i$ will normally be equal to 3.}
-```
+
+where $\hat{d}_i = d_i/360$ and $D=\sum d_i$ is the number of days in the period. On most days $d_i = 1$
+
+
+<!-- But weekends and holidays lead to the overnight rates being applied to more than one day. For example, on a Friday $d_i$ will normally be equal to 3. -->
+
+
+
+
 
 ## SOFR Futures: Example
 
@@ -442,8 +448,8 @@ LIBOR is the London Interbank Offer Rate. For many years it was the most common 
 
 -   Financial institutions act as market makers and provide bid and ask quotes for the fixed rates that they are prepared to exchange in swaps.
 
-::: center
-![](img/swap_Table7.4.png){width="65%"}
+::: {style="text-align: center;"}
+![](img/swap_Table7.4.png){width="70%"}
 :::
 
 -   Bid: fixed rate that the market maker pays to receive floating

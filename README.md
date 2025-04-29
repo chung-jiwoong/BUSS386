@@ -47,4 +47,14 @@
 [Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_swap/solution_swap.html)
 
 
+**Lecture6: Options**
 
+[Note 1: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options1.pdf) / 
+[Note 2: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options2.pdf) / 
+[Note 3: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options3.pdf) 
+
+
+**Lecture7: Binomial Trees**
+
+
+**Lecture8: Black-Scholes-Merton Model**
