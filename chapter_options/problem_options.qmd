@@ -1,0 +1,164 @@
+---
+title: "Introduction to Options"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: typst
+number-sections: true
+execute:
+    echo: true
+    eval: true
+---
+
+## Option Payoffs
+
+An investor sells a European call option with strike price of $K$ and maturity $T$ and buys a put with the same strike price and maturity. Describe the investor’s position.
+
+
+------------------------------------------------------------------------
+
+## Margin Account
+
+Explain why margin accounts are required when clients write options but not when they buy options.
+
+------------------------------------------------------------------------
+
+## Stock Splits
+
+A company declares a 2-for-1 stock split. Explain how the terms change for a call option with a strike price of \$60.
+
+
+------------------------------------------------------------------------
+
+## Employee Stock Options
+
+"Employee stock options issued by a company are different from regular exchange-traded call options on the company’s stock because they can affect the capital structure of the company." Explain this statement.
+
+
+------------------------------------------------------------------------
+
+## Option Mechanics
+
+Describe the terminal value of a long forward contract and a long European put option with the same strike and maturity. Show equivalence to a European call.
+
+------------------------------------------------------------------------
+
+## Options vs. Forwards
+
+Discuss advantages/disadvantages of using options vs. forward contracts to hedge foreign exchange (FX) risk.
+
+------------------------------------------------------------------------
+
+## Option Mechanics (Adjustments)
+
+Explain changes in an option contract to buy 500 shares at \$40 in 4 months due to:
+
+-   a)  10% stock dividend  
+
+-   b)  10% cash dividend  
+
+-   c)  4-for-1 stock split\
+
+
+------------------------------------------------------------------------
+
+## American Call Options
+
+Give two reasons early exercise of an American call on a non-dividend-paying stock is suboptimal. The first reason should involve the time value of money. The second reason should apply even if interest rates are zero.
+
+
+------------------------------------------------------------------------
+
+## Put-Call Parity
+
+The price of a non-dividend paying stock is \$19 and the price of a three-month European call option on the stock with a strike price of \$20 is \$1. The risk-free rate is 4% per annum. What is the price of a three-month European put option with a strike price of \$20?
+
+
+------------------------------------------------------------------------
+
+## Option Price Bounds and Arbitrage
+
+A four-month European call option on a dividend-paying stock is currently selling for \$5. The stock price is \$64, the strike price is \$60, and a dividend of \$0.80 is expected in one month. The risk-free interest rate is 12% per annum for all maturities. What opportunities are there for an arbitrageur?
+
+
+
+------------------------------------------------------------------------
+
+## American Put Options
+
+Why is early exercise of American puts more attractive with higher rates and lower volatility?
+
+
+------------------------------------------------------------------------
+
+## Options and Capital Structure
+
+You are the manager and sole owner of a highly leveraged company. All the debt will mature in one year. If at that time the value of the company is greater than the face value of the debt, you will pay off the debt. If the value of the company is less than the face value of the debt, you will declare bankruptcy and the debt holders will own the company.
+
+-   a)  Express your position as an option on the value of the company.  
+
+-   b)  Express the position of the debt holders in terms of options on the value of the company.  
+
+-   c)  What can you do to increase the value of your position?  
+
+------------------------------------------------------------------------
+
+## Bear Spread
+
+Explain two ways in which a bear spread can be created.
+
+
+------------------------------------------------------------------------
+
+## Butterfly Spread
+
+Call options on a stock are available with strike prices of \$15, \$17.5 , and \$20 and expiration dates in three months. Their prices are \$4, \$2, and,\$0.5 respectively. Explain how the options can be used to create a butterfly spread. Construct a table showing how profit varies with stock price for the butterfly spread.
+
+
+------------------------------------------------------------------------
+
+## Strangle
+
+A call option with a strike price of $50 costs $2. A put option with a strike price of $45 costs $3. Explain how a strangle can be created from these two options. What is the pattern of profits from the strangle? 
+
+
+------------------------------------------------------------------------
+
+## Bull Spread and Put-Call Parity
+
+Use put–call parity to relate the initial investment for a bull spread created using calls to the initial investment for a bull spread created using puts. 
+
+
+
+------------------------------------------------------------------------
+
+## Butterfly Spread and Put-Call Parity
+
+Use put–call parity to show that the cost of a butterfly spread created from European puts is identical to the cost of a butterfly spread created from European calls. 
+
+
+------------------------------------------------------------------------
+
+## Straddle Payoffs
+
+A call with a strike price of $60 costs $6. A put with the same strike price and expiration date costs $4. Construct a table that shows the profit from a straddle. For what range of stock prices would the straddle lead to a loss? 
+
+
+
+------------------------------------------------------------------------
+
+## Forward from Options
+
+How can a forward contract on a stock with a particular delivery price and delivery date be created from options? 
+
+------------------------------------------------------------------------
+
+## Portfolio Payoffs
+
+Draw a diagram showing the variation of an investor’s profit and loss with the terminal stock price for a portfolio consisting of 
+a.	One share and a short position in one call option \ 
+b.	Two shares and a short position in one call option \  
+c.	One share and a short position in two call options \ 
+d.	One share and a short position in four call options \  
+
+In each case, assume that the call option has an exercise price equal to the current stock price. 
+

@@ -1,0 +1,288 @@
+---
+title: "Introduction to Options: Solutions"
+subtitle: "BUSS386 Futures and Options"
+author: "Prof. Ji-Woong Chung"
+format: typst
+number-sections: true
+execute:
+    echo: true
+    eval: true
+---
+
+## Option Payoffs
+
+An investor sells a European call option with strike price of $K$ and maturity $T$ and buys a put with the same strike price and maturity. Describe the investor’s position.
+
+**Solution** The payoff to the investor is: $$ \max(0, K - S_T) - \max(0, S_T - K) = K - S_T $$ This is the same as a short position in a forward contract with delivery price $K$.
+
+------------------------------------------------------------------------
+
+## Margin Account
+
+Explain why margin accounts are required when clients write options but not when they buy options.
+
+**Solution** When an investor buys an option, cash must be paid upfront. There is no possibility of future liabilities. When selling options, potential future liabilities arise, and margin is required to protect against default.
+
+------------------------------------------------------------------------
+
+## Stock Splits
+
+A company declares a 2-for-1 stock split. Explain how the terms change for a call option with a strike price of \$60.
+
+**Solution** The strike price is reduced to \$30, and the option allows purchase of twice as many shares.
+
+------------------------------------------------------------------------
+
+## Employee Stock Options
+
+"Employee stock options issued by a company are different from regular exchange-traded call options on the company’s stock because they can affect the capital structure of the company." Explain this statement.
+
+**Solution** Exercise of employee stock options leads to new shares being issued, changing equity structure. Exchange-traded options do not result in new shares.
+
+------------------------------------------------------------------------
+
+## Option Mechanics
+
+Describe the terminal value of a long forward contract and a long European put option with the same strike and maturity. Show equivalence to a European call.
+
+**Solution** Terminal value of forward: $S_T - F_0$
+
+Terminal value of put: $\max(F_0 - S_T, 0)$
+
+Total value: $\max(F_0 - S_T, 0) + S_T - F_0 = \max(0, S_T - F_0)$
+
+Which is the value of a European call with strike $F_0$.
+
+------------------------------------------------------------------------
+
+## Options vs. Forwards
+
+Discuss advantages/disadvantages of using options vs. forward contracts to hedge foreign exchange (FX) risk.
+
+**Solution** Forwards lock in exchange rates, eliminating uncertainty, but can result in unfavorable outcomes. Options are costlier (premium) but provide downside protection while allowing upside.
+
+------------------------------------------------------------------------
+
+## Option Mechanics (Adjustments)
+
+Explain changes in an option contract to buy 500 shares at \$40 in 4 months due to:
+
+-   
+
+    a)  10% stock dividend  
+
+-   
+
+    b)  10% cash dividend  
+
+-   
+
+    c)  4-for-1 stock split\
+
+**Solution**
+
+-   
+
+    a)  Adjusted to $500\times 1.1 = 550$ shares at $\$40/1.1 = \$36.36$  
+
+-   
+
+    b)  No adjustment. The terms of an options contract are not normally adjusted for cash dividends.  
+
+-   
+
+    c)  Adjusted to $500 \times 4 =2000$ shares at $\$40/4=\$10$  
+
+------------------------------------------------------------------------
+
+## American Call Options
+
+Give two reasons early exercise of an American call on a non-dividend-paying stock is suboptimal. The first reason should involve the time value of money. The second reason should apply even if interest rates are zero.
+
+**Solution** Delaying exercise delays the payment of the strike price. This means that the option holder is able to earn interest on the strike price for a longer period of time. Even if interest rates are zero, delaying exercise preserves the option's insurance value. The holder maintains the right to benefit from favorable movements in the stock price while avoiding downside risk. Assume that the option holder has an amount of cash $K$ and that interest rates are zero. When the option is exercised early it is worth $S_T$ at expiration. Delaying exercise means that it will be worth $max(K,S_T)$ at expiration.
+
+------------------------------------------------------------------------
+
+## Put-Call Parity
+
+The price of a non-dividend paying stock is \$19 and the price of a three-month European call option on the stock with a strike price of \$20 is \$1. The risk-free rate is 4% per annum. What is the price of a three-month European put option with a strike price of \$20?
+
+**Solution** $$ p = c + Ke^{-rT} - S_0 = 1 + 20e^{-0.04 \times 0.25} - 19 = 1.80 $$
+
+------------------------------------------------------------------------
+
+## Option Price Bounds and Arbitrage
+
+A four-month European call option on a dividend-paying stock is currently selling for \$5. The stock price is \$64, the strike price is \$60, and a dividend of \$0.80 is expected in one month. The risk-free interest rate is 12% per annum for all maturities. What opportunities are there for an arbitrageur?
+
+**Solution** Lower bound violated. Buy call, short stock. An arbitrageur should buy the option and short the stock. This generates $64-5=59$. The arbitrageur invests $0.79$ of this at $12%$ for one month to pay the dividend of $0.80$ in one month. The remaining $58.21$ is invested for four months at $12%$. Regardless of what happens a profit will materialize. If the stock price declines below $60$ in four months, the arbitrageur loses the $5$ spent on the option but gains on the short position. The arbitrageur shorts when the stock price is $64$, has to pay dividends with a present value of $0.79$, and closes out the short position when the stock price is $60$ or less. Because $57.65$ is the present value of $60$, the short position generates at least $64-57.65-0.79=5.56$ in present value terms. The present value of the arbitrageur’s gain is therefore at least $5.56-5.00=0.56$ . If the stock price is above $60$ at the expiration of the option, the option is exercised. The arbitrageur buys the stock for $60$ in four months and closes out the short position. The present value of the $60$ paid for the stock is $57.65$ and as before the dividend has a present value of $0.79$. The gain from the short position and the exercise of the option is therefore exactly . The arbitrageur’s gain in present value terms is exactly $5.56-5.00=0.56$.
+
+------------------------------------------------------------------------
+
+## American Put Options
+
+Why is early exercise of American puts more attractive with higher rates and lower volatility?
+
+**Solution** The early exercise of an American put is attractive when the interest earned on the strike price is greater than the insurance element lost. When interest rates increase, the value of the interest earned on the strike price increases making early exercise more attractive. When volatility decreases, the insurance element is less valuable. Again this makes early exercise more attractive.
+
+------------------------------------------------------------------------
+
+## Options and Capital Structure
+
+You are the manager and sole owner of a highly leveraged company. All the debt will mature in one year. If at that time the value of the company is greater than the face value of the debt, you will pay off the debt. If the value of the company is less than the face value of the debt, you will declare bankruptcy and the debt holders will own the company.
+
+-   
+
+    a)  Express your position as an option on the value of the company.  
+
+-   
+
+    b)  Express the position of the debt holders in terms of options on the value of the company.  
+
+-   
+
+    c)  What can you do to increase the value of your position?  
+
+**Solution**
+
+-   
+
+    a)  Suppose $V$ is the value of the company and $D$ is the face value of the debt. The value of the manager’s position in one year is $max(V-D,0)$. This is the payoff from a call option on $V$ with strike price $D$.  
+
+-   
+
+    b)  The debt holders get $min(V,D)=D-max(D-V,0)$.\
+        Since $max(D-V,0)$ is the payoff from a put option on $V$ with strike price $D$, the debt holders have in effect made a risk-free loan (worth $D$ at maturity with certainty) and written a put option on the value of the company with strike price $D$. The position of the debt holders in one year can also be characterized as $V-max(V-D),0$. This is a long position in the assets of the company combined with a short position in a call option on the assets with a strike price of $D$. The equivalence of the two characterizations can be presented as an application of put–call parity.  
+
+-   
+
+    c)  The manager can increase the value of his or her position by increasing the value of the call option in (a). It follows that the manager should attempt to increase both $V$ and the volatility of $V$. To see why increasing the volatility of $V$ is beneficial, imagine what happens when there are large changes in $V$. If $V$ increases, the manager benefits to the full extent of the change. If $V$ decreases, much of the downside is absorbed by the company’s lenders.
+
+------------------------------------------------------------------------
+
+## Bear Spread
+
+Explain two ways in which a bear spread can be created.
+
+**Solution** A bear spread can be created using two call options with the same maturity and different strike prices. The investor shorts the call option with the lower strike price and buys the call option with the higher strike price. A bear spread can also be created using two put options with the same maturity and different strike prices. In this case, the investor shorts the put option with the lower strike price and buys the put option with the higher strike price.
+
+------------------------------------------------------------------------
+
+## Butterfly Spread
+
+Call options on a stock are available with strike prices of \$15, \$17.5 , and \$20 and expiration dates in three months. Their prices are \$4, \$2, and,\$0.5 respectively. Explain how the options can be used to create a butterfly spread. Construct a table showing how profit varies with stock price for the butterfly spread.
+
+**Solution** Buy \$15 and \$20 calls, sell two \$17.5 calls. Cost: \$4 + \$0.5 - 2\times\$2 = \$0.5
+
+Profit Table:
+
+|                   |                  |
+|-------------------|------------------|
+| Stock Price $S_T$ | Profit           |
+| $S_T < 15$        | $-0.5$           |
+| $15 < S_T < 17.5$ | $S_T - 15 - 0.5$ |
+| $17.5 < S_T < 20$ | $20 - S_T - 0.5$ |
+| $S_T > 20$        | $-0.5$           |
+
+------------------------------------------------------------------------
+
+## Strangle
+
+A call option with a strike price of $50 costs $2. A put option with a strike price of $45 costs $3. Explain how a strangle can be created from these two options. What is the pattern of profits from the strangle? 
+
+
+**Solution** 
+
+|                   |                  |
+|-------------------|------------------|
+| Stock Price $S_T$ | Profit           |
+| $S_T < 45$        | $45 - S_T - 5$   |
+| $45 < S_T < 50$   | $-5$             |
+| $S_T > 50$        | $S_T - 50 - 5$   |
+
+
+
+------------------------------------------------------------------------
+
+## Bull Spread and Put-Call Parity
+
+Use put–call parity to relate the initial investment for a bull spread created using calls to the initial investment for a bull spread created using puts. 
+
+**Solution** 
+
+A bull spread using calls provides a profit pattern with the same general shape as a bull spread using puts. Define $p_1$  and $c_1$  as the prices of put and call with strike price $K_1$  and $p_2$  and $c_2$ as the prices of a put and call with strike price $K_2$. From put-call parity $p_1+c_1+K_1 e^{-rT}$ and $p_2+c_2+K_2 e^{-rT}$. 
+	 
+Hence:  $p_1 - p_2 = c_1 - c_2 - (K_2 - K_1) e^{-rT}$
+	 
+This shows that the initial investment when the spread is created from puts is less than the initial investment when it is created from calls by an amount  $(K_2 - K_1) e^{-rT}$. In fact, the initial investment when the bull spread is created from puts is negative, while the initial investment when it is created from calls is positive. 
+The profit when calls are used to create the bull spread is higher than when puts are used by  $(K_2 - K_1) (1-e^{-rT})$. This reflects the fact that the call strategy involves an additional risk-free investment of $(K_2 - K_1) e^{-rT}$  over the put strategy. This earns interest of $(K_2 - K_1)e^{-rT} (e^{rT} - 1) = (K_2 - K_1) (1-e^{-rT})$ . 
+
+
+------------------------------------------------------------------------
+
+## Butterfly Spread and Put-Call Parity
+
+Use put–call parity to show that the cost of a butterfly spread created from European puts is identical to the cost of a butterfly spread created from European calls. 
+
+**Solution** 
+
+Define $c_1$, $c_2$, and $c_3$ as the prices of calls with strike prices $K_1$, $K_2$  and $K_3$. Define $p_1$, $p_2$ and $p_3$  as the prices of puts with strike prices  $K_1$,  $K_2$ and  $K_3$. With the usual notation $c_1 + K_1 e^{-rT} = p_1 +S$, $c_2 + K_2 e^{-rT} = p_2 +S$, and $c_3 + K_3 e^{-rT} = p_3 +S$. 
+
+Hence, $c_1 + c_3 - 2c_2 + (K_1 + K_3 - 2K_2)e^{-rT} = p_1 + p_3 -2p_2$.
+ 	 
+Because $K_2-K_1=K_3 - K_2$, it follows that  $K_1+K_3-2K_2=0$ and $c_1 + c_3 - 2c_2 = p_1 + p_3 -2p_2$. 
+	 
+The cost of a butterfly spread created using European calls is therefore exactly the same as the cost of a butterfly spread created using European puts. 
+
+
+------------------------------------------------------------------------
+
+## Straddle Payoffs
+
+A call with a strike price of $60 costs $6. A put with the same strike price and expiration date costs $4. Construct a table that shows the profit from a straddle. For what range of stock prices would the straddle lead to a loss? 
+
+**Solution** 
+
+A straddle is created by buying both the call and the put. This strategy costs $10. The profit/loss is shown in the following table: 
+
+|                   |                  |
+|-------------------|------------------|
+| Stock Price $S_T$ | Profit           |
+| $S_T < 60$        | $S_T - 60 - 10 = S_T - 70$   |
+| $S_T > 60$        | $60 - S_T - 10 = 50 - S_T$   |
+
+
+This shows that the straddle will lead to a loss if the final stock price is between $50 and $70. 
+
+
+
+------------------------------------------------------------------------
+
+## Forward from Options
+
+How can a forward contract on a stock with a particular delivery price and delivery date be created from options? 
+
+**Solution**
+
+Suppose that the delivery price is $K$  and the delivery date is $T$. The forward contract is created by buying a European call and selling a European put when both options have strike price $K$  and exercise date $T$. This portfolio provides a payoff of $S_T-K$  under all circumstances where $S_T$  is the stock price at time $T$. Suppose that $F_0$  is the forward price. If $K=F_0$, the forward contract that is created has zero value. This shows that the price of a call equals the price of a put when the strike price is $F_0$. 
+
+------------------------------------------------------------------------
+
+## Portfolio Payoffs
+
+Draw a diagram showing the variation of an investor’s profit and loss with the terminal stock price for a portfolio consisting of 
+a.	One share and a short position in one call option \ 
+b.	Two shares and a short position in one call option \  
+c.	One share and a short position in two call options \ 
+d.	One share and a short position in four call options \  
+
+In each case, assume that the call option has an exercise price equal to the current stock price. 
+
+
+
+**Solution** 
+
+The variation of an investor’s profit/loss with the terminal stock price for each of the four strategies is shown in figures below. In each case the dotted line shows the profits from the components of the investor’s position and the solid line shows the total net profit. 
+
+
+![](payoff.png)

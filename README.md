@@ -51,7 +51,9 @@
 
 [Note 1: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options1.pdf) / 
 [Note 2: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options2.pdf) / 
-[Note 3: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options3.pdf) 
+[Note 3: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options3.pdf)  / 
+[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_options/problem_options.pdf) / 
+[Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_options/solution_options.pdf)
 
 
 **Lecture7: Binomial Trees**
