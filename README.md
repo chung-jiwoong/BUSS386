@@ -62,3 +62,5 @@
 
 
 **Lecture8: Black-Scholes-Merton Model**
+
+[Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_bsm/chapter_bsm.pdf) / 
