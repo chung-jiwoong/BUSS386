@@ -59,6 +59,8 @@
 **Lecture7: Binomial Trees**
 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_binomial/chapter_binomial.pdf) / 
+[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_binomial/problem_binomial.pdf) / 
+[Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_binomial/solution_binomial.pdf)
 
 
 **Lecture8: Black-Scholes-Merton Model**
