@@ -68,3 +68,8 @@
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_bsm/chapter_bsm.pdf) / 
 [Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_bsm/problem_bsm.pdf) / 
 [Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_bsm/solution_bsm.pdf)
+
+
+**Lecture9: Option Greeks**
+
+[Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_greeks/chapter_greeks.pdf) / 
