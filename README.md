@@ -78,6 +78,6 @@
 
 
 
-**Lecture9: Implied Volatility**
+**Lecture10: Implied Volatility**
 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_volatility/chapter_volatility.pdf) / 
