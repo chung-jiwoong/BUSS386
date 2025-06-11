@@ -9,28 +9,28 @@
 ---
 
 
-**Lecture1: Introduction and Overview**
+**Lecture 1: Introduction and Overview**
 
 [Note: HTML](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_intro/chapter_intro.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/chapter_intro.pdf)
     
     
-**Lecture2: Interest Rates**
+**Lecture 2: Interest Rates**
 
 [Note: HTML](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_interest/chapter_interest.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_interest/chapter_interest.pdf) / 
 [Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_interest/problem_interest.html) / 
 [Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/chapter_interest/solution_interest.html) / 
-[Duration and Convexity (Excel)](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/data/Duration_Convexity2.xlsx)
+[Spreadsheet](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_intro/data/Duration_Convexity2.xlsx)
 
 
-**Lecture3: Forwards and Futures**
+**Lecture 3: Forwards and Futures**
 
 [Note: HTML](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_forwards/chapter_forwards.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_forwards/chapter_forwards.pdf) 
 
 
-**Lecture4: Pricing Forwards**
+**Lecture 4: Pricing Forwards**
 
 [Note: HTML](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_pricing_forwards/chapter_pricing_forwards.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_pricing_forwards/chapter_pricing_forwards.pdf) / 
@@ -39,7 +39,7 @@
 
 
 
-**Lecture5: Introduction to Swaps**
+**Lecture 5: Introduction to Swaps**
 
 [Note: HTML](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_swap/chapter_swap.html) / 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_swap/chapter_swap.pdf) / 
@@ -47,7 +47,7 @@
 [Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_swap/solution_swap.html)
 
 
-**Lecture6: Options**
+**Lecture 6: Options**
 
 [Note 1: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options1.pdf) / 
 [Note 2: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options2.pdf) / 
@@ -56,30 +56,37 @@
 [Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_options/solution_options.pdf)
 
 
-**Lecture7: Binomial Trees**
+**Lecture 7: Binomial Trees**
 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_binomial/chapter_binomial.pdf) / 
 [Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_binomial/problem_binomial.pdf) / 
 [Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_binomial/solution_binomial.pdf)
 
 
-**Lecture8: Black-Scholes-Merton Model**
+**Lecture 8: Black-Scholes-Merton Model**
 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_bsm/chapter_bsm.pdf) / 
 [Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_bsm/problem_bsm.pdf) / 
 [Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_bsm/solution_bsm.pdf)
 
 
-**Lecture9: Option Greeks**
+**Lecture 9: Option Greeks**
 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_greeks/chapter_greeks.pdf) / 
 
 
 
-**Lecture10: Implied Volatility**
+**Lecture 10: Implied Volatility**
 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_volatility/chapter_volatility.pdf) / 
 [Problem Set 1](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/problem_volatility1.pdf) / 
 [Problem Set 1](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/problem_volatility2.pdf) / 
 [Solution 1](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/solution_volatility1.pdf) / 
 [Solution 2](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/solution_volatility2.pdf)
+
+
+
+**Lecture 11: Exotic Options**
+
+[Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_exotics/chapter_exotics.pdf) / 
+[Spreadsheet](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_exotics/MC_Simulation.xlsx)
