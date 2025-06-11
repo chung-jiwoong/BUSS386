@@ -80,7 +80,7 @@
 
 [Note: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_volatility/chapter_volatility.pdf) / 
 [Problem Set 1](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/problem_volatility1.pdf) / 
-[Problem Set 1](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/problem_volatility2.pdf) / 
+[Problem Set 2](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/problem_volatility2.pdf) / 
 [Solution 1](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/solution_volatility1.pdf) / 
 [Solution 2](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_volatility/solution_volatility2.pdf)
 
