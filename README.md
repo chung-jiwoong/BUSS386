@@ -24,7 +24,7 @@
 
 **Lecture 3: Forwards and Futures**
 
-[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_forwards/chapter_forwards.pdf) 
+[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/03_forwards_futures/B386_Lec03_Forwards_Futures.pdf) 
 
 
 **Lecture 4: Pricing Forwards**
