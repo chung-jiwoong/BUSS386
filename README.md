@@ -27,7 +27,7 @@
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/03_forwards_futures/B386_Lec03_Forwards_Futures.pdf) 
 
 
-**Lecture 4: Pricing Forwards**
+**Lecture 4: Pricing Forwards**  (not updated yet)
 
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_pricing_forwards/chapter_pricing_forwards.pdf) / 
 [Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_pricing_forwards/problem_pricing_forwards.html) / 
