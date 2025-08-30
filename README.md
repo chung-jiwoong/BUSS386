@@ -11,15 +11,15 @@
 
 **Lecture 1: Introduction and Overview**
 
-[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/01_Introduction/B386_Lec01_Introduction.pdf)
+[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/01_Introduction/B386_Lec01_Introduction.pdf)
     
     
 **Lecture 2: Interest Rates**
 
-[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/02_Interest_Rate/B386_Lec02_Interest_Rate.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/02_Interest_Rate/B386_Lec02_Interest_Rate_PS.pdf) / 
-[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/02_Interest_Rate/B386_Lec02_Interest_Rate_Sln.pdf) / 
-[Spreadsheet](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/02_Interest_Rate/data/B386_Lec02_Interest_Rate_PS.xlsx)
+[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/02_Interest_Rate/B386_Lec02_Interest_Rate.pdf) / 
+[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/notes/02_Interest_Rate/B386_Lec02_Interest_Rate_PS.pdf) / 
+[Solution](https://raw.githack.com/chung-jiwoong/BUSS386-Slides/refs/heads/main/notes/02_Interest_Rate/B386_Lec02_Interest_Rate_Sln.pdf) / 
+[Spreadsheet](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/02_Interest_Rate/data/B386_Lec02_Interest_Rate_PS.xlsx)
 
 
 **Lecture 3: Forwards and Futures**
