@@ -2,7 +2,7 @@
 
 ---
 
-- If you find any typos, errors, or areas for improvement, please email me, submit a pull request, or report them on the discussion board.
+- If you find any typos, errors, or areas for improvement, please email me.
 
 - Lecture notes are continuously updated. Please check for the latest version before each class.
 
