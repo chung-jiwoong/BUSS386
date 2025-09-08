@@ -14,6 +14,7 @@
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/01_Introduction/B386_Lec01_Introduction.pdf)
     
     
+
 **Lecture 2: Interest Rates**
 
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/02_Interest_Rate/B386_Lec02_Interest_Rate.pdf) / 
@@ -27,15 +28,15 @@
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/03_forwards_futures/B386_Lec03_Forwards_Futures.pdf) 
 
 
-**Lecture 4: Pricing Forwards**  (not updated yet)
+**Lecture 4: Pricing Forwards**  
 
-[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_pricing_forwards/chapter_pricing_forwards.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_pricing_forwards/problem_pricing_forwards.html) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_pricing_forwards/solution_pricing_forwards.html)
+[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/04_pricing_forwards/B386_Lec04_Pricing_forward.pdf) / 
+[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/04_pricing_forwards/B386_Lec04_Pricing_Forwards_PS.pdf) / 
+[Solution](https://chung-jiwoong.github.io/BUSS386-Slides/04_pricing_forwards/B386_Lec04_Pricing_Forwards_Sln.pdf)
 
 
 
-**Lecture 5: Introduction to Swaps**
+**Lecture 5: Introduction to Swaps** (not updated yet)
 
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_swap/chapter_swap.pdf) / 
 [Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_swap/problem_swap.html) / 
