@@ -30,9 +30,9 @@
 
 **Lecture 4: Pricing Forwards**  
 
-[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/04_pricing_forwards/B386_Lec04_Pricing_forward.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/04_pricing_forwards/B386_Lec04_Pricing_Forwards_PS.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386-Slides/04_pricing_forwards/B386_Lec04_Pricing_Forwards_Sln.pdf)
+[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/04_pricing_forwards/B386_Lec04_Pricing_forward.pdf) / 
+[Problem Set](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/04_pricing_forwards/B386_Lec04_Pricing_forward_PS.pdf) / 
+[Solution](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/04_pricing_forwards/B386_Lec04_Pricing_forward_Sln.pdf)
 
 
 
