@@ -35,17 +35,15 @@
 [Solution](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/04_pricing_forwards/B386_Lec04_Pricing_forward_Sln.pdf)
 
 
+**Lecture 5: Introduction to Swaps** 
 
-
-
-**Lecture 5: Introduction to Swaps** (not updated yet)
-
-[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_swap/chapter_swap.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_swap/problem_swap.html) / 
+[Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/05_swaps/B386_Lec05_Swaps.pdf) / 
+[Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/notes/05_swaps/B386_Lec05_Swaps.pdf) / 
 [Solution](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_swap/solution_swap.html)
 
 
-**Lecture 6: Options**
+
+**Lecture 6: Options** (not updated yet)
 
 [Note 1: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options1.pdf) / 
 [Note 2: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options2.pdf) / 
