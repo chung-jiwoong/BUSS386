@@ -39,7 +39,7 @@
 
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/05_swaps/B386_Lec05_Swaps.pdf) / 
 [Problem Set](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/05_swaps/B386_Lec05_Swaps_PS.pdf) / 
-[Solution](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/05_swaps/B386_Lec05_Swaps_Sln.pdf) / 
+[Solution](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/notes/05_swaps/B386_Lec05_Swaps_Sln.pdf) 
 
 
 
