@@ -43,9 +43,16 @@
 
 
 
-**Lecture 6: Options** (not updated yet)
+**Lecture 6: Options - Introduction** 
 
-[Note 1: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options1.pdf) / 
+[Slides](https://chung-jiwoong.github.com/BUSS386-Slides/notes/06_options/B386_Lec06_Options_Intro.pdf) 
+
+
+
+
+(not updated yet)
+
+
 [Note 2: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options2.pdf) / 
 [Note 3: PDF](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_options/chapter_options3.pdf)  / 
 [Problem Set](https://chung-jiwoong.github.io/BUSS386-Slides/chapter_options/problem_options.pdf) / 
