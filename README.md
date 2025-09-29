@@ -48,6 +48,11 @@
 [Slides](https://chung-jiwoong.github.com/BUSS386-Slides/notes/06_options/B386_Lec06_Options_Intro.pdf) 
 
 
+**Lecture 7: Options - Properties** 
+
+[Slides](https://chung-jiwoong.github.com/BUSS386-Slides/notes/06_options/B386_Lec07_Options_Properties.pdf) 
+
+
 <!--
 
 (not updated yet)
