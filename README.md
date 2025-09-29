@@ -48,7 +48,7 @@
 [Slides](https://chung-jiwoong.github.com/BUSS386-Slides/notes/06_options/B386_Lec06_Options_Intro.pdf) 
 
 
-
+<!--
 
 (not updated yet)
 
@@ -93,3 +93,5 @@
 
 [Slides](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_exotics/chapter_exotics.pdf) / 
 [Spreadsheet](https://github.com/chung-jiwoong/BUSS386-Slides/blob/main/chapter_exotics/MC_Simulation.xlsx)
+
+-->
