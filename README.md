@@ -54,7 +54,7 @@
 
 
 **Lecture 8: Options - Trading Strategies** 
-[Slides](https://chung-jiwoong.github.com/BUSS386/notes/06_options/B386_Lec08_Options_Trading.pdf) / 
+
 [Slides](https://chung-jiwoong.github.com/BUSS386/notes/06_options/B386_Lec08_Options_Trading.pdf) / 
 [Problem Set](https://chung-jiwoong.github.com/BUSS386/notes/06_options/B386_Lec08_Options_PS.pdf) / 
 [Solution](https://chung-jiwoong.github.com/BUSS386/notes/06_options/B386_Lec08_Options_Sln.pdf) 
