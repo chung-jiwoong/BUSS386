@@ -60,6 +60,10 @@
 [Solution](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec08_Options_Sln.pdf) 
 
 
+**Lecture 9: Options - Binomial Trees** 
+
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial.pdf)
+
 
 <!--
 
