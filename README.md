@@ -62,7 +62,9 @@
 
 **Lecture 9: Options - Binomial Trees** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial.pdf)
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial.pdf) /
+[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial_PS.pdf) /
+[Solution](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial_Sln.pdf) /
 
 
 
