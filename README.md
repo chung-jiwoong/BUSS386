@@ -65,6 +65,12 @@
 [Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial.pdf)
 
 
+
+**Lecture 10: Options - BSM Model** 
+
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec10_Black_Scholes.pdf)
+
+
 <!--
 
 (not updated yet)
