@@ -50,27 +50,27 @@
 
 **Lecture 7: Options - Properties** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec07_Options_Properties.pdf) 
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/07_properties/B386_Lec07_Options_Properties.pdf) 
 
 
 **Lecture 8: Options - Trading Strategies** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec08_Options_Trading.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec08_Options_PS.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec08_Options_Sln.pdf) 
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/08_trading/B386_Lec08_Options_Trading.pdf) / 
+[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/08_trading/B386_Lec08_Options_PS.pdf) / 
+[Solution](https://chung-jiwoong.github.io/BUSS386/notes/08_trading/B386_Lec08_Options_Sln.pdf) 
 
 
 **Lecture 9: Options - Binomial Trees** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial.pdf) /
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial_PS.pdf) /
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec09_Options_Binomial_Sln.pdf) 
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/09_binomial/B386_Lec09_Options_Binomial.pdf) /
+[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/09_binomial/B386_Lec09_Options_Binomial_PS.pdf) /
+[Solution](https://chung-jiwoong.github.io/BUSS386/notes/09_binomial/B386_Lec09_Options_Binomial_Sln.pdf) 
 
 
 
 **Lecture 10: Options - BSM Model** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec10_Black_Scholes.pdf)
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes.pdf)
 
 
 <!--
