@@ -73,6 +73,13 @@
 [Slides](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes.pdf)
 
 
+**Lecture 11: Options - Greeks** 
+
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks.pdf)
+
+
+
+
 <!--
 
 (not updated yet)
