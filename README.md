@@ -70,19 +70,23 @@
 
 **Lecture 10: Options - BSM Model** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes.pdf)
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes.pdf) /
 [Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes_PS.pdf) /
 [Solution](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes_Sln.pdf) 
 
 
 **Lecture 11: Options - Greeks** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks.pdf)
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks.pdf) /
+[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks_PS.pdf) /
+[Solution](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks_Sln.pdf) 
 
 
 **Lecture 12: Options - Volatility** 
 
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility.pdf)
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility.pdf) /
+[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility_PS.pdf) /
+[Solution](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility_Sln.pdf) 
 
 
 
