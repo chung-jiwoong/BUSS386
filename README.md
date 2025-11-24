@@ -71,6 +71,8 @@
 **Lecture 10: Options - BSM Model** 
 
 [Slides](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes.pdf)
+[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes_PS.pdf) /
+[Solution](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes_Sln.pdf) 
 
 
 **Lecture 11: Options - Greeks** 
