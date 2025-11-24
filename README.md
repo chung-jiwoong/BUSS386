@@ -78,6 +78,10 @@
 [Slides](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks.pdf)
 
 
+**Lecture 12: Options - Volatility** 
+
+[Slides](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility.pdf)
+
 
 
 <!--
