@@ -94,7 +94,8 @@
 
 [Slides](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/B386_Lec13_Exotic.pdf) /
 [Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/B386_Lec13_Exoticy_PS.pdf) /
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/B386_Lec13_Exotic_Sln.pdf) 
+[Solution](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/B386_Lec13_Exotic_Sln.pdf) / 
+[Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/MC_Simulation.xlsx)
 
 
 
