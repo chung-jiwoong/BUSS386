@@ -2,7 +2,7 @@
 
 An undergraduate course on derivatives: forwards, futures, swaps, and options — covering pricing, hedging, and trading strategies.
 
-[**Syllabus**](#)
+[**Syllabus**](https://chung-jiwoong.github.io/BUSS386/notes/B386_syllabus.pdf)
 
 ---
 
