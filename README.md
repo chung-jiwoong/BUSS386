@@ -1,148 +1,30 @@
 # BUSS386: Futures and Options
 
----
+An undergraduate course on derivatives: forwards, futures, swaps, and options — covering pricing, hedging, and trading strategies.
 
-- If you find any typos, errors, or areas for improvement, please email me.
+[**Syllabus**](#)
+
+---
 
 - Lecture notes are continuously updated. Please check for the latest version before each class.
+- If you find any typos, errors, or areas for improvement, please email me.
 
 ---
 
-
-**Lecture 1: Introduction and Overview**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/01_Introduction/B386_Lec01_Introduction.pdf)
-    
-    
-
-**Lecture 2: Interest Rates**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/02_Interest_Rate/B386_Lec02_Interest_Rate.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/02_Interest_Rate/B386_Lec02_Interest_Rate_PS.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/02_Interest_Rate/B386_Lec02_Interest_Rate_Sln.pdf) / 
-[Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/02_Interest_Rate/B386_Lec02_Interest_Rate.xlsx)
-
-
-**Lecture 3: Forwards and Futures**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/03_forwards_futures/B386_Lec03_Forwards_Futures.pdf) 
-
-
-**Lecture 4: Pricing Forwards**  
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/04_pricing_forwards/B386_Lec04_Pricing_forward.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/04_pricing_forwards/B386_Lec04_Pricing_forward_PS.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/04_pricing_forwards/B386_Lec04_Pricing_forward_Sln.pdf)
-
-
-**Lecture 5: Introduction to Swaps** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/05_swaps/B386_Lec05_Swaps.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/05_swaps/B386_Lec05_Swaps_PS.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/05_swaps/B386_Lec05_Swaps_Sln.pdf) 
-
-
-
-**Lecture 6: Options - Introduction** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/06_options/B386_Lec06_Options_Intro.pdf) 
-
-
-**Lecture 7: Options - Properties** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/07_properties/B386_Lec07_Options_Properties.pdf) 
-
-
-**Lecture 8: Options - Trading Strategies** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/08_trading/B386_Lec08_Options_Trading.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/08_trading/B386_Lec08_Options_PS.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/08_trading/B386_Lec08_Options_Sln.pdf) 
-
-
-**Lecture 9: Options - Binomial Trees** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/09_binomial/B386_Lec09_Options_Binomial.pdf) /
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/09_binomial/B386_Lec09_Options_Binomial_PS.pdf) /
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/09_binomial/B386_Lec09_Options_Binomial_Sln.pdf) 
-
-
-
-**Lecture 10: Options - BSM Model** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes.pdf) /
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes_PS.pdf) /
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/10_bsm/B386_Lec10_Black_Scholes_Sln.pdf) 
-
-
-**Lecture 11: Options - Greeks** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks.pdf) /
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks_PS.pdf) /
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/11_greeks/B386_Lec11_Greeks_Sln.pdf) 
-
-
-**Lecture 12: Options - Volatility** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility.pdf) /
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility_PS.pdf) /
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/12_volatility/B386_Lec12_Volatility_Sln.pdf) 
-
-
-
-**Lecture 13: Options - Exotics** 
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/B386_Lec13_Exotic.pdf) /
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/B386_Lec13_Exoticy_PS.pdf) /
-[Solution](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/B386_Lec13_Exotic_Sln.pdf) / 
-[Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/13_exotics/MC_Simulation.xlsx)
-
-
-
-<!--
-
-(not updated yet)
-
-
-[Note 2: PDF](https://chung-jiwoong.github.io/BUSS386/chapter_options/chapter_options2.pdf) / 
-[Note 3: PDF](https://chung-jiwoong.github.io/BUSS386/chapter_options/chapter_options3.pdf)  / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/chapter_options/problem_options.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/chapter_options/solution_options.pdf)
-
-
-**Lecture 7: Binomial Trees**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/chapter_binomial/chapter_binomial.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/chapter_binomial/problem_binomial.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/chapter_binomial/solution_binomial.pdf)
-
-
-**Lecture 8: Black-Scholes-Merton Model**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/chapter_bsm/chapter_bsm.pdf) / 
-[Problem Set](https://chung-jiwoong.github.io/BUSS386/chapter_bsm/problem_bsm.pdf) / 
-[Solution](https://chung-jiwoong.github.io/BUSS386/chapter_bsm/solution_bsm.pdf)
-
-
-**Lecture 9: Option Greeks**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/chapter_greeks/chapter_greeks.pdf) / 
-
-
-
-**Lecture 10: Implied Volatility**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/chapter_volatility/chapter_volatility.pdf) / 
-[Problem Set 1](https://chung-jiwoong.github.io/BUSS386/chapter_volatility/problem_volatility1.pdf) / 
-[Problem Set 2](https://chung-jiwoong.github.io/BUSS386/chapter_volatility/problem_volatility2.pdf) / 
-[Solution 1](https://chung-jiwoong.github.io/BUSS386/chapter_volatility/solution_volatility1.pdf) / 
-[Solution 2](https://chung-jiwoong.github.io/BUSS386/chapter_volatility/solution_volatility2.pdf)
-
-
-
-**Lecture 11: Exotic Options**
-
-[Slides](https://chung-jiwoong.github.io/BUSS386/chapter_exotics/chapter_exotics.pdf) / 
-[Spreadsheet](https://chung-jiwoong.github.io/BUSS386/chapter_exotics/MC_Simulation.xlsx)
-
--->
+## Lecture Materials
+
+| # | Topic | Slides | Problem Set | Solution | Extras |
+|---|---|---|---|---|---|
+| 1 | Introduction and Overview | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_Intro.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_PS.pdf) | — | [Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_VaR_ES.xlsx) |
+| 2 | Interest Rates | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Interest.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Interest_PS.pdf) | — | [Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Duration_Convexity.xlsx) |
+| 3 | Forwards and Futures | — | — | — | — |
+| 4 | Pricing Forwards | — | — | — | — |
+| 5 | Introduction to Swaps | — | — | — | — |
+| 6 | Options — Introduction | — | — | — | — |
+| 7 | Options — Properties | — | — | — | — |
+| 8 | Options — Trading Strategies | — | — | — | — |
+| 9 | Options — Binomial Trees | — | — | — | — |
+| 10 | Options — Black-Scholes-Merton | — | — | — | — |
+| 11 | Options — Greeks | — | — | — | — |
+| 12 | Options — Volatility | — | — | — | — |
+| 13 | Options — Exotics | — | — | — | — |
