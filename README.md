@@ -15,10 +15,10 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 
 | # | Topic | Slides | Problem Set | Solution | Extras |
 |---|---|---|---|---|---|
-| 1 | Introduction and Overview | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_Intro.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_PS.pdf) | — | [Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_VaR_ES.xlsx) |
-| 2 | Interest Rates | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Interest.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Interest_PS.pdf) | — | [Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Duration_Convexity.xlsx) |
-| 3 | Forwards and Futures | — | — | — | — |
-| 4 | Pricing Forwards | — | — | — | — |
+| 1 | Introduction and Overview | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_Intro.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_Sln.pdf) | [Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec01_VaR_ES.xlsx) |
+| 2 | Interest Rates | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Interest.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Interest_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Interest_Sln.pdf) | [Spreadsheet](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec02_Duration_Convexity.xlsx) |
+| 3 | Forwards and Futures | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec03_Forwards.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec03_Forwards_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec03_Forwards_Sln.pdf) | — |
+| 4 | Pricing Forwards | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec04_Pricing_forward.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec04_Pricing_Forwards_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec04_Pricing_Forwards_Sln.pdf) | — |
 | 5 | Introduction to Swaps | — | — | — | — |
 | 6 | Options — Introduction | — | — | — | — |
 | 7 | Options — Properties | — | — | — | — |
