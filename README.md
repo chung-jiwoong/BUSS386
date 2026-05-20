@@ -22,7 +22,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 | 5 | Swaps | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec05_Swaps.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec05_Swaps_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec05_Swaps_Sln.pdf) | — |
 | 6 | Options — Introduction | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec06_Options_Intro.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec06_Options_Intro_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec06_Options_Intro_Sln.pdf) | — |
 | 7 | Options — Properties | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec07_Options_Properties.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec07_Options_Properties_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec07_Options_Properties_Sln.pdf) | — |
-| 8 | Options — Trading Strategies | — | — | — | — |
+| 8 | Options — Trading Strategies | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading_Sln.pdf) | — |
 | 9 | Options — Binomial Trees | — | — | — | — |
 | 10 | Options — Black-Scholes-Merton | — | — | — | — |
 | 11 | Options — Greeks | — | — | — | — |
