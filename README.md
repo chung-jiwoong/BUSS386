@@ -24,7 +24,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 | 7 | Options — Properties | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec07_Options_Properties.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec07_Options_Properties_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec07_Options_Properties_Sln.pdf) | — |
 | 8 | Options — Trading Strategies | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading_Sln.pdf) | — |
 | 9 | Options — Binomial Trees | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec09_Options_Binomial.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec09_Options_Binomial_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec09_Options_Binomial_Sln.pdf) | — |
-| 10 | Options — Black-Scholes-Merton | — | — | — | — |
+| 10 | Options — Black-Scholes-Merton | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes_Sln.pdf) | — |
 | 11 | Options — Greeks | — | — | — | — |
 | 12 | Options — Volatility | — | — | — | — |
 | 13 | Options — Exotics | — | — | — | — |
