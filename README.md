@@ -25,6 +25,6 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 | 8 | Options — Trading Strategies | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec08_Options_Trading_Sln.pdf) | — |
 | 9 | Options — Binomial Trees | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec09_Options_Binomial.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec09_Options_Binomial_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec09_Options_Binomial_Sln.pdf) | — |
 | 10 | Options — Black-Scholes-Merton | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes_Sln.pdf) | — |
-| 11 | Options — Greeks | — | — | — | — |
-| 12 | Options — Volatility | — | — | — | — |
+| 11 | Options — Greeks | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec11_Greeks.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec11_Greeks_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec11_Greeks_Sln.pdf) | — |
+| 12 | Options — Volatility | [Slides](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec12_Volatility.pdf) | [PS](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec12_Volatility_PS.pdf) | [Sln](https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec12_Volatility_Sln.pdf) | — |
 | 13 | Options — Exotics | — | — | — | — |
