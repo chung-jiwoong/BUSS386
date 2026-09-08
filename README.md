@@ -17,7 +17,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 |---|---|---|---|---|---|
 | 1 | Introduction and Overview | [Slides][lec01-slides] | [PS][lec01-ps] | [Sln][lec01-sln] | [Spreadsheet][lec01-extra] |
 | 2 | Interest Rates | [Slides][lec02-slides] | [PS][lec02-ps] | [Sln][lec02-sln] | [Spreadsheet][lec02-extra] |
-| 3 | Forwards and Futures | Slides | PS | Sln | — |
+| 3 | Forwards and Futures | [Slides][lec03-slides] | [PS][lec03-ps] | [Sln][lec03-sln] | — |
 | 4 | Pricing Forwards | Slides | PS | Sln | — |
 | 5 | Swaps | Slides | PS | Sln | — |
 | 6 | Options — Introduction | Slides | PS | Sln | — |
