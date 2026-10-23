@@ -31,6 +31,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options â€
 
 ---
 
+- [Midterm Exam Solution (Fall 2026)](https://chung-jiwoong.github.io/BUSS386/notes/B386_Midterm_Sln_Student.pdf)
 - [Midterm Exam (last semester)](https://chung-jiwoong.github.io/BUSS386/notes/B386_Midterm.pdf) | [Solution](https://chung-jiwoong.github.io/BUSS386/notes/B386_Midterm_Sln.pdf)
 
 ---
