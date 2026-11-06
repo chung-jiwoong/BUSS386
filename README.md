@@ -22,7 +22,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 | 5 | Swaps | [Slides][lec05-slides] | [PS][lec05-ps] | [Sln][lec05-sln] | — |
 | 6 | Options — Introduction | [Slides][lec06-slides] | [PS][lec06-ps] | [Sln][lec06-sln] | — |
 | 7 | Options — Properties | [Slides][lec07-slides] | [PS][lec07-ps] | [Sln][lec07-sln] | — |
-| 8 | Options — Trading Strategies | [Slides][lec08-slides] | PS | Sln | — |
+| 8 | Options — Trading Strategies | [Slides][lec08-slides] | [PS][lec08-ps] | [Sln][lec08-sln] | — |
 | 9 | Options — Binomial Trees | Slides | PS | Sln | — |
 | 10 | Options — Black-Scholes-Merton | Slides | PS | Sln | — |
 | 11 | Options — Greeks | Slides | PS | Sln | — |
