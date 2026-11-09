@@ -23,7 +23,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 | 6 | Options — Introduction | [Slides][lec06-slides] | [PS][lec06-ps] | [Sln][lec06-sln] | — |
 | 7 | Options — Properties | [Slides][lec07-slides] | [PS][lec07-ps] | [Sln][lec07-sln] | — |
 | 8 | Options — Trading Strategies | [Slides][lec08-slides] | [PS][lec08-ps] | [Sln][lec08-sln] | — |
-| 9 | Options — Binomial Trees | Slides | PS | Sln | — |
+| 9 | Options — Binomial Trees | [Slides][lec09-slides] | [PS][lec09-ps] | [Sln][lec09-sln] | — |
 | 10 | Options — Black-Scholes-Merton | Slides | PS | Sln | — |
 | 11 | Options — Greeks | Slides | PS | Sln | — |
 | 12 | Options — Volatility | Slides | PS | Sln | — |
@@ -31,7 +31,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 
 ---
 
-- [Midterm Exam Solution (Fall 2026)](https://chung-jiwoong.github.io/BUSS386/notes/B386_Midterm_Sln_Student.pdf)
+- [Midterm Exam (Fall 2026)](https://chung-jiwoong.github.io/BUSS386/notes/B386_Midterm_Sln_Student.pdf)
 - [Midterm Exam (last semester)](https://chung-jiwoong.github.io/BUSS386/notes/B386_Midterm_Sln.pdf)
 
 ---
