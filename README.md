@@ -24,7 +24,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 | 7 | Options — Properties | [Slides][lec07-slides] | [PS][lec07-ps] | [Sln][lec07-sln] | — |
 | 8 | Options — Trading Strategies | [Slides][lec08-slides] | [PS][lec08-ps] | [Sln][lec08-sln] | — |
 | 9 | Options — Binomial Trees | [Slides][lec09-slides] | [PS][lec09-ps] | [Sln][lec09-sln] | — |
-| 10 | Options — Black-Scholes-Merton | Slides | PS | Sln | — |
+| 10 | Options — Black-Scholes-Merton | [Slides][lec10-slides] | [PS][lec10-ps] | [Sln][lec10-sln] | [Supplement][lec10-extra] |
 | 11 | Options — Greeks | Slides | PS | Sln | — |
 | 12 | Options — Volatility | Slides | PS | Sln | — |
 | 13 | Options — Exotics | Slides | PS | Sln | — |
@@ -77,6 +77,7 @@ An undergraduate course on derivatives: forwards, futures, swaps, and options �
 [lec10-slides]: https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes.pdf
 [lec10-ps]: https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes_PS.pdf
 [lec10-sln]: https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes_Sln.pdf
+[lec10-extra]: https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec10_Black_Scholes_Supplement.pdf
 
 [lec11-slides]: https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec11_Greeks.pdf
 [lec11-ps]: https://chung-jiwoong.github.io/BUSS386/notes/B386_Lec11_Greeks_PS.pdf
